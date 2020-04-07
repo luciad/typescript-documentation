@@ -5,5 +5,20 @@
  */
 
 module.exports = {
-  /* Your site config here */
+    siteMetadata: {
+    title: `LuciadRIA API reference`,
+    description: `LuciadRIA API reference`,
+    author: `Luciad NV`,
+  },
+  plugins: [
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `tsdoc`,
+        path: `${__dirname}/content/docu.json`,
+      },
+    },
+    "gatsby-transformer-json",
+    "html-react-parser"
+  ],
 }

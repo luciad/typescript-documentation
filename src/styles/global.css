@@ -1,0 +1,158 @@
+:root {
+  --left-sidebar-width: 15%;
+  --right-sidebar-width: 15%;
+  --sidebar-color: whitesmoke;
+  --card-color: whitesmoke;
+  --border-color: rgb(187, 187, 187);
+  --background-color: rgb(255, 255, 255);
+  --text-color-main: rgb(46, 46, 46);
+  --text-color-secondary: blue;
+}
+
+body{
+  background-color: var(--background-color);
+  color: var(--text-color-main);
+}
+
+ul {
+  list-style-type: none;
+}
+
+/* The sidebar menu */
+.rightsidenav,
+.leftsidenav {
+  height: 100%;
+  width: var(--left-sidebar-width); 
+  position: fixed;
+  top: 0; 
+  left: 0;
+  background-color: var(--sidebar-color); 
+  padding-top: 20px;
+  border: thin solid var(--border-color);
+}
+
+.rightsidenav{
+  left: calc(100% - var(--right-sidebar-width));
+}
+
+/* The navigation menu links */
+.rightsidenav h3,
+.leftsidenav h3 {
+  padding: 0.5em;
+  font-size: 25px;
+}
+
+.rightsidenav img,
+.leftsidenav img {
+  max-width: 90%;
+}
+
+
+.directories,
+.classes {
+  padding: 0.5em;
+  margin: 0.5em;
+  border: thin solid var(--border-color);
+  max-height: 40%;
+  overflow-y: hidden;
+}
+
+.topbar{
+  display: flex;
+  margin: 1em;
+  padding: 0.5em;
+  background-color: var(--card-color);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
+}
+.topbar a {
+  padding: 0.5em;
+}
+.topbar input[type="text"]{
+  width: 25em;
+  height: auto;
+  margin-right: 0.5em;
+  margin-left: auto;
+  text-align: right;
+  border-radius: 15px;
+  border-color: var(--border-color);
+  padding-right: 15px;
+}
+
+/* Style page content */
+.main {
+  margin-left: var(--left-sidebar-width); 
+  margin-right: var(--right-sidebar-width);
+  padding: 0px 10px;
+}
+
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.itembox {
+  background-color: var(--card-color);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.itembox * {
+  padding-left: 20px;
+}
+
+.itembox h5,
+.itembox h1 {
+  margin-top: 0px;
+  margin-bottom: 0px;
+  
+}
+
+.itembox dir {
+  color: var(--text-color-secondary);
+  margin-bottom: 0px;
+  margin-top: 0px;
+}
+
+.itembox hr {
+  width: 95%;
+  opacity: 70%;
+}
+
+
+.hierarchy {
+  color: var(--text-color-secondary);
+  list-style-type: none;
+}
+
+.overview {
+  border: thin solid var(--border-color);
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.overview p {
+  margin-left: 1.5em;
+}
+
+.legend {
+  list-style-type: none;
+}
+
+.function {
+  border: thin solid var(--border-color);
+  margin: 1em;
+  padding: 0.5em;
+}
+
+.titleContainer{
+  display: flex;
+  position: relative;
+}
+
+.titleContainer i{
+  position: absolute;
+  bottom: 0;
+}
