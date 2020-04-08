@@ -22,7 +22,14 @@ function getComments(data){
   if(comment !== undefined && comment != null){
     shortText = comment.shortText
     text = comment.text
-    if(comment.tags !== undefined && comment.tags !== null) tags = comment.tags
+    if(comment.tags !== undefined && comment.tags !== null){
+      for(let tag of comment.tags){
+        tags.push({
+          tag: tag.tag,
+          text: Parser(tag.text)
+        })
+      }
+    }
   }
   if(typeof shortText !== "string") shortText = ""
   if(typeof text !== "string") text = ""
