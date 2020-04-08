@@ -38,10 +38,20 @@ export default ({ kindString }) => {
           </div>
       )
     }
-
-
-
-    
+    case "External module":{
+      return (
+        <div className="icon">
+          <img src="https://image.flaticon.com/icons/svg/2497/2497497.svg"/>
+          </div>
+      )
+    }
+    case "Property":{
+      return (
+        <div className="icon">
+          <img src="https://image.flaticon.com/icons/svg/2497/2497459.svg"/>
+          </div>
+      )
+    }
     
 
     default:

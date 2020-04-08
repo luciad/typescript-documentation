@@ -3,6 +3,7 @@ import { Link } from "gatsby";
 import Layout from "../components/page-layout";
 import { fixModuleName, pathToModule } from "../util/util";
 import { graphql } from "gatsby";
+import Icon from "./icon"
 
 export default ({ data }) => {
   console.log(data)
@@ -14,8 +15,10 @@ export default ({ data }) => {
       <ul>
         {modules.map(module => (
           <li>
-          {module.kindString} - 
+          <div className="sidecontainer">
+            <Icon kindString={module.kindString}/>
             <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
+          </div>
           </li>
         ))}
       </ul>
