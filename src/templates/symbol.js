@@ -28,82 +28,14 @@ export default ({ data }) => {
 };
 
 export const query = graphql`
+ 
   query SymbolQuery($symbolId: String, $moduleId: String) {
     symbol(id: { eq: $symbolId }) {
-      name
-      kindString
-      id
-      comment {
-        shortText
-        text
-        tags {
-          tag
-          text
-        }
-      }
+      ...symbolFields
       childrenSymbol {
-        name,
-        kindString,
-        id,
-        signatures {
-          name,
-          kindString,
-          comment {
-            shortText,
-          },
-          type {
-            type,
-            name
-          },
-          comment {
-              shortText
-          }
-        },
-        getSignature {
-          name,
-          kindString,
-          comment {
-            shortText,
-          }
-          type {
-            type,
-            name
-          }
-        },
-        setSignature {
-          name,
-          kindString,
-          comment {
-            shortText,
-          }
-          type {
-            type,
-            name
-          }
-          parameters {
-            name
-            type {
-              name
-            }
-          }
-        },
-        comment {
-          shortText
-          text
-          tags {
-            tag
-            text
-          }
-        },
-        flags {
-          isExported,
-          isOptional,
-          isPrivate,
-          isStatic
-        }
+        ...symbolFields
       }
     }
-
     module(id: { eq: $moduleId }) {
       name
     }

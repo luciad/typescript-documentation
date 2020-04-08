@@ -16,6 +16,7 @@ export default () => {
       <LegendItem type="Function"/>
       <LegendItem type="Enumeration"/>
       <LegendItem type="Enumeration member"/>
+      <LegendItem type="Event"/>
     </ul>
   </div>
   )

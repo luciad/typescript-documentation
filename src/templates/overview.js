@@ -34,9 +34,6 @@ export const query = graphql`
           name
           kindString
           id
-          flags {
-            isExported
-          }
         }
       }
     }
