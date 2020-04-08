@@ -2,13 +2,12 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/page-layout"
 import { fixModuleName, pathToModule } from "../util/util"
-import About from "./about"
+import Body from "./body"
 import Icon from './icon'
 
 export default ({ data }) => {
   console.log(data)
   const { symbol: exprt, module } = data;
-  const children = exprt.childrenSymbol;
 
   return (
     <Layout>
@@ -22,7 +21,7 @@ export default ({ data }) => {
             {exprt.kindString}
           </div>
         </div>
-      <About data={exprt}/>
+      <Body data={exprt}/>
     </Layout>
     
   );

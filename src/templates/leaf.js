@@ -1,5 +1,5 @@
 import React from "react";
-import About from "./about"
+import About from "./body"
 import Icon from "./icon"
 
 export default ({ data }) => {

@@ -105,37 +105,7 @@ ul {
 }
 
 .itembox * {
-  padding-left: 20px;
-}
-
-.itembox h5,
-.itembox h1 {
-  margin-top: 0px;
-  margin-bottom: 0px;
-  
-}
-
-.itembox dir {
-  color: var(--text-color-secondary);
-  margin-bottom: 0px;
-  margin-top: 0px;
-}
-
-.itembox hr {
-  width: 95%;
-  opacity: 70%;
-}
-
-
-.hierarchy {
-  color: var(--text-color-secondary);
-  list-style-type: none;
-}
-
-.overview {
-  border: thin solid var(--border-color);
-  margin: 1em;
-  padding: 0.5em;
+  padding-left: 10px;
 }
 
 .overview p {
@@ -150,17 +120,12 @@ ul {
   border: thin solid var(--border-color);
   margin: 1em;
   padding: 0.5em;
-  font-size: 90%;
+  font-size: 95%;
 }
 
 .titleContainer{
   display: flex;
   position: relative;
-}
-
-.titleContainer i{
-  position: absolute;
-  bottom: 0;
 }
 
 .subtitle {

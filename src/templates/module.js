@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/page-layout";
 import { fixModuleName, pathToExport } from "../util/util";
-import About from "./about"
+import Body from "./body"
 import Icon from "./icon"
 
 export default ({ data }) => {
@@ -11,13 +11,12 @@ export default ({ data }) => {
 
   return (
     <Layout>
-    <dir> {module.name}</dir>
       <div className="title">{fixModuleName(module)}</div>
       <div className="sidecontainer">
         <Icon kindString={module.kindString}/> 
         <div className="kindString">{module.kindString}</div>
       </div>
-      <About data={module}/>
+      <Body data={module}/>
     </Layout>
   );
 };

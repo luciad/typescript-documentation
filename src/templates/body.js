@@ -1,17 +1,17 @@
 import React from "react";
-import { getComments, getSignatures, getFlags } from "../util/util"
-import Signature from "./signature"
+import { getComments } from "../util/util"
 import ChildrenSummary from "./children-summary"
 import Leaf from "./leaf"
 import ExportSummary from "./export-summary"
+import Flags from "./flags"
+import Signatures from "./signatures"
 
 export default ({ data }) => {
   const comments = getComments(data)
-  const signatures = getSignatures(data)
+  
   let children = data.childrenSymbol
   if(children === undefined || children === null) children = []
-  const flags = data.flags
-  const flagList = getFlags(data)
+  
 
   return (
     <div>
@@ -30,24 +30,8 @@ export default ({ data }) => {
           <li>{tag.tag}:{tag.text}</li>
         ))}
       </ul>
-      {signatures.length !== 0 && 
-        <div className="subsubtitle">Signatures</div>}
-      <ul>
-        {signatures.map(signature => (
-          <li>
-            <Signature data={signature}/>
-          </li>
-        ))}
-      </ul>
-      {flagList.length !== 0 && 
-        <div className="subsubtitle">Flags</div>}
-      <ul>
-        {flagList.map(flag => (
-          <li>
-            {flag}
-          </li>
-        ))}
-      </ul>
+      <Signatures data={data}/>
+      <Flags data={data}/>
       <ChildrenSummary data={data}/>
       <ExportSummary data={data}/>
 
