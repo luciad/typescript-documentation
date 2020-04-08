@@ -60,6 +60,19 @@ function getSignatures(data){
   return signatures
 }
 
+function getFlags(data){
+  const flags = data.flags
+  let flagList = []
+  if(flags !== null && flags !== undefined){
+    flagList = Object.getOwnPropertyNames(flags).toString().split(",")
+  }
+  let returnFlags = [] 
+  for(let flag of flagList){
+    if(flags[flag] === true) returnFlags.push(flag)
+  }
+  return returnFlags
+}
+
 module.exports = {
   MODULE_PATH_PREFIX,
   fixModuleName,
@@ -67,5 +80,6 @@ module.exports = {
   pathToExport,
   getComments,
   getParameters,
-  getSignatures
+  getSignatures,
+  getFlags
 };

@@ -1,5 +1,5 @@
 import React from "react";
-import { getComments, getSignatures } from "../util/util"
+import { getComments, getSignatures, getFlags } from "../util/util"
 import Signature from "./signature"
 import ChildrenSummary from "./children-summary"
 import Leaf from "./leaf"
@@ -10,6 +10,9 @@ export default ({ data }) => {
   const signatures = getSignatures(data)
   let children = data.childrenSymbol
   if(children === undefined || children === null) children = []
+  const flags = data.flags
+  const flagList = getFlags(data)
+
   return (
     <div>
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
@@ -33,6 +36,15 @@ export default ({ data }) => {
         {signatures.map(signature => (
           <li>
             <Signature data={signature}/>
+          </li>
+        ))}
+      </ul>
+      {flagList.length !== 0 && 
+        <div className="subsubtitle">Flags</div>}
+      <ul>
+        {flagList.map(flag => (
+          <li>
+            {flag}
           </li>
         ))}
       </ul>

@@ -87,7 +87,7 @@ export const query = graphql`
               name
             }
           }
-        }
+        },
         comment {
           shortText
           text
@@ -95,6 +95,12 @@ export const query = graphql`
             tag
             text
           }
+        },
+        flags {
+          isExported,
+          isOptional,
+          isPrivate,
+          isStatic
         }
       }
     }

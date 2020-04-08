@@ -13,7 +13,10 @@ export default ({ data }) => {
     <Layout>
     <dir> {module.name}</dir>
       <div className="title">{fixModuleName(module)}</div>
-      <div className="kindString">{module.kindString}</div>
+      <div className="sidecontainer">
+        <Icon kindString={module.kindString}/> 
+        <div className="kindString">{module.kindString}</div>
+      </div>
       <About data={module}/>
     </Layout>
   );
