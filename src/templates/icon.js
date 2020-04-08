@@ -48,6 +48,10 @@ export default ({ kindString }) => {
       imgSrc = "https://image.flaticon.com/icons/svg/2638/2638283.svg"
       break
     }
+    case "Flag":{
+      imgSrc = "https://image.flaticon.com/icons/svg/2638/2638352.svg"
+      break
+    }
     
     default:
     return (
