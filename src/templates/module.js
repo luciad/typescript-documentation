@@ -1,24 +1,21 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/page-layout";
-import { fixModuleName, pathToExport } from "../util/util";
-import Parser from "html-react-parser"
+import { fixModuleName, pathToExport, getComments } from "../util/util";
+import About from "./about"
 
 export default ({ data }) => {
   const module = data.module;
   const exports = data.module.childrenSymbol;
+  const comments = getComments(data)
 
-  const properties = Object.getOwnPropertyNames(module).toString()
-  console.log(module)
   return (
     <Layout>
     <dir> {module.name}</dir>
-      <h1>{fixModuleName(module)}</h1>
-      <h4>{module.kindString}</h4>
-      <h2>Properties</h2>
-      <p>{properties}</p>
-      <h2>About</h2>
-      <h2>Exports</h2>
+      <div className="title">{fixModuleName(module)}</div>
+      <div className="kindString">{module.kindString}</div>
+      <About data={module}/>
+      <div className="subtitle">Exports</div>
       <ul>
         {exports.map(exprt => (
           <li>
@@ -47,40 +44,3 @@ export const query = graphql`
     }
   }
 `;
-/*
-
-    <div>
-    <dir> @this/is/the/package/and/module</dir>
-  <dir>$filePath$</dir>
-  <h1>$itemName$</h1>
-  <h5>$type$</h5>
-  <ul className="hierarchy">
-    <li>Hierarchy 1
-      <ul className="hierarchy">
-        <li>Hierarchy 2
-          <ul className="hierarchy">
-            <li>Hierarchy 3</li>
-          </ul>
-        </li>
-      </ul>
-    </li>
-  </ul>
-  <p>$superRelevantItems$</p>
-  <hr/>
-  <p>$itemDescription$</p>
-  <h2>Overview</h2>
-  <div className="overview">
-    <Summary title="Variables"/>
-    <Summary title="Accessors"/>
-    <Summary title="Methods"/>
-    <Summary title="Interfaces"/>
-    <Summary title="Classes"/>
-    <Summary title="Enums"/>
-  </div>
-  <hr/>
-  $allConstructorsInDepth$
-  $allAccessorsInDepth$    
-  $allMethodsInDepth$
-  $allEnumsInDepth$
-  </div>
-*/

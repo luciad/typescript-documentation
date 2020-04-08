@@ -156,3 +156,23 @@ ul {
   position: absolute;
   bottom: 0;
 }
+
+.subtitle {
+  font-size: 150%;
+  font-style: oblique;
+}
+
+.subsubtitle {
+  font-size: 125%;
+  font-style: oblique;
+}
+
+.title {
+  font-size: 200%;
+  font-style: oblique;
+}
+
+.kindString {
+  font-size: 100%;
+  font-style: italic;
+}

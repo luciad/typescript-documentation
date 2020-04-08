@@ -2,36 +2,33 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/page-layout";
 import { fixModuleName, pathToModule } from "../util/util";
-import Parser from "html-react-parser"
+import Leaf from "./leaf"
+import About from "./about"
 
 export default ({ data }) => {
+  console.log(data)
   const { symbol: exprt, module } = data;
   const children = exprt.childrenSymbol;
-  const properties = Object.getOwnPropertyNames(exprt).toString()
 
   return (
     <Layout>
       <p>
         <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
       </p>
-      <h1>{exprt.name}</h1>
-      {Parser(exprt.comment.shortText)}
-      <h2>Properties</h2>
-      <p>{properties}</p>
-      <h2>About</h2>
-      <p>
-        {Parser(exprt.comment.text)}
-      </p>
-      
+      <div className="title">{exprt.name}</div>
+      <i>{exprt.kindString}</i>
+      <About data={exprt}/>
 
-      <h2>Children</h2>
+      {children.size !== 0 && 
+        <div className="subsubtitle">Children</div>}
       <ul>
         {children.map(child => (
           <li>{child.name}</li>
         ))}
       </ul>
+
       {children.map(child => (
-        <li>{child.name} : {child.kindString}</li>
+        <Leaf data={child}/>
       ))}
     </Layout>
     
@@ -53,8 +50,55 @@ export const query = graphql`
         }
       }
       childrenSymbol {
-        name
-        kindString
+        name,
+        kindString,
+        signatures {
+          name,
+          kindString,
+          comment {
+            shortText,
+          },
+          type {
+            type,
+            name
+          }
+        },
+        getSignature {
+          name,
+          kindString,
+          comment {
+            shortText,
+          }
+          type {
+            type,
+            name
+          }
+        },
+        setSignature {
+          name,
+          kindString,
+          comment {
+            shortText,
+          }
+          type {
+            type,
+            name
+          }
+          parameters {
+            name
+            type {
+              name
+            }
+          }
+        }
+        comment {
+          shortText
+          text
+          tags {
+            tag
+            text
+          }
+        }
       }
     }
 
@@ -63,3 +107,4 @@ export const query = graphql`
     }
   }
 `;
+

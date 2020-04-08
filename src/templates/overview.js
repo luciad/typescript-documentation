@@ -10,7 +10,7 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <h1>Module list</h1>
+      <div className="title">Module list</div>
       <ul>
         {modules.map(module => (
           <li>
