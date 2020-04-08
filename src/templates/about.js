@@ -1,10 +1,15 @@
 import React from "react";
 import { getComments, getSignatures } from "../util/util"
 import Signature from "./signature"
+import ChildrenSummary from "./children-summary"
+import Leaf from "./leaf"
+import ExportSummary from "./export-summary"
 
 export default ({ data }) => {
   const comments = getComments(data)
   const signatures = getSignatures(data)
+  let children = data.childrenSymbol
+  if(children === undefined || children === null) children = []
   return (
     <div>
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
@@ -31,6 +36,13 @@ export default ({ data }) => {
           </li>
         ))}
       </ul>
+      <ChildrenSummary data={data}/>
+      <ExportSummary data={data}/>
+
+      {children.map(child => (
+        <Leaf data={child}/>
+      ))}
+
     </div>
   );
 };

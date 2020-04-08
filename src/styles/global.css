@@ -29,6 +29,7 @@ ul {
   background-color: var(--sidebar-color); 
   padding-top: 20px;
   border: thin solid var(--border-color);
+  font-size: 150%;
 }
 
 .rightsidenav{

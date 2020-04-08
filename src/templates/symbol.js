@@ -1,10 +1,9 @@
-import React from "react";
-import { graphql, Link } from "gatsby";
-import Layout from "../components/page-layout";
-import { fixModuleName, pathToModule } from "../util/util";
-import Leaf from "./leaf"
+import React from "react"
+import { graphql, Link } from "gatsby"
+import Layout from "../components/page-layout"
+import { fixModuleName, pathToModule } from "../util/util"
 import About from "./about"
-import ChildrenSummary from "./children-summary"
+import Icon from './icon'
 
 export default ({ data }) => {
   console.log(data)
@@ -17,14 +16,13 @@ export default ({ data }) => {
         <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
       </p>
       <div className="title">{exprt.name}</div>
-      <i>{exprt.kindString}</i>
+      <div className="sidecontainer">
+          <Icon kindString={exprt.kindString}/>
+          <div className="kindString">
+            {exprt.kindString}
+          </div>
+        </div>
       <About data={exprt}/>
-
-      <ChildrenSummary data={exprt}/>
-
-      {children.map(child => (
-        <Leaf data={child}/>
-      ))}
     </Layout>
     
   );
@@ -57,6 +55,9 @@ export const query = graphql`
           type {
             type,
             name
+          },
+          comment {
+              shortText
           }
         },
         getSignature {

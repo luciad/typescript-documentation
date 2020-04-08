@@ -4,6 +4,7 @@ import Icon from "./icon"
 
 export default ({ data }) => {
   const children = data.childrenSymbol
+  if(children === undefined || children === null || children.length === 0) return (<div></div>)
   
   return (
     <div>

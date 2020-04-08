@@ -7,7 +7,7 @@ import Icon from "./icon"
 
 export default ({ data }) => {
   const module = data.module;
-  const exports = data.module.childrenSymbol;
+  module.exports = data.module.childrenSymbol;
 
   return (
     <Layout>
@@ -15,17 +15,6 @@ export default ({ data }) => {
       <div className="title">{fixModuleName(module)}</div>
       <div className="kindString">{module.kindString}</div>
       <About data={module}/>
-      <div className="subtitle">Exports</div>
-      <ul>
-        {exports.map(exprt => (
-          <li>
-            <div className="sidecontainer">
-            <Icon kindString={exprt.kindString}/> 
-            <Link to={pathToExport(module, exprt)}>{exprt.name}</Link>
-            </div>
-          </li>
-        ))}
-      </ul>
     </Layout>
   );
 };

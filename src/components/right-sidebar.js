@@ -13,6 +13,9 @@ export default () => {
       <LegendItem type="Accessor"/>
       <LegendItem type="Method"/>
       <LegendItem type="Property"/>
+      <LegendItem type="Function"/>
+      <LegendItem type="Enumeration"/>
+      <LegendItem type="Enumeration member"/>
     </ul>
   </div>
   )
