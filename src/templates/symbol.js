@@ -4,6 +4,7 @@ import Layout from "../components/page-layout";
 import { fixModuleName, pathToModule } from "../util/util";
 import Leaf from "./leaf"
 import About from "./about"
+import ChildrenSummary from "./children-summary"
 
 export default ({ data }) => {
   console.log(data)
@@ -19,13 +20,7 @@ export default ({ data }) => {
       <i>{exprt.kindString}</i>
       <About data={exprt}/>
 
-      {children.size !== 0 && 
-        <div className="subsubtitle">Children</div>}
-      <ul>
-        {children.map(child => (
-          <li>{child.name}</li>
-        ))}
-      </ul>
+      <ChildrenSummary data={exprt}/>
 
       {children.map(child => (
         <Leaf data={child}/>
@@ -52,6 +47,7 @@ export const query = graphql`
       childrenSymbol {
         name,
         kindString,
+        id,
         signatures {
           name,
           kindString,

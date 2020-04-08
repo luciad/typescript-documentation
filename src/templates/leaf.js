@@ -5,7 +5,7 @@ export default ({ data }) => {
   const leaf = data
   
   return (
-    <div className="function">
+    <div className="function" id={"id" + leaf.id}>
       <div className="title">{leaf.name}</div>
       <div className="kindString">{leaf.kindString}</div>
       <About data={leaf}/>

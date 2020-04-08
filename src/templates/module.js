@@ -1,13 +1,12 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/page-layout";
-import { fixModuleName, pathToExport, getComments } from "../util/util";
+import { fixModuleName, pathToExport } from "../util/util";
 import About from "./about"
 
 export default ({ data }) => {
   const module = data.module;
   const exports = data.module.childrenSymbol;
-  const comments = getComments(data)
 
   return (
     <Layout>

@@ -8,18 +8,21 @@ export default ({ data }) => {
 
   return (
     <div className="signature">
-      <h5>{signature.name}</h5>
-      <i>{signature.type.name}</i>
-      <div>{signature.kindString}</div>
+      <div className="title">{signature.name}</div>
+      <div className="subsubtitle">{signature.type.name}</div>
+      <div>
+      <div className="signature">{signature.kindString}</div>
       <div className="shortText">
         {comments.shortText}
       </div>
-      <h5>parameters</h5>
+      <div className="subtitle">parameters</div>
+      {parameters.length === 0 && <i>none</i>}
       <ul>
         {parameters.map(parameter => (
           <li>{parameter.name}:{parameter.type}</li>
         ))}
       </ul>
+      </div>
 
     </div>
   )

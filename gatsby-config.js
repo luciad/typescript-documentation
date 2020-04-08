@@ -19,6 +19,7 @@ module.exports = {
       },
     },
     "gatsby-transformer-json",
+    "gatsby-plugin-smoothscroll",
     "html-react-parser"
   ],
 }

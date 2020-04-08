@@ -145,6 +145,7 @@ ul {
   border: thin solid var(--border-color);
   margin: 1em;
   padding: 0.5em;
+  font-size: 90%;
 }
 
 .titleContainer{
@@ -168,11 +169,15 @@ ul {
 }
 
 .title {
-  font-size: 200%;
+  font-size: 175%;
   font-style: oblique;
 }
 
 .kindString {
   font-size: 100%;
   font-style: italic;
+}
+
+.signature {
+  font-size: 90%;
 }
