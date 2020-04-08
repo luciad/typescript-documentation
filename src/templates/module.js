@@ -3,6 +3,7 @@ import { graphql, Link } from "gatsby";
 import Layout from "../components/page-layout";
 import { fixModuleName, pathToExport } from "../util/util";
 import About from "./about"
+import Icon from "./icon"
 
 export default ({ data }) => {
   const module = data.module;
@@ -18,7 +19,10 @@ export default ({ data }) => {
       <ul>
         {exports.map(exprt => (
           <li>
+            <div className="sidecontainer">
+            <Icon kindString={exprt.kindString}/> 
             <Link to={pathToExport(module, exprt)}>{exprt.name}</Link>
+            </div>
           </li>
         ))}
       </ul>

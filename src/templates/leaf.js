@@ -1,5 +1,6 @@
 import React from "react";
 import About from "./about"
+import Icon from "./icon"
 
 export default ({ data }) => {
   const leaf = data
@@ -7,7 +8,10 @@ export default ({ data }) => {
   return (
     <div className="function" id={"id" + leaf.id}>
       <div className="title">{leaf.name}</div>
-      <div className="kindString">{leaf.kindString}</div>
+      <div className="sidecontainer">
+        <Icon kindString={leaf.kindString}/> 
+        <div className="kindString">{leaf.kindString}</div>
+        </div>
       <About data={leaf}/>
     </div>
   );

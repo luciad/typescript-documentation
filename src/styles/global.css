@@ -92,6 +92,10 @@ ul {
   margin-right: auto;
 }
 
+.sidecontainer {
+  display: flex;
+}
+
 .itembox {
   background-color: var(--card-color);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
@@ -176,8 +180,21 @@ ul {
 .kindString {
   font-size: 100%;
   font-style: italic;
+  padding-left: 0;
 }
 
 .signature {
   font-size: 90%;
+}
+
+.icon {
+  height: 1em;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.icon * {
+  height: 100%;
+  width: auto;
 }
