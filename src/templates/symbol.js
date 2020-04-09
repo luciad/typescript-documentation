@@ -37,6 +37,7 @@ export const query = graphql`
       }
     }
     module(id: { eq: $moduleId }) {
+      id,
       name
     }
   }

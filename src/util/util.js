@@ -17,11 +17,12 @@ const pathToExport = (module, exprt) => {
 
 function getComments(data){
   const comment = data.comment
-  let shortText, text
+  let shortText, text, returns
   let tags = []
   if(comment !== undefined && comment != null){
     shortText = comment.shortText
     text = comment.text
+    returns = comment.returns
     if(comment.tags !== undefined && comment.tags !== null){
       for(let tag of comment.tags){
         tags.push({
@@ -33,12 +34,16 @@ function getComments(data){
   }
   if(typeof shortText !== "string") shortText = ""
   if(typeof text !== "string") text = ""
+  if(typeof returns !== "string") returns = ""
   shortText = Parser(shortText)
   text = Parser(text)
+  returns = Parser(returns)
+  console.log(returns)
 
   return {
     shortText,
     text,
+    returns,
     tags
   }
 }

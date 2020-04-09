@@ -5,6 +5,7 @@ export const commentFields = graphql`
     comment {
       shortText,
       text,
+      returns,
       tags {
         tag,
         text
@@ -25,7 +26,22 @@ export const allSignatures = graphql`
             name
           },
           comment {
-              shortText
+            shortText,
+            text,
+            returns,
+            tags {
+              tag,
+              text
+            }
+          }
+          parameters {
+            name
+            type {
+              name
+            }
+            comment {
+              text
+            }
           }
         },
         getSignature {
@@ -33,6 +49,12 @@ export const allSignatures = graphql`
           kindString,
           comment {
             shortText,
+            text,
+            returns,
+            tags {
+              tag,
+              text
+            }
           }
           type {
             type,
@@ -44,6 +66,11 @@ export const allSignatures = graphql`
           kindString,
           comment {
             shortText,
+            text,
+            tags {
+              tag,
+              text
+            }
           }
           type {
             type,
@@ -73,6 +100,18 @@ export const symbolFields = graphql`
     name,
     kindString,
     id,
+    extendedTypes {
+      name
+    },
+    extendedBy {
+      name
+    },
+    implementedTypes {
+      name
+    }
+    implementedBy {
+      name
+    }
     ...allSignatures,
     ...commentFields,
     ...flagFields

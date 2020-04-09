@@ -157,8 +157,13 @@ code {
 
 .signature {
   font-size: 90%;
+  position: relative;
 }
 
+.signature * {
+  padding-left: 0;
+  padding-right: 0.2em;
+}
 .icon {
   height: 1.2em;
   width: auto;

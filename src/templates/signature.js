@@ -1,34 +1,26 @@
 import React from "react";
-import { getComments, getParameters } from "../util/util"
+import { getComments } from "../util/util"
+import Parameters from "./parameters"
 
 export default ({ data }) => {
   const signature = data
   const comments = getComments(signature)
-  const parameters = getParameters(signature)
   
   return (
     <div className="signature">
-      <div className="title">{signature.name}</div>
-      <div className="subsubtitle">{signature.type.name}</div>
+        <div className="title">{signature.name}</div>
+        <div className="sidecontainer">
+          <div className="kindString">
+            ({signature.type.name}) {signature.kindString}
+            </div>
+        </div>
       <div>
-        <div className="kindString">{signature.kindString}</div>
+      {comments.returns.length > 0 && 
+        <div className="returns"><b>returns</b> {comments.returns}</div>}
         <div className="shortText">
           {comments.shortText}
         </div>
-        <div className="subtitle">parameters</div>
-        {parameters.length === 0 && <i>none</i>}
-        <ul>
-          {parameters.map(parameter => (
-            <li>{parameter.name}:{parameter.type}
-              <div className="shortText">
-                {getComments(parameter).shortText}
-              </div>
-              <p>
-              {getComments(parameter).text}
-              </p>
-            </li>
-          ))}
-        </ul>
+        <Parameters data={data}/>
       </div>
 
     </div>

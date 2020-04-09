@@ -34,6 +34,39 @@ export const query = graphql`
         comment {
           shortText
         }
+        signatures {
+          name
+          kindString
+          type {
+            name
+          }
+          comment {
+            shortText
+            returns
+          }
+          parameters {
+            name
+            kindString
+            comment {
+              text
+            }
+            type {
+              name
+            }
+          }
+        }
+        getSignature {
+          name
+          type {
+            name
+          }
+        }
+        setSignature {
+          name
+          type {
+            name
+          }
+        }
       }
     }
   }
