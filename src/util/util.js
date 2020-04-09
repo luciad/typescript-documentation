@@ -89,8 +89,13 @@ function replaceLinks(string){
     let link = ""
     if(value.includes("\"")){
       const startI = value.indexOf("\"") + 1
-      const endI = value.indexOf("\"", startI)
+      let endI = value.indexOf("\"", startI)
       link = "modules/" + value.substring(startI, endI).replace(/.d/g, "")
+      if(value.charAt(endI + 1) === "."){
+        const dotI = endI + 1
+        endI = value.indexOf(" ", dotI)
+        link += "/" + value.substring(dotI + 1, endI)
+      }
       value = value.substring(0, startI - 1) + value.substring(endI + 1)
     }
     const linkStr = "<a href='/" + link + "'>" + value + "</a>"
