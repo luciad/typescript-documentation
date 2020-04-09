@@ -6,8 +6,6 @@ export default ({ data }) => {
   const flagList = getFlags(data)  
   return (
     <div>
-      {flagList.length !== 0 && 
-        <div className="subsubtitle">Flags</div>}
       <ul>
         {flagList.map(flag => (
           <li>
