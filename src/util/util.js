@@ -48,7 +48,7 @@ function getComments(data){
 }
 
 function parse(string){
-  return Parser(jsTagToDiv(tabsToDivs(string.replace(/\n/g, "<br/>"))))
+  return Parser(replaceLinks(jsTagToDiv(tabsToDivs(string.replace(/\n/g, "<br/>")))))
 }
 
 function jsTagToDiv(string){
@@ -76,6 +76,28 @@ function getParameters(data){
     }
   }
   return returnParameters
+}
+
+function replaceLinks(string){
+  let safety = 100
+  while(string.includes("{@link") && safety > 0){
+    console.log(string)
+    const startI = string.indexOf("{@link")
+    const endI = string.indexOf("}", startI)
+    if(endI < 0) break
+    const value = string.substring(startI + 6, endI)
+    let link = ""
+    if(value.includes("\"")){
+      const startI = value.indexOf("\"") + 1
+      const endI = value.indexOf("\"", startI)
+      link = "modules/" + value.substring(startI, endI).replace(/.d/g, "")
+      value = value.substring(0, startI - 1) + value.substring(endI + 1)
+    }
+    const linkStr = "<a href='/" + link + "'>" + value + "</a>"
+    string = string.substring(0, startI) + linkStr + string.substring(endI + 1)
+    safety--
+  }
+  return string
 }
 
 function getSignatures(data){

@@ -30,7 +30,8 @@ code {
 }
 
 .jspreview {
-  color:midnightblue
+  color:midnightblue;
+  margin: 1em;
 }
 
 .jspreview header {
