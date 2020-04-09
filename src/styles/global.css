@@ -61,7 +61,8 @@ code {
   margin: 0.5em;
   border: thin solid var(--border-color);
   max-height: 40%;
-  overflow-y: hidden;
+  font-size: 80%;
+  overflow-y: scroll;
 }
 
 .topbar{
@@ -107,15 +108,8 @@ code {
   background-color: var(--card-color);
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
   margin: 1em;
-  padding: 0.5em;
-}
-
-.itembox * {
-  padding-left: 10px;
-}
-
-.overview p {
-  margin-left: 1.5em;
+  padding: 1em;
+  padding-left: 2em;
 }
 
 .legend {
@@ -125,13 +119,10 @@ code {
 .function {
   border: thin solid var(--border-color);
   margin: 1em;
+  margin-left: 0;
   padding: 0.5em;
+  padding-left: 1em;
   font-size: 95%;
-}
-
-.titleContainer{
-  display: flex;
-  position: relative;
 }
 
 .subtitle {
@@ -160,10 +151,6 @@ code {
   position: relative;
 }
 
-.signature * {
-  padding-left: 0;
-  padding-right: 0.2em;
-}
 .icon {
   height: 1.2em;
   width: auto;
@@ -174,4 +161,9 @@ code {
 .icon * {
   height: 100%;
   width: auto;
+}
+
+p {
+  margin: 0;
+  padding:0;
 }

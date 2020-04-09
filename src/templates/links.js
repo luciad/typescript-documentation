@@ -1,7 +1,7 @@
 import React from "react"
+import { graphql } from "gatsby";
 
 export default ({ data }) => {
-  
   return (
     <div>
       {!(data.extendedTypes === undefined || data.extendedTypes === null) &&
@@ -55,3 +55,18 @@ export default ({ data }) => {
     </div>
   );
 };
+
+
+export const query = graphql`
+query linkQuery {
+  allModule(filter: {children: {elemMatch: {id: {eq : "2452"}}}}) {
+    edges {
+      node {
+        name
+        kindString
+        
+      }
+    }
+  }
+}
+`

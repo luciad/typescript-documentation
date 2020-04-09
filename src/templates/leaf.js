@@ -4,7 +4,6 @@ import Icon from "./icon"
 
 export default ({ data }) => {
   const leaf = data
-  console.log(data)
   return (
     <div className="function" id={"id" + leaf.id}>
       <div className="title">{leaf.name}</div>

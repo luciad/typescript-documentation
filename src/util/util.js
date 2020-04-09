@@ -19,7 +19,6 @@ function getComments(data){
   const comment = data.comment
   let shortText, text, returns
   let tags = []
-  console.log(comment)
   if(comment !== undefined && comment != null){
     shortText = comment.shortText
     text = comment.text

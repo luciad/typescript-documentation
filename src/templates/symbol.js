@@ -10,10 +10,8 @@ export default ({ data }) => {
   const { symbol: exprt, module } = data;
 
   return (
-    <Layout>
-      <p>
-        <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
-      </p>
+    <Layout>    
+      <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>    
       <div className="title">{exprt.name}</div>
       <div className="sidecontainer">
           <Icon kindString={exprt.kindString}/>

@@ -12,8 +12,7 @@ export default ({ data }) => {
   
   let children = data.childrenSymbol
   if(children === undefined || children === null) children = []
-  
-  console.log(data)
+
   return (
     <div>
       {comments.returns.length > 0 && 
