@@ -35,9 +35,9 @@ function getComments(data){
   if(typeof shortText !== "string") shortText = ""
   if(typeof text !== "string") text = ""
   if(typeof returns !== "string") returns = ""
-  shortText = Parser(jsTagToDiv(shortText.replace(/\n/g, "<br/>")))
-  text = Parser(jsTagToDiv(text.replace(/\n/g, "<br/>")))
-  returns = Parser(jsTagToDiv(returns.replace(/\n/g, "<br/>")))
+  shortText = parse(shortText)
+  text = parse(text)
+  returns = parse(returns)
 
   return {
     shortText,
@@ -47,12 +47,20 @@ function getComments(data){
   }
 }
 
+function parse(string){
+  return Parser(jsTagToDiv(tabsToDivs(string.replace(/\n/g, "<br/>"))))
+}
+
 function jsTagToDiv(string){
   if(string.includes("```javascript")){
     string = string.replace(new RegExp("```javascript", "g"), "<div class='jspreview'>")
     string = string.replace(new RegExp("```", "g"), "</div>")
   }
   return string
+}
+
+function tabsToDivs(string){
+  return string.replace(new RegExp("  ", "g"), "<div class='tab-content'> &nbsp; </div>")
 }
 
 function getParameters(data){

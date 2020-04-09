@@ -177,3 +177,7 @@ p {
   padding:0;
 }
 
+.tab-content{
+  width: 2em;
+  display: inline;
+}
