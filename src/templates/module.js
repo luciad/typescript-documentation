@@ -2,9 +2,12 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/page-layout";
 import { fixModuleName, pathToModule } from "../util/util";
-import Body from "./body"
+import Body from "./about/body"
 import Icon from "./icon"
 
+/**
+ * Highest level modules
+ */
 export default ({ data }) => {
   const module = data.module;
   module.exports = data.module.childrenSymbol;

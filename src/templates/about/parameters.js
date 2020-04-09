@@ -1,5 +1,5 @@
 import React from "react"
-import { getParameters, getComments } from "../util/util"
+import { getParameters, getComments } from "../../util/util"
 
 export default ({ data }) => {
   const parameters = getParameters(data)

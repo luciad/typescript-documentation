@@ -2,15 +2,19 @@ import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../components/page-layout"
 import { fixModuleName, pathToModule } from "../util/util"
-import Body from "./body"
+import Body from "./about/body"
 import Icon from './icon'
 
+/**
+ * Items inside of modules
+ * 
+ */
 export default ({ data }) => {
   console.log(data)
   const { symbol: exprt, module } = data;
 
   return (
-    <Layout>    
+    <Layout>
       <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>    
       <div className="title">{exprt.name}</div>
       <div className="sidecontainer">

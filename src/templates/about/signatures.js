@@ -1,7 +1,10 @@
 import React from "react"
-import { getSignatures } from "../util/util"
+import { getSignatures } from "../../util/util"
 import Signature from "./signature"
 
+/**
+ * generates list of signatures
+ */
 export default ({ data }) => {
   const signatures = getSignatures(data)
   

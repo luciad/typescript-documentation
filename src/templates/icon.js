@@ -1,5 +1,8 @@
 import React from "react";
 
+/**
+ * returns div containing icon of given kindString
+ */
 export default ({ kindString }) => {
 
   let imgSrc = ""

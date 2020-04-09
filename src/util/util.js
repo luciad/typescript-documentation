@@ -60,7 +60,7 @@ function jsTagToDiv(string){
 }
 
 function tabsToDivs(string){
-  return string.replace(new RegExp("  ", "g"), "<div class='tab-content'> &nbsp; </div>")
+  return string.replace(new RegExp("   ", "g"), "<div class='tab-content'> &nbsp; </div>")
 }
 
 function getParameters(data){

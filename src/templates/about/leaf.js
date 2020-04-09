@@ -1,7 +1,10 @@
 import React from "react";
 import About from "./body"
-import Icon from "./icon"
+import Icon from "../icon"
 
+/**
+ * In depth description in a box of an item 
+ */
 export default ({ data }) => {
   const leaf = data
   return (

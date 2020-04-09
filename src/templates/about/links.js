@@ -1,6 +1,9 @@
 import React from "react"
 import { graphql } from "gatsby";
 
+/**
+ * extends, implements, ~by,...
+ */
 export default ({ data }) => {
   return (
     <div>

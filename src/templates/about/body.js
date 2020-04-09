@@ -1,5 +1,5 @@
 import React from "react";
-import { getComments } from "../util/util"
+import { getComments } from "../../util/util"
 import ChildrenSummary from "./children-summary"
 import Leaf from "./leaf"
 import Flags from "./flags"

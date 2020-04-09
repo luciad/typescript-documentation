@@ -1,9 +1,13 @@
 import React from "react";
 import scrollTo from "gatsby-plugin-smoothscroll"
-import Icon from "./icon"
-import { pathToExport } from "../util/util"
+import Icon from "../icon"
+import { pathToExport } from "../../util/util"
 import { Link } from "gatsby"
 
+/**
+ * List of children
+ * Makes them a link if they're included in data.exports
+ */
 export default ({ data }) => {
   const children = data.childrenSymbol
   if(children === undefined || children === null || children.length === 0) return (<div></div>)

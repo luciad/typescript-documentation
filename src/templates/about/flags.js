@@ -1,10 +1,9 @@
 import React from "react"
-import { getFlags } from "../util/util"
-import Icon from "./icon"
+import { getFlags } from "../../util/util"
+import Icon from "../icon"
 
 export default ({ data }) => {
-  const flagList = getFlags(data)
-  
+  const flagList = getFlags(data)  
   return (
     <div>
       {flagList.length !== 0 && 

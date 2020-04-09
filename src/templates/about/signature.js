@@ -1,7 +1,10 @@
 import React from "react";
-import { getComments } from "../util/util"
+import { getComments } from "../../util/util"
 import Parameters from "./parameters"
 
+/**
+ * One signature item
+ */
 export default ({ data }) => {
   const signature = data
   const comments = getComments(signature)
