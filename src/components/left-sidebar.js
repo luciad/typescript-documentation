@@ -1,6 +1,7 @@
 import React from 'react'
 import logo from "../images/logo.png"
 import { Link, StaticQuery } from "gatsby"
+import { pathToExport } from "../util/util"
 
 export default () => {
   return (
@@ -27,6 +28,11 @@ export default () => {
               childrenSymbol {
                 kindString
                 name
+                parent {
+                  ... on Module {
+                    name
+                  }
+                }
               }
             }
           }
@@ -42,7 +48,7 @@ export default () => {
             node.childrenSymbol.map( child =>  {
           return (
             <li>
-              {child.name}:{child.kindString}
+            <Link to={pathToExport(child.parent, child)}>{child.name}:{child.kindString}</Link>
             </li>
 
           )})}

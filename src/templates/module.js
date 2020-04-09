@@ -34,6 +34,7 @@ export const query = graphql`
         id
         comment {
           shortText
+          text
         }
         signatures {
           name
@@ -43,6 +44,7 @@ export const query = graphql`
           }
           comment {
             shortText
+            text
             returns
           }
           parameters {
@@ -50,6 +52,7 @@ export const query = graphql`
             kindString
             comment {
               text
+              shortText
             }
             type {
               name

@@ -45,7 +45,7 @@ code {
 /* The navigation menu links */
 .rightsidenav h3,
 .leftsidenav h3 {
-  padding: 0.5em;
+  margin: 0.5em;
   font-size: 25px;
 }
 
@@ -57,10 +57,10 @@ code {
 
 .directories,
 .classes {
-  padding: 0.5em;
+  padding: 0.2em;
   margin: 0.5em;
   border: thin solid var(--border-color);
-  max-height: 40%;
+  height: 35%;
   font-size: 80%;
   overflow-y: scroll;
 }

@@ -21,6 +21,7 @@ export default ({ data }) => {
           <div className="returns"><b>returns</b> {comments.returns}</div>}
           <div className="shortText">
             {comments.shortText}
+            {comments.text}
           </div>
           <Parameters data={data}/>
         </div>

@@ -20,6 +20,7 @@ export const allSignatures = graphql`
           kindString,
           comment {
             shortText,
+            text
           },
           type {
             type,
@@ -40,7 +41,8 @@ export const allSignatures = graphql`
               name
             }
             comment {
-              text
+              text,
+              shortText
             }
           }
         },
