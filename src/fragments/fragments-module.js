@@ -5,16 +5,9 @@ export const moduleFields = graphql`
     name,
     kindString,
     id,
-    ...moduleFlagFields
+    childrenSymbol {
+      ...symbolFields
+    }
   }
 `
 
-export const moduleFlagField = graphql`  
-  fragment moduleFlagFields on Module{
-    flags {
-        # isExported,
-          isOptional,
-          isPrivate,
-          isStatic
-        }
-  }`

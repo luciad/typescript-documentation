@@ -25,53 +25,7 @@ export default ({ data }) => {
 export const query = graphql`
   query ModuleQuery($moduleId: String) {
     module(id: { eq: $moduleId }) {
-      name
-      kindString
-      id
-      childrenSymbol {
-        name
-        kindString
-        id
-        comment {
-          shortText
-          text
-        }
-        signatures {
-          name
-          kindString
-          type {
-            name
-          }
-          comment {
-            shortText
-            text
-            returns
-          }
-          parameters {
-            name
-            kindString
-            comment {
-              text
-              shortText
-            }
-            type {
-              name
-            }
-          }
-        }
-        getSignature {
-          name
-          type {
-            name
-          }
-        }
-        setSignature {
-          name
-          type {
-            name
-          }
-        }
-      }
+      ...moduleFields
     }
   }
 `;
