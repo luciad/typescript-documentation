@@ -7,7 +7,7 @@ export default ({ data }) => {
       {!(data.extendedTypes === undefined || data.extendedTypes === null) &&
         <div>
           <div className="subsubtitle">
-            Extends
+            Extended types
           </div>
           <ul>
             {data.extendedTypes.map(type => (
@@ -31,7 +31,7 @@ export default ({ data }) => {
       {!(data.implementedTypes === undefined || data.implementedTypes === null) &&
         <div>
           <div className="subsubtitle">
-            implements
+            Implemented types
           </div>
           <ul>
             {data.implementedTypes.map(type => (
@@ -43,12 +43,22 @@ export default ({ data }) => {
       {!(data.implementedBy === undefined || data.implementedBy === null) &&
         <div>
           <div className="subsubtitle">
-            implemented by
+            Implemented By
           </div>
           <ul>
             {data.implementedBy.map(type => (
               <li>{type.name}</li>
             ))}
+          </ul>
+        </div>
+      }
+      {!(data.implementationOf === undefined || data.implementationOf === null) &&
+        <div>
+          <div className="subsubtitle">
+            Implementation of
+          </div>
+          <ul>
+            {data.implementationOf.name}
           </ul>
         </div>
       }

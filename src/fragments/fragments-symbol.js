@@ -114,6 +114,9 @@ export const symbolFields = graphql`
     implementedBy {
       name
     }
+    implementationOf {
+      name
+    }
     ...allSignatures,
     ...commentFields,
     ...flagFields
