@@ -33,6 +33,13 @@ code {
   color:midnightblue
 }
 
+.jspreview header {
+  background-color: yellow;
+  color: black;
+  padding-left: 0.5em;
+  padding-top: 0.5em;
+  width: fit-content;
+}
 /* The sidebar menu */
 .rightsidenav,
 .leftsidenav {
@@ -178,6 +185,5 @@ p {
 }
 
 .tab-content{
-  width: 2em;
   display: inline;
 }

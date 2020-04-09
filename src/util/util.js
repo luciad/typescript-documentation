@@ -53,7 +53,7 @@ function parse(string){
 
 function jsTagToDiv(string){
   if(string.includes("```javascript")){
-    string = string.replace(new RegExp("```javascript", "g"), "<div class='jspreview'>")
+    string = string.replace(new RegExp("```javascript", "g"), "<div class='jspreview'><header>JS</header>")
     string = string.replace(new RegExp("```", "g"), "</div>")
   }
   return string
