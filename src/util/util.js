@@ -36,9 +36,9 @@ function getComments(data){
   if(typeof shortText !== "string") shortText = ""
   if(typeof text !== "string") text = ""
   if(typeof returns !== "string") returns = ""
-  shortText = Parser(shortText)
-  text = Parser(text)
-  returns = Parser(returns)
+  shortText = Parser(shortText.replace(/\n/g, "<br/>"))
+  text = Parser(text.replace(/\n/g, "<br/>"))
+  returns = Parser(returns.replace(/\n/g, "<br/>"))
 
   return {
     shortText,

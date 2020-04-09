@@ -9,7 +9,8 @@ export default ({ data }) => {
           <div className="subsubtitle">parameters</div>}
         <ul style={{paddingLeft: "1em"}}>
           {parameters.map(parameter => (
-            <li>{parameter.name}:{parameter.type}
+            <li>
+            <b>{parameter.name}</b>:<i>{parameter.type}</i>
               <div className="shortText">
                 {parameter.comments.shortText}
               </div>

@@ -34,7 +34,7 @@ export default ({ data }) => {
             implements
           </div>
           <ul>
-            {data.extendedTypes.map(type => (
+            {data.implementedTypes.map(type => (
               <li>{type.name}</li>
             ))}
           </ul>
@@ -46,7 +46,7 @@ export default ({ data }) => {
             implemented by
           </div>
           <ul>
-            {data.extendedBy.map(type => (
+            {data.implementedBy.map(type => (
               <li>{type.name}</li>
             ))}
           </ul>
