@@ -22,10 +22,15 @@ ul {
   list-style-type: disc;
 }
 
+.jspreview,
 code {
   background-color: lightgrey;
   color: black;
   font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
+}
+
+.jspreview {
+  color:midnightblue
 }
 
 /* The sidebar menu */
@@ -171,3 +176,4 @@ p {
   margin: 0;
   padding:0;
 }
+
