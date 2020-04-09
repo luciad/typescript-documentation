@@ -19,6 +19,7 @@ function getComments(data){
   const comment = data.comment
   let shortText, text, returns
   let tags = []
+  console.log(comment)
   if(comment !== undefined && comment != null){
     shortText = comment.shortText
     text = comment.text
@@ -38,7 +39,6 @@ function getComments(data){
   shortText = Parser(shortText)
   text = Parser(text)
   returns = Parser(returns)
-  console.log(returns)
 
   return {
     shortText,
@@ -55,6 +55,7 @@ function getParameters(data){
   if(parameters !== undefined && parameters != null){
     for(let parameter of parameters){
       returnParameters.push({
+        comments: getComments(data),
         name: parameter.name,
         type: parameter.type.name
       })

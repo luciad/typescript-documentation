@@ -3,7 +3,6 @@ import { getParameters, getComments } from "../util/util"
 
 export default ({ data }) => {
   const parameters = getParameters(data)
-  
   return (
     <div>
      {parameters.length !== 0 && 
@@ -12,10 +11,10 @@ export default ({ data }) => {
           {parameters.map(parameter => (
             <li>{parameter.name}:{parameter.type}
               <div className="shortText">
-                {getComments(parameter).shortText}
+                {parameter.comments.shortText}
               </div>
               <p>
-              {getComments(parameter).text}
+              {parameter.comments.text}
               </p>
             </li>
           ))}
