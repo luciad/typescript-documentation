@@ -118,22 +118,3 @@ export const symbolFields = graphql`
     ...commentFields,
     ...flagFields
   }`
-
-export const moduleFields = graphql`
-  fragment moduleFields on Module {
-    name,
-    kindString,
-    id,
-    ...moduleFlagFields
-  }
-`
-
-export const moduleFlagField = graphql`  
-  fragment moduleFlagFields on Module{
-    flags {
-        # isExported,
-          isOptional,
-          isPrivate,
-          isStatic
-        }
-  }`

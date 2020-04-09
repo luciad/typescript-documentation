@@ -23,7 +23,7 @@ export default () => {
     <StaticQuery
       query={graphql`
         query MyQuery {
-          allModule(filter: {childrenSymbol: {elemMatch: {kindString: {eq: "Class"}}}}) {
+          allModule(filter: {childrenSymbol: {elemMatch: {kindString: {eq: "Class"}}}}, sort: {fields: childrenSymbol___name}) {
             nodes {
               childrenSymbol {
                 kindString

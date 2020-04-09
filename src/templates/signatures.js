@@ -9,7 +9,7 @@ export default ({ data }) => {
     <div>
      {signatures.length !== 0 && 
         <div className="subsubtitle">Signatures</div>}
-      <ul>
+      <ul className="signaturelist">
         {signatures.map(signature => (
           <li>
             <Signature data={signature}/>
