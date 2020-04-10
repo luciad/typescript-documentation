@@ -79,7 +79,8 @@ code {
   border: thin solid var(--border-color);
   height: 35vh;
   font-size: 80%;
-  overflow-y: scroll;
+  overflow: auto;
+  white-space: nowrap;
 }
 
 .topbar{
@@ -193,8 +194,8 @@ p {
   padding: 0;
   margin: 0;
   margin-left: 1em;
-  overflow-x: hidden;
   resize: vertical;
+  display: inline-block;
 }
 
 .directoryitem li:first-child {
