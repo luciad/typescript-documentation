@@ -26,8 +26,10 @@ exports.createPages = ({ actions }) => {
     },
   });
 
+  //createModulePages
   modules.forEach(module => {
     const modulePath = util.pathToModule(module);
+    module.path = modulePath
     // 1 page per module
     createPage({
       path: modulePath,
@@ -39,21 +41,22 @@ exports.createPages = ({ actions }) => {
 
     // 1 page per module export
     const exports = module.children;
-    createAllPages(createPage, exports, modulePath, String(module.id))
+    createAllPages(createPage, exports, modulePath, String(module.id), module.path)
   });
 };
 
 async function createAllPages(createPage, exports, path, moduleID){
   exports.forEach(exprt => {
+    exprt.path = path + "/" + exprt.name
     createPage({
-      path: path + "/" + exprt.name,
+      path: exprt.path,
       component: symbolTemplate,
       context: {
         moduleId: moduleID,
         symbolId: String(exprt.id)
       }})
       if(exprt.children){
-        createAllPages(createPage, exprt.children, path + "/" + exprt.name, moduleID)
+        createAllPages(createPage, exprt.children, exprt.path, moduleID)
       }
     })
 }
@@ -77,7 +80,8 @@ async function onCreateNode({
   const parsedContent = JSON.parse(content);
 
   const modules = parsedContent.children;
-  const { createNode, createParentChildLink } = actions;
+  const { createNode, createParentChildLink, createNodeField } = actions;
+
 
   const createSymbolNode = (symbol, parentNode) => {
     const symbolWithoutChildrenOrId = { ...symbol };
@@ -93,6 +97,7 @@ async function onCreateNode({
       },
     };
     createNode(jsonNode);
+    createNodeField({ node: jsonNode, name: "path", value: parentNode.path + "/" + symbol.name})
     createParentChildLink({ parent: parentNode, child: jsonNode });
     if (symbol.children) {
       for (const child of symbol.children) {
@@ -118,7 +123,9 @@ async function onCreateNode({
         type: "Module",
       },
     };
-    createNode(jsonNode);
+    let pathToModule = "/module/" + jsonNode.name
+    createNode(jsonNode)
+    createNodeField({ node: jsonNode, name: "path", value: pathToModule})
     createParentChildLink({ parent: node, child: jsonNode });
 
     // recursively create a symbol for every child
