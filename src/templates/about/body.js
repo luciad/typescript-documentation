@@ -5,7 +5,6 @@ import Leaf from "./leaf"
 import Flags from "./flags"
 import Signatures from "./signatures"
 import Links from "./links"
-import Parameters from "./parameters"
 
 export default ({ data }) => {
   const comments = getComments(data)

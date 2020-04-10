@@ -2,6 +2,7 @@ import React from 'react'
 import { Link, StaticQuery } from "gatsby"
 import { pathToExport } from "../util/util"
 import Icon from "../templates/icon"
+
 /**
  * List of all classes
  */

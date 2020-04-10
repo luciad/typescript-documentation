@@ -85,7 +85,7 @@ function replaceLinks(string){
     const startI = string.indexOf("{@link")
     const endI = string.indexOf("}", startI)
     if(endI < 0) break
-    const value = string.substring(startI + 6, endI)
+    let value = string.substring(startI + 6, endI)
     let link = ""
     if(value.includes("\"")){
       const startI = value.indexOf("\"") + 1

@@ -21,6 +21,7 @@ module.exports = {
     "gatsby-transformer-json",
     "gatsby-plugin-smoothscroll",
     "html-react-parser",
+    "react-use-flexsearch",
     {
       resolve: 'gatsby-plugin-local-search',
       options: {
