@@ -1,5 +1,6 @@
 import React from "react"
 import Wrapper from "./directory-tree-wraper"
+import { Link } from "gatsby"
 
 
 export default ({directories}) => {
@@ -11,7 +12,10 @@ export default ({directories}) => {
       {directories.next.map( node => {
         return (
           <li>
-          {node.name}
+          {(node.next.length > 0 &&
+            <div>{node.name}</div>)
+              ||
+            <Link to={node.path}>{node.name}</Link>}
             <Wrapper data={node}/>
           </li>
         )})}

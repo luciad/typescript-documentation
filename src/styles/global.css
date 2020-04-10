@@ -1,5 +1,5 @@
 :root {
-  --left-sidebar-width: 15%;
+  --left-sidebar-width: 20%;
   --right-sidebar-width: 15%;
   --sidebar-color: whitesmoke;
   --card-color: whitesmoke;
@@ -193,6 +193,8 @@ p {
   padding: 0;
   margin: 0;
   margin-left: 1em;
+  overflow-x: hidden;
+  resize: vertical;
 }
 
 .directoryitem li:first-child {
