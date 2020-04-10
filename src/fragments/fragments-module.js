@@ -5,6 +5,10 @@ export const moduleFields = graphql`
     name,
     kindString,
     id,
+    fields {
+      path,
+      parentPath
+    }
     childrenSymbol {
       ...symbolFields
     }

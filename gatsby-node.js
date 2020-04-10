@@ -98,6 +98,7 @@ async function onCreateNode({
     };
     createNode(jsonNode);
     createNodeField({ node: jsonNode, name: "path", value: parentNode.path + "/" + symbol.name})
+    createNodeField({ node: jsonNode, name: "parentPath", value: parentNode.path})
     createParentChildLink({ parent: parentNode, child: jsonNode });
     if (symbol.children) {
       for (const child of symbol.children) {
@@ -126,6 +127,7 @@ async function onCreateNode({
     let pathToModule = "/module/" + jsonNode.name
     createNode(jsonNode)
     createNodeField({ node: jsonNode, name: "path", value: pathToModule})
+    createNodeField({ node: jsonNode, name: "parentPath", value: "/overview"})
     createParentChildLink({ parent: node, child: jsonNode });
 
     // recursively create a symbol for every child
