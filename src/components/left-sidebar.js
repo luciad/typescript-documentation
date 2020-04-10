@@ -8,7 +8,7 @@ export default () => {
   return (
   <div className="leftsidenav">
     <Link to="/overview">
-      <img src={logo} alt="Company Logo" class="center"/>
+      <img src={logo} alt="Company Logo" className="center"/>
     </Link>
 
     <DirectoryList/>

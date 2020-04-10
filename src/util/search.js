@@ -12,7 +12,7 @@ const data = useStaticQuery(graphql`
   `)
   const { index, store } = data.localSearchPages
   const [query, setQuery] = useState("")
-  const results = useFlexSearch(query, index, store)
+  const results = useFlexSearch(query, index, JSON.parse(store))
 
   const resultRenderer = ({ title }) => {
     const rest = title.substring(query.length)

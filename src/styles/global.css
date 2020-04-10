@@ -24,12 +24,12 @@ ul {
 
 .jspreview,
 code {
-  background-color: lightgrey;
   color: black;
   font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
 }
 
 .jspreview {
+  background-color: lightgrey;
   color:midnightblue;
   margin: 1em;
 }

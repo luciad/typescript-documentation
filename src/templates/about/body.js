@@ -22,9 +22,9 @@ export default ({ data }) => {
       <div className="shortText">
         {comments.shortText}
       </div>
-      <p>
+      
         {comments.text}
-      </p>
+      
         {comments.tags.length !== 0 && 
           <div className="subsubtitle">Tags</div>}
       <ul>
