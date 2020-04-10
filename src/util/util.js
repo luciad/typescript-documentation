@@ -48,7 +48,11 @@ function getComments(data){
 }
 
 function parse(string){
-  return Parser(replaceLinks(jsTagToDiv(tabsToDivs(string.replace(/\n/g, "<br/>")))))
+  return Parser(replaceLinks(jsTagToDiv(tabsToDivs(replaceNewLines(string)))))
+}
+
+function replaceNewLines(string){
+  return string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "<br/>")
 }
 
 function jsTagToDiv(string){
@@ -60,7 +64,7 @@ function jsTagToDiv(string){
 }
 
 function tabsToDivs(string){
-  return string.replace(new RegExp("   ", "g"), "<div class='tab-content'> &nbsp; </div>")
+  return string.replace(/[\s]{2}(?!\n)/g, "<div class='tab-content'> &nbsp; </div>")
 }
 
 function getParameters(data){

@@ -97,11 +97,12 @@ export const flagField = graphql`
         }
   }`
 
-export const symbolFields = graphql`
-  fragment symbolFields on Symbol {
+export const simpleSymbolFields = graphql`
+  fragment simpleSymbolFields on Symbol {
     name,
     kindString,
     id,
+    defaultValue,
     extendedTypes {
       name
     },
@@ -120,6 +121,24 @@ export const symbolFields = graphql`
     ...allSignatures,
     ...commentFields,
     ...flagFields
+  }`
+
+//no recursion in graphql
+  export const symbolFields = graphql`
+  fragment symbolFields on Symbol {
+    ...simpleSymbolFields,
+    childrenSymbol {
+      ...simpleSymbolFields
+      childrenSymbol {
+        ...simpleSymbolFields
+        childrenSymbol {
+          ...simpleSymbolFields
+          childrenSymbol {
+            ...simpleSymbolFields
+          }
+        }
+      }
+    }
   }`
 
   export const getElementByName = graphql`

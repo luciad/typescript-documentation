@@ -35,7 +35,7 @@ export default () => {
             {data.allSymbol.nodes.map( node => 
             {
             return (
-              <li>
+              <li key={node.id}>
               <div className="sidecontainer">
                 <Icon kindString={node.kindString}/>
                 <Link to={pathToExport(node.parent, node)}>{node.name}</Link>

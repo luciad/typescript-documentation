@@ -16,7 +16,9 @@ export default ({ data }) => {
 
           <div className="sidecontainer">
             <div className="kindString">
-              ({signature.type.name}) {signature.kindString}
+            {signature.type.name !== null &&
+              <>({signature.type.name}) &nbsp;</>}
+               {signature.kindString}
               </div>
           </div>
         <div>

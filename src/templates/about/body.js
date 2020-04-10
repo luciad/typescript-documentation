@@ -11,11 +11,13 @@ export default ({ data }) => {
   
   let children = data.childrenSymbol
   if(children === undefined || children === null) children = []
-
+  console.log(data)
   return (
     <div>
       {comments.returns.length > 0 && 
         <div>returns {comments.returns}</div>}
+      {(data.defaultValue !== null && data.defaultValue !== undefined) &&
+        <div>Default value: {data.defaultValue}</div>}
       <Links data={data}/>
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
         <div className="subtitle">About</div>}
