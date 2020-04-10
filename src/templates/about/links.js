@@ -65,6 +65,16 @@ export default ({ data }) => {
           </ul>
         </div>
       }
+      {!(data.inheritedFrom === undefined || data.inheritedFrom === null) &&
+        <div>
+          <div className="subsubtitle">
+            Inherited from
+          </div>
+          <ul>
+            {data.inheritedFrom.name}
+          </ul>
+        </div>
+      }
     </div>
   );
 };

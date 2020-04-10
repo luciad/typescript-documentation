@@ -121,3 +121,20 @@ export const symbolFields = graphql`
     ...commentFields,
     ...flagFields
   }`
+
+  export const getElementByName = graphql`
+  query getElementByName($name: String!) {
+  allSymbol(filter: {kindString: {}, name: {eq: $name}}) {
+    nodes {
+      name
+      kindString
+      id
+      parent {
+        ... on Module {
+          name
+        }
+      }
+    }
+  }
+}
+`

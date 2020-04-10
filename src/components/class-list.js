@@ -11,15 +11,13 @@ export default () => {
       <StaticQuery
         query={graphql`
           query ClassQuery {
-            allModule(filter: {childrenSymbol: {elemMatch: {kindString: {eq: "Class"}}}}, sort: {fields: childrenSymbol___name}) {
+            allSymbol(filter: {kindString: {eq: "Class"}}, sort: {fields: name}) {
               nodes {
-                childrenSymbol {
-                  kindString
-                  name
-                  parent {
-                    ... on Module {
-                      name
-                    }
+                kindString
+                name
+                parent {
+                  ... on Module {
+                    name
                   }
                 }
               }
@@ -30,18 +28,13 @@ export default () => {
           data
         ) => (
           <div>
-            {data.allModule.nodes.map( node => 
-            <div>
+            {data.allSymbol.nodes.map( node => 
             {
-              node.childrenSymbol.map( child =>  {
             return (
               <li>
-              <Link to={pathToExport(child.parent, child)}>{child.name}:{child.kindString}</Link>
+              <Link to={pathToExport(node.parent, node)}>{node.name}</Link>
               </li>
-
             )})}
-            </div>
-            )}
           </div>
         )}
       />
