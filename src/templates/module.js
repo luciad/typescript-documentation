@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../components/page-layout";
 import { fixModuleName } from "../util/util";
-import Body from "./about/body"
+import BodySummary from "./about/body-summary"
 import Icon from "./icon"
 
 /**
@@ -20,7 +20,7 @@ export default ({ data }) => {
         <Icon kindString={module.kindString}/> 
         <div className="kindString">{module.kindString}</div>
       </div>
-      <Body data={module}/>
+      <BodySummary data={module}/>
     </Layout>
   );
 };
