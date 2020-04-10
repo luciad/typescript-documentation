@@ -9,7 +9,6 @@ import Icon from "./icon"
  * List of all top-level modules
  */
 export default ({ data }) => {
-  console.log(data)
   const modules = data.allModule.edges.map(edge => edge.node);
 
   return (

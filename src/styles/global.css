@@ -188,3 +188,13 @@ p {
 .tab-content{
   display: inline;
 }
+
+.directoryitem {
+  padding: 0;
+  margin: 0;
+  margin-left: 1em;
+}
+
+.directoryitem li:first-child {
+  list-style-type: "\21B3";
+}

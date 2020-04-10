@@ -1,8 +1,10 @@
 import React from 'react'
 import { Link, StaticQuery } from "gatsby"
 import { pathToModule } from "../util/util"
-
+import { getAllDirectories } from "../util/directory"
+import DirectoryTree from "./directory-tree"
 export default () => {
+
   return (
     <div>
       <h3>Directories</h3>
@@ -21,14 +23,7 @@ export default () => {
         render={(
           data
         ) => (
-          <div>
-            {data.allModule.nodes.map( node => {
-              return (
-                <li>
-                <Link to={pathToModule(node)}>{node.name}</Link>
-                </li>
-              )})}
-          </div>
+          <DirectoryTree directories={getAllDirectories(data)}/>
         )}
       />
       </ul>

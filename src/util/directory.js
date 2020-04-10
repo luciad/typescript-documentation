@@ -4,22 +4,29 @@ function getAllDirectories(data){
     name: "root",
     next: []
   }
-  for(node of data.allModule.nodes){
+
+  for(let node of data.allModule.nodes){
     const currentDir = node.name.split("/")
     let activeDir = directories
 
     for(let i = 0; i < currentDir.length; i++){
-      if(!activeDir.next.includes(currentDir)){
+
+      if(!activeDir.next.some(item => item.name === currentDir[i])){
         activeDir.next.push({
-          name: currentDir,
+          name: currentDir[i],
           next: []
         })
       }
       activeDir = activeDir.next.find(dir => {
-        return dir.name === currentDir
+        return dir.name === currentDir[i]
       })
     }
   }
+  console.log(directories)
   return directories
+}
+
+module.exports = {
+  getAllDirectories
 }
 
