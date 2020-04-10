@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "gatsby": "^2.20.12",
+    "gatsby-plugin-local-search": "^1.1.1",
     "gatsby-plugin-manifest": "^2.3.3",
     "gatsby-plugin-react-helmet": "^3.2.1",
     "gatsby-plugin-sharp": "^2.5.4",

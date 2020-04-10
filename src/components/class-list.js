@@ -1,7 +1,10 @@
 import React from 'react'
 import { Link, StaticQuery } from "gatsby"
 import { pathToExport } from "../util/util"
-
+import Icon from "../templates/icon"
+/**
+ * List of all classes
+ */
 export default () => {
   return (
     <div>
@@ -32,7 +35,10 @@ export default () => {
             {
             return (
               <li>
-              <Link to={pathToExport(node.parent, node)}>{node.name}</Link>
+              <div className="sidecontainer">
+                <Icon kindString={node.kindString}/>
+                <Link to={pathToExport(node.parent, node)}>{node.name}</Link>
+              </div>
               </li>
             )})}
           </div>
