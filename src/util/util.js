@@ -3,6 +3,7 @@ const Parser = require("html-react-parser")
 const MODULE_PATH_PREFIX = "/modules"
 
 const fixModuleName = module => {
+  if(!module) return "404"
   return module.name.replace('.d"', "").replace('"', "");
 };
 
@@ -56,8 +57,9 @@ function replaceNewLines(string){
 }
 
 function jsTagToDiv(string){
-  if(string.includes("```javascript")){
+  if(string.includes("```")){
     string = string.replace(new RegExp("```javascript", "g"), "<div class='jspreview'><header>JS</header>")
+    string = string.replace(new RegExp("```json", "g"), "<div class='jspreview'><header>JSON</header>")
     string = string.replace(new RegExp("```", "g"), "</div>")
   }
   return string

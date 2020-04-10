@@ -6,13 +6,14 @@
 const util = require("./src/util/util");
 const documentation = require("./content/docu.json");
 const documentationPath = require.resolve("./content/docu.json");
+const symbolTemplate = require.resolve("./src/templates/symbol");
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
 
   const overviewTemplate = require.resolve("./src/templates/overview");
   const moduleTemplate = require.resolve("./src/templates/module");
-  const symbolTemplate = require.resolve("./src/templates/symbol");
+  
 
   const modules = documentation.children;
 
@@ -38,18 +39,24 @@ exports.createPages = ({ actions }) => {
 
     // 1 page per module export
     const exports = module.children;
-    exports.forEach(exprt => {
-      createPage({
-        path: modulePath + "/" + exprt.name,
-        component: symbolTemplate,
-        context: {
-          moduleId: String(module.id),
-          symbolId: String(exprt.id)
-        }
-      });
-    });
+    createAllPages(createPage, exports, modulePath, String(module.id))
   });
 };
+
+async function createAllPages(createPage, exports, path, moduleID){
+  exports.forEach(exprt => {
+    createPage({
+      path: path + "/" + exprt.name,
+      component: symbolTemplate,
+      context: {
+        moduleId: moduleID,
+        symbolId: String(exprt.id)
+      }})
+      if(exprt.children){
+        createAllPages(createPage, exprt.children, path + "/" + exprt.name, moduleID)
+      }
+    })
+}
 
 async function onCreateNode({
   node,

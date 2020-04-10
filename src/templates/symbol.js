@@ -34,9 +34,6 @@ export const query = graphql`
   query SymbolQuery($symbolId: String, $moduleId: String) {
     symbol(id: { eq: $symbolId }) {
       ...symbolFields
-      childrenSymbol {
-        ...symbolFields
-      }
     }
     module(id: { eq: $moduleId }) {
       id,

@@ -13,7 +13,6 @@ export default ({ data }) => {
       {children.map(child => (
         <Leaf data={child}/>
       ))}
-
     </div>
   );
 };
