@@ -13,6 +13,7 @@ export default ({ data }) => {
   if(children === undefined || children === null) children = []
   return (
     <div>
+      <br/>
       {comments.returns.length > 0 && 
         <div>returns {comments.returns}</div>}
       {(data.defaultValue !== null && data.defaultValue !== undefined) &&

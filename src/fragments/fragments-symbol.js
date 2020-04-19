@@ -147,15 +147,13 @@ export const simpleSymbolFields = graphql`
 
   export const getElementByName = graphql`
   query getElementByName($name: String!) {
-  allSymbol(filter: {kindString: {}, name: {eq: $name}}) {
+  allSymbol(filter: {name: {eq: $name}}) {
     nodes {
       name
       kindString
       id
-      parent {
-        ... on Module {
-          name
-        }
+      fields {
+        path
       }
     }
   }

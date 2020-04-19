@@ -87,7 +87,6 @@ function getParameters(data){
 function replaceLinks(string){
   let safety = 100
   while(string.includes("{@link") && safety > 0){
-    console.log(string)
     const startI = string.indexOf("{@link")
     const endI = string.indexOf("}", startI)
     if(endI < 0) break
