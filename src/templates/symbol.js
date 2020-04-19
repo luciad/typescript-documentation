@@ -15,7 +15,11 @@ export default ({ data }) => {
 
   return (
     <Layout>
-      <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>    
+      Module:
+      <Link to={pathToModule(module)}>{fixModuleName(module)}</Link> 
+      <br/>
+      Parent:
+      <Link to={exprt.fields.parentPath}>{exprt.fields.parentPath}</Link>       
       <div className="title">{exprt.name}</div>
       <div className="sidecontainer">
           <Icon kindString={exprt.kindString}/>

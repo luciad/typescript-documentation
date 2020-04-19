@@ -105,6 +105,7 @@ export const simpleSymbolFields = graphql`
     defaultValue,
     fields {
       path
+      parentPath
     }
     extendedTypes {
       name

@@ -126,7 +126,7 @@ async function onCreateNode({
         type: "Module",
       },
     };
-    let pathToModule = "/module/" + jsonNode.name
+    let pathToModule = "/modules/" + jsonNode.name
     createNode(jsonNode)
     createNodeField({ node: jsonNode, name: "path", value: pathToModule})
     createNodeField({ node: jsonNode, name: "parentPath", value: "/overview"})
