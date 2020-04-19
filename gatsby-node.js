@@ -41,7 +41,7 @@ exports.createPages = ({ actions }) => {
 
     // 1 page per module export
     const exports = module.children;
-    createAllPages(createPage, exports, modulePath, String(module.id), module.path)
+    createAllPages(createPage, exports, modulePath, String(module.id))
   });
 };
 
@@ -96,9 +96,11 @@ async function onCreateNode({
         type: "Symbol",
       },
     };
+    
+    let parentPath = parentNode.fields.path
     createNode(jsonNode);
-    createNodeField({ node: jsonNode, name: "path", value: parentNode.path + "/" + symbol.name})
-    createNodeField({ node: jsonNode, name: "parentPath", value: parentNode.path})
+    createNodeField({ node: jsonNode, name: "path", value:  parentPath + "/" + symbol.name})
+    createNodeField({ node: jsonNode, name: "parentPath", value: parentPath})
     createParentChildLink({ parent: parentNode, child: jsonNode });
     if (symbol.children) {
       for (const child of symbol.children) {
