@@ -1,25 +1,20 @@
 import React from "react"
-import { Link } from "gatsby"
-import { query } from "./about/links"
+import { Link, graphql } from "gatsby"
 
 export default ({symbol}) => {
-  console.log(symbol)
   return (
     <Link to={symbol.fields.path}>{symbol.name}</Link>
   )
 }
-/*
+
 export const query = graphql`
-query getElementByName($name: String) {
-  allSymbol(filter: {name: {eq: $name}}) {
-    nodes {
+  query GetElementByName {
+    symbol(name: {eq: "constructor"}) {
       name
       id
       fields {
         path
       }
-    }
+    } 
   }
-}
 `
-*/
