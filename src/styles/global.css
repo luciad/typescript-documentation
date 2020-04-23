@@ -121,6 +121,7 @@ code {
   background-color: white;
   border: thin solid lightgray;
   padding: 0.4em;
+  z-index: 100;
 }
 
 /* Style page content */
