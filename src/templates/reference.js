@@ -1,7 +1,8 @@
 import React from "react"
 import { Link, graphql } from "gatsby"
 
-export default ({symbol}) => {
+export default ({data}) => {
+  let symbol = data.symbol
   return (
     <Link to={symbol.fields.path}>{symbol.name}</Link>
   )

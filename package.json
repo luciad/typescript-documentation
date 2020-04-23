@@ -14,6 +14,7 @@
     "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\" && exit 1"
   },
   "dependencies": {
+    "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
     "gatsby": "^2.20.12",
     "gatsby-plugin-local-search": "^1.1.1",
     "gatsby-plugin-manifest": "^2.3.3",

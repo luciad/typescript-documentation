@@ -78,5 +78,23 @@ module.exports = {
           })}),
       },
     },
+    {
+      resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
+      options: {
+        // Fields to index
+        fields: [`name`, `path`],
+        // How to resolve each field`s value for a supported node type
+        resolvers: {
+          // For any node of type symbol, list how to resolve the fields` values
+          Symbol: {
+            name: node => node.name,
+            path: node => node.fields.path,
+          },
+        },
+        // Optional filter to limit indexed nodes
+       /* filter: (node, getNode) =>
+          node.frontmatter.tags !== 'exempt',*/
+      },
+    },
   ],
 }
