@@ -89,7 +89,7 @@ module.exports = {
           Symbol: {
             name: node => node.name,
             path: node => node.fields.path,
-            comment: node => node.comment,
+            comment: node => JSON.stringify(node.comment),
             // shortText: {
             //   __resolveType(node, context, info){
             //     if(node.comment){
