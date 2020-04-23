@@ -14,7 +14,7 @@ export default class Search extends Component {
 
   render() {
     return (
-      <div>
+      <div  className="search" placeholder="search">
         <input type="text" value={this.state.query} onChange={this.search} />
         <ul>
           {this.state.results.map(page => (

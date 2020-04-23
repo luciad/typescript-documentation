@@ -97,15 +97,30 @@ code {
 .topbar a {
   padding: 0.5em;
 }
-.topbar input[type="text"]{
+
+.search{
+  font-size: 110%;
   width: 25em;
-  height: auto;
-  margin-right: 0.5em;
+  height: 1.2em;
+  margin-right: 1em;
+  margin-bottom: 0.4em;
+  margin-top: auto;
   margin-left: auto;
+}
+
+.search input {
   text-align: right;
   border-radius: 15px;
   border-color: var(--border-color);
+  width: inherit;
+  height: 1.2em;
   padding-right: 15px;
+}
+
+.search li {
+  background-color: white;
+  border: thin solid lightgray;
+  padding: 0.4em;
 }
 
 /* Style page content */
