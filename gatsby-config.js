@@ -82,13 +82,31 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`name`, `path`],
+        fields: [`name`, `path`, `comment`, `kindString`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type symbol, list how to resolve the fields` values
           Symbol: {
             name: node => node.name,
             path: node => node.fields.path,
+            comment: node => node.comment,
+            // shortText: {
+            //   __resolveType(node, context, info){
+            //     if(node.comment){
+            //       return node.comment.shortText
+            //     }
+            //     return "";
+            //   },
+            // },
+            // text:{
+            //   __resolveType(node, context, info){
+            //     if(node.comment){
+            //       return node.comment.text
+            //     }
+            //     return "";
+            //   },
+            // },
+            kindString: node => node.kindString,
           },
         },
         // Optional filter to limit indexed nodes

@@ -20,8 +20,8 @@ export default class Search extends Component {
           {this.state.results.map(page => (
             <li key={page.id}>
               <Link to={"/" + page.path}>{page.name}</Link>
-              extra info
-              {/* {": " + page.tags.join(`,`)} */}
+              ({page.kindString})
+               {page.comment && page.comment.shortText}
             </li>
           ))}
         </ul>
