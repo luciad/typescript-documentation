@@ -21,7 +21,7 @@ export default class Search extends Component {
             <li key={page.id}>
               <Link to={"/" + page.path}>{page.name}</Link>
               ({page.kindString})
-               {JSON.parse(page.comment) && JSON.parse(page.comment).shortText}
+               {/* {JSON.parse(page.comment) && JSON.parse(page.comment).shortText} */}
             </li>
           ))}
         </ul>

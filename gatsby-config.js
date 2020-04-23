@@ -82,7 +82,7 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`name`, `path`, `comment`, `kindString`],
+        fields: [`name`, `path`, `kindString`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type symbol, list how to resolve the fields` values
