@@ -24,28 +24,33 @@ class Search extends Component {
   constructor(props) {
     super(props)
     this.data = props.data
-    console.log("ddta: ")
-    console.log(this.data)
     this.state = {
       query: ``,
       results: [],
     }
-    this.search()
+    
+  const query = this.data.text
+  this.index = this.getOrCreateIndex()
+  this.state = {
+    query,
+    // Query the index with search string to get an [] of IDs
+    results: this.index
+      .search(query, { expand: true })
+      // Map over each ID and return the full document
+      .map(({ ref }) => this.index.documentStore.getDoc(ref)),
+    }
   }
 
   render() {
     return (
-      <div onLoadedData={this.search}>
-        <input type="text" value={this.state.query} onChange={this.search} onLoad={this.search}/>
-        <ul>
-          {this.state.results.map(page => (
-            <li key={page.id}>
+      <>
+          {this.state.results.slice(0,1).map(page => (
+            <>
               <Link to={"/" + page.path}>{page.name}</Link>
               ({page.kindString})
-            </li>
+            </>
           ))}
-        </ul>
-      </div>
+      </>
     )
   }
   getOrCreateIndex = () =>

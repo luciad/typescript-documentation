@@ -5,8 +5,6 @@ import SearchLink from "./search-link"
 
 export default ({ data }) => {
   const parsedData = getLinks(data)
-  console.log("parsed data:")
-  console.log(parsedData)
   return (
     <div>
       {parsedData.map(function(data){
@@ -19,7 +17,6 @@ export default ({ data }) => {
             return (
               <>{data.text}</>
             )
-            
         }
       })}
     </div>
