@@ -1,5 +1,6 @@
 import React from "react"
 import { graphql } from "gatsby";
+import SearchLink from "./search-link"
 
 /**
  * extends, implements, ~by,...
@@ -13,9 +14,11 @@ export default ({ data }) => {
             Extended types
           </div>
           <ul>
-            {data.extendedTypes.map(type => (
-              <li>{type.name}</li>
-            ))}
+            {data.extendedTypes.map(function(type){
+              let newData = {text: type.name}
+              return(
+                <li><SearchLink data={newData}/></li>
+            )})}
           </ul>
         </div>
       }
@@ -25,9 +28,11 @@ export default ({ data }) => {
             Extended by
           </div>
           <ul>
-            {data.extendedBy.map(type => (
-              <li>{type.name}</li>
-            ))}
+            {data.extendedBy.map(function(type){
+              let newData = {text: type.name}
+              return(
+                <li><SearchLink data={newData}/></li>
+            )})}
           </ul>
         </div>
       }
@@ -37,9 +42,11 @@ export default ({ data }) => {
             Implemented types
           </div>
           <ul>
-            {data.implementedTypes.map(type => (
-              <li>{type.name}</li>
-            ))}
+            {data.implementedTypes.map(function(type){
+              let newData = {text: type.name}
+              return(
+                <li><SearchLink data={newData}/></li>
+            )})}
           </ul>
         </div>
       }
@@ -49,9 +56,11 @@ export default ({ data }) => {
             Implemented By
           </div>
           <ul>
-            {data.implementedBy.map(type => (
-              <li>{type.name}</li>
-            ))}
+            {data.implementedBy.map(function(type){
+              let newData = {text: type.name}
+              return(
+                <li><SearchLink data={newData}/></li>
+            )})}
           </ul>
         </div>
       }

@@ -14,7 +14,7 @@ export default ({data}) => {
       }
     `}
     render={info => (          
-        <Search searchIndex={info.siteSearchIndex.index} data={data}/>
+        <Search searchIndex={info.siteSearchIndex.index} data={data} style={{display:"inline-block"}}/>
     )}
   />
   )

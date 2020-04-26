@@ -11,7 +11,7 @@ export default ({ data }) => {
         switch(data.type){
           case "link":
             return (
-              <SearchLink data={data} style={{display:"inline-block"}}/>
+              <SearchLink data={data}/>
             )
           default:
             return (
