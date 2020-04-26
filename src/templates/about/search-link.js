@@ -44,7 +44,7 @@ class Search extends Component {
 
   render() {
     return (
-      <div style={{display:"inline"}}>
+      <div style={{display:"inline-block"}}>
           {this.state.results.slice(0,1).map(page => (
             <div className="sidecontainer">
               <Icon kindString={page.kindString}/>
