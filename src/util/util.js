@@ -16,10 +16,17 @@ const pathToExport = (module, exprt) => {
   return `${modulePath}/${exprt.name}`;
 };
 
+/**
+ * returns object with shortText, text, tags and returns of data, empty string if none available.
+ * 
+ * @param {*} data object to get comments from
+ * @returns object.shortText, object.text, object.returns, object.tags 
+ */
 function getComments(data){
   const comment = data.comment
   let shortText, text, returns
   let tags = []
+
   if(comment !== undefined && comment != null){
     shortText = comment.shortText
     text = comment.text
@@ -36,8 +43,6 @@ function getComments(data){
   if(typeof shortText !== "string") shortText = ""
   if(typeof text !== "string") text = ""
   if(typeof returns !== "string") returns = ""
-  shortText = shortText
-  text = text
   returns = parse(returns)
 
   return {
@@ -48,15 +53,32 @@ function getComments(data){
   }
 }
 
+/**
+ * Removes garbage, replaces \n with <br/>, replaces tabs with &nbsp; and parses this all to html with html-react-parser
+ * 
+ * @param {string} string 
+ * @returns parsed object
+ */
 function parse(string){
   if(typeof string !== "string") string = ""
-  return Parser(replaceLinks(jsTagToDiv(tabsToDivs(replaceNewLines(string)))))
+  return Parser(jsTagToDiv(tabsToDivs(replaceNewLines(string))))
 }
 
+/**
+ * replaces all \n with <br/>, except for the \n before < or after >
+ * 
+ * @param {string} string
+ * @returns string without \n 
+ */
 function replaceNewLines(string){
   return string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "<br/>")
 }
 
+/**
+ * changes ```javascript and ```json to <div class=jspreview><header>JS/JSON</header>code</div>
+ * @param {string} string 
+ * @returns string without ```javascript/json
+ */
 function jsTagToDiv(string){
   if(string.includes("```")){
     string = string.replace(new RegExp("```javascript", "g"), "<div class='jspreview'><header>JS</header>")
@@ -66,10 +88,21 @@ function jsTagToDiv(string){
   return string
 }
 
+/**
+ * replaces all double spaces that are not infront of a \n with &nbsp; in a class=tab-content div
+ * @param {string} string 
+ * @returns string without double spaces
+ */
 function tabsToDivs(string){
   return string.replace(/[\s]{2}(?!\n)/g, "<div class='tab-content'> &nbsp; </div>")
 }
 
+/**
+ * returns list of objects with comment, name and type of parameters
+ * 
+ * @param {*} data
+ * @returns list of object.comments, object.name, object.type 
+ */
 function getParameters(data){
   const parameters = data.parameters
   let returnParameters = []
@@ -85,32 +118,12 @@ function getParameters(data){
   return returnParameters
 }
 
-function replaceLinks(string){
-  let safety = 100
-  while(string.includes("{@link") && safety > 0){
-    const startI = string.indexOf("{@link")
-    const endI = string.indexOf("}", startI)
-    if(endI < 0) break
-    let value = string.substring(startI + 6, endI)
-    let link = ""
-    if(value.includes("\"")){
-      const startI = value.indexOf("\"") + 1
-      let endI = value.indexOf("\"", startI)
-      link = "modules/" + value.substring(startI, endI).replace(/.d/g, "")
-      if(value.charAt(endI + 1) === "."){
-        const dotI = endI + 1
-        endI = value.indexOf(" ", dotI)
-        link += "/" + value.substring(dotI + 1, endI)
-      }
-      value = value.substring(0, startI - 1) + value.substring(endI + 1)
-    }
-    const linkStr = "<a href='/" + link + "'>" + value + "</a>"
-    string = string.substring(0, startI) + linkStr + string.substring(endI + 1)
-    safety--
-  }
-  return string
-}
-
+/**
+ * Parses {@Link .. } from the rest of the test
+ * 
+ * @param {string} string
+ * @returns list of object.text, object.type, object.link where object.type == "link" || "text" 
+ */
 function getLinks(string){
   let retVals = []
   let safety = 100
@@ -156,6 +169,12 @@ function getLinks(string){
   return retVals
 }
 
+/**
+ * returns signatures
+ * 
+ * @param {} data 
+ * @returns signatures
+ */
 function getSignatures(data){
   let signatures = []
 
@@ -165,6 +184,12 @@ function getSignatures(data){
   return signatures
 }
 
+/**
+ * returns flags of object
+ * 
+ * @param {*} data 
+ * @returns list of flags
+ */
 function getFlags(data){
   const flags = data.flags
   let flagList = []
