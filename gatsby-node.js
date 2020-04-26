@@ -139,18 +139,4 @@ async function onCreateNode({
   });
 }
 
-function getLinks(string){
-  let allLinks = []
-  let safety = 100
-  while(string.includes("{@link") && safety > 0){
-    const startI = string.indexOf("{@link")
-    const endI = string.indexOf("}", startI)
-    if(endI < 0) break
-    let value = string.substring(startI + 6, endI)
-    allLinks.push(value)
-    safety--
-  }
-  return string
-}
-
 exports.onCreateNode = onCreateNode;

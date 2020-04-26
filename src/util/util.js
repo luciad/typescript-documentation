@@ -110,6 +110,46 @@ function replaceLinks(string){
   return string
 }
 
+function getLinks(string){
+  let retVals = []
+  let safety = 100
+  while(string.includes("{@link") && safety > 0){
+    const startI = string.indexOf("{@link")
+    const endI = string.indexOf("}", startI)
+    if(endI < 0) break
+    let value = string.substring(startI + 6, endI)
+    let link = ""
+    if(value.includes("\"")){
+      const startI = value.indexOf("\"") + 1
+      let endI = value.indexOf("\"", startI)
+      link = "modules/" + value.substring(startI, endI).replace(/.d/g, "")
+      if(value.charAt(endI + 1) === "."){
+        const dotI = endI + 1
+        endI = value.indexOf(" ", dotI)
+        link += "/" + value.substring(dotI + 1, endI)
+      }
+      value = value.substring(0, startI - 1) + value.substring(endI + 1)
+    }
+
+    let currentText = {
+      text: parse(string.substring(0, startI - 1)),
+      type: "text",
+    }
+
+    let currentLink = {
+      text: value,
+      type: "link",
+      link: link,
+    }
+
+    retVals.push(currentText)
+    retVals.push(currentLink)
+    string = string.substring(endI + 1)
+    safety--
+  }
+  return retVals
+}
+
 function getSignatures(data){
   let signatures = []
 
@@ -140,5 +180,6 @@ module.exports = {
   getComments,
   getParameters,
   getSignatures,
-  getFlags
+  getFlags,
+  getLinks
 };
