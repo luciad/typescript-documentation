@@ -10,7 +10,6 @@ import Icon from './icon'
  * 
  */
 export default ({ data }) => {
-  console.log(data)
   const { symbol: exprt, module } = data;
 
   return (

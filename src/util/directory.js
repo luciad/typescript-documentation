@@ -25,7 +25,6 @@ function getAllDirectories(data){
       })
     }
   }
-  console.log(directories)
   return directories
 }
 

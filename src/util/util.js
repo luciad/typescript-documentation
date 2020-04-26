@@ -28,7 +28,7 @@ function getComments(data){
       for(let tag of comment.tags){
         tags.push({
           tag: tag.tag,
-          text: Parser(tag.text)
+          text: tag.text
         })
       }
     }
@@ -36,8 +36,8 @@ function getComments(data){
   if(typeof shortText !== "string") shortText = ""
   if(typeof text !== "string") text = ""
   if(typeof returns !== "string") returns = ""
-  shortText = parse(shortText)
-  text = parse(text)
+  shortText = shortText
+  text = text
   returns = parse(returns)
 
   return {
@@ -49,6 +49,7 @@ function getComments(data){
 }
 
 function parse(string){
+  if(typeof string !== "string") string = ""
   return Parser(replaceLinks(jsTagToDiv(tabsToDivs(replaceNewLines(string)))))
 }
 
@@ -128,11 +129,11 @@ function getLinks(string){
         endI = value.indexOf(" ", dotI)
         link += "/" + value.substring(dotI + 1, endI)
       }
-      value = value.substring(0, startI - 1) + value.substring(endI + 1)
+      value = value.substring(0, startI) + value.substring(endI + 1)
     }
 
     let currentText = {
-      text: parse(string.substring(0, startI - 1)),
+      text: parse(string.substring(0, startI)),
       type: "text",
     }
 
@@ -147,6 +148,11 @@ function getLinks(string){
     string = string.substring(endI + 1)
     safety--
   }
+  let lastText = {
+    text: parse(string),
+    type: "text",
+  }
+  retVals.push(lastText)
   return retVals
 }
 

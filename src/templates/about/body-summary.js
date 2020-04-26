@@ -4,6 +4,7 @@ import ChildrenSummary from "./children-summary"
 import Flags from "./flags"
 import Signatures from "./signatures"
 import Links from "./links"
+import Text from "./text"
 
 export default ({ data }) => {
   const comments = getComments(data)
@@ -21,10 +22,10 @@ export default ({ data }) => {
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
         <div className="subtitle">About</div>}
       <div className="shortText">
-        {comments.shortText}
+        <Text data={comments.shortText}/>
       </div>
       
-        {comments.text}
+        <Text data={comments.text}/>
       
         {comments.tags.length !== 0 && 
           <div className="subsubtitle">Tags</div>}

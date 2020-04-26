@@ -15,7 +15,6 @@ export default ({ data }) => {
   let exportIds = []
   if(exports !== undefined && exports !== null){
     for(let exprt of exports){
-      console.log(exprt)
       exportIds.push(exprt.id)
     }
   }
