@@ -1,5 +1,6 @@
 import React from "react"
 import { getParameters } from "../../util/util"
+import Text from "./text"
 
 export default ({ data }) => {
   const parameters = getParameters(data)
@@ -12,10 +13,10 @@ export default ({ data }) => {
             <li>
             <b>{parameter.name}</b>:<i>{parameter.type}</i>
               <div className="shortText">
-                {parameter.comments.shortText}
+              <Text data={parameter.comments.shortText}/>
               </div>
               <p>
-              {parameter.comments.text}
+              <Text data={parameter.comments.text}/>
               </p>
             </li>
           ))}

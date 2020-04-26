@@ -31,7 +31,7 @@ export default ({ data }) => {
           <div className="subsubtitle">Tags</div>}
       <ul>
         {comments.tags.map(tag => (
-          <li>{tag.tag}:{tag.text}</li>
+          <li>{tag.tag}:<Text data={tag.text}/></li>
         ))}
       </ul>
       <Signatures data={data}/>

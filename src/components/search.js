@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import { Index } from "elasticlunr"
 import { Link } from "gatsby"
+import Icon from "../templates/icon"
 
 // Search component
 export default class Search extends Component {
@@ -17,10 +18,12 @@ export default class Search extends Component {
       <div  className="search" placeholder="search">
         <input type="text" value={this.state.query} onChange={this.search} />
         <ul>
-          {this.state.results.map(page => (
+          {this.state.results.splice(0,100).map(page => (
             <li key={page.id}>
-              <Link to={"/" + page.path}>{page.name}</Link>
-              ({page.kindString})
+              <div className="sidecontainer">
+                <Icon kindString={page.kindString}/>
+                <Link to={"/" + page.path}>{page.name}</Link>
+              </div>
                {/* {JSON.parse(page.comment) && JSON.parse(page.comment).shortText} */}
             </li>
           ))}

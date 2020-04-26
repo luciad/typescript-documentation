@@ -1,6 +1,7 @@
 import React, { Component } from "react";
 import { Link, StaticQuery } from "gatsby"
 import { Index } from "elasticlunr"
+import Icon from "../icon"
 
 export default ({data}) => {
   return (
@@ -43,14 +44,14 @@ class Search extends Component {
 
   render() {
     return (
-      <>
+      <div style={{display:"inline"}}>
           {this.state.results.slice(0,1).map(page => (
-            <>
+            <div className="sidecontainer">
+              <Icon kindString={page.kindString}/>
               <Link to={"/" + page.path}>{page.name}</Link>
-              ({page.kindString})
-            </>
+            </div>
           ))}
-      </>
+      </div>
     )
   }
   getOrCreateIndex = () =>
@@ -58,17 +59,4 @@ class Search extends Component {
       ? this.index
       : // Create an elastic lunr index and hydrate with graphql query results
         Index.load(this.props.searchIndex)
-
-  search = () => {
-    const query = this.data.text
-    this.index = this.getOrCreateIndex()
-    this.setState({
-      query,
-      // Query the index with search string to get an [] of IDs
-      results: this.index
-        .search(query, { expand: true })
-        // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
-    })
-  }
 }
