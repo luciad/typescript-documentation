@@ -14,11 +14,11 @@ export default () => {
     `}
     render={data => (          
       <div className="topbar">
-        <a href="url">Module</a>
+        <a href="/">Module</a>
         <a>|</a>
-        <a href="url">Class</a>
+        <a href="/">Class</a>
         <a>|</a>
-        <a href="url">Use</a>
+        <a href="/">Use</a>
         {/* <input type="text" placeholder="search"/>   */}
         <Search searchIndex={data.siteSearchIndex.index} />
       </div>
