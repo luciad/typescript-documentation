@@ -4,35 +4,38 @@ import Parameters from "./parameters"
 import Text from "./text"
 
 /**
- * One signature item
+ * Single signature item
+ * 
+ * Contains:
+ * - name
+ * - type name & kindString
+ * - returns
+ * - shortText
+ * - text
+ * - parameters
  */
 export default ({ data }) => {
-  const signature = data
-  const comments = getComments(signature)
+  const comments = getComments(data)
   
   return (
     <div className="signature">
-        <div className="title">{signature.name}</div>
-        <div style={{marginLeft: "0.5em"}}>
-
-          <div className="sidecontainer">
-            <div className="kindString">
-            {signature.type.name !== null &&
-              <>({signature.type.name}) &nbsp;</>}
-               {signature.kindString}
-              </div>
-          </div>
+      <div className="title">
+        {data.name}
+      </div>
+      <div style={{marginLeft: "0.5em"}}>
+        <div className="sidecontainer kindString">
+          {data.type.name !== null &&
+            <>({data.type.name}) &nbsp;</>}
+              {data.kindString}
+        </div>
         <div>
-        {comments.returns.length > 0 && 
-          <div className="returns"><b>returns</b> {comments.returns}</div>}
-          <div className="shortText">
+          {comments.returns.length > 0 && 
+            <div className="returns"><b>returns</b> {comments.returns}</div>}
           <Text data={comments.shortText}/>
-            <Text data={comments.text}/>
-          </div>
+          <Text data={comments.text}/>
           <Parameters data={data}/>
         </div>
       </div>
-
     </div>
   )
 }

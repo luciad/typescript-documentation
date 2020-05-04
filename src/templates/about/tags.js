@@ -1,6 +1,12 @@
 import React from "react"
 import Text from "./text"
 
+/**
+ * Generates list of tags
+ * 
+ * Contains:
+ * - List of tag.tag and tag.text
+ */
 export default ({ tags }) => {
   return (
     <div>

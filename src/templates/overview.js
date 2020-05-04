@@ -7,6 +7,9 @@ import Icon from "./icon"
 
 /**
  * List of all top-level modules
+ * 
+ * Contains:
+ * - List of links to all modules and their kindString icons
  */
 export default ({ data }) => {
   const modules = data.allModule.edges.map(edge => edge.node);
@@ -17,10 +20,10 @@ export default ({ data }) => {
       <ul>
         {modules.map(module => (
           <li>
-          <div className="sidecontainer">
-            <Icon kindString={module.kindString}/>
-            <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
-          </div>
+            <div className="sidecontainer">
+              <Icon kindString={module.kindString}/>
+              <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
+            </div>
           </li>
         ))}
       </ul>

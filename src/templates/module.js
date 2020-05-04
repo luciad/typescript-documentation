@@ -7,6 +7,12 @@ import Icon from "./icon"
 
 /**
  * Highest level modules
+ * 
+ * Contains:
+ * - module name
+ * - kindsString & its icon
+ * - summary of its body (see body-summary.js)
+ * 
  */
 export default ({ data }) => {
   const module = data.module;

@@ -1,7 +1,7 @@
 import React from "react";
 
 /**
- * returns div containing icon of given kindString
+ * returns div containing icon of given kindString or (kindString) if there is no icon specified
  */
 export default ({ kindString }) => {
 

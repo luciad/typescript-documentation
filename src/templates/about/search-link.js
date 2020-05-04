@@ -7,8 +7,13 @@ import { getMostSimilarPage } from "../../util/directory"
 /**
  * Used for getting a link from a name from
  * (eg. for a function)
+ * Contains:
+ * - Link to most similar page and the icon of its kindString
  */
 export default ({data}) => {
+  /**
+   * Query to get the searchIndex
+   */
   return (
     <StaticQuery
     query={graphql`
@@ -25,8 +30,15 @@ export default ({data}) => {
   )
 }
 
-// Search component
+/**
+ * Class to analyse data from query
+ */
 class Search extends Component {
+
+  /**
+   * Initializes class and executes query
+   * @param {*} props: props.data; props.data.text
+   */
   constructor(props) {
     super(props)
     this.data = props.data
@@ -34,19 +46,23 @@ class Search extends Component {
       query: ``,
       results: [],
     }
-    
+  
+  //  Word to search for
   const query = this.data.text
+
   this.index = this.getOrCreateIndex()
   this.state = {
     query,
-    // Query the index with search string to get an [] of IDs
-    results: this.index
-      .search(query, { expand: true })
-      // Map over each ID and return the full document
+    results: this.index.search(query, { expand: false })
       .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     }
   }
 
+  /**
+   * Rended the result
+   * Contains:
+   * - Link to most similar page and the icon of its kindString
+   */
   render() {
     let page = getMostSimilarPage(this.state.results, "") //TODO: how to get dir?
     if(!page) return (<div></div>)
@@ -59,9 +75,8 @@ class Search extends Component {
       </div>
     )
   }
-  getOrCreateIndex = () =>
-    this.index
-      ? this.index
-      : // Create an elastic lunr index and hydrate with graphql query results
-        Index.load(this.props.searchIndex)
+  
+  // Create an elastic lunr index and hydrate with graphql query results
+  getOrCreateIndex = () => this.index ? this.index
+      : Index.load(this.props.searchIndex)
 }

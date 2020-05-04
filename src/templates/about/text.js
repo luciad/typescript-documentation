@@ -2,7 +2,13 @@ import React from "react"
 import { getLinks } from "../../util/util"
 import SearchLink from "./search-link"
 
-
+/**
+ * Parses text for @links and HTML
+ * 
+ * Contains:
+ * - text
+ * - searched links (see search-link.js)
+ */
 export default ({ data }) => {
   const parsedData = getLinks(data)
   return (
@@ -20,5 +26,5 @@ export default ({ data }) => {
         }
       })}
     </div>
-  );
-};
+  )
+}

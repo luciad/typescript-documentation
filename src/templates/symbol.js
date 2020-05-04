@@ -8,6 +8,12 @@ import Icon from './icon'
 /**
  * Items inside of modules
  * 
+ * Contains:
+ * - Link to module
+ * - Link to parent
+ * - Name
+ * - kindString & its icon
+ * - its body (see body.js)
  */
 export default ({ data }) => {
   const { symbol: exprt, module } = data;
@@ -21,14 +27,13 @@ export default ({ data }) => {
       <Link to={exprt.fields.parentPath}>{exprt.fields.parentPath.replace("/modules/","")}</Link>       
       <div className="title">{exprt.name}</div>
       <div className="sidecontainer">
-          <Icon kindString={exprt.kindString}/>
-          <div className="kindString">
-            {exprt.kindString}
-          </div>
+        <Icon kindString={exprt.kindString}/>
+        <div className="kindString">
+          {exprt.kindString}
         </div>
+      </div>
       <Body data={exprt}/>
     </Layout>
-    
   );
 };
 

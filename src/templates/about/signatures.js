@@ -4,6 +4,9 @@ import Signature from "./signature"
 
 /**
  * generates list of signatures
+ * 
+ * Contains:
+ * - List of signatures (see signature.js)
  */
 export default ({ data }) => {
   const signatures = getSignatures(data)
