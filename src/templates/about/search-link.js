@@ -44,6 +44,7 @@ class Search extends Component {
 
   render() {
     let page = getMostSimilarPage(this.state.results, "") //TODO: how to get dir?
+    if(!page) return (<div></div>)
     return (
       <div style={{display:"inline-block"}}>
             <div className="sidecontainer">

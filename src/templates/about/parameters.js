@@ -2,6 +2,11 @@ import React from "react"
 import { getParameters } from "../../util/util"
 import Text from "./text"
 
+/**
+ * Parameters of an object
+ * Contains:
+ * - List of parameters with their name, type, shortText and text
+ */
 export default ({ data }) => {
   const parameters = getParameters(data)
   return (
@@ -11,13 +16,9 @@ export default ({ data }) => {
         <ul style={{paddingLeft: "1em"}}>
           {parameters.map(parameter => (
             <li>
-            <b>{parameter.name}</b>:<i>{parameter.type}</i>
-              <div className="shortText">
+              <b>{parameter.name}</b>:<i>{parameter.type}</i>
               <Text data={parameter.comments.shortText}/>
-              </div>
-              <p>
               <Text data={parameter.comments.text}/>
-              </p>
             </li>
           ))}
         </ul>

@@ -2,6 +2,12 @@ import React from "react";
 import BodySummary from "./body-summary"
 import Leaf from "./leaf"
 
+/**
+ * Full body of an object
+ * Contains:
+ * - body summary (see body-summary.js)
+ * - leaf of each child (see leaf.js)
+ */
 export default ({ data }) => {
   
   let children = data.childrenSymbol

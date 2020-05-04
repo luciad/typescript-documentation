@@ -2,6 +2,11 @@ import React from "react"
 import { getFlags } from "../../util/util"
 import Icon from "../icon"
 
+/**
+ * Flags of an item
+ * Contains:
+ * - List of flagIcons and flags
+ */
 export default ({ data }) => {
   const flagList = getFlags(data)  
   return (

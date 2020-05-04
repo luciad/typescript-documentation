@@ -4,9 +4,17 @@ import SearchLink from "./search-link"
 
 /**
  * extends, implements, ~by,...
+ * Contains:
+ * - List of Extended types
+ * - List of Extended by
+ * - List of Implemented types
+ * - List of Implemented by
+ * - List of Implementation of
+ * - List of Inherited from
+ * 
  */
 export default ({ data }) => {
-  return (
+  return ( //TODO: clean up
     <div>
       {!(data.extendedTypes === undefined || data.extendedTypes === null) &&
         <div>
@@ -87,18 +95,3 @@ export default ({ data }) => {
     </div>
   );
 };
-
-
-export const query = graphql`
-query linkQuery {
-  allModule(filter: {children: {elemMatch: {id: {eq : "2452"}}}}) {
-    edges {
-      node {
-        name
-        kindString
-        
-      }
-    }
-  }
-}
-`
