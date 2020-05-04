@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import { Link, StaticQuery } from "gatsby"
 import { Index } from "elasticlunr"
 import Icon from "../icon"
-
+import { getMostSimilarPage } from "../../util/directory"
 export default ({data}) => {
   return (
     <StaticQuery
@@ -43,14 +43,13 @@ class Search extends Component {
   }
 
   render() {
+    let page = getMostSimilarPage(this.state.results, "") //TODO: how to get dir?
     return (
       <div style={{display:"inline-block"}}>
-          {this.state.results.slice(0,1).map(page => (
             <div className="sidecontainer">
               <Icon kindString={page.kindString}/>
               <Link to={"/" + page.path}>{page.name}</Link>
             </div>
-          ))}
       </div>
     )
   }
