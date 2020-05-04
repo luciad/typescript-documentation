@@ -3,6 +3,11 @@ import { Link, StaticQuery } from "gatsby"
 import { Index } from "elasticlunr"
 import Icon from "../icon"
 import { getMostSimilarPage } from "../../util/directory"
+
+/**
+ * Used for getting a link from a name from
+ * (eg. for a function)
+ */
 export default ({data}) => {
   return (
     <StaticQuery

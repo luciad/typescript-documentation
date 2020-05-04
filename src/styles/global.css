@@ -118,6 +118,7 @@ code {
 }
 
 .search li {
+  position: relative;
   background-color: white;
   border: thin solid lightgray;
   padding: 0.4em;
