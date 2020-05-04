@@ -1,5 +1,4 @@
 import React from "react"
-import { graphql } from "gatsby";
 import SearchLink from "./search-link"
 
 /**

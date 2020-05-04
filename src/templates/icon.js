@@ -65,7 +65,7 @@ export default ({ kindString }) => {
   }
   return (
     <div className="icon">
-      <img src={imgSrc} title={kindString}/>
+      <img src={imgSrc} title={kindString} alt=""/>
       </div>
   )
 };

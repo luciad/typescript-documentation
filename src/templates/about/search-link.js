@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { Link, StaticQuery } from "gatsby"
+import { Link, StaticQuery, graphql } from "gatsby"
 import { Index } from "elasticlunr"
 import Icon from "../icon"
 import { getMostSimilarPage } from "../../util/directory"
