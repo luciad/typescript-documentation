@@ -1,4 +1,16 @@
-
+/**
+ * Returns structured tree of all directories
+ * each node has:
+ *  node.name
+ *  node.next
+ *  node.path
+ * Start node has:
+ *  node.name = "root"
+ *  node.path = "/"
+ * 
+ * @param {} data data.allModules.nodes
+ * @returns directoryTree
+ */
 function getAllDirectories(data){
   let directories = { 
     name: "root",
@@ -28,6 +40,14 @@ function getAllDirectories(data){
   return directories
 }
 
+/**
+ * Returns similarity between two directories
+ * 
+ * @param {string} dir1 
+ * @param {string} dir2 
+ * 
+ * @returns {number} similarity (higher is more similar)
+ */
 function similarity(dir1, dir2){
   let similarity = 0;
   for(let i = 0; i < Math.min(dir1.length, dir2.length); i++){
@@ -37,8 +57,17 @@ function similarity(dir1, dir2){
       break;
     }
   }
+  return similarity
 }
 
+/**
+ * Returns page where its path is most similar to the provided dir
+ * 
+ * @param {array} pageObjects 
+ * @param {string} dir
+ * 
+ * @returns {object} pageObject 
+ */
 function getMostSimilarPage(pageObjects, dir){
   if(!(pageObjects.length > 0)) return null
   if(typeof dir !== "string") dir = ""
@@ -55,7 +84,6 @@ function getMostSimilarPage(pageObjects, dir){
       }
     }
   }
-  
   return mostSimilarPage
 }
 
