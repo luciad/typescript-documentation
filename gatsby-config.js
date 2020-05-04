@@ -22,6 +22,7 @@ module.exports = {
     "gatsby-plugin-smoothscroll",
     "html-react-parser",
     "react-use-flexsearch",
+    "gatsby-plugin-react-helmet",
     {
       resolve: 'gatsby-plugin-local-search',
       options: {

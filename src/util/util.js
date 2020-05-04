@@ -81,9 +81,9 @@ function replaceNewLines(string){
  */
 function jsTagToDiv(string){
   if(string.includes("```")){
-    string = string.replace(new RegExp("```javascript", "g"), "<div class='jspreview'><header>JS</header>")
-    string = string.replace(new RegExp("```json", "g"), "<div class='jspreview'><header>JSON</header>")
-    string = string.replace(new RegExp("```", "g"), "</div>")
+    string = string.replace(new RegExp("```javascript", "g"), "<pre><code class='language-javascript'>")
+    string = string.replace(new RegExp("```json", "g"), "<pre><code class='language-json'>")
+    string = string.replace(new RegExp("```", "g"), "</code></pre>")
   }
   return string
 }

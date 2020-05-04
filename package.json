@@ -18,7 +18,7 @@
     "gatsby": "^2.20.12",
     "gatsby-plugin-local-search": "^1.1.1",
     "gatsby-plugin-manifest": "^2.3.3",
-    "gatsby-plugin-react-helmet": "^3.2.1",
+    "gatsby-plugin-react-helmet": "^3.3.0",
     "gatsby-plugin-sharp": "^2.5.4",
     "gatsby-plugin-smoothscroll": "^1.1.0",
     "gatsby-source-filesystem": "^2.2.2",

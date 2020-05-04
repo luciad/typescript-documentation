@@ -26,7 +26,7 @@ ul {
   padding-left: 2em;
 }
 
-.jspreview,
+/* .jspreview,
 code {
   color: black;
   font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
@@ -44,7 +44,7 @@ code {
   padding-left: 0.5em;
   padding-top: 0.5em;
   width: fit-content;
-}
+} */
 /* The sidebar menu */
 .rightsidenav,
 .leftsidenav {
