@@ -29,7 +29,7 @@ export default ({ data }) => {
         {children.map(child => {
           if(exportIds.includes(child.id))
             return (
-              <li onClick={() => scrollTo("#id" + child.id)}>
+              <li className="clickable" onClick={() => scrollTo("#id" + child.id)}>
                 <div className="sidecontainer">
                 <Icon kindString={child.kindString}/>
                 <Link to={pathToExport(data, child)}>{child.name}</Link>
@@ -37,7 +37,7 @@ export default ({ data }) => {
               </li>
             )
             return (
-              <li onClick={() => scrollTo("#id" + child.id)}>
+              <li className="clickable" onClick={() => scrollTo("#id" + child.id)}>
               <div className="sidecontainer">
               <Icon kindString={child.kindString}/>
                 {child.name}

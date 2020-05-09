@@ -226,3 +226,7 @@ p {
 .title a {
   color: darkblue;
 }
+
+.clickable {
+  cursor: pointer;
+}

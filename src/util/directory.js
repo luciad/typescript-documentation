@@ -71,6 +71,7 @@ function similarity(dir1, dir2){
 function getMostSimilarPage(pageObjects, dir){
   if(!(pageObjects.length > 0)) return null
   if(typeof dir !== "string") dir = ""
+  dir = dir.replace("/modules/", "")
 
   let maxSimilarity = 0
   let mostSimilarPage = pageObjects[0]
