@@ -27,6 +27,11 @@ export default ({ data }) => {
   
   let children = data.childrenSymbol
   if(children === undefined || children === null) children = []
+  let path = ""
+  if (data.fields){
+    path = data.fields.path;
+  }
+  
   return (
     <div>
       <br/>
@@ -39,11 +44,11 @@ export default ({ data }) => {
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
         <div className="subtitle">About</div>}
 
-      <Text data={comments.shortText}/>
-      <Text data={comments.text}/>
+      <Text data={comments.shortText} path={path}/>
+      <Text data={comments.text} path={path}/>
       
       <Tags tags={comments.tags}/>
-      <Signatures data={data}/>
+      <Signatures data={data} path={path}/>
       <Flags data={data}/>
       <ChildrenSummary data={data}/>
     </div>

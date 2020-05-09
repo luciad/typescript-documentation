@@ -14,9 +14,8 @@ import Text from "./text"
  * - text
  * - parameters
  */
-export default ({ data }) => {
+export default ({ data, path}) => {
   const comments = getComments(data)
-  
   return (
     <div className="signature">
       <div className="title">
@@ -31,9 +30,9 @@ export default ({ data }) => {
         <div>
           {comments.returns.length > 0 && 
             <div className="returns"><b>returns</b> {comments.returns}</div>}
-          <Text data={comments.shortText}/>
-          <Text data={comments.text}/>
-          <Parameters data={data}/>
+          <Text data={comments.shortText} path={path}/>
+          <Text data={comments.text} path={path}/>
+          <Parameters data={data} path={path}/>
         </div>
       </div>
     </div>

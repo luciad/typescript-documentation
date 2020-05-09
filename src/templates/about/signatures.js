@@ -8,9 +8,8 @@ import Signature from "./signature"
  * Contains:
  * - List of signatures (see signature.js)
  */
-export default ({ data }) => {
+export default ({ data, path}) => {
   const signatures = getSignatures(data)
-  
   return (
     <div>
      {signatures.length !== 0 && 
@@ -18,7 +17,7 @@ export default ({ data }) => {
       <ul className="signaturelist">
         {signatures.map(signature => (
           <li>
-            <Signature data={signature}/>
+            <Signature data={signature} path={path}/>
           </li>
         ))}
       </ul>

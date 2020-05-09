@@ -9,13 +9,14 @@ import SearchLink from "./search-link"
  * - text
  * - searched links (see search-link.js)
  */
-export default ({ data }) => {
+export default ({ data, path }) => {
   const parsedData = getLinks(data)
   return (
     <div>
       {parsedData.map(function(data){
         switch(data.type){
           case "link":
+            data.searchPath = path
             return (
               <SearchLink data={data}/>
             )

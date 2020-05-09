@@ -42,6 +42,7 @@ class Search extends Component {
   constructor(props) {
     super(props)
     this.data = props.data
+    this.srcPath = props.data.searchPath
     this.state = {
       query: ``,
       results: [],
@@ -64,7 +65,11 @@ class Search extends Component {
    * - Link to most similar page and the icon of its kindString
    */
   render() {
-    let page = getMostSimilarPage(this.state.results, "") //TODO: how to get dir?
+    let path = ""
+    if(this.srcPath){
+      path = this.srcPath
+    }
+    let page = getMostSimilarPage(this.state.results, path)
     if(!page) return (<div></div>)
     return (
       <div style={{display:"inline-block"}}>

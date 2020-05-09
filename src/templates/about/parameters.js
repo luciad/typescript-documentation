@@ -7,7 +7,7 @@ import Text from "./text"
  * Contains:
  * - List of parameters with their name, type, shortText and text
  */
-export default ({ data }) => {
+export default ({ data, path }) => {
   const parameters = getParameters(data)
   return (
     <div>
@@ -17,8 +17,8 @@ export default ({ data }) => {
           {parameters.map(parameter => (
             <li>
               <b>{parameter.name}</b>:<i>{parameter.type}</i>
-              <Text data={parameter.comments.shortText}/>
-              <Text data={parameter.comments.text}/>
+              <Text data={parameter.comments.shortText} path={path}/>
+              <Text data={parameter.comments.text} path={path}/>
             </li>
           ))}
         </ul>
