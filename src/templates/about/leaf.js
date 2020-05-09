@@ -12,7 +12,7 @@ import { Link } from "gatsby"
  */
 export default ({ data }) => {
   return (
-    <div className="function" id={"id" + data.id}>
+    <div className="functionBox" id={"id" + data.id}>
       <div className="title"><Link to={data.fields.path}>{data.name}</Link></div>
       <div className="sidecontainer">
         <Icon kindString={data.kindString}/> 

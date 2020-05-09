@@ -155,7 +155,7 @@ code {
   list-style-type: none;
 }
 
-.function {
+.functionBox {
   border: thin solid var(--border-color);
   margin: 1em;
   margin-left: 0;

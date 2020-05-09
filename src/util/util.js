@@ -71,7 +71,7 @@ function parse(string){
  * @returns string without \n 
  */
 function replaceNewLines(string){
-  return string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "<br/>")
+  return string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "__newline__<br/>").replace(/__newline__/g, "\n")
 }
 
 /**
