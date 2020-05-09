@@ -15,6 +15,8 @@
   },
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.3.0",
+    "babel-plugin-prismjs": "^2.0.1",
+    "babel-preset-gatsby": "^0.4.1",
     "gatsby": "^2.20.12",
     "gatsby-plugin-local-search": "^1.1.1",
     "gatsby-plugin-manifest": "^2.3.3",
@@ -24,6 +26,7 @@
     "gatsby-source-filesystem": "^2.2.2",
     "gatsby-transformer-json": "^2.3.1",
     "html-react-parser": "^0.10.3",
+    "prismjs": "^1.20.0",
     "react": "^16.12.0",
     "react-dom": "^16.12.0",
     "react-helmet": "^5.2.1",

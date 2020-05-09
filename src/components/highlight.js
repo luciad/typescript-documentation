@@ -1,12 +1,13 @@
 import React from 'react'
-import Helmet from 'react-helmet'
+import { Helmet } from 'react-helmet'
+import Prism from 'prismjs'
+import { useEffect } from "react"
 
 export default () => {
-  return (
-    <Helmet>
-     <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/styles/default.min.css"/>
-      <script src="//cdnjs.cloudflare.com/ajax/libs/highlight.js/10.0.0/highlight.min.js"></script>
-      <script>hljs.initHighlightingOnLoad();</script>
-    </Helmet>
-  )
+  
+  useEffect(() => {
+    // call the highlightAll() function to style our code blocks
+    Prism.highlightAll()
+  })
+  return null;
 }
