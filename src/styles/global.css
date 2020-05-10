@@ -243,11 +243,21 @@ p {
   padding: 10px;
 }
 
+.signatureBody {
+  padding-left: 1em;
+}
+
 .flags ul {
   padding-left: 0;
 }
 
 .links li {
   display: inline-block;
+  margin: 0.5em;
+}
+
+.childrenSummary li {
+  display: inline-block;
+  min-width: 25%;
   margin: 0.5em;
 }

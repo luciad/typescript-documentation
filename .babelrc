@@ -2,7 +2,7 @@
   "presets": ["babel-preset-gatsby"],
   "plugins": [
     ["prismjs", {
-      "languages": ["javascript", "json"],
+      "languages": ["javascript", "json", "css"],
       "plugins": ["line-numbers", "show-language"],
       "theme": "tomorrow", //dark themes: okaidia, tomorrow, twilight, dark ;light themes: coy 
       "css": true

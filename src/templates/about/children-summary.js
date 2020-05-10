@@ -22,7 +22,7 @@ export default ({ data }) => {
   }
 
   return (
-    <div>
+    <div className="childrenSummary">
       {children.size !== 0 && 
         <div className="subsubtitle">Children</div>}
       <ul>

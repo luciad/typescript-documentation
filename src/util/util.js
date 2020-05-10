@@ -83,6 +83,7 @@ function jsTagToDiv(string){
   if(string.includes("```")){
     string = string.replace(new RegExp("```javascript", "g"), "<pre><code class='language-javascript'>")
     string = string.replace(new RegExp("```json", "g"), "<pre><code class='language-json'>")
+    string = string.replace(new RegExp("```css", "g"), "<pre><code class='language-css'>")
     string = string.replace(new RegExp("```", "g"), "</code></pre>")
   }
   return string
