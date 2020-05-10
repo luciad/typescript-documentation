@@ -24,7 +24,9 @@ export default class Search extends Component {
                 <Icon kindString={page.kindString}/>
                 <Link to={"/" + page.path}>{page.name}</Link>
               </div>
-               {/* {JSON.parse(page.comment) && JSON.parse(page.comment).shortText} */}
+              <div style={{wordBreak:"break-all"}}>
+                {page.path.replace("/modules/", "")}
+              </div>
             </li>
           ))}
         </ul>

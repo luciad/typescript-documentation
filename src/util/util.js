@@ -166,7 +166,6 @@ function getLinks(string){
     }
     retVals.push(lastText)
   }
-  console.log(retVals)
   return retVals
 }
 

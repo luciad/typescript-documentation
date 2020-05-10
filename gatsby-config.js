@@ -59,7 +59,7 @@ module.exports = {
         }        
         `,
         ref: 'id',
-        index: ['name', 'kindString'],
+        index: ['name', 'kindString', 'path'],
         store: ['id', 'path', 'name'],
 
         normalizer: ({ data }) =>
