@@ -28,11 +28,11 @@ export default ({ data, path}) => {
               {data.kindString}
         </div>
         <div>
+          <Parameters data={data} path={path}/>
           {comments.returns.length > 0 && 
             <div className="returns"><b>returns</b> {comments.returns}</div>}
           <Text data={comments.shortText} path={path}/>
           <Text data={comments.text} path={path}/>
-          <Parameters data={data} path={path}/>
         </div>
       </div>
     </div>
