@@ -10,7 +10,7 @@ import Icon from "../icon"
 export default ({ data }) => {
   const flagList = getFlags(data)  
   return (
-    <div>
+    <div className="flags">
       <ul>
         {flagList.map(flag => (
           <li>

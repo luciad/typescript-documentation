@@ -14,7 +14,7 @@ import SearchLink from "./search-link"
  */
 export default ({ data }) => {
   return ( //TODO: clean up
-    <div>
+    <div className="links">
       {!(data.extendedTypes === undefined || data.extendedTypes === null) &&
         <div>
           <div className="subsubtitle">

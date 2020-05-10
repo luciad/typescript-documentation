@@ -34,11 +34,11 @@ export default ({ data }) => {
   
   return (
     <div>
-      <br/>
       {comments.returns.length > 0 && 
         <div>returns {comments.returns}</div>}
       {(data.defaultValue !== null && data.defaultValue !== undefined) &&
         <div>Default value: {data.defaultValue}</div>}
+      <Flags data={data}/>
       <Links data={data}/>
       
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
@@ -49,7 +49,6 @@ export default ({ data }) => {
       
       <Tags tags={comments.tags}/>
       <Signatures data={data} path={path}/>
-      <Flags data={data}/>
       <ChildrenSummary data={data}/>
     </div>
   );

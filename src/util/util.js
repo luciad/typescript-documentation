@@ -133,16 +133,12 @@ function getLinks(string){
     if(endI < 0) break
     let value = string.substring(startI + 6, endI)
     let link = ""
+    let path
     if(value.includes("\"")){
       const startI = value.indexOf("\"") + 1
       let endI = value.indexOf("\"", startI)
-      link = "modules/" + value.substring(startI, endI).replace(/.d/g, "")
-      if(value.charAt(endI + 1) === "."){
-        const dotI = endI + 1
-        endI = value.indexOf(" ", dotI)
-        link += "/" + value.substring(dotI + 1, endI)
-      }
-      value = value.substring(0, startI) + value.substring(endI + 1)
+      path = value.substring(startI, endI)
+      value = value.substring(0, startI - 1) + value.substring(endI + 1)
     }
 
     let currentText = {
@@ -153,7 +149,8 @@ function getLinks(string){
     let currentLink = {
       text: value,
       type: "link",
-      link: link,
+      link,
+      path,
     }
 
     retVals.push(currentText)
@@ -161,11 +158,14 @@ function getLinks(string){
     string = string.substring(endI + 1)
     safety--
   }
-  let lastText = {
-    text: parse(string),
-    type: "text",
+  if(string.length > 0){
+    let lastText = {
+      text: parse(string),
+      type: "text",
+    }
+    retVals.push(lastText)
   }
-  retVals.push(lastText)
+  console.log(retVals)
   return retVals
 }
 

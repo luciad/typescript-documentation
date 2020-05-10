@@ -230,3 +230,24 @@ p {
 .clickable {
   cursor: pointer;
 }
+
+.textblock {
+  background: rgba(0,0,0,0.02);
+  padding: 10px;
+  border: solid thin rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+.signatures {
+  border: solid thin rgba(0,0,0,0.1);
+  padding: 10px;
+}
+
+.flags ul {
+  padding-left: 0;
+}
+
+.links li {
+  display: inline-block;
+  margin: 0.5em;
+}

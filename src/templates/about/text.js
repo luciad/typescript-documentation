@@ -11,8 +11,11 @@ import SearchLink from "./search-link"
  */
 export default ({ data, path }) => {
   const parsedData = getLinks(data)
+  if(parsedData.length === 0){
+    return null;
+  }
   return (
-    <div>
+    <div class="textblock">
       {parsedData.map(function(data){
         switch(data.type){
           case "link":
