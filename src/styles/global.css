@@ -26,25 +26,6 @@ ul {
   padding-left: 2em;
 }
 
-/* .jspreview,
-code {
-  color: black;
-  font-family: 'Droid Sans Mono', 'monospace', monospace, 'Droid Sans Fallback';
-}
-
-.jspreview {
-  background-color: lightgrey;
-  color:midnightblue;
-  margin: 1em;
-}
-
-.jspreview header {
-  background-color: yellow;
-  color: black;
-  padding-left: 0.5em;
-  padding-top: 0.5em;
-  width: fit-content;
-} */
 /* The sidebar menu */
 .rightsidenav,
 .leftsidenav {
@@ -106,6 +87,7 @@ code {
   margin-bottom: 0.4em;
   margin-top: auto;
   margin-left: auto;
+  z-index: 100;
 }
 
 .search input {
@@ -117,12 +99,18 @@ code {
   padding-right: 15px;
 }
 
-.search li {
-  position: relative;
+.search ul {
   background-color: white;
   border: thin solid lightgray;
-  padding: 0.4em;
-  z-index: 100;
+  max-height: 70vh;
+  overflow-y: scroll;
+  width: fit-content;
+  padding: 0;
+}
+.search li {
+  position: relative;
+  border: thin solid lightgray;
+  padding: 0.4em 1em 0.4em 1em;
 }
 
 /* Style page content */
