@@ -12,10 +12,13 @@ export default () => {
         }
       }
     `}
-    render={data => (          
-      <div className="topbar">
-        <Search searchIndex={data.siteSearchIndex.index}/>
-      </div>
+    render={data => (
+      <>
+        <div className="topbar">
+          <Search searchIndex={data.siteSearchIndex.index}/>
+        </div>
+        <div className="topbarspace"></div>          
+      </>
     )}
   />
   )

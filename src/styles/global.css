@@ -68,26 +68,28 @@ ul {
   white-space: nowrap;
 }
 
+.topbarspace {
+height: 4em;
+}
+
 .topbar{
   display: flex;
   margin: 1em;
-  padding: 0.5em;
-  background-color: var(--card-color);
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
-}
-.topbar a {
-  padding: 0.5em;
+  margin-left: 35%;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  width: 25%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  position: fixed;
+  z-index: 100;
+  border-radius: 0.5em;
 }
 
 .search{
   font-size: 110%;
-  width: 25em;
   height: 1.2em;
-  margin-right: 1em;
-  margin-bottom: 0.4em;
-  margin-top: auto;
-  margin-left: auto;
-  z-index: 100;
+  width: 97%;
+  margin: 0.5em auto 0.5em auto;
 }
 
 .search input {
@@ -95,14 +97,14 @@ ul {
   border-radius: 15px;
   border-color: var(--border-color);
   width: inherit;
-  height: 1.2em;
+  height: inherit;
   padding-right: 15px;
 }
 
 .search ul {
   background-color: white;
-  border: thin solid lightgray;
-  max-height: 70vh;
+  /* border: thin solid lightgray; */
+  max-height: 80vh;
   overflow-y: scroll;
   width: fit-content;
   padding: 0;
