@@ -72,7 +72,7 @@ class Search extends Component {
     let page = getMostSimilarPage(this.state.results, path)
     if(!page) return (<div>{this.data.text} (Link not found!)</div>)
     return (
-      <div style={{display:"inline-block"}}>
+      <div className="searchLink">
             <div className="sidecontainer">
               <Icon kindString={page.kindString}/>
               <Link to={"/" + page.path}>{page.name}</Link>

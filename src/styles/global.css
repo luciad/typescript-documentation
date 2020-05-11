@@ -228,6 +228,11 @@ p {
   border-radius: 5px;
 }
 
+.searchLink {
+  display: inline-block;
+  vertical-align: middle;
+}
+
 .signatures {
   border: solid thin rgba(0,0,0,0.1);
   padding: 10px;
