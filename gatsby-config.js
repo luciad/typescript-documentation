@@ -24,62 +24,6 @@ module.exports = {
     "react-use-flexsearch",
     "gatsby-plugin-react-helmet",
     {
-      resolve: 'gatsby-plugin-local-search',
-      options: {
-        name: 'pages',
-        engine: 'flexsearch',
-        query: `
-        {
-          allSymbol {
-            nodes {
-              name
-              kindString
-              id
-              parent {
-                ... on Module {
-                  name
-                }
-                ... on Symbol {
-                  name
-                  parent {
-                    ... on Module {
-                      name
-                    }
-                  }
-                }
-              }
-            }
-          }
-          allModule {
-            nodes {
-              name
-              id
-            }
-          }
-        }        
-        `,
-        ref: 'id',
-        index: ['name', 'kindString', 'path'],
-        store: ['id', 'path', 'name'],
-
-        normalizer: ({ data }) =>
-          data.allSymbol.nodes.map(node => {
-            let path = node.name
-            let id = node.id
-            let name = node.name
-            while(node.parent !== undefined && node.parent !== null){
-              node = node.parent
-              path = node.name + "/" + path
-            }
-            path = "/module/" + path
-            return ({
-            id: id,
-            path: path,
-            name: name,
-          })}),
-      },
-    },
-    {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
