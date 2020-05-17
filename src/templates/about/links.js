@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import SearchLink from "./search-link"
 
 /**
@@ -15,82 +15,45 @@ import SearchLink from "./search-link"
 export default ({ data }) => {
   return ( //TODO: clean up
     <div className="links">
-      {!(data.extendedTypes === undefined || data.extendedTypes === null) &&
-        <div>
-          <div className="subsubtitle">
-            Extended types
-          </div>
-          <ul>
-            {data.extendedTypes.map(function(type){
-              let newData = {text: type.name}
-              return(
-                <li><SearchLink data={newData}/></li>
-            )})}
-          </ul>
-        </div>
-      }
-      {!(data.extendedBy === undefined || data.extendedBy === null) &&
-        <div>
-          <div className="subsubtitle">
-            Extended by
-          </div>
-          <ul>
-            {data.extendedBy.map(function(type){
-              let newData = {text: type.name}
-              return(
-                <li><SearchLink data={newData}/></li>
-            )})}
-          </ul>
-        </div>
-      }
-      {!(data.implementedTypes === undefined || data.implementedTypes === null) &&
-        <div>
-          <div className="subsubtitle">
-            Implemented types
-          </div>
-          <ul>
-            {data.implementedTypes.map(function(type){
-              let newData = {text: type.name}
-              return(
-                <li><SearchLink data={newData}/></li>
-            )})}
-          </ul>
-        </div>
-      }
-      {!(data.implementedBy === undefined || data.implementedBy === null) &&
-        <div>
-          <div className="subsubtitle">
-            Implemented By
-          </div>
-          <ul>
-            {data.implementedBy.map(function(type){
-              let newData = {text: type.name}
-              return(
-                <li><SearchLink data={newData}/></li>
-            )})}
-          </ul>
-        </div>
-      }
-      {!(data.implementationOf === undefined || data.implementationOf === null) &&
-        <div>
-          <div className="subsubtitle">
-            Implementation of
-          </div>
-          <ul>
-            {data.implementationOf.name}
-          </ul>
-        </div>
-      }
-      {!(data.inheritedFrom === undefined || data.inheritedFrom === null) &&
-        <div>
-          <div className="subsubtitle">
-            Inherited from
-          </div>
-          <ul>
-            {data.inheritedFrom.name}
-          </ul>
-        </div>
-      }
+      {LinkTemplate("Extended types", data.extendedTypes)}
+      {LinkTemplate("Extended by", data.extendedBy)}
+      {LinkTemplate("Implemented types", data.implementedTypes)}
+      {LinkTemplate("Implemented by", data.implementedBy)}
+      {LinkTemplate("Implementation of", data.implementationOf)}
+      {LinkTemplate("Inherited from", data.inheritedFrom)}
     </div>
   );
 };
+
+function LinkTemplate(title, data) {
+  if(!data){
+    return null;
+  }
+  if(data.length > 0){
+    return (
+      <div>
+        <div className="subsubtitle">
+          {title}
+        </div>
+        <ul>
+          {data.map(function(type){
+            let newData = {text: type.name}
+            return(
+              <li><SearchLink data={newData}/></li>
+          )})}
+        </ul>
+      </div>
+    )
+  }else{
+    return (
+      <div>
+        <div className="subsubtitle">
+          {title}
+        </div>
+        <ul>
+          <li style={{display:"inline"}}><SearchLink data={data.name}/></li>
+        </ul>
+      </div>
+    )
+  }
+}
