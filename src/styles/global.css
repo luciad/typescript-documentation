@@ -256,3 +256,8 @@ p {
   min-width: 25%;
   margin: 0.5em;
 }
+
+.textimg {
+  max-width: 70%;
+  height: auto;
+}

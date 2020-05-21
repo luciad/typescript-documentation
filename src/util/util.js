@@ -134,7 +134,7 @@ function getLinks(string){
     if(endI < 0) break
     let info = string.substring(startI + 2, endI)
     let type = info.substring(0, info.indexOf(" "))
-    let value = info.substring(info.indexOf(" "))
+    let value = info.substring(info.indexOf(" ") + 1)
     let link = ""
     let path
     if(value.includes("\"")){
