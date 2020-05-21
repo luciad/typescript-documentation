@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
-import Layout from "../components/page-layout";
-import { fixModuleName } from "../util/util";
-import BodySummary from "./about/body-summary"
-import Icon from "./icon"
+import Layout from "../../../page-layout";
+import { fixModuleName } from "../../../../util/util";
+import BodySummary from "../general/body/body-summary"
+import Icon from "../../../general/icon"
 
 /**
  * Highest level modules

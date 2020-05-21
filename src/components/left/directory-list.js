@@ -1,6 +1,6 @@
 import React from 'react'
 import { StaticQuery, graphql } from "gatsby"
-import { getAllDirectories } from "../util/directory"
+import { getAllDirectories } from "../../util/directory"
 import DirectoryTree from "./directory-tree"
 
 /**

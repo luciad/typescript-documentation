@@ -6,13 +6,13 @@
 const util = require("./src/util/util");
 const documentation = require("./content/docu.json");
 const documentationPath = require.resolve("./content/docu.json");
-const symbolTemplate = require.resolve("./src/templates/symbol");
+const symbolTemplate = require.resolve("./src/components/center/main/template/symbol");
+const overviewTemplate = require.resolve("./src/components/center/main/template/overview");
+const moduleTemplate = require.resolve("./src/components/center/main/template/module");
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
 
-  const overviewTemplate = require.resolve("./src/templates/overview");
-  const moduleTemplate = require.resolve("./src/templates/module");
   
 
   const modules = documentation.children;

@@ -1,5 +1,5 @@
 import React from "react"
-import { getLinks } from "../../util/util"
+import { getLinks } from "../../../../util/util"
 import SearchLink from "./search-link"
 
 /**

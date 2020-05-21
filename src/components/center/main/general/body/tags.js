@@ -1,5 +1,5 @@
 import React from "react"
-import Text from "./text"
+import Text from "../text"
 
 /**
  * Generates list of tags

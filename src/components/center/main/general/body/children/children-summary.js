@@ -1,7 +1,7 @@
 import React from "react";
 import scrollTo from "gatsby-plugin-smoothscroll"
-import Icon from "../icon"
-import { pathToExport } from "../../util/util"
+import Icon from "../../../../../general/icon"
+import { pathToExport } from "../../../../../../util/util"
 import { Link } from "gatsby"
 
 /**

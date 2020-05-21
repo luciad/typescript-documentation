@@ -1,6 +1,6 @@
 import React from "react"
-import { getParameters } from "../../util/util"
-import Text from "./text"
+import { getParameters } from "../../../../../util/util"
+import Text from "../text"
 
 /**
  * Parameters of an object

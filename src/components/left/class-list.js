@@ -1,7 +1,7 @@
 import React from 'react'
 import { Link, StaticQuery, graphql } from "gatsby"
-import { pathToExport } from "../util/util"
-import Icon from "../templates/icon"
+import { pathToExport } from "../../util/util"
+import Icon from "../general/icon"
 /**
  * List of all classes
  */

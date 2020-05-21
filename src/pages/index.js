@@ -1,5 +1,5 @@
 import React from "react"
-import MainPage from "../components/main-page"
+import MainPage from "../components/center/main/main-page"
 import PageLayout from "../components/page-layout"
 
 export default () => {

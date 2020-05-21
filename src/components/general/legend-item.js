@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from "../templates/icon"
+import Icon from "./icon"
 
 export default ({type}) => {
   return (

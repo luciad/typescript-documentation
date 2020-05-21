@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import { Link, StaticQuery, graphql } from "gatsby"
 import { Index } from "elasticlunr"
-import Icon from "../icon"
-import { getMostSimilarPage } from "../../util/directory"
+import Icon from "../../../general/icon"
+import { getMostSimilarPage } from "../../../../util/directory"
 
 /**
  * Used for getting a link from a name from

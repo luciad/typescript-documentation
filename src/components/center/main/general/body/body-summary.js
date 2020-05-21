@@ -1,10 +1,10 @@
 import React from "react";
-import { getComments } from "../../util/util"
-import ChildrenSummary from "./children-summary"
+import { getComments } from "../../../../../util/util"
+import ChildrenSummary from "./children/children-summary"
 import Flags from "./flags"
-import Signatures from "./signatures"
+import Signatures from "./signature/signatures"
 import Links from "./links"
-import Text from "./text"
+import Text from "../text"
 import Tags from "./tags"
 
 /**

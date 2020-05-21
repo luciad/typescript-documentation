@@ -1,5 +1,5 @@
-import React, { Component } from "react"
-import SearchLink from "./search-link"
+import React from "react"
+import SearchLink from "../search-link"
 
 /**
  * extends, implements, ~by,...

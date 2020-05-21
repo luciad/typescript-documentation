@@ -1,6 +1,6 @@
 import React from "react";
 import BodySummary from "./body-summary"
-import Leaf from "./leaf"
+import Leaf from "../body/children/leaf"
 
 /**
  * Full body of an object

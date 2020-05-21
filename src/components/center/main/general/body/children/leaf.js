@@ -1,6 +1,6 @@
 import React from "react";
-import Body from "./body"
-import Icon from "../icon"
+import Body from "../body"
+import Icon from "../../../../../general/icon"
 import { Link } from "gatsby"
 
 /**

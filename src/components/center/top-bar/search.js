@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import { Index } from "elasticlunr"
 import { Link } from "gatsby"
-import Icon from "../templates/icon"
+import Icon from "../../general/icon"
 
 // Search component
 export default class Search extends Component {
