@@ -1,6 +1,7 @@
 import React from "react"
 import { getLinks } from "../../../../util/util"
 import SearchLink from "./search-link"
+import Image from "./image"
 
 /**
  * Parses text for @links and HTML
@@ -23,6 +24,10 @@ export default ({ data, path }) => {
             return (
               <SearchLink data={data}/>
             )
+          case "img":
+              return (
+                <Image data={data}/>
+              )
           default:
             return (
               <>{data.text}</>

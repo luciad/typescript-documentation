@@ -11,6 +11,11 @@ module.exports = {
     author: `Luciad NV`,
   },
   plugins: [
+    "gatsby-transformer-json",
+    "gatsby-plugin-smoothscroll",
+    "html-react-parser",
+    "react-use-flexsearch",
+    "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-filesystem`,
       options: {
@@ -18,16 +23,18 @@ module.exports = {
         path: `${__dirname}/content/docu.json`,
       },
     },
-    "gatsby-transformer-json",
-    "gatsby-plugin-smoothscroll",
-    "html-react-parser",
-    "react-use-flexsearch",
-    "gatsby-plugin-react-helmet",
+    { // https://www.gatsbyjs.org/packages/gatsby-source-filesystem/
+      resolve: `gatsby-source-filesystem`,
+      options: {
+        name: `images`,
+        path: `${__dirname}/content/imgs/`,
+      },
+    },
     {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`name`, `spacePath`, `kindString`],
+        fields: [`name`, `spacePath`, `path`, `kindString`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type symbol, list how to resolve the fields` values
@@ -39,6 +46,7 @@ module.exports = {
             kindString: node => node.kindString,
           },
         },
+        bool: "AND",
         // Optional filter to limit indexed nodes
        /* filter: (node, getNode) =>
           node.frontmatter.tags !== 'exempt',*/

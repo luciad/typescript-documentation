@@ -128,11 +128,13 @@ function getParameters(data){
 function getLinks(string){
   let retVals = []
   let safety = 100
-  while(string.includes("{@link") && safety > 0){
-    const startI = string.indexOf("{@link")
+  while(string.includes("{@") && safety > 0){
+    const startI = string.indexOf("{@")
     const endI = string.indexOf("}", startI)
     if(endI < 0) break
-    let value = string.substring(startI + 6, endI)
+    let info = string.substring(startI + 2, endI)
+    let type = info.substring(0, info.indexOf(" "))
+    let value = info.substring(info.indexOf(" "))
     let link = ""
     let path
     if(value.includes("\"")){
@@ -149,7 +151,7 @@ function getLinks(string){
 
     let currentLink = {
       text: value,
-      type: "link",
+      type,
       link,
       path,
     }
