@@ -82,7 +82,11 @@ class Search extends Component {
       <div className="searchLink">
             <div className="sidecontainer">
               <Icon kindString={page.kindString}/>
+              {page.name === this.state.query &&
+              <Link to={"/" + page.path}>{page.name}</Link>
+              ||
               <Link to={"/" + page.path}>{page.name} ({this.state.query})</Link>
+              }
             </div>
       </div>
     )
