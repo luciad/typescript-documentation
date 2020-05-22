@@ -75,9 +75,9 @@ height: 4em;
 .topbar{
   display: flex;
   margin: 1em;
-  margin-left: 35%;
+  margin-left: 30%;
   padding: 0.2em 0.5em 0.2em 0.5em;
-  width: 25%;
+  width: 30%;
   background-color: white;
   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
   position: fixed;
@@ -106,7 +106,7 @@ height: 4em;
   /* border: thin solid lightgray; */
   max-height: 80vh;
   overflow-y: scroll;
-  width: fit-content;
+  width: 100%;
   padding: 0;
 }
 .search li {
