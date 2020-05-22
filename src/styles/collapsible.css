@@ -1,5 +1,5 @@
  summary::-webkit-details-marker {
- color: #00ACF3;
+ color: black;
  font-size: 125%;
  margin-right: 2px;
 }
@@ -8,13 +8,12 @@ summary:focus {
 }
 article > details > summary {
 	font-size: 28px;
-	margin-top: 16px;
 }
 details > p {
-	margin-left: 24px;
+	margin-left: 2px;
 }
 details details {
-	margin-left: 36px;
+	margin-left: 2px;
 }
 details details summary {
 	font-size: 16px;

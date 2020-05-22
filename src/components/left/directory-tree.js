@@ -9,18 +9,22 @@ const DirectoryTree = ({directories}) => {
   if(directories.next === undefined || directories.next === null || directories.next.length === 0) return (<div></div>)
 
   return (
-      <ul className="directoryitem">
+      <div className="directoryitem">
       {directories.next.map( node => {
         return (
-          <li key={node.id}>
+          <>
           {(node.next.length > 0 &&
-            <div>{node.name}</div>)
+            (
+            <details open>
+              <summary>{node.name}</summary>
+              <p><DirectoryTree directories={node}/></p>
+            </details>
+            ))
               ||
-            <Link to={node.path}>{node.name}</Link>}
-            <DirectoryTree directories={node}/>
-          </li>
+            <p><Link to={node.path}>{node.name}</Link></p>}
+          </>
         )})}
-    </ul>
+    </div>
   )
 }
 
