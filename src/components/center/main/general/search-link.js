@@ -55,11 +55,12 @@ class Search extends Component {
   }else{
     query = this.data.text
   }
+  query = query.replace(/\./g, " ")
 
   this.index = this.getOrCreateIndex()
   this.state = {
     query,
-    results: this.index.search(query, { expand: false })
+    results: this.index.search(query, { expand: false, bool: "AND" })
       .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     }
   }
@@ -74,13 +75,14 @@ class Search extends Component {
     if(this.srcPath){
       path = this.srcPath
     }
+    console.log(this.state.results)
     let page = getMostSimilarPage(this.state.results, path)
     if(!page) return (<div className="searchLink">{this.state.query} (Link not found!)</div>)
     return (
       <div className="searchLink">
             <div className="sidecontainer">
               <Icon kindString={page.kindString}/>
-              <Link to={"/" + page.path}>{page.name}</Link>
+              <Link to={"/" + page.path}>{page.name} ({this.state.query})</Link>
             </div>
       </div>
     )

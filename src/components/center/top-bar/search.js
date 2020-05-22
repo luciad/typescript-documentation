@@ -46,7 +46,7 @@ export default class Search extends Component {
       query,
       // Query the index with search string to get an [] of IDs
       results: this.index
-        .search(query, { expand: true })
+        .search(query, { expand: true, bool: "AND" })
         // Map over each ID and return the full document
         .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     })
