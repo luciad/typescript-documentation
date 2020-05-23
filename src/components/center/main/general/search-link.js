@@ -60,7 +60,14 @@ class Search extends Component {
   this.index = this.getOrCreateIndex()
   this.state = {
     query,
-    results: this.index.search(query, { expand: false, bool: "AND" })
+    results: this.index.search(query, 
+      { expand: false, 
+        bool: "AND",
+      //   fields: {
+      //     name: {boost: 3},
+      //     path: {boost: 1}
+      // } 
+      })
       .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     }
   }
@@ -76,16 +83,18 @@ class Search extends Component {
       path = this.srcPath
     }
     console.log(this.state.results)
-    let page = getMostSimilarPage(this.state.results, path)
+    let page = getMostSimilarPage(this.state.results, path, this.state.query)
     if(!page) return (<div className="searchLink">{this.state.query} (Link not found!)</div>)
     return (
       <div className="searchLink">
             <div className="sidecontainer">
               <Icon kindString={page.kindString}/>
-              {page.name === this.state.query &&
-              <Link to={"/" + page.path}>{page.name}</Link>
+              {(
+                page.name === this.state.query &&
+                <Link to={"/" + page.path}>{page.name}</Link>
+              )
               ||
-              <Link to={"/" + page.path}>{page.name} ({this.state.query})</Link>
+                <Link to={"/" + page.path}>{page.name} ({this.state.query})</Link>
               }
             </div>
       </div>

@@ -61,7 +61,7 @@ function getComments(data){
  */
 function parse(string){
   if(typeof string !== "string") string = ""
-  return Parser(jsTagToDiv(tabsToDivs(replaceNewLines(string))))
+  return Parser(jsTagToDiv(tabsToHTML(replaceNewLines(string))))
 }
 
 /**
@@ -80,34 +80,32 @@ function replaceNewLines(string){
  * @returns string without ```javascript/json
  */
 function jsTagToDiv(string){
-  if(string.includes("```")){
-    string = string.replace(new RegExp("```javascript", "g"), "<pre><code class='language-javascript'>")
-    string = string.replace(new RegExp("```json", "g"), "<pre><code class='language-json'>")
-    string = string.replace(new RegExp("```css", "g"), "<pre><code class='language-css'>")
-    string = string.replace(new RegExp("```", "g"), "</code></pre>")
-  }
+  string = string.replace(new RegExp("```javascript", "g"), "<pre><code class='language-javascript'>")
+  string = string.replace(new RegExp("```json", "g"), "<pre><code class='language-json'>")
+  string = string.replace(new RegExp("```css", "g"), "<pre><code class='language-css'>")
+  string = string.replace(new RegExp("```", "g"), "</code></pre>")
   return string
 }
 
 /**
- * replaces all double spaces that are not infront of a \n with &nbsp; in a class=tab-content div
+ * replaces all double spaces that are not in front of a \n with a double &nbsp;
  * @param {string} string 
- * @returns string without double spaces
+ * @returns string with replaced double spaces
  */
-function tabsToDivs(string){
-  return string.replace(/[\s]{2}(?!\n)/g, "<div class='tab-content'> &nbsp; </div>")
+function tabsToHTML(string){
+  return string.replace(/[\s]{2}(?!\n)/g, "&nbsp;&nbsp;" )
 }
 
 /**
  * returns list of objects with comment, name and type of parameters
  * 
- * @param {*} data
+ * @param {*} data data.parameters, data.comments
  * @returns list of object.comments, object.name, object.type 
  */
 function getParameters(data){
   const parameters = data.parameters
   let returnParameters = []
-  if(parameters !== undefined && parameters != null){
+  if(parameters){
     for(let parameter of parameters){
       returnParameters.push({
         comments: getComments(data),
@@ -120,15 +118,14 @@ function getParameters(data){
 }
 
 /**
- * Parses {@Link .. } from the rest of the test
+ * Parses {@Link .. }, {@img path} from the rest of the text
  * 
- * @param {string} string
+ * @param {string} string string to parse
  * @returns list of object.text, object.type, object.link where object.type == "link" || "text" 
  */
 function getLinks(string){
   let retVals = []
-  let safety = 100
-  while(string.includes("{@") && safety > 0){
+  while(string.includes("{@")){
     const startI = string.indexOf("{@")
     const endI = string.indexOf("}", startI)
     if(endI < 0) break
@@ -159,7 +156,6 @@ function getLinks(string){
     retVals.push(currentText)
     retVals.push(currentLink)
     string = string.substring(endI + 1)
-    safety--
   }
   if(string.length > 0){
     let lastText = {
@@ -180,9 +176,9 @@ function getLinks(string){
 function getSignatures(data){
   let signatures = []
 
-  if(data.signatures !== null && data.signatures !== undefined) signatures.push(...data.signatures)
-  if(data.getSignature !== null && data.signatures !== undefined) signatures.push(...data.getSignature)
-  if(data.setSignature !== null && data.signatures !== undefined) signatures.push(...data.setSignature)
+  if(data.signatures) signatures.push(...data.signatures)
+  if(data.getSignature) signatures.push(...data.getSignature)
+  if(data.setSignature) signatures.push(...data.setSignature)
   return signatures
 }
 
@@ -195,7 +191,7 @@ function getSignatures(data){
 function getFlags(data){
   const flags = data.flags
   let flagList = []
-  if(flags !== null && flags !== undefined){
+  if(flags){
     flagList = Object.getOwnPropertyNames(flags).toString().split(",")
   }
   let returnFlags = [] 

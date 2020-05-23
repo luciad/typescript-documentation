@@ -65,19 +65,19 @@ function similarity(dir1, dir2){
  * 
  * @param {array} pageObjects 
  * @param {string} dir
+ * @param {string} name
  * 
  * @returns {object} pageObject 
  */
-function getMostSimilarPage(pageObjects, dir){
+function getMostSimilarPage(pageObjects, dir, name){
   if(!(pageObjects.length > 0)) return null
   if(typeof dir !== "string") dir = ""
   dir = dir.replace("/modules/", "")
 
-  let maxSimilarity = 0
+  let maxSimilarity = -1
   let mostSimilarPage = pageObjects[0]
   for(let page of pageObjects){
-    if(page.path){
-      console.log(dir, pageDir)
+    if(page.path && name.includes(page.name)){
       let pageDir = page.path.replace("/modules/", "")
       let currentSimilarity = similarity(dir, pageDir)
       if(currentSimilarity > maxSimilarity){
