@@ -77,7 +77,7 @@ function getMostSimilarPage(pageObjects, dir, name){
   let maxSimilarity = -1
   let mostSimilarPage = pageObjects[0]
   for(let page of pageObjects){
-    if(page.path && name.includes(page.name)){
+    if(page.path && page.path.includes(name.replace(" ", "/"))){
       let pageDir = page.path.replace("/modules/", "")
       let currentSimilarity = similarity(dir, pageDir)
       if(currentSimilarity > maxSimilarity){

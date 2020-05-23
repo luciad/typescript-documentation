@@ -96,7 +96,7 @@ class Search extends Component {
                 <Link to={"/" + page.path}>{page.name}</Link>
               )
               ||
-                <Link to={"/" + page.path}>{page.name} ({this.text})</Link>
+                <Link to={"/" + page.path}>{this.text}</Link>
               }
             </div>
       </div>
