@@ -2,15 +2,30 @@ const Parser = require("html-react-parser")
 
 const MODULE_PATH_PREFIX = "/modules"
 
+/**
+ * Returns module.name without double quotes and without .d
+ *
+ * @param {*} module module.name
+ */
 const fixModuleName = module => {
-  if(!module) return "404"
+  if(!module || !module.name) return "404"
   return module.name.replace('.d"', "").replace('"', "");
 };
 
+/**
+ * Returns relative URL to module page
+ * Assumes module.name of form: "moduleName.d" || moduleName || "moduleName"
+ * @param {*} module module.name
+ */
 const pathToModule = module => {
   return `${MODULE_PATH_PREFIX}/${fixModuleName(module)}`;
 };
 
+/**
+ * Return relative URL to export page
+ * @param {*} module module.name
+ * @param {*} exprt exprt.name
+ */
 const pathToExport = (module, exprt) => {
   const modulePath = pathToModule(module);
   return `${modulePath}/${exprt.name}`;
@@ -18,9 +33,9 @@ const pathToExport = (module, exprt) => {
 
 /**
  * returns object with shortText, text, tags and returns of data, empty string if none available.
- * 
+ *
  * @param {*} data object to get comments from
- * @returns object.shortText, object.text, object.returns, object.tags 
+ * @returns object.shortText, object.text, object.returns, object.tags
  */
 function getComments(data){
   const comment = data.comment
@@ -55,8 +70,8 @@ function getComments(data){
 
 /**
  * Removes garbage, replaces \n with <br/>, replaces tabs with &nbsp; and parses this all to html with html-react-parser
- * 
- * @param {string} string 
+ *
+ * @param {string} string
  * @returns parsed object
  */
 function parse(string){
@@ -66,9 +81,9 @@ function parse(string){
 
 /**
  * replaces all \n with <br/>, except for the \n before < or after >
- * 
+ *
  * @param {string} string
- * @returns string without \n 
+ * @returns string without \n
  */
 function replaceNewLines(string){
   return string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "__newline__<br/>").replace(/__newline__/g, "\n")
@@ -76,7 +91,7 @@ function replaceNewLines(string){
 
 /**
  * changes ```javascript and ```json to <div class=jspreview><header>JS/JSON</header>code</div>
- * @param {string} string 
+ * @param {string} string
  * @returns string without ```javascript/json
  */
 function jsTagToDiv(string){
@@ -89,7 +104,7 @@ function jsTagToDiv(string){
 
 /**
  * replaces all double spaces that are not in front of a \n with a double &nbsp;
- * @param {string} string 
+ * @param {string} string
  * @returns string with replaced double spaces
  */
 function tabsToHTML(string){
@@ -98,9 +113,9 @@ function tabsToHTML(string){
 
 /**
  * returns list of objects with comment, name and type of parameters
- * 
+ *
  * @param {*} data data.parameters, data.comments
- * @returns list of object.comments, object.name, object.type 
+ * @returns list of object.comments, object.name, object.type
  */
 function getParameters(data){
   const parameters = data.parameters
@@ -119,9 +134,9 @@ function getParameters(data){
 
 /**
  * Parses {@Link .. }, {@img path} from the rest of the text
- * 
+ *
  * @param {string} string string to parse
- * @returns list of object.text, object.type, object.link where object.type == "link" || "text" 
+ * @returns list of object.text, object.type, object.link where object.type == "link" || "text"
  */
 function getLinks(string){
   let retVals = []
@@ -169,8 +184,8 @@ function getLinks(string){
 
 /**
  * returns signatures
- * 
- * @param {} data 
+ *
+ * @param {} data
  * @returns signatures
  */
 function getSignatures(data){
@@ -184,8 +199,8 @@ function getSignatures(data){
 
 /**
  * returns flags of object
- * 
- * @param {*} data 
+ *
+ * @param {*} data
  * @returns list of flags
  */
 function getFlags(data){
@@ -194,7 +209,7 @@ function getFlags(data){
   if(flags){
     flagList = Object.getOwnPropertyNames(flags).toString().split(",")
   }
-  let returnFlags = [] 
+  let returnFlags = []
   for(let flag of flagList){
     if(flags[flag] === true) returnFlags.push(flag)
   }
