@@ -54,3 +54,15 @@ test('getComments simple test', () => {
     expect(retVals.tags[0]).toEqual({text: "test tag text 1", tag: "test tag tag 1"})
     expect(retVals.tags[1]).toEqual({text: "test tag text 2", tag: "test tag tag 2"})
 })
+
+test('getComments empty test', () => {
+    let data = {
+    }
+
+    let retVals = getComments(data)
+    expect(retVals.text).toBe(data.comment.text)
+    expect(retVals.shortText).toBe(data.comment.shortText)
+    expect(retVals.returns).toBe(data.comment.returns)
+    expect(retVals.tags[0]).toEqual({text: "test tag text 1", tag: "test tag tag 1"})
+    expect(retVals.tags[1]).toEqual({text: "test tag text 2", tag: "test tag tag 2"})
+})

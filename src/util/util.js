@@ -42,7 +42,7 @@ function getComments(data){
   let shortText, text, returns
   let tags = []
 
-  if(comment !== undefined && comment != null){
+  if(comment){
     shortText = comment.shortText
     text = comment.text
     returns = comment.returns

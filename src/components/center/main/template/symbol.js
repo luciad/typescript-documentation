@@ -4,10 +4,11 @@ import Layout from "../../../page-layout"
 import { fixModuleName, pathToModule } from "../../../../util/util"
 import Body from "../general/body/body"
 import Icon from '../../../general/icon'
+import Header from "../../../general/header"
 
 /**
  * Items inside of modules
- * 
+ *
  * Contains:
  * - Link to module
  * - Link to parent
@@ -16,29 +17,32 @@ import Icon from '../../../general/icon'
  * - its body (see body.js)
  */
 export default ({ data }) => {
-  const { symbol: exprt, module } = data;
+  const { symbol, module } = data;
 
   return (
-    <Layout>
-      Module: &nbsp;
-      <Link to={pathToModule(module)}>{fixModuleName(module)}</Link> 
-      <br/>
-      Parent: &nbsp; &nbsp;
-      <Link to={exprt.fields.parentPath}>{exprt.fields.parentPath.replace("/modules/","")}</Link>       
-      <div className="title">{exprt.name}</div>
-      <div className="sidecontainer">
-        <Icon kindString={exprt.kindString}/>
-        <div className="kindString">
-          {exprt.kindString}
+    <>
+      <Header siteTitle={symbol.name} />
+      <Layout>
+        Module: &nbsp;
+        <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
+        <br/>
+        Parent: &nbsp; &nbsp;
+        <Link to={symbol.fields.parentPath}>{symbol.fields.parentPath.replace("/modules/","")}</Link>
+        <div className="title">{symbol.name}</div>
+        <div className="sidecontainer">
+          <Icon kindString={symbol.kindString}/>
+          <div className="kindString">
+            {symbol.kindString}
+          </div>
         </div>
-      </div>
-      <Body data={exprt}/>
-    </Layout>
+        <Body data={symbol}/>
+      </Layout>
+    </>
   );
 };
 
 export const query = graphql`
- 
+
   query SymbolQuery($symbolId: String, $moduleId: String) {
     symbol(id: { eq: $symbolId }) {
       ...symbolFields
@@ -49,4 +53,3 @@ export const query = graphql`
     }
   }
 `;
-
