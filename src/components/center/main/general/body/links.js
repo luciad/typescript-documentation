@@ -10,10 +10,10 @@ import SearchLink from "../search-link"
  * - List of Implemented by
  * - List of Implementation of
  * - List of Inherited from
- * 
+ *
  */
 export default ({ data }) => {
-  return ( //TODO: clean up
+  return (
     <div className="links">
       {LinkTemplate("Extended types", data.extendedTypes)}
       {LinkTemplate("Extended by", data.extendedBy)}
