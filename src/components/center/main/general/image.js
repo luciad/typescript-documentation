@@ -20,8 +20,6 @@ export default ({ data }) => {
         let items = query.allFile.edges
         let path = "not found"
         for(let item of items){
-          console.log(item.node.relativePath)
-          console.log(data.text)
           if(item.node.relativePath === data.text){
             path = item.node.publicURL
             break;

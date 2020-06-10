@@ -23,7 +23,7 @@ export default ({data}) => {
         }
       }
     `}
-    render={info => (          
+    render={info => (
         <Search searchIndex={info.siteSearchIndex.index} data={data} style={{display:"inline-block"}}/>
     )}
   />
@@ -47,7 +47,7 @@ class Search extends Component {
       query: ``,
       results: [],
     }
-  
+
   //  Word to search for
   let query
   if(typeof this.data == "string"){
@@ -62,13 +62,13 @@ class Search extends Component {
   this.index = this.getOrCreateIndex()
   this.state = {
     query,
-    results: this.index.search(query, 
-      { expand: false, 
+    results: this.index.search(query,
+      { expand: false,
         bool: "AND",
       //   fields: {
       //     name: {boost: 3},
       //     path: {boost: 1}
-      // } 
+      // }
       })
       .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     }
@@ -84,7 +84,6 @@ class Search extends Component {
     if(this.srcPath){
       path = this.srcPath
     }
-    console.log(this.state.results)
     let page = getMostSimilarPage(this.state.results, path, this.state.query)
     if(!page) return (<div className="searchLink">{this.text} (Link not found on {this.state.query}!)</div>)
     return (
@@ -102,7 +101,7 @@ class Search extends Component {
       </div>
     )
   }
-  
+
   // Create an elastic lunr index and hydrate with graphql query results
   getOrCreateIndex = () => this.index ? this.index
       : Index.load(this.props.searchIndex)
