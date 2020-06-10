@@ -1,7 +1,7 @@
 {
   "name": "tsdoc",
   "private": true,
-  "description": "A simplified bare-bones starter for Gatsby",
+  "description": "A typescript documentation HTML generator",
   "version": "0.1.0",
   "license": "MIT",
   "scripts": {
@@ -41,9 +41,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/"
+    "url": "https://github.com/TijlB99/tsd"
   },
   "bugs": {
-    "url": "https://github.com/gatsbyjs/gatsby/issues"
+    "url": "https://github.com/TijlB99/tsd/issues"
   }
 }
