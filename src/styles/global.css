@@ -30,11 +30,11 @@ ul {
 .rightsidenav,
 .leftsidenav {
   height: 100%;
-  width: var(--left-sidebar-width); 
+  width: var(--left-sidebar-width);
   position: fixed;
-  top: 0; 
+  top: 0;
   left: 0;
-  background-color: var(--sidebar-color); 
+  background-color: var(--sidebar-color);
   padding-top: 20px;
   border: thin solid var(--border-color);
   font-size: 150%;
@@ -117,7 +117,7 @@ height: 4em;
 
 /* Style page content */
 .main {
-  margin-left: var(--left-sidebar-width); 
+  margin-left: var(--left-sidebar-width);
   margin-right: var(--right-sidebar-width);
   padding: 0px 10px;
 }
@@ -256,4 +256,15 @@ p {
 .textimg {
   max-width: 70%;
   height: auto;
+}
+
+/* remove button styling from clickable text */
+.clickabletext {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+  outline: inherit;
+  cursor: pointer;
 }

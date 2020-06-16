@@ -16,7 +16,7 @@ import { Link } from "gatsby"
 export default ({ data }) => {
   if(!data) return null
   const children = data.childrenSymbol
-  if(children === undefined || children === null || children.length === 0) return (<div></div>)
+  if(!children || children.length === 0) return (<></>)
   let exportIds = []
   if(data.exports){
     exportIds = data.exports.map(exp => exp.id)
@@ -28,20 +28,25 @@ export default ({ data }) => {
         <div className="subsubtitle">Children</div>}
       <ul>
         {children.map(child => {
+          if(!child.id) return null
           if(exportIds.includes(child.id))
             return (
-              <li className="clickable" onClick={() => scrollTo("#id" + child.id)}>
+              <li>
                 <div className="sidecontainer">
                 <Icon kindString={child.kindString}/>
-                <Link to={pathToExport(data, child)}>{child.name}</Link>
+                <Link to={pathToExport(data, child)}>
+                  {child.name}
+                </Link>
                 </div>
               </li>
             )
             return (
-              <li className="clickable" onClick={() => scrollTo("#id" + child.id)}>
+              <li>
               <div className="sidecontainer">
               <Icon kindString={child.kindString}/>
-                {child.name}
+                <button className="clickabletext" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>
+                  {child.name}
+                </button>
               </div>
             </li>
             )

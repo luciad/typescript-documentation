@@ -17,6 +17,7 @@ import Text from "../../text"
 export default ({ data, path}) => {
   if(!data || !path) return null
   const comments = getComments(data)
+  if(!comments) return null
   return (
     <div className="signature">
       <div className="sidecontainer">
