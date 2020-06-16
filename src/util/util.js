@@ -106,8 +106,8 @@ function jsTagToDiv(string){
       string = string.replace("```", "<pre><code class='language-none'>")
     }
     string = string.replace("```", "</code></pre>")
-    console.log(string)
   }
+  //console.log(string.replace(/&nbsp;/g, " "))
   // string = string.replace(new RegExp("```javascript", "g"), "<pre><code class='language-javascript'>")
   // string = string.replace(new RegExp("```json", "g"), "<pre><code class='language-json'>")
   // string = string.replace(new RegExp("```css", "g"), "<pre><code class='language-css'>")

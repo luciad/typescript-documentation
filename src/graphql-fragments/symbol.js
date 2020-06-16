@@ -127,6 +127,20 @@ export const simpleSymbolFields = graphql`
     ...flagFields
   }`
 
+  export const SymbolInterface = graphql`
+  interface Symbol {
+    name: String!
+    kindString: String!
+    id: ID!
+    fields: [Field]
+  }
+
+  interface Field {
+    path: String
+    parentPath: String
+  }
+`
+
 //no recursion in graphql
   export const symbolFields = graphql`
   fragment symbolFields on Symbol {
