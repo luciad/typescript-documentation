@@ -8,7 +8,8 @@ import Icon from "../../../../general/icon"
  * - List of flagIcons and flags
  */
 export default ({ data }) => {
-  const flagList = getFlags(data)  
+  if(!data) return null
+  const flagList = getFlags(data)
   return (
     <div className="flags">
       <ul>

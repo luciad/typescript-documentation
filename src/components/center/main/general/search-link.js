@@ -11,6 +11,7 @@ import { getMostSimilarPage } from "../../../../util/directory"
  * - Link to most similar page and the icon of its kindString
  */
 export default ({data}) => {
+  if(!data) return null
   /**
    * Query to get the searchIndex
    */
@@ -50,10 +51,14 @@ class Search extends Component {
 
   //  Word to search for
   let query
-  if(typeof this.data == "string"){
+  if(typeof this.data == "string" && this.data.length > 0){
     query = this.data
-  }else{
+  }else if(typeof this.data.text == "string" && this.data.text.length > 0){
     query = this.data.text
+  }else if(typeof this.srcPath == "string"){
+    query = this.srcPath.replace("/modules/", "")
+  }else {
+    query = ""
   }
 
   this.text = query.substring(query.indexOf(" ") + 1)
@@ -92,10 +97,10 @@ class Search extends Component {
               <Icon kindString={page.kindString}/>
               {(
                 page.name === this.text &&
-                <Link to={"/" + page.path}>{page.name}</Link>
+                <Link to={page.path}>{page.name}</Link>
               )
               ||
-                <Link to={"/" + page.path}>{this.text}</Link>
+                <Link to={page.path}>{this.text}</Link>
               }
             </div>
       </div>

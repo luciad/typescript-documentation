@@ -7,13 +7,14 @@ import { Link } from "gatsby"
 /**
  * List of children
  * Makes them a link if they're included in data.exports
- * 
+ *
  * Contains:
  * - List of all childrens icons and names
  *  - If it's in data.exports, it's a link
- * 
+ *
  */
 export default ({ data }) => {
+  if(!data) return null
   const children = data.childrenSymbol
   if(children === undefined || children === null || children.length === 0) return (<div></div>)
   let exportIds = []
@@ -23,7 +24,7 @@ export default ({ data }) => {
 
   return (
     <div className="childrenSummary">
-      {children.size !== 0 && 
+      {children.size !== 0 &&
         <div className="subsubtitle">Children</div>}
       <ul>
         {children.map(child => {

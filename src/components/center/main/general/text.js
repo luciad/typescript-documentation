@@ -5,18 +5,19 @@ import Image from "./image"
 
 /**
  * Parses text for @links and HTML
- * 
+ *
  * Contains:
  * - text
  * - searched links (see search-link.js)
  */
 export default ({ data, path }) => {
+  if(!data || !path) return null
   const parsedData = getLinks(data)
   if(parsedData.length === 0){
     return null;
   }
   return (
-    <div class="textblock">
+    <div className="textblock">
       {parsedData.map(function(data){
         switch(data.type){
           case "link":

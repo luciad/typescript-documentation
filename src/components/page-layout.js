@@ -6,6 +6,7 @@ import ItemBox from "./general/item-box"
 import Highlight from "./general/highlight"
 
 export default (props) => {
+  if(!props) return null
   return (
     <div>
       <Highlight/>
@@ -16,7 +17,7 @@ export default (props) => {
           {props.children}
         </ItemBox>
       </div>
-      <RightSidebar/>      
+      <RightSidebar/>
     </div>
   )
 }

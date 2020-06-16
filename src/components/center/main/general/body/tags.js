@@ -3,14 +3,15 @@ import Text from "../text"
 
 /**
  * Generates list of tags
- * 
+ *
  * Contains:
  * - List of tag.tag and tag.text
  */
 export default ({ tags }) => {
+  if(!tags) return null
   return (
     <div>
-      {tags.length !== 0 && 
+      {tags.length !== 0 &&
         <div className="subsubtitle">Tags</div>}
       <ul>
         {tags.map(tag => (

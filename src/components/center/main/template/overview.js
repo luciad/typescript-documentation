@@ -13,6 +13,7 @@ import Header from "../../../general/header"
  * - List of links to all modules and their kindString icons
  */
 export default ({ data }) => {
+  if(!data) return null
   const modules = data.allModule.edges.map(edge => edge.node);
 
   return (

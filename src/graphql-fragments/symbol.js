@@ -87,7 +87,7 @@ export const allSignatures = graphql`
         }
   }`
 
-export const flagField = graphql`  
+export const flagField = graphql`
   fragment flagFields on Symbol{
     flags {
         # isExported,
@@ -145,6 +145,7 @@ export const simpleSymbolFields = graphql`
     }
   }`
 
+  /* getElementByName query:
   export const getElementByName = graphql`
   query getElementByName($name: String!) {
   allSymbol(filter: {name: {eq: $name}}) {
@@ -158,4 +159,4 @@ export const simpleSymbolFields = graphql`
     }
   }
 }
-`
+`*/

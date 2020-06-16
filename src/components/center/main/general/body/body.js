@@ -9,7 +9,8 @@ import Leaf from "../body/children/leaf"
  * - leaf of each child (see leaf.js)
  */
 export default ({ data }) => {
-  
+  if(!data) return null
+
   let children = data.childrenSymbol
   if(children === undefined || children === null) children = []
 

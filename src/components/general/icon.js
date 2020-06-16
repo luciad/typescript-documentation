@@ -4,6 +4,7 @@ import React from "react";
  * returns div containing icon of given kindString or (kindString) if there is no icon specified
  */
 export default ({ kindString }) => {
+  if(!kindString) return null
 
   let imgSrc = ""
   switch(kindString){
@@ -32,7 +33,7 @@ export default ({ kindString }) => {
       break
     }
     case "Property":{
-      imgSrc = "https://image.flaticon.com/icons/svg/2497/2497459.svg" 
+      imgSrc = "https://image.flaticon.com/icons/svg/2497/2497459.svg"
       break
     }
     case "Function":{
@@ -40,7 +41,7 @@ export default ({ kindString }) => {
       break
     }
     case "Enumeration":{
-      imgSrc = "https://image.flaticon.com/icons/svg/2638/2638457.svg" 
+      imgSrc = "https://image.flaticon.com/icons/svg/2638/2638457.svg"
       break
     }
     case "Enumeration member":{
@@ -55,11 +56,11 @@ export default ({ kindString }) => {
       imgSrc = "https://image.flaticon.com/icons/svg/2638/2638352.svg"
       break
     }
-    
+
     default:
     return (
       <div className="icon">
-        ({kindString}) &nbsp;  
+        ({kindString}) &nbsp;
       </div>
     );
   }

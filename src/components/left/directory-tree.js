@@ -6,7 +6,7 @@ import { Link } from "gatsby"
  */
 const DirectoryTree = ({directories}) => {
 
-  if(directories.next === undefined || directories.next === null || directories.next.length === 0) return (<div></div>)
+  if(!directories || directories.next.length === 0) return null
 
   return (
       <div className="directoryitem">
@@ -17,7 +17,7 @@ const DirectoryTree = ({directories}) => {
             (
             <details open>
               <summary>{node.name}</summary>
-              <p><DirectoryTree directories={node}/></p>
+              <DirectoryTree directories={node}/>
             </details>
             ))
               ||

@@ -17,6 +17,7 @@ import Header from "../../../general/header"
  * - its body (see body.js)
  */
 export default ({ data }) => {
+  if(!data) return null
   const { symbol, module } = data;
 
   return (

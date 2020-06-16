@@ -1,7 +1,8 @@
 import React from "react"
-import { StaticQuery } from "gatsby"
+import { StaticQuery, graphql } from "gatsby"
 
 export default ({ data }) => {
+  if(!data) return null
   return (
     <StaticQuery
       query={graphql`

@@ -11,11 +11,12 @@ import { Link } from "gatsby"
  * - Its body (see body.js)
  */
 export default ({ data }) => {
+  if(!data) return null
   return (
     <div className="functionBox" id={"id" + data.id}>
       <div className="title"><Link to={data.fields.path}>{data.name}</Link></div>
       <div className="sidecontainer">
-        <Icon kindString={data.kindString}/> 
+        <Icon kindString={data.kindString}/>
         <div className="kindString">{data.kindString}</div>
         </div>
       <Body data={data}/>

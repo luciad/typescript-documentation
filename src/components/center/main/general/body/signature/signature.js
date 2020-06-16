@@ -5,7 +5,7 @@ import Text from "../../text"
 
 /**
  * Single signature item
- * 
+ *
  * Contains:
  * - name
  * - type name & kindString
@@ -15,6 +15,7 @@ import Text from "../../text"
  * - parameters
  */
 export default ({ data, path}) => {
+  if(!data || !path) return null
   const comments = getComments(data)
   return (
     <div className="signature">
@@ -28,7 +29,7 @@ export default ({ data, path}) => {
             {data.kindString}
       </div></div>
       <div className="signatureBody">
-        {comments.returns.length > 0 && 
+        {comments.returns.length > 0 &&
           <div className="returns"><b>returns</b> {comments.returns}</div>}
         <Text data={comments.shortText} path={path}/>
         <Text data={comments.text} path={path}/>
