@@ -13,7 +13,7 @@ const moduleTemplate = require.resolve("./src/components/center/main/template/mo
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
 
-  
+
 
   const modules = documentation.children;
 
@@ -96,7 +96,7 @@ async function onCreateNode({
         type: "Symbol",
       },
     };
-    
+
     let parentPath = parentNode.fields.path
     createNode(jsonNode);
     createNodeField({ node: jsonNode, name: "path", value:  parentPath + "/" + symbol.name})

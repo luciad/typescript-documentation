@@ -95,10 +95,23 @@ function replaceNewLines(string){
  * @returns string without ```javascript/json
  */
 function jsTagToDiv(string){
-  string = string.replace(new RegExp("```javascript", "g"), "<pre><code class='language-javascript'>")
-  string = string.replace(new RegExp("```json", "g"), "<pre><code class='language-json'>")
-  string = string.replace(new RegExp("```css", "g"), "<pre><code class='language-css'>")
-  string = string.replace(new RegExp("```", "g"), "</code></pre>")
+  let counter = 20
+  while(string.includes("```") && counter-- > 0){
+    let i = string.indexOf("```")
+    let j = string.indexOf(" ", i)
+    if(j > i + 3 && string.indexOf("&nbsp", i) !== i + 4 && string.indexOf("<", i ) !== i + 4){
+      string = string.replace("```", "<pre><code class='language-")
+      string = string.substring(0, string.indexOf(" ", j)) + "'>" + string.substring(string.indexOf(" ", j) + 1)
+    }else{
+      string = string.replace("```", "<pre><code class='language-none'>")
+    }
+    string = string.replace("```", "</code></pre>")
+    console.log(string)
+  }
+  // string = string.replace(new RegExp("```javascript", "g"), "<pre><code class='language-javascript'>")
+  // string = string.replace(new RegExp("```json", "g"), "<pre><code class='language-json'>")
+  // string = string.replace(new RegExp("```css", "g"), "<pre><code class='language-css'>")
+  // string = string.replace(new RegExp("```", "g"), "</code></pre>")
   return string
 }
 

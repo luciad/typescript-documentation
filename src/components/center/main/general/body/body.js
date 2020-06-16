@@ -13,7 +13,6 @@ export default ({ data }) => {
 
   let children = data.childrenSymbol
   if(children === undefined || children === null) children = []
-
   return (
     <div>
       <BodySummary data={data}/>
