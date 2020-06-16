@@ -31,10 +31,10 @@ export default () => {
           data
         ) => (
           <div>
-            {data.allSymbol.nodes.map( node => 
+            {data.allSymbol.nodes.map( node =>
             {
             return (
-              <li key={node.id}>
+              <li key={node.name}>
               <div className="sidecontainer">
                 <Icon kindString={node.kindString}/>
                 <Link to={pathToExport(node.parent, node)}>{node.name}</Link>

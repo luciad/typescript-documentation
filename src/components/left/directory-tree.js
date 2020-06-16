@@ -12,7 +12,7 @@ const DirectoryTree = ({directories}) => {
       <div className="directoryitem">
       {directories.next.map( node => {
         return (
-          <>
+          <div key={node.path}>
           {(node.next.length > 0 &&
             (
             <details open>
@@ -22,7 +22,7 @@ const DirectoryTree = ({directories}) => {
             ))
               ||
             <p><Link to={node.path}>{node.name}</Link></p>}
-          </>
+          </div>
         )})}
     </div>
   )

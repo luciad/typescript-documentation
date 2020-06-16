@@ -23,7 +23,7 @@ export default ({ data }) => {
         <div className="title">Module list</div>
         <ul>
           {modules.map(module => (
-            <li>
+            <li key={module.id}>
               <div className="sidecontainer">
                 <Icon kindString={module.kindString}/>
                 <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>

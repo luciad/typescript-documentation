@@ -18,7 +18,7 @@ export default ({ data }) => {
     <div>
       <BodySummary data={data}/>
       {children.map(child => (
-        <Leaf data={child}/>
+        <Leaf data={child} key={child.id}/>
       ))}
     </div>
   );

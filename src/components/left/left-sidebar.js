@@ -10,10 +10,9 @@ export default () => {
     <Link to="/overview">
       <img src={logo} alt="Company Logo" className="center"/>
     </Link>
-
     <DirectoryList/>
     <ClassList/>
-    
+
   </div>
   )
 }

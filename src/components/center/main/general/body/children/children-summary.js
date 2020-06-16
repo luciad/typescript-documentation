@@ -16,7 +16,7 @@ import { Link } from "gatsby"
 export default ({ data }) => {
   if(!data) return null
   const children = data.childrenSymbol
-  if(!children || children.length === 0) return (<></>)
+  if(!children || children.length === 0) return (null)
   let exportIds = []
   if(data.exports){
     exportIds = data.exports.map(exp => exp.id)
@@ -31,7 +31,7 @@ export default ({ data }) => {
           if(!child.id) return null
           if(exportIds.includes(child.id))
             return (
-              <li>
+              <li key={child.id}>
                 <div className="sidecontainer">
                 <Icon kindString={child.kindString}/>
                 <Link to={pathToExport(data, child)}>
@@ -41,7 +41,7 @@ export default ({ data }) => {
               </li>
             )
             return (
-              <li>
+              <li key={child.id}>
               <div className="sidecontainer">
               <Icon kindString={child.kindString}/>
                 <button className="clickabletext" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>

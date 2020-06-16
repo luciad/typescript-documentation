@@ -8,11 +8,10 @@ import Text from "../text"
  * - List of tag.tag and tag.text
  */
 export default ({ tags }) => {
-  if(!tags) return null
+  if(!tags || tags.length === 0) return null
   return (
     <div>
-      {tags.length !== 0 &&
-        <div className="subsubtitle">Tags</div>}
+      <div className="subsubtitle">Tags</div>
       <ul>
         {tags.map(tag => (
           <li className="sidecontainer">{tag.tag}: &nbsp; <Text data={tag.text}/></li>
