@@ -1,4 +1,5 @@
 const Parser = require("html-react-parser")
+const Sanitizer = require("sanitize-html")
 
 const MODULE_PATH_PREFIX = "/modules"
 
@@ -76,7 +77,11 @@ function getComments(data){
  */
 function parse(string){
   if(typeof string !== "string") string = ""
-  return Parser(jsTagToDiv(tabsToHTML(replaceNewLines(string))))
+  let fixedText = jsTagToDiv(tabsToHTML(replaceNewLines(string)))
+  return Parser(Sanitizer(fixedText, {
+    //allow all attributes:
+    allowedAttributes: false,
+  }))
 }
 
 /**
@@ -86,7 +91,7 @@ function parse(string){
  * @returns string without \n
  */
 function replaceNewLines(string){
-  return string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "__newline__<br/>").replace(/__newline__/g, "\n")
+  return string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "\n<br/>")
 }
 
 /**
@@ -95,23 +100,18 @@ function replaceNewLines(string){
  * @returns string without ```javascript/json
  */
 function jsTagToDiv(string){
-  let counter = 20
-  while(string.includes("```") && counter-- > 0){
+  while(string.includes("```")){
     let i = string.indexOf("```")
-    let j = string.indexOf(" ", i)
-    if(j > i + 3 && string.indexOf("&nbsp", i) !== i + 4 && string.indexOf("<", i ) !== i + 4){
-      string = string.replace("```", "<pre><code class='language-")
-      string = string.substring(0, string.indexOf(" ", j)) + "'>" + string.substring(string.indexOf(" ", j) + 1)
+    let j = Math.min(string.indexOf(" ", i), string.indexOf("\n", i))
+    if(j > i + 4){
+      let suffix = "<pre><code class='language-"
+      string = string.substring(0,  j) + "'>" + string.substring(j)
+      string = string.replace("```",  suffix)
     }else{
       string = string.replace("```", "<pre><code class='language-none'>")
     }
     string = string.replace("```", "</code></pre>")
   }
-  //console.log(string.replace(/&nbsp;/g, " "))
-  // string = string.replace(new RegExp("```javascript", "g"), "<pre><code class='language-javascript'>")
-  // string = string.replace(new RegExp("```json", "g"), "<pre><code class='language-json'>")
-  // string = string.replace(new RegExp("```css", "g"), "<pre><code class='language-css'>")
-  // string = string.replace(new RegExp("```", "g"), "</code></pre>")
   return string
 }
 
@@ -121,7 +121,7 @@ function jsTagToDiv(string){
  * @returns string with replaced double spaces
  */
 function tabsToHTML(string){
-  return string.replace(/[\s]{2}(?!\n)/g, "&nbsp;&nbsp;" )
+  return string.replace(/[\s]{2}/g, " &nbsp;&nbsp; " )
 }
 
 /**
