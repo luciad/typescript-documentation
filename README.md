@@ -24,6 +24,7 @@ Generates HTML pages based on json output from  [typedoc](https://typedoc.org/).
     flags:
     -i file/path.json -> specify input json path (optional if run succesfully before)
     -o folder/path -> specify output folder path (optional, default=public/)
+    -m media/folder -> specify media input folder (optional)
     -n true -> skip npm install (default false)
     -t themeName -> specify theme path (optional)
   ```
@@ -31,7 +32,7 @@ Generates HTML pages based on json output from  [typedoc](https://typedoc.org/).
   Example:
 
   ```shell
-  $ ./tsdocs.sh -i myDocumentation.json -o myOutput -n true -t default
+  $ ./tsdocs.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default
   ```
 
   You can also use ```npm run build``` by putting ```--``` before the flags.
@@ -39,5 +40,5 @@ Generates HTML pages based on json output from  [typedoc](https://typedoc.org/).
   Example:
 
   ```shell
-  $ npm run build -- -i myDocumentation.json -o myOutput -n true -t default
+  $ npm run build -- -i myDocumentation.json -o myOutput -m imgs -n true -t default
   ```
