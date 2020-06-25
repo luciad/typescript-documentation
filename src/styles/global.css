@@ -1,16 +1,12 @@
 :root {
   --left-sidebar-width: 20%;
   --right-sidebar-width: 15%;
-  --sidebar-color: rgb(24, 24, 24);
-  --card-color: rgb(24,24,24);
-  --border-color: rgb(14, 14, 14);
-  --background-color: rgb(30, 30, 30);
-  --text-color-main: rgb(161, 161, 161);
-  --search-color: rgb(35,35,35)
-}
-
-* {
-  scrollbar-color: grey black; /* Doesn't work in most browsers */
+  --sidebar-color: whitesmoke;
+  --card-color: whitesmoke;
+  --border-color: rgb(187, 187, 187);
+  --background-color: rgb(255, 255, 255);
+  --text-color-main: rgb(46, 46, 46);
+  --text-color-secondary: blue;
 }
 
 body{
@@ -87,7 +83,6 @@ height: 4em;
   position: fixed;
   z-index: 100;
   border-radius: 0.5em;
-  background-color: var(--card-color);
 }
 
 .search{
@@ -98,7 +93,6 @@ height: 4em;
 }
 
 .search input {
-  background-color: var(--search-color);
   text-align: right;
   border-radius: 15px;
   border-color: var(--border-color);

@@ -2,7 +2,7 @@
   Luciad's typescript documentation generator
 </h1>
 
-Generates HTML pages based on json output from  [typedoc](https://typedoc.org/). This project is made using [gatsby](www.gatsby.org).
+Generates webpages based on json output from  [typedoc](https://typedoc.org/). This project is made using [gatsby](www.gatsby.org).
 
 
 # Quick start
@@ -113,3 +113,6 @@ Generates HTML pages based on json output from  [typedoc](https://typedoc.org/).
     To make a new theme, feel free to copy paste themes/default to themes/yourThemeName and change the css.
     ### Icons
     To change or add icons, open src/components/general/icon.js and change the imgSrc's and/or add cases. If you want these to appear in the legend, add them in src/components/right/right-sidebar.js
+
+    ### HTML
+    To change how the HTML gets generated, feel free to change the react elements in src/components.
