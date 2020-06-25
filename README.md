@@ -105,3 +105,11 @@ Generates HTML pages based on json output from  [typedoc](https://typedoc.org/).
     {@img path/to/img.jpg}
     ```
     The image it would take would be located at mediaFolder/path/to/img.jpg.
+
+    ## Change tsdocs to your liking
+    ### Themes
+    To add an existing theme, simply paste its folder in themes/
+
+    To make a new theme, feel free to copy paste themes/default to themes/yourThemeName and change the css.
+    ### Icons
+    To change or add icons, open src/components/general/icon.js and change the imgSrc's and/or add cases. If you want these to appear in the legend, add them in src/components/right/right-sidebar.js
