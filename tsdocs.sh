@@ -9,7 +9,7 @@ main()
             i) INPUT=${OPTARG};;
             o) OUTPUT=${OPTARG};;
             t) THEME=${OPTARG};;
-            n) NONPM=${OPTARG};;
+            n) NPM=${OPTARG};;
             m) MEDIA=${OPTARG};;
             \?) echo "[tsdocs] Invalid option: -$OPTARG" >&2
                 display_help
@@ -20,7 +20,7 @@ main()
     check_var_input
     check_var_theme
     check_var_media
-    if [ !  "$NONPM" == "true" ]
+    if [  "$NPM" == "true" ]
     then
         echo "[tsdocs] running npm install (disable using -n true)"
         npm install
@@ -96,7 +96,7 @@ display_help(){
     echo "[tsdocs] -i file/path.json -> specify input json path (optional if run succesfully before)"
     echo "[tsdocs] -o output/folder -> specify output folder path (optional, default=public/)"
     echo "[tsdocs] -m media/folder -> specify media input folder (optional)"
-    echo "[tsdocs] -n true -> skip npm install (default false)"
+    echo "[tsdocs] -n true -> run npm install (default false)"
     echo "[tsdocs] -t themeName -> specify theme path (optional)"
     echo "[tsdocs] Example:"
     echo "[tsdocs] ./tsdocs.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default"
