@@ -16,21 +16,20 @@ Generates HTML pages based on json output from  [typedoc](https://typedoc.org/).
     $ typedoc --json path/to/output.json path/to/typescript/project/
     ```
 
-1.  **Put json file, as well as the image folders (if any) in the  content/ folder.**
+  1. **Build the site.**
 
+  Make sure npm is available.
 
+  ```shell
+    flags:
+    -i file/path.json -> specify input json path (optional if run succesfully before)
+    -o folder/path -> specify output folder path (optional, default=public/)
+    -n true -> skip npm install (default false)
+    -t themeName -> specify theme path (optional)
+  ```
 
-1.  **Test the site**
-  Navigate into your new site’s directory and start it up.
+  Example:
 
-    ```shell
-    $ cd tsd/
-    $ gatsby develop
-    ```
-
-    Your site is now running at `http://localhost:8000`!
-
-  1. **Build the site**
-      ```shell
-      $ gatsby build
-      ```
+  ```shell
+  $./tsdocs.sh -i myDocumentation.json -o myOutput -n true -t default
+  ```
