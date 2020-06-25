@@ -2,13 +2,14 @@
 main()
 {
     #!/bin/bash
-    while getopts :i:o:t: option
+    while getopts :i:o:t:n: option
     do
         case "${option}"
         in
             i) INPUT=${OPTARG};;
             o) OUTPUT=${OPTARG};;
             t) THEME=${OPTARG};;
+            n) NONPM=${OPTARG};;
             \?) echo "[tsdocs] Invalid option: -$OPTARG" >&2
                 display_help
                 exit 1;;
@@ -16,6 +17,14 @@ main()
     done
 
     check_var_input
+    check_var_theme
+    if [ !  "$NONPM" == "true" ]
+    then
+        echo "[tsdocs] running npm install (disable using -n true)"
+        npm install
+    else
+        echo "[tsdocs] skipping npm install"
+    fi
 
     echo "[tsdocs] running tsdocs..."
     gatsby clean
@@ -28,7 +37,8 @@ main()
 check_var_output(){
      if [ ! -z "$OUTPUT" ]
     then
-        mvdir public $OUTPUT
+        echo "[tsdocs] Moving output to $OUTPUT"
+        mv public $OUTPUT
     else
         echo "[tsdocs] Default output path: public (no output path specified)"
     fi
@@ -56,10 +66,25 @@ check_var_input()
     fi
 }
 
+check_var_theme()
+{
+    if [ ! -z "$THEME" ] && [ -d themes/$THEME ]
+    then
+        echo "[tsdocs] Using theme $THEME"
+         yes | cp -a themes/$THEME/. src/styles/
+    else
+        echo "[tsdocs] Using default theme"
+         yes | cp -a themes/default/. src/styles/
+    fi
+}
+
 display_help(){
     echo "[tsdocs] flags:"
     echo "[tsdocs] -i file/path.json -> specify input json path (optional if run succesfully before)"
     echo "[tsdocs] -o folder/path -> specify output folder path (optional, default=public/)"
-    echo "[tsdocs] -t theme/path -> specify theme path (optional/doesn't work yet)"
+    echo "[tsdocs] -n true -> skip npm install (default false)"
+    echo "[tsdocs] -t themeName -> specify theme path (optional)"
+    echo "[tsdocs] Example:"
+    echo "[tsdocs] ./tsdocs.sh -i myDocumentation.json -o myOutput -n true -t default"
 }
 main "$@"; exit

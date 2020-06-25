@@ -1,0 +1,270 @@
+:root {
+  --left-sidebar-width: 20%;
+  --right-sidebar-width: 15%;
+  --sidebar-color: whitesmoke;
+  --card-color: whitesmoke;
+  --border-color: rgb(187, 187, 187);
+  --background-color: rgb(255, 255, 255);
+  --text-color-main: rgb(46, 46, 46);
+  --text-color-secondary: blue;
+}
+
+body{
+  background-color: var(--background-color);
+  color: var(--text-color-main);
+}
+
+ul {
+  list-style-type: none;
+}
+
+.signaturelist ul {
+  list-style-type: disc;
+}
+
+.signaturelist {
+  padding-left: 2em;
+}
+
+/* The sidebar menu */
+.rightsidenav,
+.leftsidenav {
+  height: 100%;
+  width: var(--left-sidebar-width);
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: var(--sidebar-color);
+  padding-top: 20px;
+  border: thin solid var(--border-color);
+  font-size: 150%;
+}
+
+.rightsidenav{
+  left: calc(100% - var(--right-sidebar-width));
+}
+
+/* The navigation menu links */
+.rightsidenav h3,
+.leftsidenav h3 {
+  margin: 0.5em;
+  font-size: 25px;
+}
+
+.rightsidenav img,
+.leftsidenav img {
+  max-width: 90%;
+}
+
+
+.directories,
+.classes {
+  padding: 0.2em;
+  margin: 0.5em;
+  border: thin solid var(--border-color);
+  height: 35vh;
+  font-size: 80%;
+  overflow: auto;
+  white-space: nowrap;
+}
+
+.topbarspace {
+height: 4em;
+}
+
+.topbar{
+  display: flex;
+  margin: 1em;
+  margin-left: 30%;
+  padding: 0.2em 0.5em 0.2em 0.5em;
+  width: 30%;
+  background-color: white;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  position: fixed;
+  z-index: 100;
+  border-radius: 0.5em;
+}
+
+.search{
+  font-size: 110%;
+  height: 1.2em;
+  width: 97%;
+  margin: 0.5em auto 0.5em auto;
+}
+
+.search input {
+  text-align: right;
+  border-radius: 15px;
+  border-color: var(--border-color);
+  width: inherit;
+  height: inherit;
+  padding-right: 15px;
+}
+
+.search ul {
+  background-color: white;
+  /* border: thin solid lightgray; */
+  max-height: 80vh;
+  overflow-y: scroll;
+  width: 100%;
+  padding: 0;
+}
+.search li {
+  position: relative;
+  border: thin solid lightgray;
+  padding: 0.4em 1em 0.4em 1em;
+}
+
+/* Style page content */
+.main {
+  margin-left: var(--left-sidebar-width);
+  margin-right: var(--right-sidebar-width);
+  padding: 0px 10px;
+}
+
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.sidecontainer {
+  display: flex;
+}
+
+.itembox {
+  background-color: var(--card-color);
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
+  margin: 1em;
+  padding: 1em;
+  padding-left: 2em;
+}
+
+.legend {
+  list-style-type: none;
+}
+
+.functionBox {
+  border: thin solid var(--border-color);
+  margin: 1em;
+  margin-left: 0;
+  padding: 0.5em;
+  padding-left: 1em;
+  font-size: 95%;
+}
+
+.subtitle {
+  font-size: 150%;
+  font-style: oblique;
+}
+
+.subsubtitle {
+  font-size: 125%;
+  font-style: oblique;
+}
+
+.title {
+  font-size: 175%;
+  font-style: oblique;
+}
+
+.kindString {
+  font-size: 100%;
+  font-style: italic;
+  padding-left: 0;
+}
+
+.signature {
+  font-size: 90%;
+  position: relative;
+}
+
+.icon {
+  height: 1.2em;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
+}
+
+.icon * {
+  height: 100%;
+  width: auto;
+}
+
+p {
+  margin: 0;
+  padding:0;
+}
+
+.directoryitem {
+  padding: 0;
+  margin: 0;
+  margin-left: 1em;
+  resize: vertical;
+  display: inline-block;
+}
+
+.directoryitem li:first-child {
+  list-style-type: "\21B3";
+}
+
+.title a {
+  color: darkblue;
+}
+
+.clickable {
+  cursor: pointer;
+}
+
+.textblock {
+  background: rgba(0,0,0,0.02);
+  padding: 10px;
+  border: solid thin rgba(0,0,0,0.1);
+  border-radius: 5px;
+}
+
+.searchLink {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.signatures {
+  border: solid thin rgba(0,0,0,0.1);
+  padding: 10px;
+}
+
+.signatureBody {
+  padding-left: 1em;
+}
+
+.flags ul {
+  padding-left: 0;
+}
+
+.links li {
+  display: inline-block;
+  margin: 0.5em;
+}
+
+.childrenSummary li {
+  display: inline-block;
+  min-width: 25%;
+  margin: 0.5em;
+}
+
+.textimg {
+  max-width: 70%;
+  height: auto;
+}
+
+/* remove button styling from clickable text */
+.clickabletext {
+	background: none;
+	color: inherit;
+	border: none;
+	padding: 0;
+	font: inherit;
+  outline: inherit;
+  cursor: pointer;
+}
