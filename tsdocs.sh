@@ -20,19 +20,14 @@ main()
     check_var_input
     check_var_theme
     check_var_media
-    if [  "$NPM" == "true" ]
-    then
-        echo "[tsdocs] running npm install (disable using -n true)"
-        npm install
-    else
-        echo "[tsdocs] skipping npm install"
-    fi
+    check_var_npm
 
     echo "[tsdocs] running tsdocs..."
     gatsby clean
     echo "[tsdocs] building..."
     gatsby build
     echo "[tsdocs] Finished building tsdocs!"
+    
     check_var_output
 }
 
@@ -88,6 +83,17 @@ check_var_media()
         cp -r $MEDIA/. content/imgs/
     else
         echo "[tsdocs] No media folder specified."
+    fi
+}
+
+check_var_npm()
+{
+       if [  "$NPM" == "true" ]
+    then
+        echo "[tsdocs] running npm install (disable using -n true)"
+        npm install
+    else
+        echo "[tsdocs] skipping npm install"
     fi
 }
 
