@@ -31,5 +31,13 @@ Generates HTML pages based on json output from  [typedoc](https://typedoc.org/).
   Example:
 
   ```shell
-  $./tsdocs.sh -i myDocumentation.json -o myOutput -n true -t default
+  $ ./tsdocs.sh -i myDocumentation.json -o myOutput -n true -t default
+  ```
+
+  You can also use ```npm run build``` by putting ```--``` before the flags.
+
+  Example:
+
+  ```shell
+  $ npm run build -- -i myDocumentation.json -o myOutput -n true -t default
   ```
