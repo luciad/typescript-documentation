@@ -14,19 +14,38 @@ export default ({ data }) => {
       text: data[1]
     }
   }
-  let filePath = dataArray.find(item => item.type.toLowerCase() === "src")
-  let fileName = dataArray.find(item => item.type.toLowerCase() === "alt")
-  if(filePath){
-    filePath = filePath.text
-  }else{
-    throw new Error("[tsdocs] Did not specify a src in an @img.")
-  }
-  if(fileName){
-    fileName = fileName.text
-  }else{
-    fileName = filePath
+  let image = {
+    src: find(dataArray, "src"),
+    alt: find(dataArray, "alt"),
+    style: find(dataArray, "style"),
   }
 
+  if(!image.src){
+    throw new Error("[tsdocs] Did not specify a src in an @img.")
+  }
+  if(!image.alt){
+    image.alt = {
+      text: image.src.text,
+    }
+  }
+  let imgStyle = {}
+  if(image.style){
+    switch(image.style.text){
+      case "fullWidth":
+        imgStyle = {
+          width: "100%"
+        }
+        break
+        case "icon":
+          imgStyle = {
+            height: "1em"
+          }
+          break
+        case "default":
+          break;
+    }
+  }
+  // console.log(style)
   return (
     <StaticQuery
       query={graphql`
@@ -45,14 +64,23 @@ export default ({ data }) => {
         let items = query.allFile.edges
         let path = "not found"
         for(let item of items){
-          if(item.node.relativePath === filePath){
+          if(item.node.relativePath === image.src.text){
             path = item.node.publicURL
             break;
           }
         }
       return (
-        <img className="textimg" src={path} alt={fileName}/>
+        <img className="textimg" src={path} alt={image.alt.text} style={imgStyle}/>
       )}}
     />
   )
+}
+
+/**
+ * Find string in array ignoring casing
+ * @param {*} array
+ * @param {*} string
+ */
+function find(array, string){
+  return array.find(item => item.type.toLowerCase() === string)
 }
