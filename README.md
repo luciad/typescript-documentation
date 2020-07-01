@@ -48,7 +48,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     `-o`: output folder. The generated files will be exported here.
 
-    `-m`: media input folder. Using `{@img image.jpg}` in your documentation will source these files from this folder.
+    `-m`: media input folder. Using `{@img src:image.jpg; alt:altName}` in your documentation will source these files from this folder.
 
     `-n`: if  set to true, the script will run `npm install`.
 
@@ -102,8 +102,10 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     #### Linking to images
     You can specify a media folder using flag `-m mediaFolder`. To use these images in your documentation, use the following syntax:
     ```
-    {@img path/to/img.jpg}
+    {@img src:path/to/img.jpg; alt:altName}
     ```
+    If no `alt` is specified, src is used as HTML alt attribute.
+    
     The image it would take would be located at mediaFolder/path/to/img.jpg.
 
     ## Change tsdocs to your liking
