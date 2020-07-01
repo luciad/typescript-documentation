@@ -2,24 +2,29 @@ import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 
 /**
- * Expected input: data.text = "img/path.jpg imgName"
+ * Expected input: data.text = "src:img/path.jpg; alt:imgName; style:(style)"
+ *
+ * Takes the image from the media folder with the specified source path.
+ * Alt is used as HTML alt tag.
  */
 export default ({ data }) => {
   if(!data) return null
+  //Parse string:
   let dataArray = data.text.trim().split(";") //remove leading & trailing spaces and turn into array
   for(let i = 0; i < dataArray.length; i++){
-    let data = dataArray[i].trim().split(/:(.+)/) //split on first occurence of ":"
+    let data = dataArray[i].trim().split(/:(.+)/) //split on first occurrence of ":"
     dataArray[i] = {
       type: data[0],
       text: data[1]
     }
   }
+  //Put parsed data in object:
   let image = {
-    src: find(dataArray, "src"),
-    alt: find(dataArray, "alt"),
-    style: find(dataArray, "style"),
+    src: findType(dataArray, "src"),
+    alt: findType(dataArray, "alt"),
+    style: findType(dataArray, "style"),
   }
-
+  //Check for valid input:
   if(!image.src){
     throw new Error("[tsdocs] Did not specify a src in an @img.")
   }
@@ -45,7 +50,7 @@ export default ({ data }) => {
           break;
     }
   }
-  // console.log(style)
+
   return (
     <StaticQuery
       query={graphql`
@@ -78,18 +83,19 @@ export default ({ data }) => {
 
 /**
  * Find string in array ignoring casing
- * @param {*} array
- * @param {*} string
+ * @param {Array} array array to find item in
+ * @param {String} type type to look for
  */
-function find(array, string){
-  return array.find(item => item.type.toLowerCase() === string)
+function findType(array, type){
+  return array.find(item => item.type.toLowerCase() === type)
 }
 
 /**
- * Allow wildcard * to be used in string comparison
+ * Allow wildcard "*" to be used in string comparison
+ * Eg. advancedEquals("string", "str*") returns true
  *
- * @param {*} str
- * @param {*} rule
+ * @param {String} str String to compare (no *)
+ * @param {String} rule String containing *
  */
 function advancedEquals(str, rule) {
   let escapedStr = (str) => str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
