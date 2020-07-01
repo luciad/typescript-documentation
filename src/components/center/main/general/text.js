@@ -1,7 +1,7 @@
 import React from "react"
 import { getLinks } from "../../../../util/util"
 import SearchLink from "./search-link"
-import Image from "./image"
+import Image from "../../../general/image"
 
 /**
  * Parses text for @links and HTML

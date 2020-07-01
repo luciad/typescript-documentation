@@ -64,7 +64,7 @@ export default ({ data }) => {
         let items = query.allFile.edges
         let path = "not found"
         for(let item of items){
-          if(item.node.relativePath === image.src.text){
+          if(advancedEquals(item.node.relativePath, image.src.text)){
             path = item.node.publicURL
             break;
           }
@@ -83,4 +83,15 @@ export default ({ data }) => {
  */
 function find(array, string){
   return array.find(item => item.type.toLowerCase() === string)
+}
+
+/**
+ * Allow wildcard * to be used in string comparison
+ *
+ * @param {*} str
+ * @param {*} rule
+ */
+function advancedEquals(str, rule) {
+  let escapedStr = (str) => str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+  return new RegExp("^" + rule.split("*").map(escapedStr).join(".*") + "$").test(str);
 }
