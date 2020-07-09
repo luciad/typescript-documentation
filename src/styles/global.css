@@ -274,3 +274,7 @@ p {
   outline: inherit;
   cursor: pointer;
 }
+
+code {
+  white-space: pre-line
+}
