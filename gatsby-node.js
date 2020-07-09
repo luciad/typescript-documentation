@@ -139,4 +139,22 @@ async function onCreateNode({
   });
 }
 
+exports.createSchemaCustomization = ({ actions }) => {
+  const { createTypes } = actions
+  const typeDefs = `
+    type Module implements Node {
+      name: String!
+      kindString: String!
+      childrenSymbol: [symbolField]
+    }
+
+    interface symbolField {
+      name: String!
+      kindString: String!
+      id: ID!
+    }
+  `
+  createTypes(typeDefs)
+}
+
 exports.onCreateNode = onCreateNode;
