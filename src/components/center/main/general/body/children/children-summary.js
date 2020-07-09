@@ -26,7 +26,7 @@ export default ({ data }) => {
     <div className="childrenSummary">
       {children.size !== 0 &&   // Only show "Children" title if children exist.
         <div className="subsubtitle">Children</div>}
-      <ul>
+      <ul className="itemList">
         {children.map(child => {
           if(!child.id) return null
           if(exportIds.includes(child.id)) // if child is exported, a link to the child is included.

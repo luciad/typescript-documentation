@@ -248,14 +248,14 @@ p {
   margin: 0.5em;
 }
 
-.childrenSummary li {
+.itemList li {
   display: inline-block;
   width: 30%;
   margin: 0.5em;
 }
 
-.childrenSummary li a,
-.childrenSummary li button {
+.itemList li a,
+.itemList li button {
   word-break: break-all;
   text-align: left;
 }
@@ -274,4 +274,13 @@ p {
 	font: inherit;
   outline: inherit;
   cursor: pointer;
+}
+
+/* Preserve new lines: */
+pre,
+code {
+  white-space: -moz-pre-wrap;
+  white-space: -o-pre-wrap;
+  white-space: pre-wrap;
+  word-wrap: break-word;
 }

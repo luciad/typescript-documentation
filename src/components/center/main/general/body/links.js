@@ -36,7 +36,7 @@ function LinkTemplate(title, data) {
         <div className="subsubtitle">
           {title}
         </div>
-        <ul>
+        <ul className="itemList">
           {data.map(function(type){
             let newData = {text: type.name}
             return(
