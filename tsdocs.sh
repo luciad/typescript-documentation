@@ -1,7 +1,7 @@
+#!/bin/bash
 
 main()
 {
-    #!/bin/bash
     while getopts :i:o:t:n:m: option
     do
         case "${option}"
@@ -27,7 +27,7 @@ main()
     echo "[tsdocs] building..."
     gatsby build
     echo "[tsdocs] Finished building tsdocs!"
-    
+
     check_var_output
 }
 
@@ -107,4 +107,5 @@ display_help(){
     echo "[tsdocs] Example:"
     echo "[tsdocs] ./tsdocs.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default"
 }
+
 main "$@"; exit
