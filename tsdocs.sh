@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/bash -e
 
 main()
 {
@@ -23,9 +23,9 @@ main()
     check_var_npm
 
     echo "[tsdocs] running tsdocs..."
-    gatsby clean
+    npx gatsby clean
     echo "[tsdocs] building..."
-    gatsby build
+    npx gatsby build
     echo "[tsdocs] Finished building tsdocs!"
 
     check_var_output
