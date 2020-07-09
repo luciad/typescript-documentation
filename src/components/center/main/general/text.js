@@ -11,7 +11,8 @@ import Image from "../../../general/image"
  * - searched links (see search-link.js)
  */
 export default ({ data, path }) => {
-  if(!data || !path) return null
+  if(!data) return null
+  if(!path) path="/"
   const parsedData = getLinks(data)
   if(parsedData.length === 0){
     return null;
