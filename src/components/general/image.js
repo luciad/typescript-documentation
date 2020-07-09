@@ -41,13 +41,13 @@ export default ({ data }) => {
           width: "100%"
         }
         break
-        case "icon":
-          imgStyle = {
-            height: "1em"
-          }
-          break
-        case "default":
-          break;
+      case "icon":
+        imgStyle = {
+          height: "1em"
+        }
+        break
+      default:
+        break;
     }
   }
 
@@ -98,6 +98,6 @@ function findType(array, type){
  * @param {String} rule String containing *
  */
 function advancedEquals(str, rule) {
-  let escapedStr = (str) => str.replace(/([.*+?^=!:${}()|\[\]\/\\])/g, "\\$1");
+  let escapedStr = (str) => str.replace(/([.*+?^=!:${}()|[\]/\\])/g, "\\$1");
   return new RegExp("^" + rule.split("*").map(escapedStr).join(".*") + "$").test(str);
 }

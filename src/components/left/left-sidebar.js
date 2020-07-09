@@ -1,5 +1,4 @@
 import React from 'react'
-import logo from "../../../content/imgs/logo.png"
 import { Link } from "gatsby"
 import ClassList from "./class-list"
 import DirectoryList from "./directory-list"
