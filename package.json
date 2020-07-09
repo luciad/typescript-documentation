@@ -1,5 +1,5 @@
 {
-  "name": "tsdoc",
+  "name": "typescript-documentation",
   "private": true,
   "description": "A typescript documentation HTML generator",
   "version": "0.1.0",
@@ -42,9 +42,9 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/TijlB99/tsd"
+    "url": "https://github.com/luciad/typescript-documentation"
   },
   "bugs": {
-    "url": "https://github.com/TijlB99/tsd/issues"
+    "url": "https://github.com/luciad/typescript-documentation/issues"
   }
 }
