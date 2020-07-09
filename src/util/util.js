@@ -91,7 +91,7 @@ function parse(string){
  * @returns string without \n
  */
 function replaceNewLines(string){
-  return removeTrailingBrs(string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "\n<br/>"))
+  return removeTrailingBrs(string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n\s*\n/g, "\n<br/>"))
 }
 
 /**
