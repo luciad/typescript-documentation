@@ -145,13 +145,68 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Module implements Node {
       name: String!
       kindString: String!
-      childrenSymbol: [symbolField]
+      childrenSymbol: [Symbol!]
+      comment: commentField
     }
 
-    interface symbolField {
+    type Symbol implements Node {
       name: String!
       kindString: String!
       id: ID!
+      childrenSymbol: [Symbol]
+      # comment: commentField
+      # flags: flagsField
+      defaultValue: String
+      # extendedTypes: [nameType!]
+      # extendedBy: [nameType!]
+      # implementedTypes: [nameType!]
+      # implementedBy: [nameType!]
+      # implementationOf: [nameType!]
+      # signatures: [signature!]
+      # getSignature: [signature!]
+      # setSignature: [signature!]
+    }
+
+    interface nameType {
+      name: String
+    }
+
+    interface signature {
+      name: String!
+      kindString: String!
+      comment: commentField
+      type: typeField
+      parameters: parametersField
+    }
+
+    interface commentField {
+      shortText: String
+      text: String
+      returns: String
+      tags: [tagField!]
+    }
+
+    interface tagField {
+      tag: String!
+      text: String
+    }
+
+    interface typeField {
+      type: String
+      name: String
+    }
+
+    interface parametersField {
+      name: String
+      type: nameType
+      comment: commentField
+    }
+
+    interface flagsField {
+      isExported: Boolean
+      isOptional: Boolean
+      isPrivate: Boolean
+      isStatic: Boolean
     }
   `
   createTypes(typeDefs)

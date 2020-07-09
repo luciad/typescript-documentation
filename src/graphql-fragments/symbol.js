@@ -90,7 +90,7 @@ export const allSignatures = graphql`
 export const flagField = graphql`
   fragment flagFields on Symbol{
     flags {
-        # isExported,
+          isExported,
           isOptional,
           isPrivate,
           isStatic
@@ -127,19 +127,6 @@ export const simpleSymbolFields = graphql`
     ...flagFields
   }`
 
-  export const SymbolInterface = graphql`
-  interface Symbol {
-    name: String!
-    kindString: String!
-    id: ID!
-    fields: [Field]
-  }
-
-  interface Field {
-    path: String
-    parentPath: String
-  }
-`
 
 //no recursion in graphql
   export const symbolFields = graphql`
@@ -158,19 +145,3 @@ export const simpleSymbolFields = graphql`
       }
     }
   }`
-
-  /* getElementByName query:
-  export const getElementByName = graphql`
-  query getElementByName($name: String!) {
-  allSymbol(filter: {name: {eq: $name}}) {
-    nodes {
-      name
-      kindString
-      id
-      fields {
-        path
-      }
-    }
-  }
-}
-`*/
