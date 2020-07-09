@@ -24,12 +24,12 @@ export default ({ data }) => {
 
   return (
     <div className="childrenSummary">
-      {children.size !== 0 &&
+      {children.size !== 0 &&   // Only show "Children" title if children exist.
         <div className="subsubtitle">Children</div>}
       <ul>
         {children.map(child => {
           if(!child.id) return null
-          if(exportIds.includes(child.id))
+          if(exportIds.includes(child.id)) // if child is exported, a link to the child is included.
             return (
               <li key={child.id}>
                 <div className="sidecontainer">
@@ -40,7 +40,7 @@ export default ({ data }) => {
                 </div>
               </li>
             )
-            return (
+            return (  // if child is not exported, clicking on its name will scroll to its body on the same page
               <li key={child.id}>
               <div className="sidecontainer">
               <Icon kindString={child.kindString}/>

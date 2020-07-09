@@ -10,9 +10,12 @@ import { StaticQuery, graphql } from "gatsby"
 export default ({ data }) => {
   if(!data) return null
   //Parse string:
-  let dataArray = data.text.trim().split(";") //remove leading & trailing spaces and turn into array
+  console.log(data.text)
+  let dataArray = data.text.trim().split(";") //remove leading & trailing spaces and turn into array by splitting around ;
+  console.log(dataArray)
   for(let i = 0; i < dataArray.length; i++){
     let data = dataArray[i].trim().split(/:(.+)/) //split on first occurrence of ":"
+    console.log(data)
     dataArray[i] = {
       type: data[0],
       text: data[1]
@@ -34,6 +37,7 @@ export default ({ data }) => {
     }
   }
   let imgStyle = {}
+  console.log(imgStyle)
   if(image.style){
     switch(image.style.text){
       case "fullWidth":
@@ -47,6 +51,12 @@ export default ({ data }) => {
         }
         break
       default:
+        console.log(image.style)
+        try {
+          imgStyle = JSON.parse( '{' + image.style.text.replace(/\'/g, "\"") + '}' )
+        } catch (error) {
+          console.log("Warning: could not parse image style correctly! Ignoring style for image: " + image.src.text + ", provided styling is: " + image.style.text)
+        }
         break;
     }
   }

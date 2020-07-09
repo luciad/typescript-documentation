@@ -141,11 +141,14 @@ async function onCreateNode({
 
 exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
+  /**
+   * https://graphql.org/learn/schema/
+   */
   const typeDefs = `
     type Module implements Node {
       name: String!
       kindString: String!
-      childrenSymbol: [Symbol!]
+      childrenSymbol: [Symbol!]!
       comment: commentField
     }
 
@@ -157,14 +160,14 @@ exports.createSchemaCustomization = ({ actions }) => {
       # comment: commentField
       # flags: flagsField
       defaultValue: String
-      # extendedTypes: [nameType!]
-      # extendedBy: [nameType!]
-      # implementedTypes: [nameType!]
-      # implementedBy: [nameType!]
-      # implementationOf: [nameType!]
-      # signatures: [signature!]
-      # getSignature: [signature!]
-      # setSignature: [signature!]
+      # extendedTypes: [nameType!]!
+      # extendedBy: [nameType!]!
+      # implementedTypes: [nameType!]!
+      # implementedBy: [nameType!]!
+      # implementationOf: [nameType!]!
+      # signatures: [signature!]!
+      # getSignature: [signature!]!
+      # setSignature: [signature!]!
     }
 
     interface nameType {
@@ -183,7 +186,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       shortText: String
       text: String
       returns: String
-      tags: [tagField!]
+      tags: [tagField!]!
     }
 
     interface tagField {
