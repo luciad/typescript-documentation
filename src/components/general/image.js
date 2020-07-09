@@ -53,7 +53,7 @@ export default ({ data }) => {
       default:
         console.log(image.style)
         try {
-          imgStyle = JSON.parse( '{' + image.style.text.replace(/\'/g, "\"") + '}' )
+          imgStyle = JSON.parse( '{' + image.style.text.replace(/'/g, "\"") + '}' )
         } catch (error) {
           console.log("Warning: could not parse image style correctly! Ignoring style for image: " + image.src.text + ", provided styling is: " + image.style.text)
         }

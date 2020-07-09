@@ -105,7 +105,13 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     {@img src:path/to/img.jpg; alt:altName}
     ```
     If no `alt` is specified, src is used as HTML alt attribute.
-    
+
+    CSS styling can be provided as follows:
+
+    ```
+    {@img src:logo.png; style:'height': '4em', 'width': '10em'}
+    ```
+
     The image it would take would be located at mediaFolder/path/to/img.jpg.
 
     ## Change tsdocs to your liking

@@ -131,6 +131,7 @@ height: 4em;
 
 .sidecontainer {
   display: flex;
+  max-width: inherit;
 }
 
 .itembox {
@@ -249,8 +250,13 @@ p {
 
 .childrenSummary li {
   display: inline-block;
-  min-width: 25%;
+  width: 30%;
   margin: 0.5em;
+}
+
+.childrenSummary li button {
+  word-break: break-all;
+  text-align: left;
 }
 
 .textimg {
