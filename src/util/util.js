@@ -85,7 +85,7 @@ function parse(string){
 }
 
 /**
- * replaces all \n with <br/>, except for the \n before < or after >
+ * replaces all  double \n with <br/>, except for the \n before < or after >
  *
  * @param {string} string
  * @returns string without \n
@@ -95,9 +95,13 @@ function replaceNewLines(string){
 }
 
 /**
- * changes ```javascript and ```json to <div class=jspreview><header>JS/JSON</header>code</div>
- * @param {string} string
- * @returns string without ```javascript/json
+ * changes eg. ```javascript  to <pre><code class='language-javascript'>
+ * and the following ``` to </code></pre>
+ *
+ * If no language is specified, the assigned class is language-none
+ *
+ * @param {string} string string to convert
+ * @returns string without ```
  */
 function jsTagToDiv(string){
   while(string.includes("```")){
@@ -154,7 +158,7 @@ function getParameters(data){
 }
 
 /**
- * Parses {@Link .. }, {@img path} from the rest of the text
+ * Parses {@Link .. }, {@img path}  etc. from the rest of the text
  *
  * @param {string} string string to parse
  * @returns list of object.text, object.type, object.link where object.type == "link" || "text"
