@@ -91,7 +91,7 @@ function parse(string){
  * @returns string without \n
  */
 function replaceNewLines(string){
-  return string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "\n<br/>")
+  return removeTrailingBrs(string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "\n<br/>"))
 }
 
 /**
@@ -124,6 +124,14 @@ function tabsToHTML(string){
   return string.replace(/[\s]{2}/g, " &nbsp;&nbsp; " )
 }
 
+/**
+ * Remove trailing <br/>'s from string
+ * @param {String} string string to remove <br/>'s from
+ * @returns string without trailing <br/>'s
+ */
+function removeTrailingBrs(string){
+  return string.replace(/(<br\/>\s*)+$/, "")
+}
 /**
  * returns list of objects with comment, name and type of parameters
  *
