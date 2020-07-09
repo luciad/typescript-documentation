@@ -254,6 +254,7 @@ p {
   margin: 0.5em;
 }
 
+.childrenSummary li a,
 .childrenSummary li button {
   word-break: break-all;
   text-align: left;
