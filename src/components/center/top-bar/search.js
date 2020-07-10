@@ -23,7 +23,7 @@ export default class Search extends Component {
             <li key={page.id}>
               <div className="sidecontainer">
                 <Icon kindString={page.kindString}/>
-                <Link to={"/" + page.path}>{page.name}</Link>
+                <Link to={page.path}>{page.name}</Link>
               </div>
               <div style={{wordBreak:"break-all"}}>
                 {page.path.replace(MODULE_PATH_PREFIX + "/", "")}

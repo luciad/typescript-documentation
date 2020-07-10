@@ -9,7 +9,8 @@ export default () => {
   let filter = {
     kindString: [
       "Class",
-      "Function"
+      "Function",
+      "Interface",
     ]
   }
   return (
