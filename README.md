@@ -62,7 +62,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     ` 'h3', 'h4', 'h5', 'h6', 'blockquote', 'p', 'a', 'ul', 'ol', 'nl', 'li', 'b', 'i', 'strong', 'em', 'strike', 'abbr', 'code', 'hr', 'br', 'div', 'table', 'thead', 'caption', 'tbody', 'tr', 'th', 'td', 'pre', 'iframe'`.
 
-    New lines automatically get converted to `<br>` and spaces get converted to `&nbsp;`.
+    Double new lines automatically get converted to `<br>`. If you want to explicitly specify spacing, you can use `&nbsp;` (not necessary in highlighted code).
 
     ### Highlighted code
     [prism-js](https://prismjs.com/) is used to highlight code.
@@ -121,6 +121,10 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     The image it would take would be located at mediaFolder/path/to/img.jpg.
 
     ## Change tsdocs to your liking
+
+    ### Logo
+    The logo in the left sidebar can be changed by putting a file logo.* in your provided media folder (* being the extension).
+
     ### Themes
     To add an existing theme, simply paste its folder in themes/
 

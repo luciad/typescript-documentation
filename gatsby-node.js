@@ -12,9 +12,6 @@ const moduleTemplate = require.resolve("./src/components/center/main/template/mo
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
-
-
-
   const modules = documentation.children;
 
   // module list page
@@ -46,6 +43,7 @@ exports.createPages = ({ actions }) => {
 };
 
 async function createAllPages(createPage, exports, path, moduleID){
+  // Create a page for each export and its children
   exports.forEach(exprt => {
     exprt.path = path + "/" + exprt.name
     createPage({
@@ -68,7 +66,7 @@ async function onCreateNode({
   createNodeId,
   createContentDigest,
 }) {
-  // only care about documentation.json content.
+  // only care about .json content.
   if (
     node.internal.mediaType !== `application/json` ||
     node.absolutePath !== documentationPath
