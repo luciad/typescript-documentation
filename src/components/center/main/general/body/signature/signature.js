@@ -30,8 +30,8 @@ export default ({ data, path}) => {
             {data.kindString}
       </div></div>
       <div className="signatureBody">
-        {comments.returns.length > 0 &&
-          <div className="returns"><b>returns</b> {comments.returns}</div>}
+      {comments.returns.length > 0 &&
+        <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
         <Text data={comments.shortText} path={path}/>
         <Text data={comments.text} path={path}/>
         <Parameters data={data} path={path}/>

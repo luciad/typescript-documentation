@@ -59,7 +59,6 @@ function getComments(data){
   if(typeof shortText !== "string") shortText = ""
   if(typeof text !== "string") text = ""
   if(typeof returns !== "string") returns = ""
-  returns = parse(returns)
 
   return {
     shortText,

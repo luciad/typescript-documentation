@@ -225,6 +225,17 @@ p {
   border-radius: 5px;
 }
 
+.returns .textblock {
+  background: transparent;
+  padding: 0;
+  border: none;
+  font-weight: normal;
+}
+
+.returns {
+  font-weight: bold;
+}
+
 .searchLink {
   display: inline-block;
   vertical-align: middle;

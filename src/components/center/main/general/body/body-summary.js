@@ -36,7 +36,7 @@ export default ({ data }) => {
   return (
     <div>
       {comments.returns.length > 0 &&
-        <div>returns {comments.returns}</div>}
+        <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
       {(data.defaultValue !== null && data.defaultValue !== undefined) &&
         <div>Default value: {data.defaultValue}</div>}
       <Flags data={data}/>
