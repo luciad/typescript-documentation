@@ -17,6 +17,9 @@ main()
         esac
     done
 
+    scriptDir=$(dirname -- "$(readlink -f -- "${BASH_SOURCE[0]}")")
+    cd "$scriptDir"
+
     check_var_input
     check_var_theme
     check_var_media
