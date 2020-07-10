@@ -141,6 +141,7 @@ exports.createSchemaCustomization = ({ actions }) => {
   const { createTypes } = actions
   /**
    * https://graphql.org/learn/schema/
+   * https://www.digitalocean.com/community/tutorials/graphql-graphql-sdl
    */
   const typeDefs = `
     type Module implements Node {
@@ -155,55 +156,55 @@ exports.createSchemaCustomization = ({ actions }) => {
       kindString: String!
       id: ID!
       childrenSymbol: [Symbol]
-      # comment: commentField
-      # flags: flagsField
+      comment: commentField
+      flags: flagsField
       defaultValue: String
-      # extendedTypes: [nameType!]!
-      # extendedBy: [nameType!]!
-      # implementedTypes: [nameType!]!
-      # implementedBy: [nameType!]!
-      # implementationOf: [nameType!]!
-      # signatures: [signature!]!
-      # getSignature: [signature!]!
-      # setSignature: [signature!]!
+      extendedTypes: [nameType!]
+      extendedBy: [nameType!]
+      implementedTypes: [nameType!]
+      implementedBy: [nameType!]
+      implementationOf: nameType
+      signatures: [signature!]
+      getSignature: [signature!]
+      setSignature: [signature!]
     }
 
-    interface nameType {
+    type nameType {
       name: String
     }
 
-    interface signature {
+    type signature {
       name: String!
       kindString: String!
       comment: commentField
       type: typeField
-      parameters: parametersField
+      parameters: [parametersField]
     }
 
-    interface commentField {
+    type commentField {
       shortText: String
       text: String
       returns: String
-      tags: [tagField!]!
+      tags: [tagField!]
     }
 
-    interface tagField {
+    type tagField {
       tag: String!
       text: String
     }
 
-    interface typeField {
+    type typeField {
       type: String
       name: String
     }
 
-    interface parametersField {
+    type parametersField {
       name: String
       type: nameType
       comment: commentField
     }
 
-    interface flagsField {
+    type flagsField {
       isExported: Boolean
       isOptional: Boolean
       isPrivate: Boolean
