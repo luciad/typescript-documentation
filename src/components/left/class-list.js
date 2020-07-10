@@ -6,15 +6,21 @@ import Icon from "../general/icon"
  * List of all classes
  */
 export default () => {
+  let filter = {
+    kindString: [
+      "Class",
+      "Function"
+    ]
+  }
   return (
     <div>
-      <h3>All Classes</h3>
+      <h3>Filter</h3>
       <ul className="classes">
 
       <StaticQuery
         query={graphql`
           query ClassQuery {
-            allSymbol(filter: {kindString: {eq: "Class"}}, sort: {fields: name}) {
+            allSymbol(sort: {fields: name}) {
               nodes {
                 kindString
                 name
@@ -33,6 +39,7 @@ export default () => {
           <div>
             {data.allSymbol.nodes.map( node =>
             {
+            if(!passesFilter(node)) return null
             return (
               <li key={node.name}>
               <div className="sidecontainer">
@@ -47,4 +54,8 @@ export default () => {
       </ul>
     </div>
   )
+
+  function passesFilter(node){
+    return filter.kindString.includes(node.kindString)
+  }
 }
