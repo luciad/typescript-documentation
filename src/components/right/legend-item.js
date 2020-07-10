@@ -1,5 +1,5 @@
 import React from 'react'
-import Icon from "./icon"
+import Icon from "../general/icon"
 
 export default ({type}) => {
   if(!type) return null

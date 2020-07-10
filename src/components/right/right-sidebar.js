@@ -1,5 +1,5 @@
 import React from 'react'
-import LegendItem from "../general/legend-item"
+import LegendItem from "./legend-item"
 
 export default () => {
   return (
