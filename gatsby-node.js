@@ -147,7 +147,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     type Module implements Node {
       name: String!
       kindString: String!
-      childrenSymbol: [Symbol!]!
+      children: [Symbol!]
       comment: commentField
     }
 
@@ -155,7 +155,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       name: String!
       kindString: String!
       id: ID!
-      childrenSymbol: [Symbol]
+      children: [Symbol!]
       comment: commentField
       flags: flagsField
       defaultValue: String

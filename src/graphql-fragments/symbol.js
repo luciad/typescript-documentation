@@ -132,13 +132,13 @@ export const simpleSymbolFields = graphql`
   export const symbolFields = graphql`
   fragment symbolFields on Symbol {
     ...simpleSymbolFields,
-    childrenSymbol {
+    children {
       ...simpleSymbolFields
-      childrenSymbol {
+      children {
         ...simpleSymbolFields
-        childrenSymbol {
+        children {
           ...simpleSymbolFields
-          childrenSymbol {
+          children {
             ...simpleSymbolFields
           }
         }

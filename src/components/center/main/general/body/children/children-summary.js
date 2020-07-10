@@ -15,7 +15,7 @@ import { Link } from "gatsby"
  */
 export default ({ data }) => {
   if(!data) return null
-  const children = data.childrenSymbol
+  const children = data.children
   if(!children || children.length === 0) return (null)
   let exportIds = []
   if(data.exports){

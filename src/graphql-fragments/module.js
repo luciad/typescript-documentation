@@ -9,7 +9,10 @@ export const moduleFields = graphql`
       path,
       parentPath
     }
-    childrenSymbol {
+    children {
+      ...symbolFields
+    }
+    children {
       ...symbolFields
     }
   }

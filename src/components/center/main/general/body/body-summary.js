@@ -26,7 +26,7 @@ export default ({ data }) => {
   if(!data) return null
   const comments = getComments(data)
 
-  let children = data.childrenSymbol
+  let children = data.children
   if(children === undefined || children === null) children = []
   let path = ""
   if (data.fields){

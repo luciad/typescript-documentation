@@ -18,7 +18,7 @@ import Header from "../../../general/header"
 export default ({ data }) => {
   if(!data) return null
   const module = data.module;
-  module.exports = data.module.childrenSymbol;
+  module.exports = data.module.children;
 
   return (
     <>
