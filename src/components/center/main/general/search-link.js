@@ -44,7 +44,7 @@ class Search extends Component {
   constructor(props) {
     super(props)
     this.data = props.data
-    this.srcPath = props.data.searchPath
+    this.srcPath = props.data.path ? props.data.path : props.data.searchPath
     this.state = {
       query: ``,
       results: [],

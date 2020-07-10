@@ -18,6 +18,10 @@ ul {
   list-style-type: none;
 }
 
+.textblock ul {
+  list-style-type: disc;
+}
+
 .signaturelist ul {
   list-style-type: disc;
 }
@@ -288,4 +292,3 @@ p {
   outline: inherit;
   cursor: pointer;
 }
-

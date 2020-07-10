@@ -47,7 +47,7 @@ function getComments(data){
     shortText = comment.shortText
     text = comment.text
     returns = comment.returns
-    if(comment.tags !== undefined && comment.tags !== null){
+    if(comment.tags){
       for(let tag of comment.tags){
         tags.push({
           tag: tag.tag,
@@ -125,7 +125,7 @@ function codeTagToDiv(string){
     }
     string = string.replace("```", "</code></pre>")
     let k = string.lastIndexOf("</code></pre>")
-    string = string.substring(0, i) + tabsToHTML(replaceNewLines(string.substring(i, k))) + string.substring(k)
+    string = string.substring(0, i) + tabsToHTML(replaceNewLines(string.substring(i, k))) + string.substring(k) // make newLines and tabs in code fragments HTML friendly
   }
   return string
 }
@@ -183,7 +183,6 @@ function getLinks(string){
     let info = string.substring(startI + 2, endI)
     let type = info.substring(0, info.indexOf(" "))
     let value = info.substring(info.indexOf(" ") + 1)
-    let link = ""
     let path
     if(value.includes("\"")){
       const startI = value.indexOf("\"") + 1
@@ -200,7 +199,6 @@ function getLinks(string){
     let currentLink = {
       text: value,
       type,
-      link,
       path,
     }
 
