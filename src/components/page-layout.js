@@ -1,5 +1,4 @@
 import React from "react"
-import LeftSidebar from "./left/left-sidebar"
 import RightSidebar from "./right/right-sidebar"
 import TopBar from "./center/top-bar/top-bar"
 import ItemBox from "./general/item-box"
@@ -10,7 +9,6 @@ export default (props) => {
   return (
     <div>
       <Highlight/>
-      <LeftSidebar/>
       <div className="main">
         <TopBar/>
         <ItemBox>
