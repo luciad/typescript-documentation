@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Index } from "elasticlunr"
 import { Link } from "gatsby"
 import Icon from "../../general/icon"
+import { MODULE_PATH_PREFIX } from "../../../util/util"
 
 // Search component
 export default class Search extends Component {
@@ -25,7 +26,7 @@ export default class Search extends Component {
                 <Link to={"/" + page.path}>{page.name}</Link>
               </div>
               <div style={{wordBreak:"break-all"}}>
-                {page.path.replace("/modules/", "")}
+                {page.path.replace(MODULE_PATH_PREFIX + "/", "")}
               </div>
             </li>
           ))}

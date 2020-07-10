@@ -3,6 +3,7 @@ import { Link, StaticQuery, graphql } from "gatsby"
 import { Index } from "elasticlunr"
 import Icon from "../../../general/icon"
 import { getMostSimilarPage } from "../../../../util/directory"
+import { MODULE_PATH_PREFIX } from "../../../../util/util"
 
 /**
  * Used for getting a link from a name from
@@ -56,7 +57,7 @@ class Search extends Component {
   }else if(typeof this.data.text == "string" && this.data.text.length > 0){
     query = this.data.text
   }else if(typeof this.srcPath == "string"){
-    query = this.srcPath.replace("/modules/", "")
+    query = this.srcPath.replace(MODULE_PATH_PREFIX + "/", "")
   }else {
     query = ""
   }

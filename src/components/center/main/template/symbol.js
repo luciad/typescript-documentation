@@ -1,7 +1,7 @@
 import React from "react"
 import { graphql, Link } from "gatsby"
 import Layout from "../../../page-layout"
-import { fixModuleName, pathToModule } from "../../../../util/util"
+import { fixModuleName, pathToModule, MODULE_PATH_PREFIX } from "../../../../util/util"
 import Body from "../general/body/body"
 import Icon from '../../../general/icon'
 import Header from "../../../general/header"
@@ -28,7 +28,7 @@ export default ({ data }) => {
         <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
         <br/>
         Parent: &nbsp; &nbsp;
-        <Link to={symbol.fields.parentPath}>{symbol.fields.parentPath.replace("/modules/","")}</Link>
+        <Link to={symbol.fields.parentPath}>{symbol.fields.parentPath.replace(MODULE_PATH_PREFIX + "/","")}</Link>
         <div className="title">{symbol.name}</div>
         <div className="sidecontainer">
           <Icon kindString={symbol.kindString}/>
