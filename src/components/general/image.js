@@ -10,12 +10,9 @@ import { StaticQuery, graphql } from "gatsby"
 export default ({ data }) => {
   if(!data) return null
   //Parse string:
-  console.log(data.text)
   let dataArray = data.text.trim().split(";") //remove leading & trailing spaces and turn into array by splitting around ;
-  console.log(dataArray)
   for(let i = 0; i < dataArray.length; i++){
     let data = dataArray[i].trim().split(/:(.+)/) //split on first occurrence of ":"
-    console.log(data)
     dataArray[i] = {
       type: data[0],
       text: data[1]

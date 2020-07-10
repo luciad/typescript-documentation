@@ -76,11 +76,21 @@ function getComments(data){
  */
 function parse(string){
   if(typeof string !== "string") string = ""
-  let fixedText = jsTagToDiv(tabsToHTML(replaceNewLines(string)))
+  let fixedText = codeTagToDiv(replaceDoubleNewLines(string))
   return Parser(Sanitizer(fixedText, {
     //allow all attributes:
     allowedAttributes: false,
   }))
+}
+
+/**
+ * replaces all  \n with <br/>, except for the \n before < or after >
+ *
+ * @param {string} string
+ * @returns string without \n
+ */
+function replaceNewLines(string){
+  return removeTrailingBrs(string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n/g, "\n<br/>"))
 }
 
 /**
@@ -89,8 +99,8 @@ function parse(string){
  * @param {string} string
  * @returns string without \n
  */
-function replaceNewLines(string){
-  return removeTrailingBrs(string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n\s*\n/g, "\n<br/>"))
+function replaceDoubleNewLines(string){
+  return removeTrailingBrs(string.replace(/\n</g, "<").replace(/>\n/g, ">").replace(/\n\s*\n/g, "<br/>"))
 }
 
 /**
@@ -100,20 +110,22 @@ function replaceNewLines(string){
  * If no language is specified, the assigned class is language-none
  *
  * @param {string} string string to convert
- * @returns string without ```
+ * @returns string with ``` turned into <pre><code>
  */
-function jsTagToDiv(string){
+function codeTagToDiv(string){
   while(string.includes("```")){
     let i = string.indexOf("```")
-    let j = Math.min(string.indexOf(" ", i), string.indexOf("\n", i))
-    if(j > i + 4){
-      let suffix = "<pre><code class='language-"
+    let j = Math.min(string.indexOf(" ", i), string.indexOf("\n", i)) //the character after language definition
+    if(j > i + 4){  //if a language is specified
+      let prefix = "<pre><code class='language-"
       string = string.substring(0,  j) + "'>" + string.substring(j)
-      string = string.replace("```",  suffix)
+      string = string.replace("```",  prefix)
     }else{
       string = string.replace("```", "<pre><code class='language-none'>")
     }
     string = string.replace("```", "</code></pre>")
+    let k = string.lastIndexOf("</code></pre>")
+    string = string.substring(0, i) + tabsToHTML(replaceNewLines(string.substring(i, k))) + string.substring(k)
   }
   return string
 }

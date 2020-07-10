@@ -289,11 +289,3 @@ p {
   cursor: pointer;
 }
 
-/* Preserve new lines: */
-pre,
-code {
-  white-space: -moz-pre-wrap;
-  white-space: -o-pre-wrap;
-  white-space: pre-wrap;
-  word-wrap: break-word;
-}
