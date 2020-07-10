@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { Component } from 'react'
 import { Link, StaticQuery, graphql } from "gatsby"
 import { pathToExport } from "../../util/util"
 import Icon from "../general/icon"
@@ -15,7 +15,16 @@ export default () => {
   }
   return (
     <div>
-      <h3>Filter</h3>
+      <details>
+        <summary>
+          <h3 style={{"display": "inline"}}>Filter</h3>
+        </summary>
+        <ul className="filteroptions">
+          <FilterItem text="Class"/>
+          <FilterItem text="Function"/>
+          <FilterItem text="Interface"/>
+        </ul>
+      </details>
       <ul className="classes">
 
       <StaticQuery
@@ -58,5 +67,24 @@ export default () => {
 
   function passesFilter(node){
     return filter.kindString.includes(node.kindString)
+  }
+}
+
+class FilterItem extends Component {
+  constructor(props){
+    super(props)
+    this.props = props
+  }
+
+  render(){
+    return(
+      <li className="sidecontainer">
+        <input type="checkbox" defaultChecked={true} onChange={console.log("change!")}/> <i className="filteritem">{this.props.text}</i>
+      </li>
+    )
+  }
+
+  update = evt => {
+    console.log(evt)
   }
 }

@@ -292,3 +292,7 @@ p {
   outline: inherit;
   cursor: pointer;
 }
+
+.filteritem {
+  font-size: 70%;
+}
