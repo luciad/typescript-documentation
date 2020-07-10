@@ -131,7 +131,7 @@ height: 4em;
 
 .sidecontainer {
   display: flex;
-  max-width: inherit;
+  max-width: 100%;
 }
 
 .itembox {
@@ -223,6 +223,8 @@ p {
   padding: 10px;
   border: solid thin rgba(0,0,0,0.1);
   border-radius: 5px;
+  max-width: 100%;
+  overflow-x: auto;
 }
 
 .returns .textblock {
