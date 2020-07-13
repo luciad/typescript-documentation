@@ -296,3 +296,10 @@ p {
 .filteritem {
   font-size: 70%;
 }
+
+.mainlogo img {
+  display: block;
+  margin: auto;
+  max-height: 10vh;
+  max-width: 95%;
+}

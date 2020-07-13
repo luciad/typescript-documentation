@@ -12,7 +12,9 @@ export default () => {
   return (
   <div className="leftsidenav">
     <Link to="/overview">
-      <Image data={logoData}/>
+      <div className="mainlogo">
+        <Image data={logoData}/>
+      </div>
     </Link>
     <DirectoryList/>
     <ClassList/>
