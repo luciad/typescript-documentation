@@ -64,7 +64,7 @@ export default class Main extends Component {
               {
                 if(this.passesFilter(node))
                   return (
-                    <li key={node.name}>
+                    <li key={node.fields.path}>
                     <div className="sidecontainer">
                       <Icon kindString={node.kindString}/>
                       <Link to={node.fields.path}>{node.name}</Link>
