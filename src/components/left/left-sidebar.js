@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "gatsby"
-import ClassList from "./class-list"
+import FilterList from "./filter-list"
 import DirectoryList from "./directory-list"
 import Image from "../general/image"
 
@@ -17,7 +17,7 @@ export default () => {
       </div>
     </Link>
     <DirectoryList/>
-    <ClassList/>
+    <FilterList/>
 
   </div>
   )
