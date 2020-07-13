@@ -82,6 +82,9 @@ function getMostSimilarPage(pageObjects, dir, name){
     if(page.path && page.path.includes(name.replace(" ", "/"))){
       let pageDir = page.path.replace(util.MODULE_PATH_PREFIX + "/", "")
       let currentSimilarity = similarity(dir, pageDir)
+      if(page.name.toLowerCase() === name.toLowerCase()){
+        currentSimilarity += 1000      //favour matching names
+      }
       if(currentSimilarity > maxSimilarity){
         maxSimilarity = currentSimilarity
         mostSimilarPage = page
