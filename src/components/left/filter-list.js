@@ -72,7 +72,7 @@ export default class Main extends Component {
             <div>
               {data.allSymbol.nodes.map(node =>
               {
-                if(this.passesFilter(node))
+                if(!this.passesFilter(node)) return null
                   return (
                     <li key={node.id}>
                     <div className="sidecontainer">
@@ -113,11 +113,6 @@ class Checkbox extends Component {
 }
 
 class TextInput extends Component {
-  constructor(props) {
-    super(props);
-    //this.state = {value: ""};
-  }
-
   handleTextUpdate = (e) => {
     this.props.handleTextUpdate(e.target.value)
     //this.setState({ checked: !this.state.checked });
