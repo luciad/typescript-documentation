@@ -6,12 +6,18 @@ import Icon from "../general/icon"
  * List of all classes
  */
 export default class Main extends Component {
+  kindStringFilterDefaultOn = [
+    "Function",
+    "Class",
+    "Interface"
+  ]
+  kindStringFilterDefaultOff = [
+    "Method",
+    "Enumeration",
+  ]
+
   state = {
-      kindStringFilter: [
-        "Function",
-        "Class",
-        "Interface"
-      ],
+      kindStringFilter: [...this.kindStringFilterDefaultOn],
       pathFilter: ""
   }
 
@@ -43,11 +49,16 @@ export default class Main extends Component {
             <h3  style={{"display": "inline"}}>Filter</h3>
           </summary>
           <ul className="filteroptions">
-            <Checkbox text="Class" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
-            <Checkbox text="Interface" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
-            <Checkbox text="Function" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
-            <Checkbox text="Method" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={false}/>
-            <Checkbox text="Enumeration" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={false}/>
+            {this.kindStringFilterDefaultOn.map(item => {
+              return(
+                <Checkbox text={item} handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
+              )
+            })}
+            {this.kindStringFilterDefaultOff.map(item => {
+              return(
+                <Checkbox text={item} handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={false}/>
+              )
+            })}
             <TextInput handleTextUpdate={this.handleTextUpdate}/>
           </ul>
         </details>
@@ -94,7 +105,6 @@ class Checkbox extends Component {
   constructor(props) {
     super(props);
     this.state = {checked: props.defaultChecked};
-    // this.props.handleCheckboxUpdate(this.props.text, this.state.checked)
   }
 
   handleCheckClick = () => {
@@ -105,7 +115,7 @@ class Checkbox extends Component {
   render() {
     return (
       <div>
-        <input type="checkbox" checked={this.state.checked} defaultChecked={this.state.checked} onChange={this.handleCheckClick} className="filled-in" id="filled-in-box"/>
+        <input type="checkbox" defaultChecked={this.state.checked} onChange={this.handleCheckClick} id={this.props.text + "_checkbox"}/>
         <i className="filteritem">{this.props.text}</i>
       </div>
     );
@@ -115,14 +125,13 @@ class Checkbox extends Component {
 class TextInput extends Component {
   handleTextUpdate = (e) => {
     this.props.handleTextUpdate(e.target.value)
-    //this.setState({ checked: !this.state.checked });
-
   }
+
   render() {
     return (
       <div>
       <small>Path includes:</small>
-        <input type="text" onChange={this.handleTextUpdate} className="textinput" id="filter-path-textinput"/>
+        <input type="text" onChange={this.handleTextUpdate} id="filter-path-textinput"/>
       </div>
     );
   }
