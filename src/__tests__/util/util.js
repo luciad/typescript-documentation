@@ -65,7 +65,7 @@ test('getComments empty test', () => {
     let retVals = getComments(data)
     expect(retVals.text).toBe("")
     expect(retVals.shortText).toBe("")
-    expect(retVals.returns).toEqual([])
+    expect(retVals.returns).toEqual("")
     expect(retVals.tags).toEqual([])
 })
 
