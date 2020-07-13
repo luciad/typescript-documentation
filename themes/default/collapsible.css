@@ -1,14 +1,11 @@
  summary::-webkit-details-marker {
  color: black;
- font-size: 125%;
  margin-right: 2px;
 }
 summary:focus {
 	outline-style: none;
 }
-article > details > summary {
-	font-size: 28px;
-}
+
 details > p {
 	margin-left: 2px;
 }
@@ -16,5 +13,5 @@ details details {
 	margin-left: 2px;
 }
 details details summary {
-	font-size: 16px;
+	font-size: 90%;
 }

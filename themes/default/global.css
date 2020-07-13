@@ -1,12 +1,16 @@
 :root {
+  /* SIDEBAR WIDTH */
   --left-sidebar-width: 20%;
   --right-sidebar-width: 15%;
+  /* COLORS */
   --sidebar-color: whitesmoke;
   --card-color: whitesmoke;
   --border-color: rgb(187, 187, 187);
-  --background-color: rgb(255, 255, 255);
+  --background-color: white;
   --text-color-main: rgb(46, 46, 46);
-  --text-color-secondary: blue;
+  --text-color-link: darkblue;
+  --shadow-color: rgba(0,0,0,0.15);
+  --textblock-background: rgba(0,0,0,0.02);
 }
 
 /* GENERAL */
@@ -94,10 +98,6 @@ summary,
   display: inline-block;
 }
 
-.directoryitem li:first-child {
-  list-style-type: "\21B3";
-}
-
 .filteritem {
   font-size: 70%;
 }
@@ -154,7 +154,7 @@ summary,
 }
 
 .signatures {
-  border: solid thin rgba(0,0,0,0.1);
+  border: solid thin var(--shadow-color);
   padding: 10px;
 }
 
@@ -173,8 +173,8 @@ height: 4em;
   margin-left: 30%;
   padding: 0.2em 0.5em 0.2em 0.5em;
   width: 30%;
-  background-color: white;
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  background-color: var(--background-color);
+  box-shadow: 0 4px 8px 0 var(--shadow-color);
   position: fixed;
   z-index: 100;
   border-radius: 0.5em;
@@ -197,7 +197,7 @@ height: 4em;
 }
 
 .search ul {
-  background-color: white;
+  background-color: var(--background-color);
   max-height: 80vh;
   overflow-y: scroll;
   width: 100%;
@@ -206,7 +206,7 @@ height: 4em;
 
 .search li {
   position: relative;
-  border: thin solid lightgray;
+  border: thin solid var(--shadow-color);
   padding: 0.4em 1em 0.4em 1em;
 }
 
@@ -219,7 +219,7 @@ height: 4em;
 
 .itembox {
   background-color: var(--card-color);
-  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.15);
+  box-shadow: 0 4px 8px 0 var(--shadow-color);
   margin: 1em;
   padding: 1em;
   padding-left: 2em;
@@ -261,13 +261,13 @@ p {
 }
 
 .title a {
-  color: darkblue;
+  color: var(--text-color-link);
 }
 
 .textblock {
-  background: rgba(0,0,0,0.02);
+  background: var(--textblock-background);
   padding: 10px;
-  border: solid thin rgba(0,0,0,0.1);
+  border: solid thin var(--shadow-color);
   border-radius: 5px;
   max-width: 100%;
   overflow-x: auto;
