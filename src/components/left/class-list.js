@@ -17,11 +17,13 @@ export default class Main extends Component {
 
   handleCheckboxUpdate = (name, add) => {
     if(add){
-      this.state.filter.kindString.push(name)
+      let newState = this.state.filter.kindString
+      newState.push(name)
+      this.setState( {filter: { kindString: newState }})
     }else{
-      this.state.filter.kindString = this.state.filter.kindString.filter(e => e !== name)
+      let newState = this.state.filter.kindString.filter(e => e !== name)
+      this.setState( {filter: {kindString: newState }})
     }
-    this.forceUpdate()
   }
 
   passesFilter = (node) => {
@@ -87,12 +89,12 @@ class Checkbox extends Component {
   constructor(props) {
     super(props);
     this.state = {checked: true};
+    this.props.handleCheckboxUpdate(this.props.text, this.state.checked)
   }
 
   handleCheckClick = () => {
     this.props.handleCheckboxUpdate(this.props.text, !this.state.checked)
     this.setState({ checked: !this.state.checked });
-    console.log(this.state)
   }
 
   render() {
