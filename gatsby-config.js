@@ -45,6 +45,13 @@ module.exports = {
             //comment: node => JSON.stringify(node.comment),
             kindString: node => node.kindString,
           },
+          Module: {
+            name: node => node.name,
+            path: node => node.fields.path,
+            spacePath: node => node.fields.path.replace(/\//g, " "),
+            //comment: node => JSON.stringify(node.comment),
+            kindString: node => node.kindString,
+          },
         },
         bool: "AND",
         // Optional filter to limit indexed nodes

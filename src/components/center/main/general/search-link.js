@@ -61,7 +61,7 @@ class Search extends Component {
   }else {
     query = ""
   }
-
+  query = query.trim()
   this.text = query.substring(query.indexOf(" ") + 1)
   query = query.substring(0, query.indexOf(" ") > 0 ? query.indexOf(" ") : query.size).replace(/\./g, " ")
 
