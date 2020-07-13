@@ -20,7 +20,7 @@ export default ({ data, path}) => {
         <div className="subsubtitle">Signatures</div>}
       <ul className="signaturelist">
         {signatures.map(signature => (
-          <li key={signature.name}>
+          <li key={signature.name + "_" + path + "_signature_entry"}>
             <Signature data={signature} path={path}/>
           </li>
         ))}

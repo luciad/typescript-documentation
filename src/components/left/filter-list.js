@@ -2,9 +2,6 @@ import React, { Component } from 'react'
 import { Link, StaticQuery, graphql } from "gatsby"
 import Icon from "../general/icon"
 
-/**
- * List of all classes
- */
 export default class Main extends Component {
   kindStringFilterDefaultOn = [
     "Function",
@@ -38,7 +35,6 @@ export default class Main extends Component {
   }
 
   handleTextUpdate = (e) => {
-    console.log(e)
     this.setState({pathFilter: e})
   }
 
@@ -97,7 +93,7 @@ export default class Main extends Component {
               {
                 if(!this.passesFilter(node)) return null
                   return (
-                    <li key={node.id}>
+                    <li key={node.id + "_filterlist_entry"}>
                     <div className="sidecontainer">
                       <Icon kindString={node.kindString}/>
                       <Link to={node.fields.path}>{node.name}</Link>
@@ -126,7 +122,7 @@ class Checkbox extends Component {
 
   render() {
     return (
-      <li>
+      <li key={this.props.text + "_checkbox_entry"}>
         <input type="checkbox" defaultChecked={this.state.checked} onChange={this.handleCheckClick} id={this.props.text + "_checkbox"}/>
         <i className="filteritem">{this.props.text}</i>
       </li>

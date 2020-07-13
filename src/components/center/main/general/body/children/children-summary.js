@@ -31,7 +31,7 @@ export default ({ data }) => {
           if(!child.id) return null
           if(exportIds.includes(child.id)) // if child is exported, a link to the child is included.
             return (
-              <li key={child.id}>
+              <li key={child.id + "_child_summary_entry"}>
                 <div className="sidecontainer">
                 <Icon kindString={child.kindString}/>
                 <Link to={pathToExport(data, child)}>
@@ -41,7 +41,7 @@ export default ({ data }) => {
               </li>
             )
             return (  // if child is not exported, clicking on its name will scroll to its body on the same page
-              <li key={child.id}>
+              <li key={child.id + "_child_summary_entry_noexport"}>
               <div className="sidecontainer">
               <Icon kindString={child.kindString}/>
                 <button className="clickabletext" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>

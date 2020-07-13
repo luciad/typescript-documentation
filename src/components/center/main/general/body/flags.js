@@ -14,7 +14,7 @@ export default ({ data }) => {
     <div className="flags">
       <ul>
         {flagList.map(flag => (
-          <li>
+          <li key={flag + "_" + data.fields.path + "_flag"}>
             <div className="sidecontainer">
             <Icon kindString="Flag"/>
               {flag}

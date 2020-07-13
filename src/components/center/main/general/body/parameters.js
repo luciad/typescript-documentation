@@ -16,7 +16,7 @@ export default ({ data, path }) => {
         <div className="subsubtitle">Parameters</div>}
       <ul style={{paddingLeft: "1em"}}>
         {parameters.map(parameter => (
-          <li>
+          <li key={parameter.name + "_" + parameter.type + "_parameter_entry"}>
             <b>{parameter.name}</b>:<i>{parameter.type}</i>
             <Text data={parameter.comments.shortText} path={path}/>
             <Text data={parameter.comments.text} path={path}/>

@@ -40,7 +40,7 @@ function LinkTemplate(title, data) {
           {data.map(function(type){
             let newData = {text: type.name}
             return(
-              <li><SearchLink data={newData}/></li>
+              <li key={newData.text + "_searchlink"}><SearchLink data={newData}/></li>
           )})}
         </ul>
       </div>
@@ -52,7 +52,7 @@ function LinkTemplate(title, data) {
           {title}
         </div>
         <ul>
-          <li style={{display:"inline"}}><SearchLink data={data.name}/></li>
+          <li style={{display:"inline"}} key={data.name + "_link_subtitle"}><SearchLink data={data.name}/></li>
         </ul>
       </div>
     )

@@ -19,8 +19,8 @@ export default class Search extends Component {
       <div  className="search" placeholder="search">
         <input type="text" value={this.state.query} onChange={this.search} placeholder="search" aria-label="search"/>
         <ul>
-          {this.state.results.splice(0,100).map(page => (
-            <li key={page.id}>
+          {this.state.results.splice(0,400).map(page => (
+            <li key={page.id + "_search_entry"}>
               <div className="sidecontainer">
                 <Icon kindString={page.kindString}/>
                 <Link to={page.path}>{page.name}</Link>
