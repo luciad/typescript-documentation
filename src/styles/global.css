@@ -36,6 +36,7 @@ ul {
   max-width: 100%;
 }
 
+summary,
 .clickable {
   cursor: pointer;
 }
@@ -98,6 +99,18 @@ ul {
 
 .filteritem {
   font-size: 70%;
+}
+
+.filteroptions {
+  margin: 0;
+}
+
+.filter summary{
+  margin-left:0.5em;
+}
+
+.filter summary h3 {
+  margin-left: 0;
 }
 
 /* SIDEBAR - RIGHT */

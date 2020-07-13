@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import { Link, StaticQuery, graphql } from "gatsby"
-import { pathToExport } from "../../util/util"
 import Icon from "../general/icon"
 
 /**
@@ -8,34 +7,34 @@ import Icon from "../general/icon"
  */
 export default class Main extends Component {
   state = {
-    filter: {
-      kindString: [
-        ""
+      kindStringFilter: [
+        "Function",
+        "Class",
+        "Interface"
       ]
-    }
   }
 
   handleCheckboxUpdate = (name, add) => {
     if(add){
-      let newState = this.state.filter.kindString
+      let newState = [...this.state.kindStringFilter]
       newState.push(name)
-      this.setState( {filter: { kindString: newState }})
+      this.setState({kindStringFilter: newState})
     }else{
-      let newState = this.state.filter.kindString.filter(e => e !== name)
-      this.setState( {filter: {kindString: newState }})
+      let newState = [...this.state.kindStringFilter].filter(e => e !== name)
+      this.setState({kindStringFilter: newState})
     }
   }
 
   passesFilter = (node) => {
-    return this.state.filter.kindString.includes(node.kindString)
+    return this.state.kindStringFilter.includes(node.kindString)
   }
 
   render () {
     return (
-      <div>
+      <div className="filter">
         <details>
           <summary>
-            <h3 style={{"display": "inline"}}>Filter</h3>
+            <h3  style={{"display": "inline"}}>Filter</h3>
           </summary>
           <ul className="filteroptions">
             <Checkbox text="Function" handleCheckboxUpdate={this.handleCheckboxUpdate}/>
@@ -52,30 +51,26 @@ export default class Main extends Component {
                 nodes {
                   kindString
                   name
-                  parent {
-                    ... on Module {
-                      name
-                    }
+                  fields {
+                    path
                   }
                 }
               }
             }
           `}
-          render={(
-            data
-          ) => (
+          render={(data) => (
             <div>
-              {data.allSymbol.nodes.map( node =>
+              {data.allSymbol.nodes.map(node =>
               {
-              if(!this.passesFilter(node)) return null
-              return (
-                <li key={node.name}>
-                <div className="sidecontainer">
-                  <Icon kindString={node.kindString}/>
-                  <Link to={pathToExport(node.parent, node)}>{node.name}</Link>
-                </div>
-                </li>
-              )})}
+                if(this.passesFilter(node))
+                  return (
+                    <li key={node.name}>
+                    <div className="sidecontainer">
+                      <Icon kindString={node.kindString}/>
+                      <Link to={node.fields.path}>{node.name}</Link>
+                    </div>
+                    </li>
+                )})}
             </div>
           )}
         />
@@ -89,7 +84,7 @@ class Checkbox extends Component {
   constructor(props) {
     super(props);
     this.state = {checked: true};
-    this.props.handleCheckboxUpdate(this.props.text, this.state.checked)
+    // this.props.handleCheckboxUpdate(this.props.text, this.state.checked)
   }
 
   handleCheckClick = () => {
@@ -101,7 +96,7 @@ class Checkbox extends Component {
     return (
       <div>
         <input type="checkbox" checked={this.state.checked} defaultChecked={this.state.checked} onChange={this.handleCheckClick} className="filled-in" id="filled-in-box"/>
-        <i className="filteritem">{this.props.text}</i>{String(this.state.checked)}
+        <i className="filteritem">{this.props.text}</i>
       </div>
     );
   }
