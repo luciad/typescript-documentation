@@ -14,7 +14,6 @@ module.exports = {
     "gatsby-transformer-json",
     "gatsby-plugin-smoothscroll",
     "html-react-parser",
-    "react-use-flexsearch",
     "gatsby-plugin-react-helmet",
     {
       resolve: `gatsby-source-filesystem`,

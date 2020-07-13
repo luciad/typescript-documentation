@@ -117,7 +117,7 @@ function codeTagToDiv(string){
     let i = string.indexOf("```")
     const nextSpace = string.indexOf(" ", i)
     const nextNewLine = string.indexOf('\n', i)
-    const j = nextSpace < 0 ? nextNewLine : nextNewLine < 0 ? nextSpace : Math.min(nextNewLine, nextSpace) //the character after language definition
+    const j = nextSpace < 0 ? nextNewLine : nextNewLine < 0 ? nextSpace : Math.min(nextNewLine, nextSpace) // the character after language definition
     if(j > i + 4){  //if a language is specified
       let prefix = "<pre><code class='language-"
       string = string.substring(0,  j) + "'>" + string.substring(j)
