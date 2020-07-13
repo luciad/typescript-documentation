@@ -115,7 +115,9 @@ function replaceDoubleNewLines(string){
 function codeTagToDiv(string){
   while(string.includes("```")){
     let i = string.indexOf("```")
-    let j = Math.min(string.indexOf(" ", i), string.indexOf("\n", i)) //the character after language definition
+    const nextSpace = string.indexOf(" ", i)
+    const nextNewLine = string.indexOf('\n', i)
+    const j = nextSpace < 0 ? nextNewLine : nextNewLine < 0 ? nextSpace : Math.min(nextNewLine, nextSpace) //the character after language definition
     if(j > i + 4){  //if a language is specified
       let prefix = "<pre><code class='language-"
       string = string.substring(0,  j) + "'>" + string.substring(j)
