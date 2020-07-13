@@ -9,6 +9,7 @@
   --text-color-secondary: blue;
 }
 
+/* GENERAL */
 body{
   background-color: var(--background-color);
   color: var(--text-color-main);
@@ -18,19 +19,28 @@ ul {
   list-style-type: none;
 }
 
-.textblock ul {
-  list-style-type: disc;
+.icon {
+  height: 1.2em;
+  width: auto;
+  padding-left: 0;
+  padding-right: 0;
 }
 
-.signaturelist ul {
-  list-style-type: disc;
+.icon * {
+  height: 100%;
+  width: auto;
 }
 
-.signaturelist {
-  padding-left: 2em;
+.sidecontainer {
+  display: flex;
+  max-width: 100%;
 }
 
-/* The sidebar menu */
+.clickable {
+  cursor: pointer;
+}
+
+/* SIDEBARS - GENERAL */
 .rightsidenav,
 .leftsidenav {
   height: 100%;
@@ -45,22 +55,17 @@ ul {
 }
 
 .rightsidenav{
+  width: var(--right-sidebar-width);
   left: calc(100% - var(--right-sidebar-width));
 }
 
-/* The navigation menu links */
 .rightsidenav h3,
 .leftsidenav h3 {
   margin: 0.5em;
   font-size: 25px;
 }
 
-.rightsidenav img,
-.leftsidenav img {
-  max-width: 90%;
-}
-
-
+/* SIDEBAR - LEFT */
 .directories,
 .classes {
   padding: 0.2em;
@@ -72,6 +77,70 @@ ul {
   white-space: nowrap;
 }
 
+.mainlogo img {
+  display: block;
+  margin: auto;
+  max-height: 10vh;
+  max-width: 95%;
+}
+
+.directoryitem {
+  padding: 0;
+  margin: 0;
+  margin-left: 1em;
+  resize: vertical;
+  display: inline-block;
+}
+
+.directoryitem li:first-child {
+  list-style-type: "\21B3";
+}
+
+.filteritem {
+  font-size: 70%;
+}
+
+/* SIDEBAR - RIGHT */
+.legend {
+  list-style-type: none;
+  word-break: break-all;
+}
+
+/* CENTER */
+.textblock ul {
+  list-style-type: disc;
+}
+
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* CENTER - SIGNATURES */
+.signaturelist {
+  padding-left: 2em;
+}
+
+.signaturelist ul {
+  list-style-type: disc;
+}
+
+.signature {
+  font-size: 90%;
+  position: relative;
+}
+
+.signatures {
+  border: solid thin rgba(0,0,0,0.1);
+  padding: 10px;
+}
+
+.signatureBody {
+  padding-left: 1em;
+}
+
+/* CENTER - TOP BAR */
 .topbarspace {
 height: 4em;
 }
@@ -107,35 +176,23 @@ height: 4em;
 
 .search ul {
   background-color: white;
-  /* border: thin solid lightgray; */
   max-height: 80vh;
   overflow-y: scroll;
   width: 100%;
   padding: 0;
 }
+
 .search li {
   position: relative;
   border: thin solid lightgray;
   padding: 0.4em 1em 0.4em 1em;
 }
 
-/* Style page content */
+/* CENTER - MAIN */
 .main {
   margin-left: var(--left-sidebar-width);
   margin-right: var(--right-sidebar-width);
   padding: 0px 10px;
-}
-
-
-.center {
-  display: block;
-  margin-left: auto;
-  margin-right: auto;
-}
-
-.sidecontainer {
-  display: flex;
-  max-width: 100%;
 }
 
 .itembox {
@@ -146,17 +203,18 @@ height: 4em;
   padding-left: 2em;
 }
 
-.legend {
-  list-style-type: none;
-}
-
-.functionBox {
+.childbox {
   border: thin solid var(--border-color);
   margin: 1em;
   margin-left: 0;
   padding: 0.5em;
   padding-left: 1em;
   font-size: 95%;
+}
+
+.title {
+  font-size: 175%;
+  font-style: oblique;
 }
 
 .subtitle {
@@ -169,32 +227,10 @@ height: 4em;
   font-style: oblique;
 }
 
-.title {
-  font-size: 175%;
-  font-style: oblique;
-}
-
 .kindString {
   font-size: 100%;
   font-style: italic;
   padding-left: 0;
-}
-
-.signature {
-  font-size: 90%;
-  position: relative;
-}
-
-.icon {
-  height: 1.2em;
-  width: auto;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.icon * {
-  height: 100%;
-  width: auto;
 }
 
 p {
@@ -202,24 +238,8 @@ p {
   padding:0;
 }
 
-.directoryitem {
-  padding: 0;
-  margin: 0;
-  margin-left: 1em;
-  resize: vertical;
-  display: inline-block;
-}
-
-.directoryitem li:first-child {
-  list-style-type: "\21B3";
-}
-
 .title a {
   color: darkblue;
-}
-
-.clickable {
-  cursor: pointer;
 }
 
 .textblock {
@@ -247,15 +267,6 @@ p {
   vertical-align: middle;
 }
 
-.signatures {
-  border: solid thin rgba(0,0,0,0.1);
-  padding: 10px;
-}
-
-.signatureBody {
-  padding-left: 1em;
-}
-
 .flags ul {
   padding-left: 0;
 }
@@ -278,11 +289,11 @@ p {
 }
 
 .textimg {
-  max-width: 70%;
+  max-width: 90%;
   height: auto;
 }
 
-/* remove button styling from clickable text */
+/* remove button styling from clickable text button */
 .clickabletext {
 	background: none;
 	color: inherit;
@@ -291,15 +302,4 @@ p {
 	font: inherit;
   outline: inherit;
   cursor: pointer;
-}
-
-.filteritem {
-  font-size: 70%;
-}
-
-.mainlogo img {
-  display: block;
-  margin: auto;
-  max-height: 10vh;
-  max-width: 95%;
 }
