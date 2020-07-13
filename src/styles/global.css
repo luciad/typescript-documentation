@@ -76,6 +76,7 @@ summary,
   font-size: 80%;
   overflow: auto;
   white-space: nowrap;
+  resize: vertical;
 }
 
 .mainlogo img {
@@ -111,6 +112,14 @@ summary,
 
 .filter summary h3 {
   margin-left: 0;
+}
+
+.filter .expanded {
+  margin-left: 1em;
+}
+
+.pathfilter input {
+  width: 90%;
 }
 
 /* SIDEBAR - RIGHT */

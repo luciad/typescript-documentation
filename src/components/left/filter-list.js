@@ -14,6 +14,11 @@ export default class Main extends Component {
   kindStringFilterDefaultOff = [
     "Method",
     "Enumeration",
+    "Constructor",
+    "Accessor",
+    "Property",
+    "Enumeration member",
+    "Event"
   ]
 
   state = {
@@ -48,19 +53,26 @@ export default class Main extends Component {
           <summary>
             <h3  style={{"display": "inline"}}>Filter</h3>
           </summary>
-          <ul className="filteroptions">
-            {this.kindStringFilterDefaultOn.map(item => {
-              return(
-                <Checkbox text={item} handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
-              )
-            })}
-            {this.kindStringFilterDefaultOff.map(item => {
-              return(
-                <Checkbox text={item} handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={false}/>
-              )
-            })}
+          <div className="expanded">
+            <details>
+              <summary>
+                Selection
+              </summary>
+            <ul className="filteroptions">
+              {this.kindStringFilterDefaultOn.map(item => {
+                return(
+                  <Checkbox text={item} handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
+                  )
+                })}
+              {this.kindStringFilterDefaultOff.map(item => {
+                return(
+                  <Checkbox text={item} handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={false}/>
+                  )
+                })}
+            </ul>
+            </details>
             <TextInput handleTextUpdate={this.handleTextUpdate}/>
-          </ul>
+          </div>
         </details>
         <ul className="classes">
 
@@ -114,10 +126,10 @@ class Checkbox extends Component {
 
   render() {
     return (
-      <div>
+      <li>
         <input type="checkbox" defaultChecked={this.state.checked} onChange={this.handleCheckClick} id={this.props.text + "_checkbox"}/>
         <i className="filteritem">{this.props.text}</i>
-      </div>
+      </li>
     );
   }
 }
@@ -129,7 +141,7 @@ class TextInput extends Component {
 
   render() {
     return (
-      <div>
+      <div className="pathfilter">
       <small>Path includes:</small>
         <input type="text" onChange={this.handleTextUpdate} id="filter-path-textinput"/>
       </div>
