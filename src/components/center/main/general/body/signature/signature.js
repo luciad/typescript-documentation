@@ -19,7 +19,7 @@ export default ({ data, path}) => {
   const comments = getComments(data)
   if(!comments) return null
   return (
-    <div className="signature">
+    <div className="signature" key={data.id + "_signature"}>
       <div className="sidecontainer">
       <div className="title">
         {data.name}

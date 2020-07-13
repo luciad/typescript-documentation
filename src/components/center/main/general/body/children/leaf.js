@@ -13,7 +13,7 @@ import { Link } from "gatsby"
 export default ({ data }) => {
   if(!data) return null
   return (
-    <div className="childbox" id={"id" + data.id}>
+    <div className="childbox" id={"id" + data.id} key={data.id + "_leaf"}>
       <div className="title"><Link to={data.fields.path}>{data.name}</Link></div>
       <div className="sidecontainer">
         <Icon kindString={data.kindString}/>
