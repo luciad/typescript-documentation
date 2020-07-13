@@ -11,7 +11,8 @@ export default class Main extends Component {
         "Function",
         "Class",
         "Interface"
-      ]
+      ],
+      pathFilter: ""
   }
 
   handleCheckboxUpdate = (name, add) => {
@@ -25,8 +26,13 @@ export default class Main extends Component {
     }
   }
 
+  handleTextUpdate = (e) => {
+    console.log(e)
+    this.setState({pathFilter: e})
+  }
+
   passesFilter = (node) => {
-    return this.state.kindStringFilter.includes(node.kindString)
+    return this.state.kindStringFilter.includes(node.kindString) && node.fields.path.toLowerCase().includes(this.state.pathFilter.toLowerCase())
   }
 
   render () {
@@ -37,9 +43,12 @@ export default class Main extends Component {
             <h3  style={{"display": "inline"}}>Filter</h3>
           </summary>
           <ul className="filteroptions">
-            <Checkbox text="Function" handleCheckboxUpdate={this.handleCheckboxUpdate}/>
-            <Checkbox text="Interface" handleCheckboxUpdate={this.handleCheckboxUpdate}/>
-            <Checkbox text="Class" handleCheckboxUpdate={this.handleCheckboxUpdate}/>
+            <Checkbox text="Class" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
+            <Checkbox text="Interface" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
+            <Checkbox text="Function" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
+            <Checkbox text="Method" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={false}/>
+            <Checkbox text="Enumeration" handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={false}/>
+            <TextInput handleTextUpdate={this.handleTextUpdate}/>
           </ul>
         </details>
         <ul className="classes">
@@ -51,6 +60,7 @@ export default class Main extends Component {
                 nodes {
                   kindString
                   name
+                  id
                   fields {
                     path
                   }
@@ -64,7 +74,7 @@ export default class Main extends Component {
               {
                 if(this.passesFilter(node))
                   return (
-                    <li key={node.fields.path}>
+                    <li key={node.id}>
                     <div className="sidecontainer">
                       <Icon kindString={node.kindString}/>
                       <Link to={node.fields.path}>{node.name}</Link>
@@ -83,7 +93,7 @@ export default class Main extends Component {
 class Checkbox extends Component {
   constructor(props) {
     super(props);
-    this.state = {checked: true};
+    this.state = {checked: props.defaultChecked};
     // this.props.handleCheckboxUpdate(this.props.text, this.state.checked)
   }
 
@@ -97,6 +107,27 @@ class Checkbox extends Component {
       <div>
         <input type="checkbox" checked={this.state.checked} defaultChecked={this.state.checked} onChange={this.handleCheckClick} className="filled-in" id="filled-in-box"/>
         <i className="filteritem">{this.props.text}</i>
+      </div>
+    );
+  }
+}
+
+class TextInput extends Component {
+  constructor(props) {
+    super(props);
+    //this.state = {value: ""};
+  }
+
+  handleTextUpdate = (e) => {
+    this.props.handleTextUpdate(e.target.value)
+    //this.setState({ checked: !this.state.checked });
+
+  }
+  render() {
+    return (
+      <div>
+      <small>Path includes:</small>
+        <input type="text" onChange={this.handleTextUpdate} className="textinput" id="filter-path-textinput"/>
       </div>
     );
   }
