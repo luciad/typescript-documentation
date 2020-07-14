@@ -143,7 +143,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     }
     ```
     ### Icons
-    To change or add icons, open src/components/general/icon.js and change the imgSrc's and/or add cases. If you want these to appear in the legend, add them in src/components/right/right-sidebar.js
+    To change or add icons, open `icons.css` inside the theme folder and change the `content: url()` tag and/or add cases. If you want to change which items appear in the legend, add or remove them in src/components/right/right-sidebar.js
 
     ### HTML
     To change how the HTML gets generated, feel free to change the react elements in src/components.

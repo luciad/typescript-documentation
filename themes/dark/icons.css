@@ -1,0 +1,53 @@
+.icon_Class {
+    content: url('https://image.flaticon.com/icons/svg/2638/2638424.svg');
+}
+
+.icon_Interface {
+    content: url("https://image.flaticon.com/icons/svg/2497/2497519.svg");
+}
+
+.icon_Method {
+    content: url("https://image.flaticon.com/icons/svg/2519/2519358.svg");
+}
+
+.icon_Accessor {
+    content: url("https://image.flaticon.com/icons/svg/2497/2497513.svg");
+}
+
+.icon_Constructor {
+    content: url("https://image.flaticon.com/icons/svg/2766/2766844.svg");
+}
+
+.icon_External_module {
+    content: url("https://image.flaticon.com/icons/svg/2497/2497497.svg");
+}
+
+.icon_Property {
+    content: url("https://image.flaticon.com/icons/svg/2497/2497459.svg");
+}
+
+.icon_Function {
+    content: url("https://image.flaticon.com/icons/svg/2638/2638364.svg");
+}
+
+.icon_Enumeration {
+    content: url("https://image.flaticon.com/icons/svg/2638/2638457.svg");
+}
+
+.icon_Enumeration_member {
+    content: url("https://image.flaticon.com/icons/svg/2638/2638433.svg");
+}
+
+.icon_Event {
+    content: url("https://image.flaticon.com/icons/svg/2638/2638283.svg");
+}
+
+.icon_Flag {
+    content: url("https://image.flaticon.com/icons/svg/2638/2638352.svg");
+}
+
+/* TEMPLATE
+.icon_ {
+    content: url("");
+}
+*/
