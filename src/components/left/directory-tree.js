@@ -15,7 +15,7 @@ const DirectoryTree = ({directories}) => {
           <div key={node.path}>
           {(node.next.length > 0 &&
             (
-            <details open>
+            <details>
               <summary>{node.name}</summary>
               <DirectoryTree directories={node}/>
             </details>
