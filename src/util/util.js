@@ -194,7 +194,7 @@ function getLinks(string){
     }
 
     let currentText = {
-      text: parse(string.substring(0, startI)),
+      text: string.substring(0, startI),
       type: "text",
     }
 
@@ -210,7 +210,7 @@ function getLinks(string){
   }
   if(string.length > 0){
     let lastText = {
-      text: parse(string),
+      text: string,
       type: "text",
     }
     retVals.push(lastText)
@@ -261,5 +261,6 @@ module.exports = {
   getParameters,
   getSignatures,
   getFlags,
-  getLinks
+  getLinks,
+  parse
 };
