@@ -114,6 +114,16 @@ export const simpleSymbolFields = graphql`
       path
       parentPath
     }
+    overwrites {
+      name
+    }
+    inheritedFrom {
+      name
+    }
+    type {
+      type
+      name
+    }
     ...links
     ...allSignatures,
     ...commentFields,

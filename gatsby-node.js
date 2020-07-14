@@ -167,6 +167,9 @@ exports.createSchemaCustomization = ({ actions }) => {
       signatures: [signature!]
       getSignature: [signature!]
       setSignature: [signature!]
+      overwrites: nameType
+      inheritedFrom: nameType
+      type: typeField
     }
 
     type nameType {
@@ -179,6 +182,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       comment: commentField
       type: typeField
       parameters: [parametersField]
+      overwrites: nameType
+      inheritedFrom: nameType
     }
 
     type commentField {

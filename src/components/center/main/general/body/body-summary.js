@@ -39,6 +39,8 @@ export default ({ data }) => {
         <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
       {(data.defaultValue !== null && data.defaultValue !== undefined) &&
         <div>Default value: {data.defaultValue}</div>}
+        {data.type && <div className="type">Type: {data.type.name}</div>}
+      {data.overwrites && <div className="overwrites">Overwrites: {data.overwrites.name}</div>}
       <Flags data={data}/>
       <Links data={data}/>
 
