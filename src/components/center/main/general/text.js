@@ -4,11 +4,12 @@ import SearchLink from "./search-link"
 import Image from "../../../general/image"
 
 /**
- * Parses text for @links and HTML
+ * Parses text for @link, @img, and HTML
  *
  * Contains:
  * - text
  * - searched links (see search-link.js)
+ * - images
  */
 export default ({ data, path }) => {
   if(!data) return null
@@ -40,7 +41,7 @@ export default ({ data, path }) => {
     }
     return child
   })
-  
+
   return (
     <div className="textblock">
       { newData.map(e => (<>{e}</>))}

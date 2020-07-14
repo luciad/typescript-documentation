@@ -29,6 +29,8 @@ export default ({ data, path}) => {
           <>({data.type.name}) &nbsp;</>}
             {data.kindString}
       </div></div>
+      {data.overwrites && <>Overwrites {data.overwrites.name}</>}
+      {data.inheritedFrom && <>Inherited from {data.inheritedFrom.name}</>}
       <div className="signatureBody">
       {comments.returns.length > 0 &&
         <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}

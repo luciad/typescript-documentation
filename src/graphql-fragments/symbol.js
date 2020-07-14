@@ -26,6 +26,12 @@ export const allSignatures = graphql`
             type,
             name
           },
+          overwrites {
+            name
+          },
+          inheritedFrom {
+            name
+          }
           comment {
             shortText,
             text,
@@ -107,6 +113,14 @@ export const simpleSymbolFields = graphql`
       path
       parentPath
     }
+    ...links
+    ...allSignatures,
+    ...commentFields,
+    ...flagFields
+  }`
+
+export const links = graphql`
+  fragment links on Symbol {
     extendedTypes {
       name
     },
@@ -122,11 +136,7 @@ export const simpleSymbolFields = graphql`
     implementationOf {
       name
     }
-    ...allSignatures,
-    ...commentFields,
-    ...flagFields
   }`
-
 
 //no recursion in graphql
   export const symbolFields = graphql`
