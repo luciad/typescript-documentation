@@ -134,6 +134,14 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     To add an existing theme, simply paste its folder in themes/
 
     To make a new theme, feel free to copy paste themes/default to themes/yourThemeName and change the css.
+
+    #### Hide flags
+    Specific flags can be hidden or altered by a theme with css. Each flag with name `flagName` is part of a div with classname `flag_flagName`. An example for hiding the `isExported` flag:
+    ```
+    .flag_isExported {
+      display: none;
+    }
+    ```
     ### Icons
     To change or add icons, open src/components/general/icon.js and change the imgSrc's and/or add cases. If you want these to appear in the legend, add them in src/components/right/right-sidebar.js
 
