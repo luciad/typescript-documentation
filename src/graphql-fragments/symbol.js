@@ -99,7 +99,8 @@ export const flagField = graphql`
           isExported,
           isOptional,
           isPrivate,
-          isStatic
+          isStatic,
+          isAbstract
         }
   }`
 
