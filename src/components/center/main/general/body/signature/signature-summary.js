@@ -20,7 +20,7 @@ export default ({ data }) => {
 
 function getSignatureSummaries(signatures){
   return signatures.map(s => (
-    <>{s.name}(
+    <li key={s.name + "_" + s.id + "_signature_summary"}>{s.name}(
       {s.parameters && (
         <>
           {s.parameters.map((p, i) => (
@@ -36,6 +36,6 @@ function getSignatureSummaries(signatures){
       )
       {s.type.name &&
         <> : <Type data={s}/></>}
-    </>
+    </li>
   ))
 }
