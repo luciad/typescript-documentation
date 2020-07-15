@@ -10,9 +10,8 @@ import Leaf from "../body/children/leaf"
  */
 export default ({ data }) => {
   if(!data) return null
+  let children = data.children ? data.children : []
 
-  let children = data.children
-  if(children === undefined || children === null) children = []
   return (
     <div>
       <BodySummary data={data}/>

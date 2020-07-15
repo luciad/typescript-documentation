@@ -3,12 +3,7 @@ import SearchLink from "../search-link"
 
 export default ({ data }) => {
     if(!data || !data.type) return null
-    let types = []
-    if(data.type.types && data.type.types.length > 0){
-        types = data.type.types
-    }else{
-        types = [data.type]
-    }
+    let types = (data.type.types && data.type.types.length > 0) ? data.type.types : [data.type]
     if(!types || types.length === 0) return null
     types.type = data.type.type
 
@@ -30,11 +25,10 @@ export default ({ data }) => {
 
 class TypeElement extends Component {
     render(){
-        if(this.props.data.id){
+        if(this.props.data.id)
             return (
                 <SearchLink data={{text: this.props.data.name, id: this.props.data.id}}/>
             )
-        }
         return (
             <>{this.props.data.name}</>
         )

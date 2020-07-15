@@ -9,6 +9,7 @@ import Text from "../text"
  */
 export default ({ tags }) => {
   if(!tags || tags.length === 0) return null
+  
   return (
     <div>
       <div className="subsubtitle">Tags</div>

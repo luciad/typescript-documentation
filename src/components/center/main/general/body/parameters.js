@@ -10,6 +10,7 @@ import Type from "./type"
 export default ({ data, path }) => {
   if(!data || !path) return null
   const parameters = getParameters(data)
+
   return (
     <div>
     {parameters.length !== 0 &&
@@ -26,5 +27,5 @@ export default ({ data, path }) => {
         ))}
       </ul>
   </div>
-  );
-};
+  )
+}

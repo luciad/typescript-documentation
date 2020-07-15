@@ -27,24 +27,20 @@ import Overwrites from "./overwrites"
 export default ({ data }) => {
   if(!data) return null
   const comments = getComments(data)
-
-  let children = data.children
-  if(children === undefined || children === null) children = []
-  let path = ""
-  if (data.fields){
-    path = data.fields.path;
-  }
+  let path = data.fields ? data.fields.path : ""
 
   return (
     <div>
       {comments.returns.length > 0 &&
         <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
-      {(data.defaultValue !== null && data.defaultValue !== undefined) &&
+      {data.defaultValue &&
         <div>Default value: {data.defaultValue}</div>}
-      {data.overwrites && <div className="overwrites">Overwrites: <Overwrites data={data}/></div>}
+      {data.overwrites &&
+        <div className="overwrites">Overwrites: <Overwrites data={data}/></div>}
       <Flags data={data}/>
-      {data.type && <div className="type">Type:&nbsp;
-        <Type data={data}/>
+      {data.type &&
+        <div className="type">Type:&nbsp;
+          <Type data={data}/>
         </div>}
       <Links data={data}/>
 
@@ -58,5 +54,5 @@ export default ({ data }) => {
       <Signatures data={data} path={path}/>
       <ChildrenSummary data={data}/>
     </div>
-  );
-};
+  )
+}

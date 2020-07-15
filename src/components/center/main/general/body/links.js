@@ -14,6 +14,7 @@ import SearchLink from "../search-link"
  */
 export default ({ data }) => {
   if(!data) return null
+
   return (
     <div className="links">
       {LinkTemplate("Extended types", data.extendedTypes)}
@@ -27,34 +28,30 @@ export default ({ data }) => {
 };
 
 function LinkTemplate(title, data) {
-  if(!data){
-    return null;
-  }
-  if(data.length > 0){
+  if(!data) return null
+
+  if(data.length > 0)
     return (
       <div>
         <div className="subsubtitle">
           {title}
         </div>
         <ul className="itemList">
-          {data.map(function(type){
-            let newData = {text: type.name, id: type.id}
-            return(
-              <li key={newData.text + "_searchlink"}><SearchLink data={newData}/></li>
-          )})}
+          {data.map(type => (
+              <li key={type.name + "_searchlink"}><SearchLink data={{text: type.name, id: type.id}}/></li>
+          ))}
         </ul>
       </div>
     )
-  }else{
-    return (
-      <div>
-        <div className="subsubtitle">
-          {title}
-        </div>
-        <ul>
-          <li style={{display:"inline"}} key={data.name + "_searchlink"}><SearchLink data={data.name}/></li>
-        </ul>
+  return (
+    <div>
+      <div className="subsubtitle">
+        {title}
       </div>
-    )
-  }
+      <ul>
+        <li style={{display:"inline"}} key={data.name + "_searchlink"}><SearchLink data={data.name}/></li>
+      </ul>
+    </div>
+  )
+
 }
