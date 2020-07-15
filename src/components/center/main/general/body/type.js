@@ -1,4 +1,5 @@
-import React from "react"
+import React, { Component } from "react"
+import SearchLink from "../search-link"
 
 export default ({ data }) => {
     if(!data || !data.type) return null
@@ -10,15 +11,32 @@ export default ({ data }) => {
     }
     if(!types || types.length === 0) return null
     types.type = data.type.type
-    const typeString = types.map(t =>
-        t.elementType
-            ? t.type + "[" + t.elementType.name + "]"
-            : t.name ? t.name : t.type
-            ).join(" " + types.type + " ")
 
     return (
         <div className="type">
-            {typeString}
+            {types.map((t, i) =>
+                <>
+                {i > 0 && <> {types.type} </>}
+                {t.elementType
+                ? (<>{t.type + "["}<TypeElement data={t.elementType}/>]</>)
+                : t.name
+                    ? <TypeElement data= {t}/>
+                    : <>{t.type}</>}
+                </>
+            )}
         </div>
     )
+}
+
+class TypeElement extends Component {
+    render(){
+        if(this.props.data.id){
+            return (
+                <SearchLink data={{text: this.props.data.name, id: this.props.data.id}}/>
+            )
+        }
+        return (
+            <>{this.props.data.name}</>
+        )
+    }
 }
