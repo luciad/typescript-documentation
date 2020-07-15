@@ -257,9 +257,9 @@ function getSignatureSummaries(signatures){
   for(let signature of signatures){
     let summaryString = signature.name + "("
     if(signature.parameters){
-      for(const [i, parameter] of signature.parameters.entries()){
-        summaryString += parameter.name + (parameter.type.name ? " : " + parameter.type.name : "") + (i !== signature.parameters.length - 1 ? ", "  : "")
-      }
+      summaryString += signature.parameters.map(p =>
+                                                p.name  + (p.type.name ? " : " + p.type.name : ""))
+                                                .join(", ")
     }
     summaryString += ")" + (signature.type.name ? " : " + signature.type.name : "")
     returnValues.push(summaryString)

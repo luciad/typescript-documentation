@@ -43,9 +43,7 @@ export const allSignatures = graphql`
           }
           parameters {
             name
-            type {
-              name
-            }
+            ...typeFieldsParam
             comment {
               text,
               shortText
@@ -64,10 +62,7 @@ export const allSignatures = graphql`
               text
             }
           }
-          type {
-            type,
-            name
-          }
+          ...typeFieldsSignature
         },
         setSignature {
           name,
@@ -80,15 +75,10 @@ export const allSignatures = graphql`
               text
             }
           }
-          type {
-            type,
-            name
-          }
+          ...typeFieldsSignature
           parameters {
             name
-            type {
-              name
-            }
+            ...typeFieldsParam
           }
         }
   }`
@@ -103,6 +93,42 @@ export const flagField = graphql`
           isAbstract
         }
   }`
+
+export const typeFieldsSymbol = graphql`
+fragment typeFieldsSymbol on Symbol{
+  type {
+              name
+              type
+              types {
+                type
+                name
+              }
+            }
+}`
+
+export const typeFieldsParam = graphql`
+fragment typeFieldsParam on parametersField{
+  type {
+              name
+              type
+              types {
+                type
+                name
+              }
+            }
+}`
+
+export const typeFieldsSignature = graphql`
+fragment typeFieldsSignature on signature{
+  type {
+              name
+              type
+              types {
+                type
+                name
+              }
+            }
+}`
 
 export const simpleSymbolFields = graphql`
   fragment simpleSymbolFields on Symbol {
@@ -120,10 +146,7 @@ export const simpleSymbolFields = graphql`
     inheritedFrom {
       name
     }
-    type {
-      type
-      name
-    }
+    ...typeFieldsSymbol
     ...links
     ...allSignatures,
     ...commentFields,

@@ -200,6 +200,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type typeField {
       type: String
+      types: [typeField!]
       name: String
     }
 

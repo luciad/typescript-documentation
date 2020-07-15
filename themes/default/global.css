@@ -288,6 +288,10 @@ p {
   font-weight: bold;
 }
 
+.type{
+  display: inline-block;
+}
+
 .searchLink {
   display: inline-block;
   vertical-align: middle;

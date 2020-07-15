@@ -6,7 +6,7 @@ import Signatures from "./signature/signatures"
 import Links from "./links"
 import Text from "../text"
 import Tags from "./tags"
-
+import Type from "./type"
 /**
  * Summary of an object
  * Contains:
@@ -39,7 +39,9 @@ export default ({ data }) => {
         <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
       {(data.defaultValue !== null && data.defaultValue !== undefined) &&
         <div>Default value: {data.defaultValue}</div>}
-        {data.type && <div className="type">Type: {data.type.name}</div>}
+        {data.type && <div className="type">Type:&nbsp;
+        <Type data={data}/>
+        </div>}
       {data.overwrites && <div className="overwrites">Overwrites: {data.overwrites.name}</div>}
       <Flags data={data}/>
       <Links data={data}/>
