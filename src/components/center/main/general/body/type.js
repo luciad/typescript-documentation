@@ -30,6 +30,7 @@ export default ({ data }) => {
 
 class TypeElement extends Component {
     render(){
+        console.log(this.props.data)
         if(this.props.data.id){
             return (
                 <SearchLink data={{text: this.props.data.name, id: this.props.data.id}}/>

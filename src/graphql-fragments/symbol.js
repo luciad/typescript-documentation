@@ -107,6 +107,7 @@ fragment typeFieldsSymbol on Symbol{
                 name
               }
               elementType {
+                id
                 type
                 name
               }
@@ -124,6 +125,7 @@ fragment typeFieldsParam on parametersField{
                 name
               }
               elementType {
+                id
                 type
                 name
               }
@@ -141,6 +143,7 @@ fragment typeFieldsSignature on signature{
                 name
               }
               elementType {
+                id
                 type
                 name
               }
