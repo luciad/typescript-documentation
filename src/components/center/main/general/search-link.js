@@ -65,6 +65,10 @@ class Search extends Component {
   this.text = query.substring(query.indexOf(" ") + 1)
   query = query.substring(0, query.indexOf(" ") > 0 ? query.indexOf(" ") : query.size).replace(/\./g, " ")
 
+  if(this.data.id){
+    query = this.data.id
+  }
+
   this.index = this.getOrCreateIndex()
   this.state = {
     query,

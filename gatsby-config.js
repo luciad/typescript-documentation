@@ -33,7 +33,7 @@ module.exports = {
       resolve: `@gatsby-contrib/gatsby-plugin-elasticlunr-search`,
       options: {
         // Fields to index
-        fields: [`name`, `spacePath`, `path`, `kindString`],
+        fields: [`name`, `spacePath`, `path`, `kindString`, `id`],
         // How to resolve each field`s value for a supported node type
         resolvers: {
           // For any node of type symbol, list how to resolve the fields` values
@@ -43,6 +43,7 @@ module.exports = {
             spacePath: node => node.fields.path.replace(/\//g, " "),
             //comment: node => JSON.stringify(node.comment),
             kindString: node => node.kindString,
+            id: node => node.id,
           },
           Module: {
             name: node => node.name,
@@ -50,6 +51,7 @@ module.exports = {
             spacePath: node => node.fields.path.replace(/\//g, " "),
             //comment: node => JSON.stringify(node.comment),
             kindString: node => node.kindString,
+            id: node=> node.id
           },
         },
         bool: "AND",
