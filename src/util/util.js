@@ -252,21 +252,6 @@ function getFlags(data){
   return returnFlags
 }
 
-function getSignatureSummaries(signatures){
-  let returnValues = []
-  for(let signature of signatures){
-    let summaryString = signature.name + "("
-    if(signature.parameters){
-      summaryString += signature.parameters.map(p =>
-                                                p.name  + (p.type.name ? " : " + p.type.name : ""))
-                                                .join(", ")
-    }
-    summaryString += ")" + (signature.type.name ? " : " + signature.type.name : "")
-    returnValues.push(summaryString)
-  }
-  return returnValues
-}
-
 module.exports = {
   MODULE_PATH_PREFIX,
   fixModuleName,
@@ -278,5 +263,4 @@ module.exports = {
   getFlags,
   getLinks,
   parse,
-  getSignatureSummaries
 };

@@ -16,7 +16,7 @@ export default ({ data }) => {
         <div className="type">
             {types.map((t, i) =>
                 <>
-                {i > 0 && <> {types.type} </>}
+                {i > 0 && <> {types.type === "union" ? " | " : types.type} </>}
                 {t.elementType
                 ? (<>{t.type + "["}<TypeElement data={t.elementType}/>]</>)
                 : t.name
@@ -30,7 +30,6 @@ export default ({ data }) => {
 
 class TypeElement extends Component {
     render(){
-        console.log(this.props.data)
         if(this.props.data.id){
             return (
                 <SearchLink data={{text: this.props.data.name, id: this.props.data.id}}/>

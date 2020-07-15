@@ -1,5 +1,6 @@
 import React from "react"
-import { getSignatures, getSignatureSummaries } from "../../../../../../util/util"
+import { getSignatures } from "../../../../../../util/util"
+import Type from "../type"
 
 export default ({ data }) => {
     if(!data) return null
@@ -7,17 +8,34 @@ export default ({ data }) => {
     if(signatures.length === 0){
         return null;
     }
-    const signatureSummaries = getSignatureSummaries(signatures)
 
   return (
     <div className="signaturesummary">
       <ul className="signaturesummarylist">
-        {signatureSummaries.map(signatureSummary => (
-          <li key={signatureSummary + "_signature_summary_entry"}>
-            {signatureSummary}
-          </li>
-        ))}
+       {getSignatureSummaries(signatures)}
       </ul>
     </div>
   );
 };
+
+function getSignatureSummaries(signatures){
+  return signatures.map(s => (
+    <>{s.name}(
+      {s.parameters && (
+        <>
+          {s.parameters.map((p, i) => (
+            <>
+              {i > 0 && <>, </>}
+              {p.name}
+              {p.type.name &&
+                <> : <Type data={p}/></>}
+            </>
+          ))}
+        </>
+      )}
+      )
+      {s.type.name &&
+        <> : <Type data={s}/></>}
+    </>
+  ))
+}

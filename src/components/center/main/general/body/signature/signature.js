@@ -2,6 +2,7 @@ import React from "react";
 import { getComments } from "../../../../../../util/util"
 import Parameters from "../parameters"
 import Text from "../../text"
+import Type from "../type"
 /**
  * Single signature item
  *
@@ -25,7 +26,7 @@ export default ({ data, path}) => {
       </div>
       <div className="kindString" style={{marginBottom:0, marginTop:"auto", marginLeft:"0.5em"}}>
         {data.type.name !== null &&
-          <>({data.type.name}) &nbsp;</>}
+          <>(<Type data={data}/>) &nbsp;</>}
             {data.kindString}
       </div></div>
       {data.overwrites && <>Overwrites {data.overwrites.name}</>}
