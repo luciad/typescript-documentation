@@ -5,9 +5,7 @@ import Type from "../type"
 export default ({ data }) => {
     if(!data) return null
     const signatures = getSignatures(data)
-    if(signatures.length === 0){
-        return null;
-    }
+    if(signatures.length === 0) return null;
 
   return (
     <div className="signaturesummary">
@@ -21,18 +19,16 @@ export default ({ data }) => {
 function getSignatureSummaries(signatures){
   return signatures.map(s => (
     <li key={s.name + "_" + s.id + "_signature_summary"}>{s.name}(
-      {s.parameters && (
-        <>
+      {s.parameters &&
+        (<>
           {s.parameters.map((p, i) => (
             <>
-              {i > 0 && <>, </>}
+              {i > 0 && <>, </>}      
               {p.name}
               {p.type.name &&
                 <> : <Type data={p}/></>}
-            </>
-          ))}
-        </>
-      )}
+            </>))}
+        </>)}
       )
       {s.type.name &&
         <> : <Type data={s}/></>}

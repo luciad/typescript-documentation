@@ -11,9 +11,8 @@ import Signature from "./signature"
 export default ({ data, path}) => {
   if(!data || !path) return null
   const signatures = getSignatures(data)
-  if(signatures.length === 0){
-    return null;
-  }
+  if(signatures.length === 0) return null
+  
   return (
     <div className="signatures">
      {signatures.length !== 0 &&

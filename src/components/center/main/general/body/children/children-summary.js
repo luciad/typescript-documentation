@@ -1,8 +1,7 @@
 import React from "react";
 import scrollTo from "gatsby-plugin-smoothscroll"
 import Icon from "../../../../../general/icon"
-import { pathToExport } from "../../../../../../util/util"
-import { Link } from "gatsby"
+import SearchLink from "../../search-link"
 
 /**
  * List of children
@@ -16,11 +15,8 @@ import { Link } from "gatsby"
 export default ({ data }) => {
   if(!data) return null
   const children = data.children
-  if(!children || children.length === 0) return (null)
-  let exportIds = []
-  if(data.exports){
-    exportIds = data.exports.map(exp => exp.id)
-  }
+  if(!children || children.length === 0) return null
+  let exportIds = data.exports ? data.exports.map(exp => exp.id) : []
 
   return (
     <div className="childrenSummary">
@@ -28,16 +24,10 @@ export default ({ data }) => {
         <div className="subsubtitle">Children</div>}
       <ul className="itemList">
         {children.map(child => {
-          if(!child.id) return null
           if(exportIds.includes(child.id)) // if child is exported, a link to the child is included.
             return (
               <li key={child.id + "_child_summary_entry"}>
-                <div className="sidecontainer">
-                <Icon kindString={child.kindString}/>
-                <Link to={pathToExport(data, child)}>
-                  {child.name}
-                </Link>
-                </div>
+                <SearchLink data={{text: child.name, id: child.id}}/>
               </li>
             )
             return (  // if child is not exported, clicking on its name will scroll to its body on the same page

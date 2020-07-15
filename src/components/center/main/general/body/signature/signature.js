@@ -23,18 +23,21 @@ export default ({ data, path}) => {
   return (
     <div className="signature" key={data.id + "_signature"}>
       <div className="sidecontainer">
-      <div className="title">
-        {data.name}
+        <div className="title">
+          {data.name}
+        </div>
+        <div className="kindString" style={{marginBottom:0, marginTop:"auto", marginLeft:"0.5em"}}>
+          {data.type.name !== null &&
+            <>(<Type data={data}/>) &nbsp;</>}
+              {data.kindString}
+        </div>
       </div>
-      <div className="kindString" style={{marginBottom:0, marginTop:"auto", marginLeft:"0.5em"}}>
-        {data.type.name !== null &&
-          <>(<Type data={data}/>) &nbsp;</>}
-            {data.kindString}
-      </div></div>
+
       {data.overwrites && <div className="overwrites">Overwrites: <Overwrites data={data}/></div>}
+
       <div className="signatureBody">
-      {comments.returns.length > 0 &&
-        <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
+        {comments.returns.length > 0 &&
+          <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
         <Text data={comments.shortText} path={path}/>
         <Text data={comments.text} path={path}/>
         <Parameters data={data} path={path}/>
