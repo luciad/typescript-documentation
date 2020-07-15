@@ -17,7 +17,9 @@ export default ({ data, path }) => {
       <ul style={{paddingLeft: "1em"}}>
         {parameters.map(parameter => (
           <li key={parameter.name + "_" + parameter.type + "_parameter_entry"}>
-            <b>{parameter.name}</b>:<i><Type data={parameter}/></i>
+            <b>{parameter.name}</b>
+            {parameter.type && <> : </> }
+            <i><Type data={parameter}/></i>
             <Text data={parameter.comments.shortText} path={path}/>
             <Text data={parameter.comments.text} path={path}/>
           </li>

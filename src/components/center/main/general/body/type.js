@@ -12,8 +12,8 @@ export default ({ data }) => {
     types.type = data.type.type
     const typeString = types.map(t =>
         t.elementType
-            ? t.name + "[" + t.elementType.name + "]"
-            : t.name
+            ? t.type + "[" + t.elementType.name + "]"
+            : t.name ? t.name : t.type
             ).join(" " + types.type + " ")
 
     return (

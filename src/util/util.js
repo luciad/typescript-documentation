@@ -163,7 +163,7 @@ function getParameters(data){
       returnParameters.push({
         comments: getComments(data),
         name: parameter.name,
-        type: parameter.type.name
+        type: parameter.type
       })
     }
   }
