@@ -22,10 +22,7 @@ export const allSignatures = graphql`
             shortText,
             text
           },
-          type {
-            type,
-            name
-          },
+          ...typeFieldsSignature
           overwrites {
             name
           },
