@@ -13,7 +13,10 @@
     "start": "npm run develop",
     "serve": "gatsby serve",
     "clean": "gatsby clean",
-    "test": "jest"
+    "test": "jest",
+    "cy:open": "cypress open",
+    "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
+    "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
   "dependencies": {
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
@@ -37,10 +40,12 @@
   "devDependencies": {
     "babel-jest": "^26.1.0",
     "babel-preset-gatsby": "^0.4.12",
+    "cypress": "^4.10.0",
     "identity-obj-proxy": "^3.0.0",
     "jest": "^26.1.0",
     "prettier": "^1.19.1",
-    "react-test-renderer": "^16.13.1"
+    "react-test-renderer": "^16.13.1",
+    "start-server-and-test": "^1.11.2"
   },
   "repository": {
     "type": "git",

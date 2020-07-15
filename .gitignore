@@ -71,3 +71,4 @@ yarn-error.log
 content/
 __snapshots__/
 src/styles/
+cypress/integration/examples/
