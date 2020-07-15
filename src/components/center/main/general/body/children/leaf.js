@@ -2,6 +2,7 @@ import React from "react";
 import Body from "../body"
 import Icon from "../../../../../general/icon"
 import { Link } from "gatsby"
+import SignatureSummary from "../signature/signature-summary"
 
 /**
  * Full description of an item (in a box)
@@ -19,6 +20,7 @@ export default ({ data }) => {
         <Icon kindString={data.kindString}/>
         <div className="kindString">{data.kindString}</div>
         </div>
+        <SignatureSummary data={data}/>
       <Body data={data}/>
     </div>
   );

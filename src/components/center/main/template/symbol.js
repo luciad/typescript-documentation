@@ -5,7 +5,7 @@ import { fixModuleName, pathToModule, MODULE_PATH_PREFIX } from "../../../../uti
 import Body from "../general/body/body"
 import Icon from '../../../general/icon'
 import Header from "../../../general/header"
-
+import SignatureSummary from "../general/body/signature/signature-summary"
 /**
  * Items inside of modules
  *
@@ -19,7 +19,6 @@ import Header from "../../../general/header"
 export default ({ data }) => {
   if(!data) return null
   const { symbol, module } = data;
-
   return (
     <>
       <Header siteTitle={symbol.name} />
@@ -36,6 +35,7 @@ export default ({ data }) => {
             {symbol.kindString}
           </div>
         </div>
+        <SignatureSummary data={symbol}/>
         <Body data={symbol}/>
       </Layout>
     </>
