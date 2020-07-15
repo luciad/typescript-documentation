@@ -3,6 +3,8 @@ import { getComments } from "../../../../../../util/util"
 import Parameters from "../parameters"
 import Text from "../../text"
 import Type from "../type"
+import Overwrites from "../overwrites"
+
 /**
  * Single signature item
  *
@@ -29,7 +31,7 @@ export default ({ data, path}) => {
           <>(<Type data={data}/>) &nbsp;</>}
             {data.kindString}
       </div></div>
-      {data.overwrites && <>Overwrites {data.overwrites.name}</>}
+      {data.overwrites && <div className="overwrites">Overwrites: <Overwrites data={data}/></div>}
       {data.inheritedFrom && <>Inherited from {data.inheritedFrom.name}</>}
       <div className="signatureBody">
       {comments.returns.length > 0 &&

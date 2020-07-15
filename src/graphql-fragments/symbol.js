@@ -24,6 +24,7 @@ export const allSignatures = graphql`
           },
           ...typeFieldsSignature
           overwrites {
+            id
             name
           },
           inheritedFrom {
@@ -158,6 +159,7 @@ export const simpleSymbolFields = graphql`
       parentPath
     }
     overwrites {
+      id
       name
     }
     inheritedFrom {

@@ -173,6 +173,7 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type nameType {
+      id: Int
       name: String
     }
 
