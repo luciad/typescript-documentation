@@ -19,7 +19,7 @@ export default class Search extends Component {
       <div  className="search" placeholder="search">
         <input type="text" value={this.state.query} onChange={this.search} placeholder="search" aria-label="search"/>
         <ul>
-          {this.state.results.splice(0,400).map(page => (
+          {this.state.results.splice(0,400).map(page => ( //Gets really slow if the second number of splice is too large
             <li key={page.id + "_search_entry"}>
               <div className="sidecontainer">
                 <Icon kindString={page.kindString}/>
@@ -35,10 +35,7 @@ export default class Search extends Component {
     )
   }
   getOrCreateIndex = () =>
-    this.index
-      ? this.index
-      : // Create an elastic lunr index and hydrate with graphql query results
-        Index.load(this.props.searchIndex)
+    this.index ? this.index :  Index.load(this.props.searchIndex)
 
   search = evt => {
     const query = evt.target.value

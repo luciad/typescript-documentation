@@ -3,6 +3,7 @@ import { Helmet } from "react-helmet"
 
 export default ( { siteTitle } ) => {
   if(!siteTitle) return null
+  
   return (
     <Helmet>
       <title>

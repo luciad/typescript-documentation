@@ -6,6 +6,7 @@ import Highlight from "./general/highlight"
 
 export default (props) => {
   if(!props) return null
+  
   return (
     <div>
       <Highlight/>

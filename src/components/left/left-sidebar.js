@@ -18,7 +18,6 @@ export default () => {
     </Link>
     <DirectoryList/>
     <FilterList/>
-
   </div>
   )
 }

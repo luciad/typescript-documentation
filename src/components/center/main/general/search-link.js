@@ -6,7 +6,7 @@ import { getMostSimilarPage } from "../../../../util/directory"
 import { MODULE_PATH_PREFIX } from "../../../../util/util"
 
 /**
- * Used for getting a link from a name from
+ * Used for getting a link from a name or id
  * (eg. for a function)
  * Contains:
  * - Link to most similar page and the icon of its kindString
@@ -39,7 +39,7 @@ class Search extends Component {
 
   /**
    * Initializes class and executes query
-   * @param {*} props: props.data; props.data.text
+   * @param {*} props: props.data; props.data.text; props.data.id (optional)
    */
   constructor(props) {
     super(props)
@@ -50,16 +50,13 @@ class Search extends Component {
       results: [],
     }
 
-  //  Word to search for
-  let text
+  let text = ""
   if(typeof this.data == "string" && this.data.length > 0){
     text = this.data
   }else if(typeof this.data.text == "string" && this.data.text.length > 0){
     text = this.data.text
   }else if(typeof this.srcPath == "string"){
     text = this.srcPath.replace(MODULE_PATH_PREFIX + "/", "")
-  }else {
-    text = ""
   }
   text = text.trim()
   this.text = text.substring(text.indexOf(" ") + 1)
@@ -88,10 +85,7 @@ class Search extends Component {
    * - Link to most similar page and the icon of its kindString
    */
   render() {
-    let path = ""
-    if(this.srcPath){
-      path = this.srcPath
-    }
+    let path = this.srcPath ? this.srcPath : ""
     let page = getMostSimilarPage(this.state.results, path, this.text)
     if(!page) return (<div className="searchLink">{this.text} (Link not found on {this.state.query}!)</div>)
     return (
