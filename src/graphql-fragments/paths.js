@@ -1,17 +1,5 @@
 import { graphql } from "gatsby"
 
-/* All path query:
-export const pathQuery = graphql`
-  query allPaths {
-    allSymbol {
-      ...symbolPaths
-    }
-    allModule {
-      ...modulePaths
-  }
-}
-`*/
-
 export const symbolPaths = graphql`
   fragment symbolPaths on SymbolConnection {
     edges {

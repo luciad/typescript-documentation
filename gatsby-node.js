@@ -209,7 +209,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 
     type parametersField {
       name: String
-      type: nameType
+      type: typeField
       comment: commentField
     }
 

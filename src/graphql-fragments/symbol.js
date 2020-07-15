@@ -1,28 +1,39 @@
 import { graphql } from "gatsby"
 
 export const commentFields = graphql`
-  fragment commentFields on Symbol {
-    comment {
-      shortText,
-      text,
-      returns,
-      tags {
-        tag,
-        text
-      }
+  fragment commentFields on commentField {
+    shortText,
+    text,
+    returns,
+    tags {
+      tag,
+      text
     }
   }`
 
 export const allSignatures = graphql`
-  fragment allSignatures on Symbol{
+  fragment allSignatures on Symbol {
     signatures {
-          name,
-          kindString,
+         ...signatureFields
+        },
+        getSignature {
+          ...signatureFields
+        },
+        setSignature {
+          ...signatureFields
+        }
+  }`
+
+export const signatureFields = graphql`
+  fragment signatureFields on signature {
+          name
+          kindString
           comment {
-            shortText,
-            text
-          },
-          ...typeFieldsSignature
+            ...commentFields
+          }
+          type {
+            ...typeFields
+          }
           overwrites {
             id
             name
@@ -30,61 +41,20 @@ export const allSignatures = graphql`
           inheritedFrom {
             name
           }
-          comment {
-            shortText,
-            text,
-            returns,
-            tags {
-              tag,
-              text
-            }
-          }
           parameters {
             name
-            ...typeFieldsParam
+            type {
+              ...typeFields
+            }
             comment {
-              text,
-              shortText
+              ...commentFields
             }
           }
-        },
-        getSignature {
-          id,
-          name,
-          kindString,
-          comment {
-            shortText,
-            text,
-            returns,
-            tags {
-              tag,
-              text
-            }
-          }
-          ...typeFieldsSignature
-        },
-        setSignature {
-          id,
-          name,
-          kindString,
-          comment {
-            shortText,
-            text,
-            tags {
-              tag,
-              text
-            }
-          }
-          ...typeFieldsSignature
-          parameters {
-            name
-            ...typeFieldsParam
-          }
-        }
-  }`
+  }
+`
 
 export const flagField = graphql`
-  fragment flagFields on Symbol{
+  fragment flagFields on Symbol {
     flags {
           isExported,
           isOptional,
@@ -94,59 +64,22 @@ export const flagField = graphql`
         }
   }`
 
-export const typeFieldsSymbol = graphql`
-fragment typeFieldsSymbol on Symbol{
-  type {
-              id
-              name
-              type
-              types {
-                type
-                name
-              }
-              elementType {
-                id
-                type
-                name
-              }
-            }
-}`
-
-export const typeFieldsParam = graphql`
-fragment typeFieldsParam on parametersField{
-  type {
-              id
-              name
-              type
-              types {
-                type
-                name
-              }
-              elementType {
-                id
-                type
-                name
-              }
-            }
-}`
-
-export const typeFieldsSignature = graphql`
-fragment typeFieldsSignature on signature{
-  type {
-              id
-              name
-              type
-              types {
-                type
-                name
-              }
-              elementType {
-                id
-                type
-                name
-              }
-            }
-}`
+export const typeFields = graphql`
+  fragment typeFields on typeField {
+    id
+    name
+    type
+    types {
+      type
+      name
+    }
+    elementType {
+      id
+      type
+      name
+    }
+  }
+`
 
 export const simpleSymbolFields = graphql`
   fragment simpleSymbolFields on Symbol {
@@ -165,10 +98,14 @@ export const simpleSymbolFields = graphql`
     inheritedFrom {
       name
     }
-    ...typeFieldsSymbol
+    type {
+      ...typeFields
+    }
     ...links
     ...allSignatures,
-    ...commentFields,
+    comment {
+      ...commentFields,
+    }
     ...flagFields
   }`
 
