@@ -10,7 +10,11 @@ export default ({ data }) => {
     }
     if(!types || types.length === 0) return null
     types.type = data.type.type
-    const typeString = types.map(t => t.name).join(" " + types.type + " ")
+    const typeString = types.map(t =>
+        t.elementType
+            ? t.name + "[" + t.elementType.name + "]"
+            : t.name
+            ).join(" " + types.type + " ")
 
     return (
         <div className="type">

@@ -103,6 +103,10 @@ fragment typeFieldsSymbol on Symbol{
                 type
                 name
               }
+              elementType {
+                type
+                name
+              }
             }
 }`
 
@@ -115,6 +119,10 @@ fragment typeFieldsParam on parametersField{
                 type
                 name
               }
+              elementType {
+                type
+                name
+              }
             }
 }`
 
@@ -124,6 +132,10 @@ fragment typeFieldsSignature on signature{
               name
               type
               types {
+                type
+                name
+              }
+              elementType {
                 type
                 name
               }

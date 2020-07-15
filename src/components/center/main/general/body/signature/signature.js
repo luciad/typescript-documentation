@@ -2,7 +2,6 @@ import React from "react";
 import { getComments } from "../../../../../../util/util"
 import Parameters from "../parameters"
 import Text from "../../text"
-
 /**
  * Single signature item
  *
