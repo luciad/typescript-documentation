@@ -38,7 +38,7 @@ function LinkTemplate(title, data) {
         </div>
         <ul className="itemList">
           {data.map(function(type){
-            let newData = {text: type.name}
+            let newData = {text: type.name, id: type.id}
             return(
               <li key={newData.text + "_searchlink"}><SearchLink data={newData}/></li>
           )})}

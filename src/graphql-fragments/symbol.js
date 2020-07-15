@@ -51,6 +51,7 @@ export const allSignatures = graphql`
           }
         },
         getSignature {
+          id,
           name,
           kindString,
           comment {
@@ -65,6 +66,7 @@ export const allSignatures = graphql`
           ...typeFieldsSignature
         },
         setSignature {
+          id,
           name,
           kindString,
           comment {
@@ -97,6 +99,7 @@ export const flagField = graphql`
 export const typeFieldsSymbol = graphql`
 fragment typeFieldsSymbol on Symbol{
   type {
+              id
               name
               type
               types {
@@ -113,6 +116,7 @@ fragment typeFieldsSymbol on Symbol{
 export const typeFieldsParam = graphql`
 fragment typeFieldsParam on parametersField{
   type {
+              id
               name
               type
               types {
@@ -129,6 +133,7 @@ fragment typeFieldsParam on parametersField{
 export const typeFieldsSignature = graphql`
 fragment typeFieldsSignature on signature{
   type {
+              id
               name
               type
               types {
@@ -168,18 +173,28 @@ export const simpleSymbolFields = graphql`
 export const links = graphql`
   fragment links on Symbol {
     extendedTypes {
+      type
+      id
       name
     },
     extendedBy {
+      type
+      id
       name
     },
     implementedTypes {
+      type
+      id
       name
     }
     implementedBy {
+      type
+      id
       name
     }
     implementationOf {
+      type
+      id
       name
     }
   }`

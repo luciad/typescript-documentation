@@ -51,23 +51,21 @@ class Search extends Component {
     }
 
   //  Word to search for
-  let query
+  let text
   if(typeof this.data == "string" && this.data.length > 0){
-    query = this.data
+    text = this.data
   }else if(typeof this.data.text == "string" && this.data.text.length > 0){
-    query = this.data.text
+    text = this.data.text
   }else if(typeof this.srcPath == "string"){
-    query = this.srcPath.replace(MODULE_PATH_PREFIX + "/", "")
+    text = this.srcPath.replace(MODULE_PATH_PREFIX + "/", "")
   }else {
-    query = ""
+    text = ""
   }
-  query = query.trim()
-  this.text = query.substring(query.indexOf(" ") + 1)
-  query = query.substring(0, query.indexOf(" ") > 0 ? query.indexOf(" ") : query.size).replace(/\./g, " ")
+  text = text.trim()
+  this.text = text.substring(text.indexOf(" ") + 1)
+  text = text.substring(0, text.indexOf(" ") > 0 ? text.indexOf(" ") : text.size).replace(/\./g, " ")
 
-  if(this.data.id){
-    query = this.data.id
-  }
+  const query = this.data.id ? this.data.id : text
 
   this.index = this.getOrCreateIndex()
   this.state = {
@@ -94,7 +92,7 @@ class Search extends Component {
     if(this.srcPath){
       path = this.srcPath
     }
-    let page = getMostSimilarPage(this.state.results, path, this.state.query)
+    let page = getMostSimilarPage(this.state.results, path, this.text)
     if(!page) return (<div className="searchLink">{this.text} (Link not found on {this.state.query}!)</div>)
     return (
       <div className="searchLink">
@@ -113,6 +111,5 @@ class Search extends Component {
   }
 
   // Create an elastic lunr index and hydrate with graphql query results
-  getOrCreateIndex = () => this.index ? this.index
-      : Index.load(this.props.searchIndex)
+  getOrCreateIndex = () => this.index ? this.index : Index.load(this.props.searchIndex)
 }
