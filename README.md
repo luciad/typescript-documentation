@@ -32,12 +32,13 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
       -m media/folder -> specify media input folder (optional)
       -n true -> run npm install (optional, default false)
       -t themeName -> specify theme path (optional)
+      -d true -> run gatsby develop instead of gatsby build (optional, default false)
     ```
 
     Example:
 
     ```shell
-    $ ./tsdocs.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default
+    $ ./tsdocs.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default -d true
     ```
 
     You can also use ```npm run build``` by putting ```--``` before the flags.
@@ -58,6 +59,8 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     `-n`: if  set to true, the script will run `npm install`.
 
     `-t`: theme name. Uses theme with given name from themes/ folder.
+
+    `-d`: if set to true, the script will run `gatsby develop` instead of `gatsby build `, which will run the site on `http://localhost:8000`.
 
     # Supported features
     ## In your documentation

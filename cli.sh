@@ -2,7 +2,7 @@
 
 main()
 {
-    while getopts :i:o:t:n:m: option
+    while getopts :i:o:t:n:m:d: option
     do
         case "${option}"
         in
@@ -11,6 +11,7 @@ main()
             t) THEME=${OPTARG};;
             n) NPM=${OPTARG};;
             m) MEDIA=${OPTARG};;
+            d) DEVELOP=${OPTARG};;
             \?) echo "[tsdocs] Invalid option: -$OPTARG" >&2
                 display_help
                 exit 1;;
@@ -27,9 +28,15 @@ main()
 
     echo "[tsdocs] running tsdocs..."
     npx gatsby clean
-    echo "[tsdocs] building..."
-    npx gatsby build
-    echo "[tsdocs] Finished building tsdocs!"
+    if [  "$DEVELOP" == "true" ]
+    then
+        echo "[tsdocs] developing..."
+        npx gatsby develop
+    else
+        echo "[tsdocs] building..."
+        npx gatsby build
+        echo "[tsdocs] Finished building tsdocs!"
+    fi
 
     check_var_output
 }
@@ -107,6 +114,7 @@ display_help(){
     echo "[tsdocs] -m media/folder -> specify media input folder (optional)"
     echo "[tsdocs] -n true -> run npm install (default false)"
     echo "[tsdocs] -t themeName -> specify theme path (optional)"
+    echo "[tsdocs] -d true -> run gatsby develop instead of gatsby build (default false)"
     echo "[tsdocs] Example:"
     echo "[tsdocs] ./tsdocs.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default"
 }
