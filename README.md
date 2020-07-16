@@ -20,11 +20,6 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     Make sure npm is available.
 
-    Install the gatsby cli:
-    ```
-    npm install -g gatsby-cli
-    ```
-
     Flags:
     ```shell
       -i file/path.json -> specify input json path (optional if run succesfully before)
