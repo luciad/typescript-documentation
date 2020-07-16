@@ -159,11 +159,11 @@ exports.createSchemaCustomization = ({ actions }) => {
       comment: commentField
       flags: flagsField
       defaultValue: String
-      extendedTypes: [nameType!]
-      extendedBy: [nameType!]
-      implementedTypes: [nameType!]
-      implementedBy: [nameType!]
-      implementationOf: nameType
+      extendedTypes: [typeField!]
+      extendedBy: [typeField!]
+      implementedTypes: [typeField!]
+      implementedBy: [typeField!]
+      implementationOf: typeField
       signatures: [signature!]
       getSignature: [signature!]
       setSignature: [signature!]
