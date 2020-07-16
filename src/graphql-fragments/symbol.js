@@ -72,6 +72,12 @@ export const typeFieldsHelper = graphql`
     types {
       type
       name
+      id
+    }
+    elementType {
+      type
+      name
+      id
     }
   }
 `
