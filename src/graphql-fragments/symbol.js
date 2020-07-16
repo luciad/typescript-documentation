@@ -64,8 +64,8 @@ export const flagField = graphql`
         }
   }`
 
-export const typeFields = graphql`
-  fragment typeFields on typeField {
+export const typeFieldsHelper = graphql`
+  fragment typeFieldsHelper on typeField {
     id
     name
     type
@@ -73,10 +73,19 @@ export const typeFields = graphql`
       type
       name
     }
+  }
+`
+
+export const typeFields = graphql`
+  fragment typeFields on typeField {
+    id
+    name
+    type
+    types {
+      ...typeFieldsHelper
+    }
     elementType {
-      id
-      type
-      name
+     ...typeFieldsHelper
     }
   }
 `
