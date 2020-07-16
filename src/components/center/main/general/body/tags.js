@@ -9,13 +9,13 @@ import Text from "../text"
  */
 export default ({ tags }) => {
   if(!tags || tags.length === 0) return null
-  
+
   return (
     <div>
       <div className="subsubtitle">Tags</div>
-      <ul>
+      <ul className="tags">
         {tags.map(tag => (
-          <li className="sidecontainer" key={tag.tag + "_" + tag.text + "_tag_entry"}>{tag.tag}: &nbsp; <Text data={tag.text}/></li>
+          <li className="sidecontainer" key={tag.tag + "_" + tag.text + "_tag_entry"}><p>{tag.tag}:</p> &nbsp; <Text data={tag.text}/></li>
         ))}
       </ul>
     </div>

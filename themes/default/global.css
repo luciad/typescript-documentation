@@ -297,6 +297,11 @@ p {
   margin-top: auto;
 }
 
+.tags li p {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
 .searchLink {
   display: inline-block;
   vertical-align: middle;
