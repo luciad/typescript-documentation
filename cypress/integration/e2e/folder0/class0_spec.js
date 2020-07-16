@@ -14,6 +14,8 @@ describe('Class0 test', () => {
       cy.get('a').contains("This should link to itself").click()
       cy.url().should('include', '/class0/Class0/myClass0')
 
+      cy.wait(500)
+
       cy.get('a').contains("folder0/class0/Class0").click()
       cy.url().should('include', '/class0/Class0')
 
