@@ -8,7 +8,7 @@ import { FirstClass } from "../firstclass";
 export class Class0{
 
     /**
-     * The name of this class!
+     * The name of this class (private)
      */
     private _name:String;
     /**

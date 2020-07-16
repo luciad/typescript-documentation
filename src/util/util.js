@@ -127,7 +127,7 @@ function codeTagToDiv(string){
     }
     string = string.replace("```", "</code></pre>")
     let k = string.lastIndexOf("</code></pre>")
-    string = string.substring(0, i) + tabsToHTML(replaceNewLines(string.substring(i, k))) + string.substring(k) // make newLines and tabs in code fragments HTML friendly
+    string = string.substring(0, i) + replaceNewLines(string.substring(i, k)) + string.substring(k) // make newLines and tabs in code fragments HTML friendly
   }
   return string
 }
@@ -138,7 +138,7 @@ function codeTagToDiv(string){
  * @returns string with replaced double spaces
  */
 function tabsToHTML(string){
-  return string.replace(/[\s]{2}/g, " &nbsp;&nbsp; " )
+  return string.replace(/\s/g, " &nbsp; " )
 }
 
 /**
