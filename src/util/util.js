@@ -133,15 +133,6 @@ function codeTagToDiv(string){
 }
 
 /**
- * replaces all double spaces that are not in front of a \n with a double &nbsp;
- * @param {string} string
- * @returns string with replaced double spaces
- */
-function tabsToHTML(string){
-  return string.replace(/\s/g, " &nbsp; " )
-}
-
-/**
  * Remove trailing <br/>'s from string
  * @param {String} string string to remove <br/>'s from
  * @returns string without trailing <br/>'s
