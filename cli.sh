@@ -2,7 +2,7 @@
 
 main()
 {
-    while getopts :i:o:t:n:m:d: option
+    while getopts :i:o:t:n:m:d:c: option
     do
         case "${option}"
         in
@@ -12,6 +12,7 @@ main()
             n) NPM=${OPTARG};;
             m) MEDIA=${OPTARG};;
             d) DEVELOP=${OPTARG};;
+            c) COPYONLY=${OPTARG};;
             \?) echo "[tsdocs] Invalid option: -$OPTARG" >&2
                 display_help
                 exit 1;;
@@ -28,16 +29,20 @@ main()
 
     echo "[tsdocs] running tsdocs..."
     npx gatsby clean
-    if [  "$DEVELOP" == "true" ]
+    if [ "$COPYONLY" == "true" ]
     then
-        echo "[tsdocs] developing..."
-        npx gatsby develop
+        echo "[tsdocs] copied files"
     else
-        echo "[tsdocs] building..."
-        npx gatsby build
-        echo "[tsdocs] Finished building tsdocs!"
+        if [  "$DEVELOP" == "true" ]
+        then
+            echo "[tsdocs] developing..."
+            npx gatsby develop
+        else
+            echo "[tsdocs] building..."
+            npx gatsby build
+            echo "[tsdocs] Finished building tsdocs!"
+        fi
     fi
-
     check_var_output
 }
 

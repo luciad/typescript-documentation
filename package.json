@@ -15,7 +15,7 @@
     "clean": "gatsby clean",
     "test": "jest",
     "cy:open": "cypress open",
-    "pretest:e2e": "gatsby clean ; npx typedoc --json ./content/docu.json ./cypress/src",
+    "pretest:e2e": "./cli.sh -m ./cypress/media -c true ; npx typedoc --json ./content/docu.json ./cypress/src",
     "test:e2e": "start-server-and-test develop http://localhost:8000 cy:open",
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
