@@ -1,6 +1,6 @@
 
 describe('FirstClass test', () => {
-    it('Searches first class page for expected contents', () => {
+    it('Searches first class page for expected contents, some basic sanity tests', () => {
       cy.visit('http://localhost:8000/modules/firstclass/FirstClass')
 
       cy.contains('Directories')

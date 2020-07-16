@@ -13,7 +13,7 @@ import Image from "../../../general/image"
  */
 export default ({ data, path }) => {
   if(!data) return null
-  if(!path) path="/"
+  if(!path) path=""
 
   // Recursively go over parsed React elements
   let newData = recursiveMap(parse(data), child => {
@@ -32,6 +32,7 @@ export default ({ data, path }) => {
         case "img":
           return (<Image data={e}/>)
         case "link":
+          e.searchPath = path
           return (<SearchLink data={e}/>)
         default:
           return e.text

@@ -10,7 +10,7 @@ const MODULE_PATH_PREFIX = "/modules"
  */
 const fixModuleName = module => {
   if(!module || !module.name) return "404"
-  return module.name.replace('.d"', "").replace(/\"/g, "");
+  return module.name.replace('.d"', "").replace(/"/g, "");
 };
 
 /**
