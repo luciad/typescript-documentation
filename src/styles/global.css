@@ -292,6 +292,11 @@ p {
   display: inline-block;
 }
 
+.typehelper {
+  margin-bottom: 0.2em;
+  margin-top: auto;
+}
+
 .searchLink {
   display: inline-block;
   vertical-align: middle;

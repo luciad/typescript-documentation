@@ -6,7 +6,6 @@ import Signatures from "./signature/signatures"
 import Links from "./links"
 import Text from "../text"
 import Tags from "./tags"
-import Type from "./type"
 import Overwrites from "./overwrites"
 
 /**
@@ -38,10 +37,6 @@ export default ({ data }) => {
       {data.overwrites &&
         <div className="overwrites">Overwrites: <Overwrites data={data}/></div>}
       <Flags data={data}/>
-      {data.type &&
-        <div className="type">Type:&nbsp;
-          <Type data={data}/>
-        </div>}
       <Links data={data}/>
 
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&

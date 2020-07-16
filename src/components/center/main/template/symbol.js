@@ -6,6 +6,8 @@ import Body from "../general/body/body"
 import Icon from '../../../general/icon'
 import Header from "../../../general/header"
 import SignatureSummary from "../general/body/signature/signature-summary"
+import Type from "../general/body/type"
+
 /**
  * Items inside of modules
  *
@@ -28,7 +30,10 @@ export default ({ data }) => {
         <br/>
         Parent: &nbsp; &nbsp;
         <Link to={symbol.fields.parentPath}>{symbol.fields.parentPath.replace(MODULE_PATH_PREFIX + "/","")}</Link>
-        <div className="title">{symbol.name}</div>
+        <div className="sidecontainer">
+          <div className="title">{symbol.name}</div>
+          <div className="typehelper"><Type data={symbol} colon={true}/></div>
+        </div>
         <div className="sidecontainer">
           <Icon kindString={symbol.kindString}/>
           <div className="kindString">

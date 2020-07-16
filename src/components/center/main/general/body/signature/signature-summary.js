@@ -23,15 +23,13 @@ function getSignatureSummaries(signatures){
         (<>
           {s.parameters.map((p, i) => (
             <>
-              {i > 0 && <>, </>}      
+              {i > 0 && <>, </>}
               {p.name}
-              {p.type.name &&
-                <> : <Type data={p}/></>}
+              <Type data={p} colon={true}/>
             </>))}
         </>)}
       )
-      {s.type.name &&
-        <> : <Type data={s}/></>}
+      <Type data={s} colon={true}/>
     </li>
   ))
 }

@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import SearchLink from "../search-link"
 
-export default ({ data }) => {
+export default ({ data, colon }) => {
     if(!data || !data.type) return null
     let types = (data.type.types && data.type.types.length > 0) ? data.type.types : [data.type]
     if(!types || types.length === 0) return null
@@ -9,6 +9,8 @@ export default ({ data }) => {
 
     return (
         <div className="type">
+            {colon &&
+            <>&nbsp;:&nbsp;</>}
             {types.map((t, i) =>
                 <>
                 {i > 0 && <> {types.type === "union" ? " | " : types.type} </>}
