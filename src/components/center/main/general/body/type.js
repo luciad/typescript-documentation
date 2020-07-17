@@ -1,5 +1,6 @@
 import React, { Component } from "react"
 import SearchLink from "../search-link"
+import SignatureSummary from "./signature/signature-summary"
 
 export default function Type({ data, colon }) {
     if(!data || !data.type) return null
@@ -18,10 +19,11 @@ export default function Type({ data, colon }) {
                 ? (<>{t.type + "["}<TypeElement data={t.elementType}/>]</>)
                 : t.name
                     ? <TypeElement data= {t}/>
-                    : <>{t.type}</>}
+                    : t.declaration
+                        ? <div style={{display:"inline-block"}}><SignatureSummary data={t.declaration}/></div>
+                        : <>{t.type}</>}
 
                 {t.typeArguments &&
-                    (
                         t.typeArguments.map( (ta, i) =>
                             <>
                             {i > 0 && <>, </>}
@@ -29,7 +31,7 @@ export default function Type({ data, colon }) {
                                 <Type data={{type: ta}}/>
                             <>{">"}</>
                             </>
-                ))}
+                )}
                 </>
             )}
         </div>

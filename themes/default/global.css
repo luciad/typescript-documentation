@@ -333,6 +333,11 @@ p {
   height: auto;
 }
 
+.type ul {
+  margin: 0;
+  padding: 0;
+}
+
 /* remove button styling from clickable text button */
 .clickabletext {
 	background: none;

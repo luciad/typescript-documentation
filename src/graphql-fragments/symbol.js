@@ -53,15 +53,13 @@ export const signatureFields = graphql`
   }
 `
 
-export const flagField = graphql`
-  fragment flagFields on Symbol {
-    flags {
-          isExported,
-          isOptional,
-          isPrivate,
-          isStatic,
-          isAbstract
-        }
+export const flagFields = graphql`
+  fragment flagFields on flagsField {
+      isExported,
+      isOptional,
+      isPrivate,
+      isStatic,
+      isAbstract
   }`
 
 export const typeFieldsHelper = graphql`
@@ -79,6 +77,33 @@ export const typeFieldsHelper = graphql`
       name
       id
     }
+    typeArguments {
+      type
+      name
+      id
+      types {
+        type
+        id
+        name
+      }
+    }
+    declaration {
+      id
+      name
+      kindString
+      signatures {
+        name
+        kindString
+        parameters {
+          name
+          type {
+            name
+            type
+            id
+          }
+        }
+      }
+    }
   }
 `
 
@@ -87,6 +112,9 @@ export const typeFields = graphql`
     id
     name
     type
+    declaration {
+      ...declarationFields
+    }
     types {
       ...typeFieldsHelper
     }
@@ -95,6 +123,24 @@ export const typeFields = graphql`
     }
     typeArguments {
       ...typeFieldsHelper
+    }
+  }
+`
+
+export const declarationFields = graphql`
+  fragment declarationFields on declarationField {
+    id
+    name
+    kindString
+    signatures {
+      name
+      kindString
+      parameters {
+        name
+        type {
+          ...typeFieldsHelper
+        }
+      }
     }
   }
 `
@@ -124,7 +170,9 @@ export const simpleSymbolFields = graphql`
     comment {
       ...commentFields,
     }
-    ...flagFields
+    flags {
+      ...flagFields
+      }
   }`
 
 export const links = graphql`
