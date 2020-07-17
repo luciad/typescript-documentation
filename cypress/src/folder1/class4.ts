@@ -18,6 +18,6 @@ export class Class4{
     }
 }
 
-type PrimitiveArray = Array<string|number|boolean>;
+type PrimitiveArray = Array<string|number|Class0>;
 type MyNumber = number;
 type Callback = () => void;
