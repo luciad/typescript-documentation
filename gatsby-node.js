@@ -205,6 +205,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       type: String
       types: [typeField!]
       elementType: typeField
+      typeArguments: [typeField]
     }
 
     type parametersField {

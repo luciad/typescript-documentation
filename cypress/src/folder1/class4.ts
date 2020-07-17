@@ -13,7 +13,11 @@ export class Class4{
      * @param undefined undefined type
      * @returns returns a {@link Class1} or <code>null</code>
      */
-    function(string:string, object:object, class0:Class0, undefined): Class1 | null {
+    function(string:string, object:object | Callback | MyNumber | PrimitiveArray, class0:Class0, undefined, primitiveArray: PrimitiveArray): Class1 | null {
         return null
     }
 }
+
+type PrimitiveArray = Array<string|number|boolean>;
+type MyNumber = number;
+type Callback = () => void;

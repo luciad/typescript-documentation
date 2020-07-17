@@ -93,6 +93,9 @@ export const typeFields = graphql`
     elementType {
      ...typeFieldsHelper
     }
+    typeArguments {
+      ...typeFieldsHelper
+    }
   }
 `
 
