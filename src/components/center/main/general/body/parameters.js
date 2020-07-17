@@ -1,5 +1,5 @@
 import React from "react"
-import { getParameters } from "../../../../../util/util"
+import { getParameters, getComments } from "../../../../../util/util"
 import Text from "../text"
 import Type from "./type"
 /**
@@ -9,8 +9,7 @@ import Type from "./type"
  */
 export default ({ data, path }) => {
   if(!data || !path) return null
-  const parameters = getParameters(data)
-
+  const parameters = data.parameters
   return (
     <div>
     {parameters.length !== 0 &&
@@ -21,8 +20,8 @@ export default ({ data, path }) => {
             <b>{parameter.name}</b>
             {parameter.type && <> : </> }
             <i><Type data={parameter}/></i>
-            <Text data={parameter.comments.shortText} path={path}/>
-            <Text data={parameter.comments.text} path={path}/>
+            <Text data={getComments(parameter).shortText} path={path}/>
+            <Text data={getComments(parameter).text} path={path}/>
           </li>
         ))}
       </ul>

@@ -140,26 +140,6 @@ function codeTagToDiv(string){
 function removeTrailingBrs(string){
   return string.replace(/(<br\/>\s*)+$/, "")
 }
-/**
- * returns list of objects with comment, name and type of parameters
- *
- * @param {*} data data.parameters, data.comments
- * @returns list of object.comments, object.name, object.type
- */
-function getParameters(data){
-  const parameters = data.parameters
-  let returnParameters = []
-  if(parameters){
-    for(let parameter of parameters){
-      returnParameters.push({
-        comments: getComments(data),
-        name: parameter.name,
-        type: parameter.type
-      })
-    }
-  }
-  return returnParameters
-}
 
 /**
  * Parses {@Link .. }, {@img path}  etc. from the rest of the text
@@ -249,7 +229,6 @@ module.exports = {
   pathToModule,
   pathToExport,
   getComments,
-  getParameters,
   getSignatures,
   getFlags,
   getLinks,

@@ -223,6 +223,10 @@ fragment typeFieldsHelper on typeField {
       }
       parameters {
         name
+        comment {
+          text
+          shortText
+        }
         type {
           name
           type
@@ -272,6 +276,10 @@ export const typeFieldsHelper1 = graphql`
           id
         }
         parameters {
+          comment {
+            text
+            shortText
+          }
           name
           type {
             name
