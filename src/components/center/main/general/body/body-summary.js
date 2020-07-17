@@ -35,7 +35,10 @@ export default ({ data }) => {
       {data.defaultValue &&
         <div>Default value: {data.defaultValue}</div>}
       {data.overwrites &&
-        <div className="overwrites">Overwrites: <Overwrites data={data}/></div>}
+        <div className="overwrites">
+          <div className="subsubtitle">Overwrites</div>
+          <ul><li><Overwrites data={data}/></li></ul>
+        </div>}
       <Flags data={data}/>
       <Links data={data}/>
 
