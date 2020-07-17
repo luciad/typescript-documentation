@@ -47,7 +47,7 @@ export default class Main extends Component {
       <div className="filter">
         <details>
           <summary>
-            <h3  style={{"display": "inline"}}>Filter</h3>
+            <h3  className="inline-block">Filter</h3>
           </summary>
           <div className="expanded">
             <details>

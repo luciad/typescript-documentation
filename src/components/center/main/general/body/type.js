@@ -20,7 +20,7 @@ export default function Type({ data, colon }) {
                 : t.name
                     ? <TypeElement data= {t}/>
                     : t.declaration
-                        ? <Declaration data={t}/>// <div style={{display:"inline-block"}}><SignatureSummary data={t.declaration}/></div>
+                        ? <Declaration data={t}/>
                         : <>{t.type}</>}
 
                 {t.typeArguments &&
@@ -53,7 +53,7 @@ class TypeElement extends Component {
 class Declaration extends Component {
     render(){
         return(
-            <div style={{display:"inline-block"}}>
+            <div className="inline-block">
                 <SignatureSummary data={this.props.data.declaration}/>
                 {this.props.data.declaration.children &&
                     this.props.data.declaration.children.map((c, i) =>

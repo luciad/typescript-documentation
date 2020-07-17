@@ -49,7 +49,7 @@ function LinkTemplate(title, data) {
         {title}
       </div>
       <ul>
-        <li style={{display:"inline"}} key={data.name + "_searchlink"}><SearchLink data={data.name}/></li>
+        <li className="inline-block" key={data.name + "_searchlink"}><SearchLink data={data.name}/></li>
       </ul>
     </div>
   )

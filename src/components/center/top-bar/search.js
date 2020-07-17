@@ -25,7 +25,7 @@ export default class Search extends Component {
                 <Icon kindString={page.kindString}/>
                 <Link to={page.path}>{page.name}</Link>
               </div>
-              <div style={{wordBreak:"break-all"}}>
+              <div className="break-word">
                 {page.path.replace(MODULE_PATH_PREFIX + "/", "")}
               </div>
             </li>

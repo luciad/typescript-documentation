@@ -14,7 +14,7 @@ export default ({ data, path }) => {
     <div>
     {parameters.length !== 0 &&
         <div className="subsubtitle">Parameters</div>}
-      <ul style={{paddingLeft: "1em"}}>
+      <ul className="tab">
         {parameters.map(parameter => (
           <li key={parameter.name + "_" + parameter.type + "_parameter_entry"}>
             <b>{parameter.name}</b>

@@ -45,6 +45,18 @@ ul {
   margin-top: auto;
 }
 
+.inline-block {
+  display: inline-block;
+}
+
+.tab {
+  padding-left: 1em;
+}
+
+.break-word {
+  word-break: break-all;
+}
+
 summary,
 .clickable {
   cursor: pointer;
@@ -160,6 +172,12 @@ summary,
 .signature {
   font-size: 90%;
   position: relative;
+}
+
+.signature .kindString {
+  margin-bottom: 0;
+  margin-top: auto;
+  margin-left: 0.5em;
 }
 
 .signatures {

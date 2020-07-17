@@ -26,7 +26,7 @@ export default ({ data, path}) => {
         <div className="title">
           {data.name}
         </div>
-        <div className="kindString" style={{marginBottom:0, marginTop:"auto", marginLeft:"0.5em"}}>
+        <div className="kindString">
           {data.type.name !== null &&
             <>(<Type data={data}/>) &nbsp;</>}
               {data.kindString}
