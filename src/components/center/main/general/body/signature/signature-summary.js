@@ -6,6 +6,7 @@ export default ({ data }) => {
     if(!data) return null
     const signatures = getSignatures(data)
     if(signatures.length === 0) return null;
+    console.log(signatures)
 
   return (
     <div className="signaturesummary">
@@ -18,18 +19,30 @@ export default ({ data }) => {
 
 function getSignatureSummaries(signatures){
   return signatures.map(s => (
-    <li key={s.name + "_" + s.id + "_signature_summary"}>{s.name}(
-      {s.parameters &&
-        (<>
-          {s.parameters.map((p, i) => (
-            <>
-              {i > 0 && <>, </>}
-              {p.name}
-              <Type data={p} colon={true}/>
-            </>))}
-        </>)}
-      )
-      <Type data={s} colon={true}/>
+    <li key={s.name + "_" + s.id + "_signature_summary"}>
+      {s.name}
+      {s.typeParameter &&
+        <>{"<"}
+        {s.typeParameter.map((tp, i) =>
+          <>
+            {i > 0 && <>, </>}
+            {tp.name}
+          </>
+          )}
+          {">"}</>
+      }
+      (
+        {s.parameters &&
+          (<>
+            {s.parameters.map((p, i) => (
+              <>
+                {i > 0 && <>, </>}
+                {p.name}
+                <Type data={p} colon={true}/>
+              </>))}
+          </>)}
+        )
+        <Type data={s} colon={true}/>
     </li>
   ))
 }
