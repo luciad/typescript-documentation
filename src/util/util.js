@@ -61,9 +61,9 @@ function getComments(data){
   if(typeof returns !== "string") returns = ""
 
   return {
-    shortText,
-    text,
-    returns,
+    shortText: trimNewLines(shortText),
+    text: trimNewLines(text),
+    returns: trimNewLines(returns),
     tags
   }
 }
@@ -76,7 +76,7 @@ function getComments(data){
  */
 function parse(string){
   if(typeof string !== "string") string = ""
-  let fixedText = codeTagToDiv(replaceDoubleNewLines(string))
+  let fixedText = codeTagToDiv(replaceDoubleNewLines(trimNewLines(string)))
   return Parser(Sanitizer(fixedText, {
     //allow all attributes:
     allowedAttributes: false,
@@ -141,6 +141,9 @@ function removeTrailingBrs(string){
   return string.replace(/(<br\/>\s*)+$/, "")
 }
 
+function trimNewLines(string){
+  return string.replace(/((\n\s*)+$)/, "").replace(/^(\s*\n)+/, "")
+}
 /**
  * Parses {@Link .. }, {@img path}  etc. from the rest of the text
  *

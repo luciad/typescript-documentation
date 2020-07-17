@@ -13,7 +13,7 @@ export default class Class7{
      * @param myVar     Comment for myVar
      * @typeParam T     Comment for type T
      * @returns    Comment for returnvalue
-     * @event this is an eventcomment
+     * @event
      * @category Category name
      */
     tagTester<T>(myVar: T): Object{
