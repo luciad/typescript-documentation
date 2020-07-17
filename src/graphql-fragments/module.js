@@ -15,5 +15,8 @@ export const moduleFields = graphql`
     children {
       ...symbolFields
     }
+    comment {
+      ...commentFields
+    }
   }
 `
