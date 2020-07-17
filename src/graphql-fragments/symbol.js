@@ -132,6 +132,17 @@ export const declarationFields = graphql`
     id
     name
     kindString
+    children {
+      id
+      name
+      kindString
+      flags {
+        ...flagFields
+      }
+      type {
+        ...typeFieldsHelper
+      }
+    }
     signatures {
       name
       kindString

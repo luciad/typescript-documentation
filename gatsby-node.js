@@ -215,6 +215,15 @@ exports.createSchemaCustomization = ({ actions }) => {
       kindString: String
       flags: [flagsField!]
       signatures: [signature!]
+      children: [declarationChildField!]
+    }
+
+    type declarationChildField {
+      id: Int
+      name: String
+      kindString: String
+      flags: flagsField
+      type: typeField
     }
 
     type parametersField {
