@@ -94,6 +94,11 @@ export const typeFieldsHelper = graphql`
       signatures {
         name
         kindString
+        type {
+          name
+          type
+          id
+        }
         parameters {
           name
           type {
@@ -146,6 +151,9 @@ export const declarationFields = graphql`
     signatures {
       name
       kindString
+      type{
+        ...typeFieldsHelper
+      }
       parameters {
         name
         type {
