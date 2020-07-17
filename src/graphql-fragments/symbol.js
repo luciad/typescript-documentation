@@ -42,14 +42,28 @@ export const signatureFields = graphql`
             name
           }
           parameters {
-            name
-            type {
-              ...typeFields
-            }
-            comment {
-              ...commentFields
-            }
+            ...parametersFields
           }
+          typeParameter {
+              ...parametersFields
+            }
+  }
+`
+
+export const parameterFields = graphql`
+  fragment parametersFields on parametersField {
+    id
+    name
+    kindString
+    flags {
+      ...flagFields
+    }
+    comment {
+      ...commentFields
+    }
+    type {
+      ...typeFieldsHelper
+    }
   }
 `
 
@@ -138,15 +152,7 @@ export const declarationFields = graphql`
     name
     kindString
     children {
-      id
-      name
-      kindString
-      flags {
-        ...flagFields
-      }
-      type {
-        ...typeFieldsHelper
-      }
+      ...parametersFields
     }
     signatures {
       name
@@ -155,10 +161,7 @@ export const declarationFields = graphql`
         ...typeFieldsHelper
       }
       parameters {
-        name
-        type {
-          ...typeFieldsHelper
-        }
+       ...parametersFields
       }
     }
   }

@@ -185,6 +185,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       parameters: [parametersField]
       overwrites: nameType
       inheritedFrom: nameType
+      typeParameter: [parametersField!]
     }
 
     type commentField {
@@ -215,21 +216,17 @@ exports.createSchemaCustomization = ({ actions }) => {
       kindString: String
       flags: [flagsField!]
       signatures: [signature!]
-      children: [declarationChildField!]
+      children: [parametersField!]
     }
 
-    type declarationChildField {
+
+    type parametersField {
       id: Int
       name: String
       kindString: String
       flags: flagsField
-      type: typeField
-    }
-
-    type parametersField {
-      name: String
-      type: typeField
       comment: commentField
+      type: typeField
     }
 
     type flagsField {
