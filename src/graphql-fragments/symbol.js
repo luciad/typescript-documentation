@@ -76,56 +76,6 @@ export const flagFields = graphql`
       isAbstract
   }`
 
-export const typeFieldsHelper = graphql`
-  fragment typeFieldsHelper on typeField {
-    id
-    name
-    type
-    types {
-      type
-      name
-      id
-    }
-    elementType {
-      type
-      name
-      id
-    }
-    typeArguments {
-      type
-      name
-      id
-      types {
-        type
-        id
-        name
-      }
-    }
-    declaration {
-      id
-      name
-      kindString
-      signatures {
-        name
-        kindString
-        type {
-          name
-          type
-          id
-        }
-        parameters {
-          name
-          type {
-            name
-            type
-            id
-          }
-        }
-      }
-    }
-  }
-`
-
 export const typeFields = graphql`
   fragment typeFields on typeField {
     id
@@ -243,3 +193,93 @@ export const links = graphql`
       }
     }
   }`
+
+  //HELPERS
+
+
+export const typeFieldsHelper = graphql`
+fragment typeFieldsHelper on typeField {
+  id
+  name
+  type
+  types {
+   ...typeFieldsHelper1
+  }
+  elementType {
+    ...typeFieldsHelper1
+  }
+  typeArguments {
+   ...typeFieldsHelper1
+  }
+  declaration {
+    id
+    name
+    kindString
+    signatures {
+      name
+      kindString
+      type {
+        ...typeFieldsHelper1
+      }
+      parameters {
+        name
+        type {
+          name
+          type
+          id
+        }
+      }
+    }
+  }
+}
+`
+
+export const typeFieldsHelper1 = graphql`
+  fragment typeFieldsHelper1 on typeField {
+    id
+    name
+    type
+    types {
+      type
+      name
+      id
+    }
+    elementType {
+      type
+      name
+      id
+    }
+    typeArguments {
+      type
+      name
+      id
+      types {
+        type
+        id
+        name
+      }
+    }
+    declaration {
+      id
+      name
+      kindString
+      signatures {
+        name
+        kindString
+        type {
+          name
+          type
+          id
+        }
+        parameters {
+          name
+          type {
+            name
+            type
+            id
+          }
+        }
+      }
+    }
+  }
+`
