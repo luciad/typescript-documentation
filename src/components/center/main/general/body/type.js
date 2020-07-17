@@ -20,7 +20,7 @@ export default function Type({ data, colon }) {
                 : t.name
                     ? <TypeElement data= {t}/>
                     : t.declaration
-                        ? <div style={{display:"inline-block"}}><SignatureSummary data={t.declaration}/></div>
+                        ? <Declaration data={t}/>// <div style={{display:"inline-block"}}><SignatureSummary data={t.declaration}/></div>
                         : <>{t.type}</>}
 
                 {t.typeArguments &&
@@ -46,6 +46,23 @@ class TypeElement extends Component {
             )
         return (
             <>{this.props.data.name}</>
+        )
+    }
+}
+
+class Declaration extends Component {
+    render(){
+        return(
+            <div style={{display:"inline-block"}}>
+                <SignatureSummary data={this.props.data.declaration}/>
+                {this.props.data.declaration.children &&
+                    this.props.data.declaration.children.map((c, i) =>
+                    <>
+                    {i > 0 && <>, </>}
+                    {c.name}
+                    <Type data={c} colon={true}/>
+                    </>)}
+            </div>
         )
     }
 }
