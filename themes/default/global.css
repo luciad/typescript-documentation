@@ -40,6 +40,11 @@ ul {
   max-width: 100%;
 }
 
+.bottom {
+  margin-bottom: 0.2em;
+  margin-top: auto;
+}
+
 summary,
 .clickable {
   cursor: pointer;
@@ -290,11 +295,6 @@ p {
 
 .type{
   display: inline-block;
-}
-
-.typehelper {
-  margin-bottom: 0.2em;
-  margin-top: auto;
 }
 
 .tags li p {
