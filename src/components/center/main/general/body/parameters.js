@@ -1,5 +1,5 @@
 import React from "react"
-import { getParameters, getComments } from "../../../../../util/util"
+import { getComments } from "../../../../../util/util"
 import Text from "../text"
 import Type from "./type"
 /**
@@ -8,7 +8,7 @@ import Type from "./type"
  * - List of parameters with their name, type, shortText and text
  */
 export default ({ data, path }) => {
-  if(!data || !path) return null
+  if(!data || !path ||!data.parameters) return null
   const parameters = data.parameters
   return (
     <div>

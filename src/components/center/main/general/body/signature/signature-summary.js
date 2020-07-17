@@ -5,9 +5,7 @@ import Type from "../type"
 export default ({ data }) => {
     if(!data) return null
     const signatures = getSignatures(data)
-    if(signatures.length === 0) return null;
-    console.log(signatures)
-
+    if(signatures.length === 0) return null
   return (
     <div className="signaturesummary">
       <ul className="signaturesummarylist">
