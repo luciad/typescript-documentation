@@ -18,5 +18,17 @@ describe('Class4 test', () => {
       cy.get(".returns").get("code").contains("null")
       cy.get(".returns").get("a").contains("Class1").click()
       cy.url().should('include', '/class1/Class1')
+
+      cy.visit('http://localhost:8000/modules/folder1/class4/Callback')
+      cy.get('.signaturesummary').contains("void")
+
+      cy.visit('http://localhost:8000/modules/folder1/class4/Callback2')
+      cy.get('.signaturesummary').contains("string")
+      cy.get('.signaturesummary').contains("array")
+      cy.get('.signaturesummary').get('a').contains("Class0")
+      cy.get('.signaturesummary').get('a').contains("Class1")
+      cy.get('.signaturesummary').get('a').contains("MyNumber")
+
+      cy.get('.kindString').contains("Type alias")
     })
   })
