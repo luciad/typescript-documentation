@@ -7,7 +7,7 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
     let types = (data.type.types && data.type.types.length > 0) ? data.type.types : [data.type]
     if(!types || types.length === 0) return null
     types.type = data.type.type
-    
+
     return (
         <div className="type">
             {!noIsOptionalMarker && data.flags && data.flags.isOptional &&
@@ -83,8 +83,8 @@ class Target extends Component {
         const data = this.props.data
         return (
             <>
-                {data.operator}
-                <Elements data={data.target}/>
+                &nbsp;{data.operator}&nbsp;
+                <Type data={{type: data.target}}/>
             </>
         )
     }

@@ -7,8 +7,8 @@
   "main": "src/index.js",
   "bin": "cli.sh",
   "scripts": {
-    "build": "./tsdocs.sh",
-    "develop": "gatsby develop",
+    "build": "./cli.sh",
+    "develop": "./cli.sh -d true",
     "format": "prettier --write \"**/*.{js,jsx,json,md}\"",
     "start": "npm run develop",
     "serve": "gatsby serve",

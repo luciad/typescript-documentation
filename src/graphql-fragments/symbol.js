@@ -96,15 +96,6 @@ export const flagFields = graphql`
       isRest
   }`
 
-  export const targetFields = graphql`
-    fragment targetFields on targetField {
-      type
-      elements {
-        ...typeFieldsHelper
-      }
-    }
-  `
-
 export const typeFields = graphql`
   fragment typeFields on typeField {
     id
@@ -125,7 +116,7 @@ export const typeFields = graphql`
       ...typeFieldsHelper
     }
     target {
-      ...targetFields
+      ...typeFieldsHelper
     }
     targetType {
       ...typeFieldsHelper
@@ -249,10 +240,7 @@ fragment typeFieldsHelper on typeField {
     ...typeFieldsHelper0
   }
   target {
-    type
-    elements {
-      ...typeFieldsHelper0
-    }
+    ...typeFieldsHelper0
   }
   types {
    ...typeFieldsHelper0
@@ -342,10 +330,7 @@ fragment typeFieldsHelper0 on typeField {
     }
   }
   target {
-    type
-    elements {
-      ...typeFieldsHelper1
-    }
+    ...typeFieldsHelper1
   }
   types {
    ...typeFieldsHelper1
