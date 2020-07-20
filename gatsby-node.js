@@ -216,7 +216,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       id: Int
       name: String
       kindString: String
-      flags: [flagsField!]
+      flags: flagsField
       signatures: [signature!]
       children: [parametersField!]
       indexSignature: [signature!]

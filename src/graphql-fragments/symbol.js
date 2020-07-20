@@ -24,6 +24,13 @@ export const allSignatures = graphql`
         }
   }`
 
+export const nameFields = graphql`
+  fragment nameFields on nameType {
+    id
+    name
+  }
+`
+
 export const signatureFields = graphql`
   fragment signatureFields on signature {
           name
@@ -35,18 +42,20 @@ export const signatureFields = graphql`
             ...typeFields
           }
           overwrites {
-            id
-            name
+            ...nameFields
           },
           inheritedFrom {
-            name
+            ...nameFields
           }
           parameters {
             ...parametersFields
           }
           typeParameter {
               ...parametersFields
-            }
+          }
+          flags {
+            ...flagFields
+          }
   }
 `
 
@@ -64,6 +73,16 @@ export const parameterFields = graphql`
     type {
       ...typeFieldsHelper
     }
+    tags {
+      ...tagFields
+    }
+  }
+`
+
+export const tagFields = graphql`
+  fragment tagFields on tagField {
+    tag
+    text
   }
 `
 
@@ -103,6 +122,9 @@ export const declarationFields = graphql`
     id
     name
     kindString
+    flags {
+      ...flagFields
+    }
     children {
       ...parametersFields
     }
@@ -140,11 +162,10 @@ export const simpleSymbolFields = graphql`
       parentPath
     }
     overwrites {
-      id
-      name
+      ...nameFields
     }
     inheritedFrom {
-      name
+      ...nameFields
     }
     type {
       ...typeFields
@@ -162,29 +183,19 @@ export const simpleSymbolFields = graphql`
 export const links = graphql`
   fragment links on Symbol {
     extendedTypes {
-      type
-      id
-      name
+      ...typeFields
     },
     extendedBy {
-      type
-      id
-      name
+      ...typeFields
     },
     implementedTypes {
-      type
-      id
-      name
+      ...typeFields
     }
     implementedBy {
-      type
-      id
-      name
+      ...typeFields
     }
     implementationOf {
-      type
-      id
-      name
+      ...typeFields
     }
   }`
 
@@ -237,12 +248,7 @@ fragment typeFieldsHelper on typeField {
         ...flagFields
       }
       comment {
-        text
-        shortText
-        tags {
-          tag
-          text
-        }
+        ...commentFields
       }
     }
     signatures {
@@ -256,13 +262,11 @@ fragment typeFieldsHelper on typeField {
           ...flagFields
         }
         tags {
-          tag
-          text
+          ...tagFields
         }
         name
         comment {
-          text
-          shortText
+          ...commentFields
         }
         type {
           ...typeFieldsHelper1
@@ -276,14 +280,12 @@ fragment typeFieldsHelper on typeField {
         ...typeFieldsHelper1
       }
       parameters {
-        tags {
-          tag
-          text
-        }
         name
+        tags {
+          ...tagFields
+        }
         comment {
-          text
-          shortText
+          ...commentFields
         }
         type {
           ...typeFieldsHelper1
@@ -336,12 +338,7 @@ export const typeFieldsHelper1 = graphql`
         ...flagFields
       }
       comment {
-        text
-        shortText
-        tags {
-          tag
-          text
-        }
+        ...commentFields
       }
     }
       signatures {
@@ -357,12 +354,10 @@ export const typeFieldsHelper1 = graphql`
         }
         parameters {
           tags {
-            tag
-            text
+            ...tagFields
           }
           comment {
-            text
-            shortText
+            ...commentFields
           }
           name
           type {
@@ -382,12 +377,10 @@ export const typeFieldsHelper1 = graphql`
         }
         parameters {
           tags {
-            tag
-            text
+            ...tagFields
           }
           comment {
-            text
-            shortText
+            ...commentFields
           }
           name
           type {
