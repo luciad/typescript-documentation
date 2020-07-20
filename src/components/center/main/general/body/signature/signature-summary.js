@@ -15,7 +15,7 @@ export default ({ data }) => {
   );
 };
 
-function getSignatureSummaries(signatures){ //TODO: remove repetition
+function getSignatureSummaries(signatures){
   return signatures.map(s => (
     <li key={s.name + "_" + s.id + "_signature_summary"}>
       <SignatureParameter data={s}/>
