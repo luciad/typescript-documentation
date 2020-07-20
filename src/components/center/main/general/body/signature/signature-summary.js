@@ -18,7 +18,7 @@ export default ({ data }) => {
 function getSignatureSummaries(signatures){
   return signatures.map(s => (
     <li key={s.name + "_" + s.id + "_signature_summary"}>
-      <SignatureParameter data={s}/>
+      {s.name}
       {s.typeParameter &&
         <>{"<"}
         {s.typeParameter.map((tp, i) =>
@@ -32,7 +32,8 @@ function getSignatureSummaries(signatures){
         {s.parameters &&
           (<>
             {s.parameters.map((p, i) =>
-              <SignatureParameter data={p} i={i}/>)}
+              <SignatureParameter data={p} i={i}/>
+              )}
           </>)}
         )
         <Type data={s} colon={true}/>
@@ -49,8 +50,8 @@ class SignatureParameter extends Component {
       {i > 0 && <>, </>}
       {data.flags && data.flags.isRest &&
       <>...</>}
-      {data.name}
-      <Type data={data} colon={true}/>
+      {!data.name.startsWith("__") && <>{data.name}</>}
+      <Type data={data} colon={!data.name.startsWith("__")}/>
     </>
     )
   }

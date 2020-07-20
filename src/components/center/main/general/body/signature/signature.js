@@ -33,7 +33,8 @@ export default ({ data, path}) => {
               {data.kindString}
         </div>
       </div>
-      <Tags tags={data.comment.tags}/>
+      {data.comments &&
+      <Tags tags={data.comment.tags}/>}
 
       {data.overwrites && <div className="overwrites">Overwrites: <Overwrites data={data}/></div>}
 
