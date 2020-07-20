@@ -19,11 +19,11 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
                 {i > 0 && <> {types.type === "union" ? " | " : types.type} </>}
                 {t.elementType
                 ? (<>{t.type + "["}<Type data={{type: t.elementType}}/>]</>)
-                : t.name
-                    ? <TypeElement data= {t}/>
-                    : t.declaration
+                : t.declaration
                         ? <Declaration data={t}/>
-                        : <>{t.type}</>}
+                        : t.name
+                            ? <TypeElement data= {t}/>
+                            : <>{t.type}</>}
 
                 {t.typeArguments &&
                         t.typeArguments.map( (ta, i) =>
@@ -54,22 +54,24 @@ class TypeElement extends Component {
 
 class Declaration extends Component {
     render(){
+        const data = this.props.data
+        console.log(data)
         return(
             <div className="inline-block">
-                <SignatureSummary data={this.props.data.declaration}/>
-                {this.props.data.declaration.children &&
-                    this.props.data.declaration.children.map((c, i) =>
+                {"{ "}
+                <SignatureSummary data={data.declaration}/>
+                {data.declaration.children &&
+                    data.declaration.children.map((c, i) =>
                     <>
                     {i > 0 && <>, </>}
                     {c.name}
                     <Type data={c} colon={true}/>
                     </>)}
 
-                {this.props.data.declaration.indexSignature &&
-                    this.props.data.declaration.indexSignature.map((is, j) =>
+                {data.declaration.indexSignature &&
+                    data.declaration.indexSignature.map((is, j) =>
                 <>
                     {j > 0 && <>, </>}
-                    {"{ "}
                     {is.parameters.map((s, i) =>
                     <>
                         {i > 0 && <>, </>}
@@ -77,8 +79,8 @@ class Declaration extends Component {
                         <Type data={s} colon={true}/>]
                     </>)}
                     <Type data={is} colon={true}/>
-                    {" }"}
                 </>)}
+                {" }"}
             </div>
         )
     }

@@ -226,6 +226,24 @@ fragment typeFieldsHelper on typeField {
     id
     name
     kindString
+    children {
+      name
+      kindString
+      type {
+        ...typeFieldsHelper1
+      }
+      flags {
+        ...flagFields
+      }
+      comment {
+        text
+        shortText
+        tags {
+          tag
+          text
+        }
+      }
+    }
     signatures {
       name
       kindString
@@ -297,6 +315,26 @@ export const typeFieldsHelper1 = graphql`
       id
       name
       kindString
+      children {
+      name
+      kindString
+      type {
+        name
+        type
+        id
+      }
+      flags {
+        ...flagFields
+      }
+      comment {
+        text
+        shortText
+        tags {
+          tag
+          text
+        }
+      }
+    }
       signatures {
         name
         kindString
