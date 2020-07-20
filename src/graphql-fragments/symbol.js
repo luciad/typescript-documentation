@@ -73,7 +73,8 @@ export const flagFields = graphql`
       isOptional,
       isPrivate,
       isStatic,
-      isAbstract
+      isAbstract,
+      isRest
   }`
 
 export const typeFields = graphql`

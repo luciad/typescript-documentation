@@ -17,6 +17,8 @@ export default ({ data, path }) => {
       <ul className="tab">
         {parameters.map(parameter => (
           <li key={parameter.name + "_" + parameter.type + "_parameter_entry"}>
+            {parameter.flags && parameter.flags.isRest &&
+            <>...</>}
             <b>{parameter.name}</b>
             <i><Type data={parameter} colon={true}/></i>
             <Text data={getComments(parameter).shortText} path={path}/>

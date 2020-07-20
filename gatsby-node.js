@@ -236,6 +236,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       isPrivate: Boolean
       isStatic: Boolean
       isAbstract: Boolean
+      isRest: Boolean
     }
   `
   createTypes(typeDefs)
