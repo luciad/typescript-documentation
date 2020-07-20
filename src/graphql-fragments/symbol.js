@@ -127,6 +127,9 @@ export const typeFields = graphql`
     target {
       ...targetFields
     }
+    targetType {
+      ...typeFieldsHelper
+    }
     elements {
       ...typeFieldsHelper
     }
@@ -242,6 +245,9 @@ fragment typeFieldsHelper on typeField {
   type
   value
   operator
+  targetType {
+    ...typeFieldsHelper0
+  }
   target {
     type
     elements {
@@ -294,9 +300,6 @@ fragment typeFieldsHelper on typeField {
         comment {
           ...commentFields
         }
-        type {
-          ...typeFieldsHelper0
-        }
       }
     }
     indexSignature {
@@ -329,6 +332,15 @@ fragment typeFieldsHelper0 on typeField {
   type
   value
   operator
+  targetType {
+    type
+    name
+    typeArguments {
+      type
+      name
+      id
+    }
+  }
   target {
     type
     elements {

@@ -7,6 +7,7 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
     let types = (data.type.types && data.type.types.length > 0) ? data.type.types : [data.type]
     if(!types || types.length === 0) return null
     types.type = data.type.type
+    
     return (
         <div className="type">
             {!noIsOptionalMarker && data.flags && data.flags.isOptional &&
@@ -39,10 +40,25 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
                             <>{">"}</>
                             </>
                 )}
+                {t.targetType &&
+                <TargetType data={t}/>}
                 </>
             )}
         </div>
     )
+}
+
+class TargetType extends Component {
+    render(){
+        const data = this.props.data
+        if(!data.targetType) return null
+        return (
+            <>
+            &nbsp;is&nbsp;
+             <Type data={{type: data.targetType}}/>
+            </>
+        )
+    }
 }
 
 class Elements extends Component {
