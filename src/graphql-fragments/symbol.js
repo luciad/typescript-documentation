@@ -252,6 +252,13 @@ fragment typeFieldsHelper on typeField {
         ...typeFieldsHelper1
       }
       parameters {
+        flags {
+          ...flagFields
+        }
+        tags {
+          tag
+          text
+        }
         name
         comment {
           text
@@ -269,6 +276,10 @@ fragment typeFieldsHelper on typeField {
         ...typeFieldsHelper1
       }
       parameters {
+        tags {
+          tag
+          text
+        }
         name
         comment {
           text
@@ -334,6 +345,9 @@ export const typeFieldsHelper1 = graphql`
       }
     }
       signatures {
+        flags {
+          ...flagFields
+        }
         name
         kindString
         type {
@@ -342,6 +356,10 @@ export const typeFieldsHelper1 = graphql`
           id
         }
         parameters {
+          tags {
+            tag
+            text
+          }
           comment {
             text
             shortText
@@ -363,6 +381,10 @@ export const typeFieldsHelper1 = graphql`
           id
         }
         parameters {
+          tags {
+            tag
+            text
+          }
           comment {
             text
             shortText

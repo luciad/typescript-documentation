@@ -182,6 +182,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       kindString: String!
       comment: commentField
       type: typeField
+      flags: flagsField
       parameters: [parametersField]
       overwrites: nameType
       inheritedFrom: nameType
@@ -229,6 +230,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       flags: flagsField
       comment: commentField
       type: typeField
+      tags: [tagField!]
     }
 
     type flagsField {
