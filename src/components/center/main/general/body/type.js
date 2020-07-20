@@ -62,6 +62,21 @@ class Declaration extends Component {
                     {c.name}
                     <Type data={c} colon={true}/>
                     </>)}
+
+                {this.props.data.declaration.indexSignature &&
+                    this.props.data.declaration.indexSignature.map((is, j) =>
+                <>
+                    {j > 0 && <>, </>}
+                    {"{ "}
+                    {is.parameters.map((s, i) =>
+                    <>
+                        {i > 0 && <>, </>}
+                        [{s.name}
+                        <Type data={s} colon={true}/>]
+                    </>)}
+                    <Type data={is} colon={true}/>
+                    {" }"}
+                </>)}
             </div>
         )
     }

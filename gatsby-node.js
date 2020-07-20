@@ -217,6 +217,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       flags: [flagsField!]
       signatures: [signature!]
       children: [parametersField!]
+      indexSignature: [signature!]
     }
 
 

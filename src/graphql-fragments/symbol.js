@@ -114,6 +114,16 @@ export const declarationFields = graphql`
        ...parametersFields
       }
     }
+    indexSignature {
+      name
+      kindString
+      type{
+        ...typeFieldsHelper
+      }
+      parameters {
+       ...parametersFields
+      }
+    }
   }
 `
 
@@ -234,6 +244,25 @@ fragment typeFieldsHelper on typeField {
         }
       }
     }
+    indexSignature {
+      name
+      kindString
+      type {
+        ...typeFieldsHelper1
+      }
+      parameters {
+        name
+        comment {
+          text
+          shortText
+        }
+        type {
+          name
+          type
+          id
+        }
+      }
+    }
   }
 }
 `
@@ -268,6 +297,27 @@ export const typeFieldsHelper1 = graphql`
       name
       kindString
       signatures {
+        name
+        kindString
+        type {
+          name
+          type
+          id
+        }
+        parameters {
+          comment {
+            text
+            shortText
+          }
+          name
+          type {
+            name
+            type
+            id
+          }
+        }
+      }
+      indexSignature {
         name
         kindString
         type {
