@@ -55,7 +55,6 @@ class TypeElement extends Component {
 class Declaration extends Component {
     render(){
         const data = this.props.data
-        console.log(data)
         return(
             <div className="inline-block">
                 {"{ "}
