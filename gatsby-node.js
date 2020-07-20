@@ -206,10 +206,18 @@ exports.createSchemaCustomization = ({ actions }) => {
       name: String
       value: String
       type: String
+      operator: String
+      target: targetField
       types: [typeField!]
       elementType: typeField
+      elements: [typeField]
       typeArguments: [typeField]
       declaration: declarationField
+    }
+
+    type targetField {
+      type: String
+      elements: [typeField!]
     }
 
     type declarationField {

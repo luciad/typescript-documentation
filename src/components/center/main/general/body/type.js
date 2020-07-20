@@ -7,7 +7,6 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
     let types = (data.type.types && data.type.types.length > 0) ? data.type.types : [data.type]
     if(!types || types.length === 0) return null
     types.type = data.type.type
-
     return (
         <div className="type">
             {!noIsOptionalMarker && data.flags && data.flags.isOptional &&
@@ -25,7 +24,11 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
                             ? <TypeElement data= {t}/>
                             : t.value
                                 ? <>{"\"" + t.value + "\""}</>
-                                : <>{t.type}</>}
+                                : t.target
+                                    ? <Target data={t}/>
+                                    : t.elements
+                                        ? <Elements data={t}/>
+                                        : <>{t.type}</>}
 
                 {t.typeArguments &&
                         t.typeArguments.map( (ta, i) =>
@@ -42,6 +45,34 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
     )
 }
 
+class Elements extends Component {
+    render(){
+        const data = this.props.data
+        if(!data || !data.elements) return null
+        return (
+            <>
+                {data.type === "tuple" ? "[" : "("}
+                {data.elements && data.elements.map((e, i) =>
+                <>
+                    {i > 0 && <>, </>}
+                    <Type data={{type: e}}/>
+                </>)}
+                {data.type === "tuple" ? "]" : ")"}
+            </>
+        )
+    }
+}
+class Target extends Component {
+    render(){
+        const data = this.props.data
+        return (
+            <>
+                {data.operator}
+                <Elements data={data.target}/>
+            </>
+        )
+    }
+}
 class TypeElement extends Component {
     render(){
         if(this.props.data.id)

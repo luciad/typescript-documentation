@@ -96,12 +96,22 @@ export const flagFields = graphql`
       isRest
   }`
 
+  export const targetFields = graphql`
+    fragment targetFields on targetField {
+      type
+      elements {
+        ...typeFieldsHelper
+      }
+    }
+  `
+
 export const typeFields = graphql`
   fragment typeFields on typeField {
     id
     name
     type
     value
+    operator
     declaration {
       ...declarationFields
     }
@@ -112,6 +122,12 @@ export const typeFields = graphql`
      ...typeFieldsHelper
     }
     typeArguments {
+      ...typeFieldsHelper
+    }
+    target {
+      ...targetFields
+    }
+    elements {
       ...typeFieldsHelper
     }
   }
@@ -225,8 +241,105 @@ fragment typeFieldsHelper on typeField {
   name
   type
   value
+  operator
+  target {
+    type
+    elements {
+      ...typeFieldsHelper0
+    }
+  }
+  types {
+   ...typeFieldsHelper0
+  }
+  elements {
+    ...typeFieldsHelper0
+  }
+  elementType {
+    ...typeFieldsHelper0
+  }
+  typeArguments {
+   ...typeFieldsHelper0
+  }
+  declaration {
+    id
+    name
+    kindString
+    children {
+      name
+      kindString
+      type {
+        ...typeFieldsHelper0
+      }
+      flags {
+        ...flagFields
+      }
+      comment {
+        ...commentFields
+      }
+    }
+    signatures {
+      name
+      kindString
+      type {
+        ...typeFieldsHelper0
+      }
+      parameters {
+        flags {
+          ...flagFields
+        }
+        tags {
+          ...tagFields
+        }
+        name
+        comment {
+          ...commentFields
+        }
+        type {
+          ...typeFieldsHelper0
+        }
+      }
+    }
+    indexSignature {
+      name
+      kindString
+      type {
+        ...typeFieldsHelper0
+      }
+      parameters {
+        name
+        tags {
+          ...tagFields
+        }
+        comment {
+          ...commentFields
+        }
+        type {
+          ...typeFieldsHelper0
+        }
+      }
+    }
+  }
+}
+`
+
+export const typeFieldsHelper0 = graphql`
+fragment typeFieldsHelper0 on typeField {
+  id
+  name
+  type
+  value
+  operator
+  target {
+    type
+    elements {
+      ...typeFieldsHelper1
+    }
+  }
   types {
    ...typeFieldsHelper1
+  }
+  elements {
+    ...typeFieldsHelper1
   }
   elementType {
     ...typeFieldsHelper1
@@ -302,7 +415,17 @@ export const typeFieldsHelper1 = graphql`
     name
     type
     value
+    operator
+    elements {
+      type
+      name
+    }
     types {
+      type
+      name
+      id
+    }
+    elements {
       type
       name
       id
