@@ -82,6 +82,7 @@ export const typeFields = graphql`
     id
     name
     type
+    value
     declaration {
       ...declarationFields
     }
@@ -207,12 +208,12 @@ export const links = graphql`
 
   //HELPERS
 
-
 export const typeFieldsHelper = graphql`
 fragment typeFieldsHelper on typeField {
   id
   name
   type
+  value
   types {
    ...typeFieldsHelper1
   }
@@ -257,9 +258,7 @@ fragment typeFieldsHelper on typeField {
           shortText
         }
         type {
-          name
-          type
-          id
+          ...typeFieldsHelper1
         }
       }
     }
@@ -276,9 +275,7 @@ fragment typeFieldsHelper on typeField {
           shortText
         }
         type {
-          name
-          type
-          id
+          ...typeFieldsHelper1
         }
       }
     }
@@ -291,6 +288,7 @@ export const typeFieldsHelper1 = graphql`
     id
     name
     type
+    value
     types {
       type
       name

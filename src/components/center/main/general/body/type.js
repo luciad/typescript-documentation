@@ -23,7 +23,9 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
                         ? <Declaration data={t}/>
                         : t.name
                             ? <TypeElement data= {t}/>
-                            : <>{t.type}</>}
+                            : t.value
+                                ? <>{"\"" + t.value + "\""}</>
+                                : <>{t.type}</>}
 
                 {t.typeArguments &&
                         t.typeArguments.map( (ta, i) =>
