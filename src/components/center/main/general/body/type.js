@@ -15,7 +15,7 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
             {colon &&
             <> :&nbsp;</>}
             {types.map((t, i) =>
-                <> {console.log(i, t)}
+                <>
                 {i > 0 && <> {types.type === "union" ? " | " : types.type} </>}
                 {t.elementType
                 ? (<>{t.type + "["}<Type data={{type: t.elementType}}/>]</>)

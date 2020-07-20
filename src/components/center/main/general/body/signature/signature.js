@@ -4,6 +4,7 @@ import Parameters from "../parameters"
 import Text from "../../text"
 import Type from "../type"
 import Overwrites from "../overwrites"
+import Tags from "../tags"
 
 /**
  * Single signature item
@@ -32,6 +33,7 @@ export default ({ data, path}) => {
               {data.kindString}
         </div>
       </div>
+      <Tags tags={data.comment.tags}/>
 
       {data.overwrites && <div className="overwrites">Overwrites: <Overwrites data={data}/></div>}
 
