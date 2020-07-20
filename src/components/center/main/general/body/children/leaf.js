@@ -17,8 +17,8 @@ export default ({ data }) => {
     <div className="childbox" id={"id" + data.id} key={data.id + "_leaf"}>
       <div className="sidecontainer">
         <div className="title"><Link to={data.fields.path}>{data.name}</Link></div>
-        {data.flags.isOptional && <div className="bottom optionalMark" title="isOptional">&nbsp;?</div>}
-        <div className="bottom"><Type data={data} colon={true}/></div>
+        {data.flags.isOptional && <div className="bottom optionalMark" title="isOptional">&nbsp;?&nbsp;</div>}
+        <div className="bottom"><Type data={data} colon={true} noIsOptionalMarker={true}/></div>
       </div>
       <div className="sidecontainer">
         <Icon kindString={data.kindString}/>

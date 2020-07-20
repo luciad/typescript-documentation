@@ -18,8 +18,7 @@ export default ({ data, path }) => {
         {parameters.map(parameter => (
           <li key={parameter.name + "_" + parameter.type + "_parameter_entry"}>
             <b>{parameter.name}</b>
-            {parameter.type && <> : </> }
-            <i><Type data={parameter}/></i>
+            <i><Type data={parameter} colon={true}/></i>
             <Text data={getComments(parameter).shortText} path={path}/>
             <Text data={getComments(parameter).text} path={path}/>
           </li>

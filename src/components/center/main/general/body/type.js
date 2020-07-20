@@ -2,7 +2,7 @@ import React, { Component } from "react"
 import SearchLink from "../search-link"
 import SignatureSummary from "./signature/signature-summary"
 
-export default function Type({ data, colon }) {
+export default function Type({ data, colon, noIsOptionalMarker }) {
     if(!data || !data.type) return null
     let types = (data.type.types && data.type.types.length > 0) ? data.type.types : [data.type]
     if(!types || types.length === 0) return null
@@ -10,8 +10,10 @@ export default function Type({ data, colon }) {
 
     return (
         <div className="type">
+            {!noIsOptionalMarker && data.flags && data.flags.isOptional &&
+            <>? </>}
             {colon &&
-            <>&nbsp;:&nbsp;</>}
+            <> :&nbsp;</>}
             {types.map((t, i) =>
                 <>
                 {i > 0 && <> {types.type === "union" ? " | " : types.type} </>}
