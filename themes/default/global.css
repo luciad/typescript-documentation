@@ -315,6 +315,10 @@ p {
   display: inline-block;
 }
 
+.declaration * {
+  display: inline-block;
+}
+
 .tags li p {
   margin-top: auto;
   margin-bottom: auto;

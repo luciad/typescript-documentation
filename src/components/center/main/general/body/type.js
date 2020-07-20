@@ -58,8 +58,8 @@ class Declaration extends Component {
     render(){
         const data = this.props.data
         return(
-            <div className="inline-block">
-                {"{ "}
+            <div className="declaration inline-block">
+                <div>{"{"}&nbsp;</div>
                 <SignatureSummary data={data.declaration}/>
                 {data.declaration.children &&
                     data.declaration.children.map((c, i) =>
@@ -81,7 +81,7 @@ class Declaration extends Component {
                     </>)}
                     <Type data={is} colon={true}/>
                 </>)}
-                {" }"}
+                <div>&nbsp;{"}"}</div>
             </div>
         )
     }
