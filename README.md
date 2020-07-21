@@ -33,7 +33,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     Example:
 
     ```shell
-    $ ./tsdocs.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default -d true
+    $ ./l/td.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default -d true
     ```
 
     You can also use ```npm run build``` by putting ```--``` before the flags.
@@ -85,7 +85,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     Note: for inline code, you can just use HTML tags: `<code>` and `</code>`
 
-    ### tsdocs specific tags
+    ### l/td specific tags
 
     #### Linking to other pages
 
@@ -123,7 +123,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     The image it would take would be located at mediaFolder/path/to/img.jpg.
 
-    ## Change tsdocs to your liking
+    ## Change l/td to your liking
 
     ### Logo
     The logo in the left sidebar can be changed by putting a file logo.* in your provided media folder (* being the extension).

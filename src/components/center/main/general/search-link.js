@@ -88,7 +88,7 @@ class Search extends Component {
     let path = this.srcPath ? this.srcPath : ""
     let page = getMostSimilarPage(this.state.results, path, this.text)
     if(!page) {
-      console.warn("[tsdocs] Link not found on " + this.state.query + "!")
+      console.warn("[l/td] Link not found on " + this.state.query + "!")
       return (<div className="searchLink notfound">{this.text}</div>)
     }
     return (
