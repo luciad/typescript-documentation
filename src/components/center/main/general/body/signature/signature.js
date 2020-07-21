@@ -3,7 +3,6 @@ import { getComments } from "../../../../../../util/util"
 import Parameters from "../parameters"
 import Text from "../../text"
 import Type from "../type"
-import Overwrites from "../overwrites"
 import Tags from "../tags"
 
 /**

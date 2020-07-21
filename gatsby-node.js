@@ -44,19 +44,21 @@ exports.createPages = ({ actions }) => {
 
 async function createAllPages(createPage, exports, path, moduleID){
   // Create a page for each export and its children
-  exports.forEach(exprt => {
-    exprt.path = path + "/" + exprt.name
-    createPage({
-      path: exprt.path,
-      component: symbolTemplate,
-      context: {
-        moduleId: moduleID,
-        symbolId: String(exprt.id)
-      }})
-      if(exprt.children){
-        createAllPages(createPage, exprt.children, exprt.path, moduleID)
-      }
-    })
+  if(exports){
+    exports.forEach(exprt => {
+      exprt.path = path + "/" + exprt.name
+      createPage({
+        path: exprt.path,
+        component: symbolTemplate,
+        context: {
+          moduleId: moduleID,
+          symbolId: String(exprt.id)
+        }})
+        if(exprt.children){
+          createAllPages(createPage, exprt.children, exprt.path, moduleID)
+        }
+      })
+  }
 }
 
 async function onCreateNode({
@@ -131,9 +133,10 @@ async function onCreateNode({
     createParentChildLink({ parent: node, child: jsonNode });
 
     // recursively create a symbol for every child
-    module.children.forEach(child => {
-      createSymbolNode(child, jsonNode);
-    });
+    if(module.children){
+      module.children.forEach(child => {
+        createSymbolNode(child, jsonNode);
+    })}
   });
 }
 
