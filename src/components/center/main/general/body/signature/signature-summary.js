@@ -1,6 +1,6 @@
 import React, { Component }  from "react"
 import { getSignatures } from "../../../../../../util/util"
-import Type from "../type"
+import Type from "../type/type"
 
 export default ({ data }) => {
     if(!data) return null

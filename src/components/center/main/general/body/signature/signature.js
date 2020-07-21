@@ -2,7 +2,7 @@ import React from "react";
 import { getComments } from "../../../../../../util/util"
 import Parameters from "../parameters"
 import Text from "../../text"
-import Type from "../type"
+import Type from "../type/type"
 import Tags from "../tags"
 
 /**

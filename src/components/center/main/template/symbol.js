@@ -6,7 +6,7 @@ import Body from "../general/body/body"
 import Icon from '../../../general/icon'
 import Header from "../../../general/header"
 import SignatureSummary from "../general/body/signature/signature-summary"
-import Type from "../general/body/type"
+import Type from "../general/body/type/type"
 import SymbolTitle from "../symbol-title"
 
 /**

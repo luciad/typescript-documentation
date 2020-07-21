@@ -2,7 +2,7 @@ import React from "react";
 import Body from "../body"
 import Icon from "../../../../../general/icon"
 import SignatureSummary from "../signature/signature-summary"
-import Type from "../type"
+import Type from "../type/type"
 import SymbolTitle from "../../../symbol-title"
 /**
  * Full description of an item (in a box)
