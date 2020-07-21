@@ -180,10 +180,10 @@ class TypeElement extends Component {
 
         if(data.id)
             return (
-                <SearchLink data={{text: this.props.data.name, id: this.props.data.id}}/>
+                <SearchLink data={{text: data.name, id: data.id}}/>
             )
         return (
-            <>{this.props.data.name}</>
+            <>{data.name}</>
         )
     }
 }

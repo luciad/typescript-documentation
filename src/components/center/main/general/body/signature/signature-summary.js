@@ -16,9 +16,11 @@ export default ({ data }) => {
 };
 
 function getSignatureSummaries(signatures){
-  return signatures.map(s => (
+  return signatures.map(s => {
+    let callBack = (s.name === "__call")
+    return (
     <li key={s.name + "_" + s.id + "_signature_summary"}>
-      {s.name}
+      {!callBack && s.name}
       {s.typeParameter &&
         <>{"<"}
         {s.typeParameter.map((tp, i) =>
@@ -36,9 +38,10 @@ function getSignatureSummaries(signatures){
               )}
           </>)}
         )
-        <Type data={s} colon={true}/>
+        {callBack && <>&nbsp;{"=>"}&nbsp;</>}
+        <Type data={s} colon={!callBack}/>
     </li>
-  ))
+  )})
 }
 
 class SignatureParameter extends Component {
