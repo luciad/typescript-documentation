@@ -24,26 +24,16 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
 
                 {t.type === "inferred" ? <>infer&nbsp;</> : ""}
 
-                {t.elementType &&
-                    <>{t.type + "["}<Type data={{type: t.elementType}}/>]</>}
-                {t.declaration &&
-                    <Declaration data={t}/>}
-                {t.name &&
-                    <TypeElement data= {t}/>}
-                {t.value &&
-                    <>{"\"" + t.value + "\""}</>}
-                {t.target &&
-                    <Target data={t}/>}
-                {t.elements &&
-                    <Elements data={t}/>}
-                {t.checkType &&
-                    <CheckType data={t}/>}
-                {t.extendsType &&
-                    <ExtendsType data={t}/>}
-                {t.trueType &&
-                    <TrueType data={t}/>}
-                {t.falseType &&
-                    <FalseType data={t}/>}
+                <ElementType data={t}/>
+                <Declaration data={t}/>
+                <TypeElement data= {t}/>
+                <Value data={t}/>
+                <Target data={t}/>
+                <Elements data={t}/>
+                <CheckType data={t}/>
+                <ExtendsType data={t}/>
+                <TrueType data={t}/>
+                <FalseType data={t}/>
 
                 {t.typeArguments &&
                         t.typeArguments.map( (ta, i) =>
@@ -62,9 +52,36 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
     )
 }
 
+class Value extends Component {
+    render(){
+        const data=this.props.data
+        if(!data || !data.value) return null
+
+        return (
+            <>{"\"" + data.value + "\""}</>
+        )
+    }
+}
+
+class ElementType extends Component {
+    render(){
+        const data = this.props.data
+        if(!data || !data.elementType) return null
+
+        return (
+            <>
+                {data.type}
+                [<Type data={{type: data.elementType}}/>]
+            </>
+        )
+    }
+}
+
 class FalseType extends Component {
     render(){
         const data = this.props.data
+        if(!data || !data.falseType) return null
+
         return (
             <>
                 &nbsp;:&nbsp;
@@ -77,6 +94,8 @@ class FalseType extends Component {
 class TrueType extends Component {
     render(){
         const data = this.props.data
+        if(!data || !data.trueType) return null
+
         return (
             <>
                 &nbsp;?&nbsp;
@@ -89,6 +108,8 @@ class TrueType extends Component {
 class ExtendsType extends Component {
     render(){
         const data = this.props.data
+        if(!data || !data.extendsType) return null
+
         return (
             <>
                 &nbsp;extends&nbsp;
@@ -100,6 +121,8 @@ class ExtendsType extends Component {
 class CheckType extends Component {
     render(){
         const data = this.props.data
+        if(!data || !data.checkType) return null
+
         return (
             <Type data={{type: data.checkType}}/>
         )
@@ -109,7 +132,8 @@ class CheckType extends Component {
 class TargetType extends Component {
     render(){
         const data = this.props.data
-        if(!data.targetType) return null
+        if(!data || !data.targetType) return null
+
         return (
             <>
             &nbsp;is&nbsp;
@@ -139,6 +163,8 @@ class Elements extends Component {
 class Target extends Component {
     render(){
         const data = this.props.data
+        if(!data || !data.target) return null
+
         return (
             <>
                 &nbsp;{data.operator}&nbsp;
@@ -149,7 +175,10 @@ class Target extends Component {
 }
 class TypeElement extends Component {
     render(){
-        if(this.props.data.id)
+        const data = this.props.data
+        if(!data || !data.name) return null
+
+        if(data.id)
             return (
                 <SearchLink data={{text: this.props.data.name, id: this.props.data.id}}/>
             )
@@ -162,6 +191,8 @@ class TypeElement extends Component {
 class Declaration extends Component {
     render(){
         const data = this.props.data
+        if(!data || !data.declaration) return null
+
         return(
             <div className="declaration inline-block">
                 <div>{"{"}&nbsp;</div>
