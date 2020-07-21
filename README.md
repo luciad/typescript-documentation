@@ -83,6 +83,8 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     You can also omit language to get non-highlighted code in a box.
 
+    Do not put HTML tags inside code fragments. This could mess up formatting and won't work anyways.
+
     Note: for inline code, you can just use HTML tags: `<code>` and `</code>`
 
     ### l/td specific tags
@@ -122,6 +124,10 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     ```
 
     The image it would take would be located at mediaFolder/path/to/img.jpg.
+
+    #### Other
+
+    Special characters such as "<" need to be escaped.
 
     ## Change l/td to your liking
 
