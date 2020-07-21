@@ -48,6 +48,18 @@ export default ({ data }) => {
       <Text data={comments.shortText} path={path}/>
       <Text data={comments.text} path={path}/>
 
+      {data.typeParameter &&
+        <div className="typeparameter">
+          <div className="subsubtitle">Type parameters</div>
+          <ul>
+            {data.typeParameter.map(tp =>
+              <li key={tp.id + "_" + tp.name}>
+                {tp.name}
+                <Text data={getComments(tp).shortText} path={path}/>
+                <Text data={getComments(tp).text} path={path}/>
+              </li>)}
+          </ul>
+        </div>}
       <Tags tags={comments.tags}/>
       <Signatures data={data} path={path}/>
       <ChildrenSummary data={data}/>

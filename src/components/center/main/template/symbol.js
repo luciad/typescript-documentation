@@ -7,6 +7,7 @@ import Icon from '../../../general/icon'
 import Header from "../../../general/header"
 import SignatureSummary from "../general/body/signature/signature-summary"
 import Type from "../general/body/type"
+import SymbolTitle from "../symbol-title"
 
 /**
  * Items inside of modules
@@ -31,8 +32,7 @@ export default ({ data }) => {
         Parent: &nbsp; &nbsp;
         <Link to={symbol.fields.parentPath}>{symbol.fields.parentPath.replace(MODULE_PATH_PREFIX + "/","")}</Link>
         <div className="sidecontainer">
-          <div className="title">{symbol.name}</div>
-          {symbol.flags.isOptional && <div className="bottom optionalMark" title="isOptional">&nbsp;?&nbsp;</div>}
+        <SymbolTitle data={symbol}/>
           <div className="bottom"><Type data={symbol} colon={true} noIsOptionalMarker={true}/></div>
         </div>
         <div className="sidecontainer">

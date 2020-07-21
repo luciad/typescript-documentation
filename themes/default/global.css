@@ -360,6 +360,10 @@ p {
   padding: 0;
 }
 
+.typeparameter ul {
+  list-style-type: disc;
+}
+
 /* remove button styling from clickable text button */
 .clickabletext {
 	background: none;

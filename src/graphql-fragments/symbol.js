@@ -103,6 +103,9 @@ export const typeFields = graphql`
     type
     value
     operator
+    comment {
+      ...commentFields
+    }
     declaration {
       ...declarationFields
     }
@@ -190,6 +193,9 @@ export const simpleSymbolFields = graphql`
       ...nameFields
     }
     type {
+      ...typeFields
+    }
+    typeParameter {
       ...typeFields
     }
     ...links

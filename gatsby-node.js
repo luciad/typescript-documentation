@@ -170,6 +170,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       overwrites: nameType
       inheritedFrom: nameType
       type: typeField
+      typeParameter: [typeField!]
     }
 
     type nameType {
@@ -218,6 +219,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       trueType: typeField
       falseType: typeField
       extendsType: typeField
+      comment: commentField
     }
 
     type declarationField {
