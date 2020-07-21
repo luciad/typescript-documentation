@@ -17,19 +17,33 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
             {types.map((t, i) =>
                 <>
                 {i > 0 && <> {types.type === "union" ? " | " : types.type} </>}
-                {t.elementType
-                ? (<>{t.type + "["}<Type data={{type: t.elementType}}/>]</>)
-                : t.declaration
-                        ? <Declaration data={t}/>
-                        : t.name
-                            ? <TypeElement data= {t}/>
-                            : t.value
-                                ? <>{"\"" + t.value + "\""}</>
-                                : t.target
-                                    ? <Target data={t}/>
-                                    : t.elements
-                                        ? <Elements data={t}/>
-                                        : <>{t.type}</>}
+
+                {(!t.elementType && !t.declaration && !t.name && !t.value && !t.target
+                    && !t.elements && !t.checkType &&!t.extendsType) &&
+                    <>{t.type}</>}
+
+                {t.type === "inferred" ? <>infer&nbsp;</> : ""}
+
+                {t.elementType &&
+                    <>{t.type + "["}<Type data={{type: t.elementType}}/>]</>}
+                {t.declaration &&
+                    <Declaration data={t}/>}
+                {t.name &&
+                    <TypeElement data= {t}/>}
+                {t.value &&
+                    <>{"\"" + t.value + "\""}</>}
+                {t.target &&
+                    <Target data={t}/>}
+                {t.elements &&
+                    <Elements data={t}/>}
+                {t.checkType &&
+                    <CheckType data={t}/>}
+                {t.extendsType &&
+                    <ExtendsType data={t}/>}
+                {t.trueType &&
+                    <TrueType data={t}/>}
+                {t.falseType &&
+                    <FalseType data={t}/>}
 
                 {t.typeArguments &&
                         t.typeArguments.map( (ta, i) =>
@@ -46,6 +60,50 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
             )}
         </div>
     )
+}
+
+class FalseType extends Component {
+    render(){
+        const data = this.props.data
+        return (
+            <>
+                &nbsp;:&nbsp;
+                <Type data={{type:data.falseType}}/>
+            </>
+        )
+    }
+}
+
+class TrueType extends Component {
+    render(){
+        const data = this.props.data
+        return (
+            <>
+                &nbsp;?&nbsp;
+                <Type data={{type:data.trueType}}/>
+            </>
+        )
+    }
+}
+
+class ExtendsType extends Component {
+    render(){
+        const data = this.props.data
+        return (
+            <>
+                &nbsp;extends&nbsp;
+                <Type data={{type: data.extendsType}}/>
+            </>
+        )
+    }
+}
+class CheckType extends Component {
+    render(){
+        const data = this.props.data
+        return (
+            <Type data={{type: data.checkType}}/>
+        )
+    }
 }
 
 class TargetType extends Component {

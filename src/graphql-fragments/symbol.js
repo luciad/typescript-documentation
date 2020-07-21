@@ -124,6 +124,18 @@ export const typeFields = graphql`
     elements {
       ...typeFieldsHelper
     }
+    checkType {
+      ...typeFieldsHelper
+    }
+    extendsType {
+      ...typeFieldsHelper
+    }
+    trueType {
+      ...typeFieldsHelper
+    }
+    falseType {
+      ...typeFieldsHelper
+    }
   }
 `
 
@@ -236,6 +248,18 @@ fragment typeFieldsHelper on typeField {
   type
   value
   operator
+  checkType {
+      ...typeFieldsHelper0
+    }
+    extendsType {
+      ...typeFieldsHelper0
+    }
+    trueType {
+      ...typeFieldsHelper0
+    }
+    falseType {
+      ...typeFieldsHelper0
+    }
   targetType {
     ...typeFieldsHelper0
   }
@@ -320,6 +344,18 @@ fragment typeFieldsHelper0 on typeField {
   type
   value
   operator
+  checkType {
+      ...typeFieldsHelper1
+    }
+    extendsType {
+      ...typeFieldsHelper1
+    }
+    trueType {
+      ...typeFieldsHelper1
+    }
+    falseType {
+      ...typeFieldsHelper1
+    }
   targetType {
     type
     name
@@ -413,33 +449,34 @@ export const typeFieldsHelper1 = graphql`
     type
     value
     operator
+    checkType {
+      ...basicTypeFields
+    }
+    extendsType {
+      ...basicTypeFields
+    }
+    trueType {
+      ...basicTypeFields
+    }
+    falseType {
+      ...basicTypeFields
+    }
     elements {
-      type
-      name
+      ...basicTypeFields
     }
     types {
-      type
-      name
-      id
+      ...basicTypeFields
     }
     elements {
-      type
-      name
-      id
+      ...basicTypeFields
     }
     elementType {
-      type
-      name
-      id
+      ...basicTypeFields
     }
     typeArguments {
-      type
-      name
-      id
+      ...basicTypeFields
       types {
-        type
-        id
-        name
+        ...basicTypeFields
       }
     }
     declaration {
@@ -450,9 +487,7 @@ export const typeFieldsHelper1 = graphql`
       name
       kindString
       type {
-        name
-        type
-        id
+        ...basicTypeFields
       }
       flags {
         ...flagFields
@@ -468,9 +503,7 @@ export const typeFieldsHelper1 = graphql`
         name
         kindString
         type {
-          name
-          type
-          id
+          ...basicTypeFields
         }
         parameters {
           tags {
@@ -481,9 +514,7 @@ export const typeFieldsHelper1 = graphql`
           }
           name
           type {
-            name
-            type
-            id
+            ...basicTypeFields
           }
         }
       }
@@ -491,9 +522,7 @@ export const typeFieldsHelper1 = graphql`
         name
         kindString
         type {
-          name
-          type
-          id
+          ...basicTypeFields
         }
         parameters {
           tags {
@@ -504,12 +533,17 @@ export const typeFieldsHelper1 = graphql`
           }
           name
           type {
-            name
-            type
-            id
+            ...basicTypeFields
           }
         }
       }
     }
+  }
+`
+export const basicTypeFields = graphql`
+  fragment basicTypeFields on typeField {
+    type
+    name
+    id
   }
 `

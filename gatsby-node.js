@@ -214,6 +214,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       elements: [typeField]
       typeArguments: [typeField]
       declaration: declarationField
+      checkType: typeField
+      trueType: typeField
+      falseType: typeField
+      extendsType: typeField
     }
 
     type declarationField {
