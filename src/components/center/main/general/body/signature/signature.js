@@ -35,7 +35,7 @@ export default ({ data, path}) => {
       </div>
       <Tags tags={comments.tags}/>
 
-      {data.overwrites && <div className="overwrites">Overwrites: <Overwrites data={data}/></div>}
+      {/* {data.overwrites && <div className="overwrites">Overwrites: <Overwrites data={data}/></div>} */}
 
       <div className="signatureBody">
         {comments.returns.length > 0 &&

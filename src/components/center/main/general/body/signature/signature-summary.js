@@ -19,7 +19,7 @@ function getSignatureSummaries(signatures){
   return signatures.map(s => {
     let callBack = (s.name === "__call")
     return (
-    <li key={s.name + "_" + s.id + "_signature_summary"}>
+    <li key={s.name + "_" + s.id + "_signature_summary"} className="signaturesummary">
       {!callBack && s.name}
       {s.typeParameter &&
         <>{"<"}
