@@ -24,6 +24,8 @@ ul {
 }
 
 hr {
+  border: none;
+  height: 1px;
   background-color: var(--shadow-color);
 }
 
