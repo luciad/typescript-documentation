@@ -10,7 +10,7 @@
   --text-color-main: rgb(100, 100, 100);
   --text-color-link: rgb(77, 77, 196);
   --shadow-color: rgba(0,0,0,0.15);
-  --textblock-background: rgba(0,0,0,0.02);
+  --text-block-background: rgba(0,0,0,0.02);
 }
 
 /* GENERAL */
@@ -40,14 +40,31 @@ ul {
   max-width: 100%;
 }
 
+.bottom {
+  margin-bottom: 0.2em;
+  margin-top: auto;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.tab {
+  padding-left: 1em;
+}
+
+.break-word {
+  word-break: break-all;
+}
+
 summary,
 .clickable {
   cursor: pointer;
 }
 
 /* SIDEBARS - GENERAL */
-.rightsidenav,
-.leftsidenav {
+.right-sidebar,
+.left-sidebar {
   height: 100%;
   width: var(--left-sidebar-width);
   position: fixed;
@@ -59,13 +76,13 @@ summary,
   font-size: 150%;
 }
 
-.rightsidenav{
+.right-sidebar{
   width: var(--right-sidebar-width);
   left: calc(100% - var(--right-sidebar-width));
 }
 
-.rightsidenav h3,
-.leftsidenav h3 {
+.right-sidebar h3,
+.left-sidebar h3 {
   margin: 0.5em;
   font-size: 25px;
 }
@@ -83,14 +100,14 @@ summary,
   resize: vertical;
 }
 
-.mainlogo img {
+.main-logo img {
   display: block;
   margin: auto;
   max-height: 10vh;
   max-width: 95%;
 }
 
-.directoryitem {
+.directory-item {
   padding: 0;
   margin: 0;
   margin-left: 1em;
@@ -98,11 +115,11 @@ summary,
   display: inline-block;
 }
 
-.filteritem {
+.filter-item {
   font-size: 70%;
 }
 
-.filteroptions {
+.filter-options {
   margin: 0;
 }
 
@@ -118,7 +135,7 @@ summary,
   margin-left: 1em;
 }
 
-.pathfilter input {
+.path-filter input {
   width: 90%;
 }
 
@@ -126,6 +143,10 @@ summary,
 .legend {
   list-style-type: none;
   word-break: break-all;
+}
+
+.flag_isExported {
+  display: none;
 }
 
 /* CENTER */
@@ -153,21 +174,27 @@ summary,
   position: relative;
 }
 
+.signature .kind-string {
+  margin-bottom: 0;
+  margin-top: auto;
+  margin-left: 0.5em;
+}
+
 .signatures {
   border: solid thin var(--shadow-color);
   padding: 10px;
 }
 
-.signatureBody {
+.signature-body {
   padding-left: 1em;
 }
 
 /* CENTER - TOP BAR */
-.topbarspace {
+.top-bar-space {
 height: 4em;
 }
 
-.topbar{
+.top-bar{
   display: flex;
   margin: 1em;
   margin-left: 30%;
@@ -194,7 +221,6 @@ height: 4em;
   width: inherit;
   height: inherit;
   padding-right: 15px;
-  background-color: rgb(35,35,35);
 }
 
 .search ul {
@@ -218,7 +244,7 @@ height: 4em;
   padding: 0px 10px;
 }
 
-.itembox {
+.item-box {
   background-color: var(--card-color);
   box-shadow: 0 4px 8px 0 var(--shadow-color);
   margin: 1em;
@@ -226,7 +252,7 @@ height: 4em;
   padding-left: 2em;
 }
 
-.childbox {
+.leaf {
   border: thin solid var(--border-color);
   margin: 1em;
   margin-left: 0;
@@ -250,7 +276,7 @@ height: 4em;
   font-style: oblique;
 }
 
-.kindString {
+.kind-string {
   font-size: 100%;
   font-style: italic;
   padding-left: 0;
@@ -285,7 +311,20 @@ p {
   font-weight: bold;
 }
 
-.searchLink {
+.type{
+  display: inline-block;
+}
+
+.declaration * {
+  display: inline-block;
+}
+
+.tags li p {
+  margin-top: auto;
+  margin-bottom: auto;
+}
+
+.search-link {
   display: inline-block;
   vertical-align: middle;
 }
@@ -299,25 +338,34 @@ p {
   margin: 0.5em;
 }
 
-.itemList li {
+.item-list li {
   display: inline-block;
   width: 30%;
   margin: 0.5em;
 }
 
-.itemList li a,
-.itemList li button {
+.item-list li a,
+.item-list li button {
   word-break: break-all;
   text-align: left;
 }
 
-.textimg {
+.text-img {
   max-width: 90%;
   height: auto;
 }
 
+.type ul {
+  margin: 0;
+  padding: 0;
+}
+
+.type-parameter ul {
+  list-style-type: disc;
+}
+
 /* remove button styling from clickable text button */
-.clickabletext {
+.clickable-text {
 	background: none;
 	color: inherit;
 	border: none;
