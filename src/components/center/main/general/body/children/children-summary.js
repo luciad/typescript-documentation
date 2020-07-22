@@ -15,9 +15,9 @@ import SearchLink from "../../search-link"
 export default ({ data }) => {
   if(!data) return null
   const children = data.children
-  if(!children || !children.size > 0) return null
+  if(!children || children.size ===  0) return null
   let exportIds = data.exports ? data.exports.map(exp => exp.id) : []
-
+  
   return (
     <div className="children-summary">
       <div className="subsubtitle">Children</div>
