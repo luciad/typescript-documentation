@@ -3,7 +3,6 @@ import { getComments } from "../../../../../util/util"
 import Text from "../text"
 
 export default ({ data, path }) => {
-  console.log(data)
   if(!data || !data.typeParameter) return null
 
   return (
