@@ -3,7 +3,8 @@
  *
  * See: https://www.gatsbyjs.org/docs/node-apis/
  */
-const util = require("./src/util/util");
+const fs = require("fs")
+ const util = require("./src/util/util");
 const documentation = require("./content/docu.json");
 const documentationPath = require.resolve("./content/docu.json");
 const symbolTemplate = require.resolve("./src/components/center/main/template/symbol");
@@ -68,6 +69,14 @@ async function onCreateNode({
   createNodeId,
   createContentDigest,
 }) {
+  const { createNode, createParentChildLink, createNodeField } = actions;
+
+  // Get file contents (for snippets)
+  if (node.internal.type === `File`) {
+    fs.readFile(node.absolutePath, undefined, (_err, buf) => {
+      createNodeField({ node, name: `contents`, value: buf.toString()});
+    });
+  }
   // only care about .json content.
   if (
     node.internal.mediaType !== `application/json` ||
@@ -80,7 +89,6 @@ async function onCreateNode({
   const parsedContent = JSON.parse(content);
 
   const modules = parsedContent.children;
-  const { createNode, createParentChildLink, createNodeField } = actions;
 
 
   const createSymbolNode = (symbol, parentNode) => {

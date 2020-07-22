@@ -95,7 +95,7 @@ check_var_media()
     if [ ! -z "$MEDIA" ] && [ -d "$MEDIA" ]
     then
         echo "[l/td] Copying media from $MEDIA"
-        cp -r $MEDIA/. content/imgs/
+        cp -r $MEDIA/. content/media/
     else
         echo "[l/td] No media folder specified."
     fi
@@ -121,7 +121,7 @@ display_help(){
     echo "[l/td] -t themeName -> specify theme path (optional)"
     echo "[l/td] -d true -> run gatsby develop instead of gatsby build (default false)"
     echo "[l/td] Example:"
-    echo "[l/td] ./l/td.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default"
+    echo "[l/td] ./l/td.sh -i myDocumentation.json -o myOutput -m media -n true -t default"
 }
 
 main "$@"; exit

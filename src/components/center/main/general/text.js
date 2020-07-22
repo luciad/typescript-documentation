@@ -2,6 +2,7 @@ import React from "react"
 import { getLinks, parse } from "../../../../util/util"
 import SearchLink from "./search-link"
 import Image from "../../../general/image"
+import Snippet from "./snippet"
 
 /**
  * Parses text for @link, @img, and HTML
@@ -30,10 +31,12 @@ export default ({ data, path }) => {
       let newChildren = tempChildArray.map(e => { // Create react element if necessary
       switch(e.type){
         case "img":
-          return (<Image data={e}/>)
+          return <Image data={e}/>
         case "link":
-          e.searchPath = path
-          return (<SearchLink data={e}/>)
+          e.searchPath = path //TODO let searchlink handle this parsing
+          return <SearchLink data={e}/>
+        case "snippet":
+          return <Snippet data={e}/>
         default:
           return e.text
       }})

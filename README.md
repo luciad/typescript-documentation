@@ -33,7 +33,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     Example:
 
     ```shell
-    $ ./l/td.sh -i myDocumentation.json -o myOutput -m imgs -n true -t default -d true
+    $ ./l/td.sh -i myDocumentation.json -o myOutput -m media -n true -t default -d true
     ```
 
     You can also use ```npm run build``` by putting ```--``` before the flags.
@@ -41,7 +41,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     Example:
 
     ```shell
-    $ npm run build -- -i myDocumentation.json -o myOutput -m imgs -n true -t default
+    $ npm run build -- -i myDocumentation.json -o myOutput -m media -n true -t default
     ```
     ### Quick flag explanation
 
