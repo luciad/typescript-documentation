@@ -23,6 +23,10 @@ ul {
   list-style-type: none;
 }
 
+hr {
+  background-color: var(--shadow-color);
+}
+
 .icon {
   height: 1.2em;
   width: auto;

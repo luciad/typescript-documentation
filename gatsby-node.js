@@ -181,7 +181,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       overwrites: nameType
       inheritedFrom: nameType
       type: typeField
-      typeParameter: [typeField!]
+      typeParameter: [parametersField!]
     }
 
     type nameType {

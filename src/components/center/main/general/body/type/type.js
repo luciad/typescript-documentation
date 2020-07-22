@@ -24,7 +24,7 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
             <> :&nbsp;</>}
             {types.map((t, i) =>
                 <>
-                {i > 0 && <> {types.type === "union" ? " | " : types.type} </>}
+                {i > 0 && <> {types.type === "union" ? " | " : types.type === "intersection" ? " & " : types.type} </>}
 
                 {(!t.elementType && !t.declaration && !t.name && !t.value && !t.target
                     && !t.elements && !t.checkType &&!t.extendsType) &&
@@ -44,14 +44,14 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
                 <FalseType data={t}/>
 
                 {t.typeArguments &&
-                        t.typeArguments.map( (ta, i) =>
+                    <>{"<"}
+                        {t.typeArguments.map( (ta, i) =>
                             <>
                             {i > 0 && <>, </>}
-                            <>{"<"}</>
                                 <Type data={{type: ta}}/>
-                            <>{">"}</>
                             </>
                 )}
+                {">"}</>}
                 {t.targetType &&
                 <TargetType data={t}/>}
                 </>

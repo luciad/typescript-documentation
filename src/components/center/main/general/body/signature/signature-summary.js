@@ -16,30 +16,33 @@ export default ({ data }) => {
 };
 
 function getSignatureSummaries(signatures){
-  return signatures.map(s => {
+  return signatures.map((s, j) => {
     let callBack = (s.name === "__call")
     return (
-    <li key={s.name + "_" + s.id + "_signature_summary"}>
-      {!callBack && s.name}
-      {s.typeParameter &&
-        <>{"<"}
-        {s.typeParameter.map((tp, i) =>
-          <div className="inline-block" title={tp.comment ? tp.comment.text : ""}>
-            <SignatureParameter data={tp} i={i}/>
-          </div>
-          )}
-          {">"}</>
-      }
-      ({s.parameters &&
-          <>
-            {s.parameters.map((p, i) =>
-              <SignatureParameter data={p} i={i}/>
-              )}
-          </>
-        })
-        {callBack && <>&nbsp;{"=>"}&nbsp;</>}
-        <Type data={s} colon={!callBack}/>
-    </li>
+      <>
+      {j > 0 && <hr/>}
+      <li key={s.name + "_" + s.id + "_signature_summary"}>
+        {!callBack && s.name}
+        {s.typeParameter &&
+          <>{"<"}
+          {s.typeParameter.map((tp, i) =>
+            <div className="inline-block" title={tp.comment ? tp.comment.text : ""}>
+              <SignatureParameter data={tp} i={i}/>
+            </div>
+            )}
+            {">"}</>
+        }
+        ({s.parameters &&
+            <>
+              {s.parameters.map((p, i) =>
+                <SignatureParameter data={p} i={i}/>
+                )}
+            </>
+          })
+          {callBack && <>&nbsp;{"=>"}&nbsp;</>}
+          <Type data={s} colon={!callBack}/>
+      </li>
+    </>
   )})
 }
 

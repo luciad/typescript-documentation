@@ -18,10 +18,13 @@ export default ({ data, path}) => {
      {signatures.length !== 0 &&
         <div className="subsubtitle">Signatures</div>}
       <ul className="signature-list">
-        {signatures.map(signature => (
-          <li key={signature.name + "_" + path + "_signature_entry"}>
-            <Signature data={signature} path={path}/>
-          </li>
+        {signatures.map((signature, i) => (
+          <>
+            {i > 0 && <hr/>}
+            <li key={signature.name + "_" + path + "_signature_entry"}>
+              <Signature data={signature} path={path}/>
+            </li>
+          </>
         ))}
       </ul>
     </div>

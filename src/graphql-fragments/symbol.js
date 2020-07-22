@@ -196,7 +196,7 @@ export const simpleSymbolFields = graphql`
       ...typeFields
     }
     typeParameter {
-      ...typeFields
+      ...parametersFields
     }
     ...links
     ...allSignatures,
