@@ -89,10 +89,10 @@ class Search extends Component {
     let page = getMostSimilarPage(this.state.results, path, this.text)
     if(!page) {
       console.warn("[l/td] Link not found on " + this.state.query + "!")
-      return (<div className="searchLink notfound">{this.text}</div>)
+      return (<div className="search-link not-found">{this.text}</div>)
     }
     return (
-      <div className="searchLink">
+      <div className="search-link">
             <div className="sidecontainer">
               <Icon kindString={page.kindString}/>
               {(

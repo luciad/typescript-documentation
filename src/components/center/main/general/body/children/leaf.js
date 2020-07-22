@@ -14,7 +14,7 @@ import SymbolTitle from "../../../symbol-title"
 export default ({ data }) => {
   if(!data) return null
   return (
-    <div className="childbox" id={"id" + data.id} key={data.id + "_leaf"}>
+    <div className="leaf" id={"id" + data.id} key={data.id + "_leaf"}>
       <div className="sidecontainer">
         <SymbolTitle data={data} link={true}/>
         <div className="bottom"><Type data={data} colon={true} noIsOptionalMarker={true}/></div>

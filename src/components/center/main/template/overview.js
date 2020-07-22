@@ -17,7 +17,7 @@ export default ({ data }) => {
   const modules = data.allModule.edges.map(edge => edge.node);
 
   return (
-    <>
+    <div className="overview">
       <Header siteTitle="Module Overview" />
       <Layout>
         <div className="title">Module list</div>
@@ -32,7 +32,7 @@ export default ({ data }) => {
           ))}
         </ul>
       </Layout>
-    </>
+    </div>
   );
 };
 

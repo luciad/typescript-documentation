@@ -14,10 +14,10 @@ export default () => {
     `}
     render={data => (
       <>
-        <div className="topbar">
+        <div className="top-bar">
           <Search searchIndex={data.siteSearchIndex.index}/>
         </div>
-        <div className="topbarspace"></div>          
+        <div className="top-bar-space"></div>
       </>
     )}
   />

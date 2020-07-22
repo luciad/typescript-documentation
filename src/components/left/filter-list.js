@@ -54,7 +54,7 @@ export default class Main extends Component {
               <summary>
                 Selection
               </summary>
-            <ul className="filteroptions">
+            <ul className="filter-options">
               {this.kindStringFilterDefaultOn.map(item => {
                 return(
                   <Checkbox text={item} handleCheckboxUpdate={this.handleCheckboxUpdate} defaultChecked={true}/>
@@ -124,7 +124,7 @@ class Checkbox extends Component {
     return (
       <li key={this.props.text + "_checkbox_entry"}>
         <input type="checkbox" defaultChecked={this.state.checked} onChange={this.handleCheckClick} id={this.props.text + "_checkbox"}/>
-        <i className="filteritem">{this.props.text}</i>
+        <i className="filter-item">{this.props.text}</i>
       </li>
     );
   }
@@ -137,7 +137,7 @@ class TextInput extends Component {
 
   render() {
     return (
-      <div className="pathfilter">
+      <div className="path-filter">
       <small>Path includes:</small>
         <input type="text" onChange={this.handleTextUpdate} id="filter-path-textinput"/>
       </div>

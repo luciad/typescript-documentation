@@ -8,7 +8,7 @@ import DirectoryTree from "./directory-tree"
  */
 export default () => {
   return (
-    <div>
+    <div className="directory-list">
       <h3>Directories</h3>
       <article className="directories">
         <StaticQuery

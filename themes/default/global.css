@@ -63,8 +63,8 @@ summary,
 }
 
 /* SIDEBARS - GENERAL */
-.rightsidenav,
-.leftsidenav {
+.right-sidebar,
+.left-sidebar {
   height: 100%;
   width: var(--left-sidebar-width);
   position: fixed;
@@ -76,13 +76,13 @@ summary,
   font-size: 150%;
 }
 
-.rightsidenav{
+.right-sidebar{
   width: var(--right-sidebar-width);
   left: calc(100% - var(--right-sidebar-width));
 }
 
-.rightsidenav h3,
-.leftsidenav h3 {
+.right-sidebar h3,
+.left-sidebar h3 {
   margin: 0.5em;
   font-size: 25px;
 }
@@ -100,14 +100,14 @@ summary,
   resize: vertical;
 }
 
-.mainlogo img {
+.main-logo img {
   display: block;
   margin: auto;
   max-height: 10vh;
   max-width: 95%;
 }
 
-.directoryitem {
+.directory-item {
   padding: 0;
   margin: 0;
   margin-left: 1em;
@@ -115,11 +115,11 @@ summary,
   display: inline-block;
 }
 
-.filteritem {
+.filter-item {
   font-size: 70%;
 }
 
-.filteroptions {
+.filter-options {
   margin: 0;
 }
 
@@ -135,7 +135,7 @@ summary,
   margin-left: 1em;
 }
 
-.pathfilter input {
+.path-filter input {
   width: 90%;
 }
 
@@ -161,11 +161,11 @@ summary,
 }
 
 /* CENTER - SIGNATURES */
-.signaturelist {
+.signature-list {
   padding-left: 2em;
 }
 
-.signaturelist ul {
+.signature-list ul {
   list-style-type: disc;
 }
 
@@ -174,7 +174,7 @@ summary,
   position: relative;
 }
 
-.signature .kindString {
+.signature .kind-string {
   margin-bottom: 0;
   margin-top: auto;
   margin-left: 0.5em;
@@ -185,16 +185,16 @@ summary,
   padding: 10px;
 }
 
-.signatureBody {
+.signature-body {
   padding-left: 1em;
 }
 
 /* CENTER - TOP BAR */
-.topbarspace {
+.top-bar-space {
 height: 4em;
 }
 
-.topbar{
+.top-bar{
   display: flex;
   margin: 1em;
   margin-left: 30%;
@@ -244,7 +244,7 @@ height: 4em;
   padding: 0px 10px;
 }
 
-.itembox {
+.item-box {
   background-color: var(--card-color);
   box-shadow: 0 4px 8px 0 var(--shadow-color);
   margin: 1em;
@@ -252,7 +252,7 @@ height: 4em;
   padding-left: 2em;
 }
 
-.childbox {
+.leaf {
   border: thin solid var(--border-color);
   margin: 1em;
   margin-left: 0;
@@ -276,7 +276,7 @@ height: 4em;
   font-style: oblique;
 }
 
-.kindString {
+.kind-string {
   font-size: 100%;
   font-style: italic;
   padding-left: 0;
@@ -324,7 +324,7 @@ p {
   margin-bottom: auto;
 }
 
-.searchLink {
+.search-link {
   display: inline-block;
   vertical-align: middle;
 }
@@ -338,19 +338,19 @@ p {
   margin: 0.5em;
 }
 
-.itemList li {
+.item-list li {
   display: inline-block;
   width: 30%;
   margin: 0.5em;
 }
 
-.itemList li a,
-.itemList li button {
+.item-list li a,
+.item-list li button {
   word-break: break-all;
   text-align: left;
 }
 
-.textimg {
+.text-img {
   max-width: 90%;
   height: auto;
 }
@@ -360,12 +360,12 @@ p {
   padding: 0;
 }
 
-.typeparameter ul {
+.type-parameter ul {
   list-style-type: disc;
 }
 
 /* remove button styling from clickable text button */
-.clickabletext {
+.clickable-text {
 	background: none;
 	color: inherit;
 	border: none;

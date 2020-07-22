@@ -21,7 +21,7 @@ export default ({ data }) => {
   module.exports = data.module.children;
 
   return (
-    <>
+    <div className="module">
       <Header siteTitle={fixModuleName(module) + " (module)"} />
       <Layout>
         <Link to="/overview">Overview</Link>
@@ -32,7 +32,7 @@ export default ({ data }) => {
         </div>
         <BodySummary data={module}/>
       </Layout>
-    </>
+    </div>
   );
 };
 

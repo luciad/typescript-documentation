@@ -12,12 +12,12 @@ export default ({ data, path}) => {
   if(!data || !path) return null
   const signatures = getSignatures(data)
   if(signatures.length === 0) return null
-  
+
   return (
     <div className="signatures">
      {signatures.length !== 0 &&
         <div className="subsubtitle">Signatures</div>}
-      <ul className="signaturelist">
+      <ul className="signature-list">
         {signatures.map(signature => (
           <li key={signature.name + "_" + path + "_signature_entry"}>
             <Signature data={signature} path={path}/>

@@ -10,9 +10,9 @@ export default () => {
   }
 
   return (
-  <div className="leftsidenav">
+  <div className="left-sidebar">
     <Link to="/overview">
-      <div className="mainlogo">
+      <div className="main-logo">
         <Image data={logoData}/>
       </div>
     </Link>

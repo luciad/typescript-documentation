@@ -3,7 +3,7 @@ import LegendItem from "./legend-item"
 
 export default () => {
   return (
-    <div className="rightsidenav">
+    <div className="right-sidebar">
     <h3>Legend</h3>
     <ul className="legend">
       <LegendItem type="Flag"/>

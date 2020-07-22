@@ -23,7 +23,7 @@ export default ({ data }) => {
   if(!data) return null
   const { symbol, module } = data;
   return (
-    <>
+    <div className="symbol">
       <Header siteTitle={symbol.name} />
       <Layout>
         Module: &nbsp;
@@ -44,7 +44,7 @@ export default ({ data }) => {
         <SignatureSummary data={symbol}/>
         <Body data={symbol}/>
       </Layout>
-    </>
+    </div>
   );
 };
 

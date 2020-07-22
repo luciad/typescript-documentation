@@ -19,10 +19,10 @@ export default ({ data }) => {
   let exportIds = data.exports ? data.exports.map(exp => exp.id) : []
 
   return (
-    <div className="childrenSummary">
+    <div className="children-summary">
       {children.size !== 0 &&   // Only show "Children" title if children exist.
         <div className="subsubtitle">Children</div>}
-      <ul className="itemList">
+      <ul className="item-list">
         {children.map(child => {
           if(exportIds.includes(child.id)) // if child is exported, a link to the child is included.
             return (
@@ -34,7 +34,7 @@ export default ({ data }) => {
               <li key={child.id + "_child_summary_entry_noexport"}>
               <div className="sidecontainer">
               <Icon kindString={child.kindString}/>
-                <button className="clickabletext" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>
+                <button className="clickable-text" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>
                   {child.name}
                 </button>
               </div>

@@ -140,11 +140,11 @@ summary,
 }
 
 /* CENTER - SIGNATURES */
-.signaturelist {
+.signature-list {
   padding-left: 2em;
 }
 
-.signaturelist ul {
+.signature-list ul {
   list-style-type: disc;
 }
 

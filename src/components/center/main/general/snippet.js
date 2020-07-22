@@ -1,6 +1,9 @@
 import React from "react"
 import { StaticQuery, graphql } from "gatsby"
 
+/**
+ * External snippets only
+ */
 export default ({ data }) => {
   if(!data) return null
   let [searchPath, language] = data.text.trim().split(" ")

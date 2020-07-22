@@ -80,7 +80,7 @@ export default ({ data }) => {
           }
         }
       return (
-        <img className="textimg" src={path} alt={image.alt.text} style={imgStyle}/>
+        <img className="text-img" src={path} alt={image.alt.text} style={imgStyle}/>
       )}}
     />
   )

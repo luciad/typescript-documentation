@@ -30,7 +30,7 @@ export default ({ data }) => {
   let path = data.fields ? data.fields.path : ""
 
   return (
-    <div>
+    <div className="body-summary">
       {comments.returns.length > 0 &&
         <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
       {data.defaultValue &&

@@ -6,7 +6,7 @@ export default ({ data, path }) => {
   if(!data || !data.typeParameter) return null
 
   return (
-    <div className="typeparameter">
+    <div className="type-parameter">
       <div className="subsubtitle">Type parameters</div>
       <ul>
         {data.typeParameter.map(tp =>

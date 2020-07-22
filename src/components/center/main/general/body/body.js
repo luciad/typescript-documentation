@@ -13,7 +13,7 @@ export default ({ data }) => {
   let children = data.children ? data.children : []
 
   return (
-    <div>
+    <div className="body">
       <BodySummary data={data}/>
       {children.map(child => (
         <Leaf data={child} key={child.id}/>

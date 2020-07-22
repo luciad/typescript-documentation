@@ -7,8 +7,8 @@ export default ({ data }) => {
     const signatures = getSignatures(data)
     if(signatures.length === 0) return null
   return (
-    <div className="signaturesummary">
-      <ul className="signaturesummarylist">
+    <div className="signature-summary">
+      <ul>
        {getSignatureSummaries(signatures)}
       </ul>
     </div>
@@ -19,7 +19,7 @@ function getSignatureSummaries(signatures){
   return signatures.map(s => {
     let callBack = (s.name === "__call")
     return (
-    <li key={s.name + "_" + s.id + "_signature_summary"} className="signaturesummary">
+    <li key={s.name + "_" + s.id + "_signature_summary"}>
       {!callBack && s.name}
       {s.typeParameter &&
         <>{"<"}
