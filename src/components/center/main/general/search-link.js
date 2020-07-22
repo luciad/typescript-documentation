@@ -44,7 +44,7 @@ class Search extends Component {
   constructor(props) {
     super(props)
     this.data = props.data
-    this.srcPath = props.data.path ? props.data.path : props.data.searchPath
+    this.srcPath = props.data.searchPath
     this.state = {
       query: ``,
       results: [],
@@ -58,7 +58,15 @@ class Search extends Component {
   }else if(typeof this.srcPath == "string"){
     text = this.srcPath.replace(MODULE_PATH_PREFIX + "/", "")
   }
+
   text = text.trim()
+    if(text.includes("\"")){
+      const startI = text.indexOf("\"") + 1
+      let endI = text.indexOf("\"", startI)
+      this.srcPath = text.substring(startI, endI)
+      text = text.substring(0, startI - 1) + text.substring(endI + 1)
+    }
+
   this.text = text.substring(text.indexOf(" ") + 1)
   text = text.substring(0, text.indexOf(" ") > 0 ? text.indexOf(" ") : text.size).replace(/\./g, " ")
 

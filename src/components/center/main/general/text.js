@@ -33,7 +33,7 @@ export default ({ data, path }) => {
         case "img":
           return <Image data={e}/>
         case "link":
-          e.searchPath = path //TODO let searchlink handle this parsing
+          e.searchPath = path
           return <SearchLink data={e}/>
         case "snippet":
           return <Snippet data={e}/>

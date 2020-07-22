@@ -159,13 +159,7 @@ function getLinks(string){
     let info = string.substring(startI + 2, endI)
     let type = info.substring(0, info.indexOf(" "))
     let value = info.substring(info.indexOf(" ") + 1)
-    let path
-    if(value.includes("\"")){
-      const startI = value.indexOf("\"") + 1
-      let endI = value.indexOf("\"", startI)
-      path = value.substring(startI, endI)
-      value = value.substring(0, startI - 1) + value.substring(endI + 1)
-    }
+
 
     let currentText = {
       text: string.substring(0, startI),
@@ -175,7 +169,6 @@ function getLinks(string){
     let currentLink = {
       text: value,
       type,
-      path,
     }
 
     retVals.push(currentText)
