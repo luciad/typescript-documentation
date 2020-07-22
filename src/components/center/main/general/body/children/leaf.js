@@ -21,7 +21,7 @@ export default ({ data }) => {
       </div>
       <div className="sidecontainer">
         <Icon kindString={data.kindString}/>
-        <div className="kindString">{data.kindString}</div>
+        <div className="kind-string">{data.kindString}</div>
         </div>
         <SignatureSummary data={data}/>
       <Body data={data}/>

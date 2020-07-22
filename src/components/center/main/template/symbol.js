@@ -37,7 +37,7 @@ export default ({ data }) => {
         </div>
         <div className="sidecontainer">
           <Icon kindString={symbol.kindString}/>
-          <div className="kindString">
+          <div className="kind-string">
             {symbol.kindString}
           </div>
         </div>

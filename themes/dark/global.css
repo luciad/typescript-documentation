@@ -10,7 +10,7 @@
   --text-color-main: rgb(100, 100, 100);
   --text-color-link: rgb(77, 77, 196);
   --shadow-color: rgba(0,0,0,0.15);
-  --text-block-background: rgba(0,0,0,0.02);
+  --textblock-background: rgba(0,0,0,0.02);
 }
 
 /* GENERAL */

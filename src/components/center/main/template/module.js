@@ -28,7 +28,7 @@ export default ({ data }) => {
         <div className="title">{fixModuleName(module)}</div>
         <div className="sidecontainer">
           <Icon kindString={module.kindString}/>
-          <div className="kindString">{module.kindString}</div>
+          <div className="kind-string">{module.kindString}</div>
         </div>
         <BodySummary data={module}/>
       </Layout>
