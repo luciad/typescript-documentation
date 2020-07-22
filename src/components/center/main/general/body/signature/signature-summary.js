@@ -26,9 +26,10 @@ function getSignatureSummaries(signatures){
         {s.typeParameter &&
           <>{"<"}
           {s.typeParameter.map((tp, i) =>
-            <div className="inline-block" title={tp.comment ? tp.comment.text : ""}>
-              <SignatureParameter data={tp} i={i}/>
-            </div>
+            <>
+            {i > 0 && <>, </>}
+            {tp.name}
+            </>
             )}
             {">"}</>
         }
