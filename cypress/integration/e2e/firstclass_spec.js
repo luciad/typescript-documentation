@@ -12,5 +12,13 @@ describe('FirstClass test', () => {
 
       cy.get('a').contains("setName").click()
       cy.url().should('include', '/firstclass/FirstClass/setName')
+
+      cy.visit("http://localhost:8000/modules/folder1/class4")
+
+      cy.contains("Class4")
+      cy.contains("Callback")
+      cy.contains("PrimitiveArray").click()
+
+      cy.url().should('include', '/class4/PrimitiveArray')
     })
   })
