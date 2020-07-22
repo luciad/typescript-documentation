@@ -3,7 +3,7 @@ import { Link } from "gatsby"
 
 export default ({ data, link }) => {
   return (
-      <div className="symbol-title">
+      <div className="symbol-title sidecontainer">
         <div className="title">
             {link ? <Link to={data.fields.path}>{data.name}</Link> : data.name}
             {data.typeParameter &&
@@ -18,7 +18,7 @@ export default ({ data, link }) => {
                 </>}
         </div>
         {data.flags.isOptional &&
-            <div className="bottom optionalMark" title="isOptional">&nbsp;?&nbsp;</div>}
+            <div className="bottom optional-mark" title="isOptional">&nbsp;?&nbsp;</div>}
     </div>
   )
 }
