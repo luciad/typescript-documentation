@@ -17,7 +17,9 @@ export default ({ data }) => {
     <div className="leaf" id={"id" + data.id} key={data.id + "_leaf"}>
       <div className="sidecontainer">
         <SymbolTitle data={data} link={true}/>
-        <div className="bottom"><Type data={data} colon={true} noIsOptionalMarker={true}/></div>
+        <div className="bottom">
+          <Type data={data} colon={true} noIsOptionalMarker={true}/>
+        </div>
       </div>
       <div className="sidecontainer">
         <Icon kindString={data.kindString}/>

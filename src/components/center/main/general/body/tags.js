@@ -13,9 +13,13 @@ export default ({ tags }) => {
   return (
     <div className="tags">
       <ul>
-        {tags.map(tag => (
-          <li className="sidecontainer" key={tag.tag + "_" + tag.text + "_tag_entry"}><p>{tag.tag}:</p> &nbsp; <Text data={tag.text}/></li>
-        ))}
+        {tags.map(tag =>
+          <li className="sidecontainer" key={tag.tag + "_" + tag.text + "_tag_entry"}>
+            <p>{tag.tag}:</p>
+            &nbsp;
+            <Text data={tag.text}/>
+          </li>
+        )}
       </ul>
     </div>
   );

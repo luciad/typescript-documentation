@@ -37,9 +37,11 @@ function LinkTemplate(title, data) {
           {title}
         </div>
         <ul className="itemList">
-          {data.map(type => (
-              <li key={type.name + "_searchlink"}><SearchLink data={{text: type.name, id: type.id}}/></li>
-          ))}
+          {data.map(type =>
+              <li key={type.name + "_searchlink"}>
+                <SearchLink data={{text: type.name, id: type.id}}/>
+              </li>
+          )}
         </ul>
       </div>
     )
@@ -49,9 +51,10 @@ function LinkTemplate(title, data) {
         {title}
       </div>
       <ul>
-        <li className="inline-block" key={data.name + "_searchlink"}><SearchLink data={data.name}/></li>
+        <li className="inline-block" key={data.name + "_searchlink"}>
+          <SearchLink data={data.name}/>
+        </li>
       </ul>
     </div>
   )
-
 }

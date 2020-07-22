@@ -11,10 +11,10 @@ export default ({ data, path }) => {
       <ul>
         {data.typeParameter.map(tp =>
         <li key={tp.id + "_" + tp.name + "_" + path}>
-        {tp.name}
-        <Text data={getComments(tp).shortText} path={path}/>
-        <Text data={getComments(tp).text} path={path}/>
-      </li>
+          {tp.name}
+          <Text data={getComments(tp).shortText} path={path}/>
+          <Text data={getComments(tp).text} path={path}/>
+        </li>
         )}
       </ul>
     </div>

@@ -28,18 +28,19 @@ export default ({ data, path}) => {
           {data.name}
         </div>
         <div className="kind-string">
-          {data.type.name !== null &&
+          {data.type !== null &&
             <>(<Type data={data}/>) &nbsp;</>}
               {data.kindString}
         </div>
       </div>
       <Tags tags={comments.tags}/>
 
-      {/* {data.overwrites && <div className="overwrites">Overwrites: <Overwrites data={data}/></div>} */}
-
       <div className="signature-body">
         {comments.returns.length > 0 &&
-          <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
+          <div className="sidecontainer returns">
+            returns&nbsp;
+            <Text data={comments.returns} path={path}/>
+          </div>}
         <Text data={comments.shortText} path={path}/>
         <Text data={comments.text} path={path}/>
         <Parameters data={data} path={path}/>

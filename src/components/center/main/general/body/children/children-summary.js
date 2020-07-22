@@ -15,13 +15,12 @@ import SearchLink from "../../search-link"
 export default ({ data }) => {
   if(!data) return null
   const children = data.children
-  if(!children || children.length === 0) return null
+  if(!children || !children.size > 0) return null
   let exportIds = data.exports ? data.exports.map(exp => exp.id) : []
 
   return (
     <div className="children-summary">
-      {children.size !== 0 &&   // Only show "Children" title if children exist.
-        <div className="subsubtitle">Children</div>}
+      <div className="subsubtitle">Children</div>
       <ul className="item-list">
         {children.map(child => {
           if(exportIds.includes(child.id)) // if child is exported, a link to the child is included.
@@ -43,5 +42,5 @@ export default ({ data }) => {
         })}
       </ul>
     </div>
-  );
-};
+  )
+}

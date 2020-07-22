@@ -30,14 +30,13 @@ function getSignatureSummaries(signatures){
           )}
           {">"}</>
       }
-      (
-        {s.parameters &&
-          (<>
+      ({s.parameters &&
+          <>
             {s.parameters.map((p, i) =>
               <SignatureParameter data={p} i={i}/>
               )}
-          </>)}
-        )
+          </>
+        })
         {callBack && <>&nbsp;{"=>"}&nbsp;</>}
         <Type data={s} colon={!callBack}/>
     </li>
