@@ -4,6 +4,7 @@ import Parameters from "../parameters"
 import Text from "../../text"
 import Type from "../type/type"
 import Tags from "../tags"
+import TypeParameters from "../type-parameters"
 
 /**
  * Single signature item
@@ -42,6 +43,7 @@ export default ({ data, path}) => {
         <Text data={comments.shortText} path={path}/>
         <Text data={comments.text} path={path}/>
         <Parameters data={data} path={path}/>
+        <TypeParameters data={data} path={path}/>
       </div>
     </div>
   )
