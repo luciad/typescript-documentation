@@ -29,6 +29,7 @@ function getSignatureSummaries(signatures){
             <>
             {i > 0 && <>, </>}
             {tp.name}
+            <Type data={tp} delimiter={<>&nbsp;extends </>}/>
             </>
             )}
             {">"}</>

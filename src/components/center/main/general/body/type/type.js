@@ -16,7 +16,7 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
     let types = (data.type.types && data.type.types.length > 0) ? data.type.types : [data.type]
     if(!types || types.length === 0) return null
     types.type = data.type.type
-    console.log(delimiter)
+    
     return (
         <div className="type">
             {!noIsOptionalMarker && data.flags && data.flags.isOptional &&
