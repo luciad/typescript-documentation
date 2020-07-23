@@ -1,10 +1,10 @@
 import React from "react";
 import { getComments } from "../../../../../../util/util"
-import Parameters from "../parameters"
+import Parameters from "../parameters/parameters"
 import Text from "../../text"
 import Type from "../type/type"
 import Tags from "../tags"
-import TypeParameters from "../type-parameters"
+import TypeParameters from "../parameters/type-parameters"
 
 /**
  * Single signature item

@@ -13,7 +13,6 @@ import SearchLink from "../../search-link"
  *
  */
 export default ({ data }) => {
-  console.log(data)
   if(!data) return null
   const children = data.children
   if(!children || children.length ===  0) return null

@@ -7,7 +7,7 @@ import Links from "./links"
 import Text from "../text"
 import Tags from "./tags"
 import Overwrites from "./overwrites"
-import TypeParameters from './type-parameters'
+import TypeParameters from './parameters/type-parameters'
 
 /**
  * Summary of an object

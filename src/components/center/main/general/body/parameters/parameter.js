@@ -1,31 +1,10 @@
 import React, { Component } from "react"
-import { getComments } from "../../../../../util/util"
-import Text from "../text"
-import Type from "./type/type"
-import Tags from "./tags"
+import { getComments } from "../../../../../../util/util"
+import Text from "../../text"
+import Type from "../type/type"
+import Tags from "../tags"
 
-/**
- * Parameters of an object
- * Contains:
- * - List of parameters with their name, type, shortText and text
- */
-export default ({ data, path }) => {
-  if(!data || !path ||!data.parameters) return null
-  const parameters = data.parameters
-  return (
-    <div className="parameters">
-    {parameters.length !== 0 &&
-        <div className="subsubtitle">Parameters</div>}
-      <ul className="tab">
-        {parameters.map(p =>
-          <Parameter data={p} path={path}/>
-        )}
-      </ul>
-  </div>
-  )
-}
-
-class Parameter extends Component {
+export default class Parameter extends Component {
   render(){
     const parameter = this.props.data
     const path = this.props.path
@@ -35,7 +14,9 @@ class Parameter extends Component {
       {parameter.flags && parameter.flags.isRest &&
       <>...</>}
       <b>{parameter.name}</b>
-      <i><Type data={parameter} colon={true}/></i>
+      <i>
+        <Type data={parameter} delimiter={parameter.kindString === "Type parameter" ? <>&nbsp;extends </> : <>&nbsp;: </>}/>
+      </i>
       <Text data={getComments(parameter).shortText} path={path}/>
       <Text data={getComments(parameter).text} path={path}/>
       <ul>

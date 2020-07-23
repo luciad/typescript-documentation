@@ -11,17 +11,17 @@ import FalseType from "./false-type"
 import ElementType from "./element-type"
 import Value from "./value"
 
-export default function Type({ data, colon, noIsOptionalMarker }) {
+export default function Type({ data, delimiter, noIsOptionalMarker }) {
     if(!data || !data.type) return null
     let types = (data.type.types && data.type.types.length > 0) ? data.type.types : [data.type]
     if(!types || types.length === 0) return null
     types.type = data.type.type
+    console.log(delimiter)
     return (
         <div className="type">
             {!noIsOptionalMarker && data.flags && data.flags.isOptional &&
             <>? </>}
-            {colon &&
-            <> :&nbsp;</>}
+            <>{delimiter}</>
             {types.map((t, i) =>
                 <>
                 {i > 0 && <> {types.type === "union" ? " | " : types.type === "intersection" ? " & " : types.type} </>}
@@ -55,6 +55,11 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
                 {">"}</>}
                 {t.targetType &&
                 <TargetType data={t}/>}
+                {(t.kindString === "Type parameter" && t.type) &&
+                <>
+                    extends
+                    <Type data={t}/>
+                </>}
                 </>
             )}
         </div>

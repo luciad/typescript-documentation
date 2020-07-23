@@ -16,7 +16,7 @@ export default class Declaration extends Component {
                     <>
                     {i > 0 && <>, </>}
                     {c.name}
-                    <Type data={c} colon={true}/>
+                    <Type data={c} delimiter={" : "}/>
                     </>)}
 
                 {data.declaration.indexSignature &&
@@ -27,9 +27,9 @@ export default class Declaration extends Component {
                     <>
                         {i > 0 && <>, </>}
                         [{s.name}
-                        <Type data={s} colon={true}/>]
+                        <Type data={s} delimiter={" : "}/>]
                     </>)}
-                    <Type data={is} colon={true}/>
+                    <Type data={is} delimiter={" : "}/>
                 </>)}
                 <div>&nbsp;{"}"}</div>
             </div>

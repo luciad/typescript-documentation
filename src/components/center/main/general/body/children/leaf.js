@@ -18,7 +18,7 @@ export default ({ data }) => {
       <div className="sidecontainer">
         <SymbolTitle data={data} link={true}/>
         <div className="bottom">
-          <Type data={data} colon={true} noIsOptionalMarker={true}/>
+          <Type data={data} delimiter={" : "} noIsOptionalMarker={true}/>
         </div>
       </div>
       <div className="sidecontainer">

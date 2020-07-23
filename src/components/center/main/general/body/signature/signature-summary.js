@@ -41,7 +41,7 @@ function getSignatureSummaries(signatures){
             </>
           })
           {callBack && <>&nbsp;{"=>"}&nbsp;</>}
-          <Type data={s} colon={!callBack}/>
+          <Type data={s} delimiter={!callBack ? " : " : null}/>
       </li>
     </>
   )})
@@ -57,7 +57,7 @@ class SignatureParameter extends Component {
       {data.flags && data.flags.isRest &&
       <>...</>}
       {!data.name.startsWith("__") && <>{data.name}</>}
-      <Type data={data} colon={!data.name.startsWith("__")}/>
+      <Type data={data} delimiter={!data.name.startsWith("__") ? " : " : null}/>
     </>
     )
   }
