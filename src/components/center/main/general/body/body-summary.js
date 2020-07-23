@@ -8,6 +8,7 @@ import Text from "../text"
 import Tags from "./tags"
 import Overwrites from "./overwrites"
 import TypeParameters from './parameters/type-parameters'
+import TypeComments from "./type-comments"
 
 /**
  * Summary of an object
@@ -50,6 +51,7 @@ export default ({ data }) => {
       <Text data={comments.text} path={path}/>
 
       <TypeParameters data={data} path={path}/>
+      <TypeComments data={data} path={path}/>
       <Tags tags={comments.tags}/>
       <Signatures data={data} path={path}/>
       <ChildrenSummary data={data}/>

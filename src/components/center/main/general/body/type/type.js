@@ -39,21 +39,22 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
                 {t.type === "inferred" &&
                     <>infer&nbsp;</> }
 
-                <CheckType data={t}/>
                 <Constraint data={t}/>
+                <CheckType data={t}/>
                 <Declaration data={t}/>
                 <ElementType data={t}/>
                 <Elements data={t}/>
                 <ExtendsType data={t}/>
-                <FalseType data={t}/>
                 <IndexType data={t}/>
                 <ObjectType data={t}/>
                 <QueryType data={t}/>
                 <Target data={t}/>
                 <TargetType data={t}/>
-                <TrueType data={t}/>
                 <TypeArguments data={t}/>
                 <Value data={t}/>
+
+                <TrueType data={t}/>
+                <FalseType data={t}/>
 
                 <TypeElement data= {t}/>
 
