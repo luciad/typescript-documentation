@@ -31,6 +31,8 @@ export default class TypeComments extends Component {
 function getTypeItems(data){
   let typeItems = []
   if(!data.type) return typeItems
+  console.log(data)
+
   if(data.type.declaration){
     const d = data.type.declaration
     if(d.children){
@@ -43,6 +45,14 @@ function getTypeItems(data){
         }
       }
     }
+    if(d.indexSignature){
+      for(let is of d.indexSignature){
+        if(is.parameters){
+          typeItems = typeItems.concat(is.parameters)
+        }
+      }
+    }
   }
+
   return typeItems
 }
