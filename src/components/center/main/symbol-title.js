@@ -1,5 +1,6 @@
 import React from 'react'
 import { Link } from "gatsby"
+import Type from "./general/body/type/type"
 
 export default ({ data, link }) => {
   return (
@@ -12,7 +13,7 @@ export default ({ data, link }) => {
                     {data.typeParameter.map((tp, i) =>
                     <>
                         {i > 0 && <>, </>}
-                        {tp.name}
+                        <Type data={{type: tp}}/>
                     </>)}
                     {">"}
                 </>}

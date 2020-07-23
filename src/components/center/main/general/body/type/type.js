@@ -32,7 +32,8 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
                 {i > 0 && <> {types.type === "union" ? " | " : types.type === "intersection" ? " & " : types.type} </>}
 
                 {(!t.elementType && !t.declaration && !t.name && !t.value && !t.target
-                    && !t.elements && !t.checkType &&!t.extendsType) &&
+                    && !t.elements && !t.checkType &&!t.extendsType &&!t.constraint
+                    && !t.indexType && !t.ObjectType && !t.queryType) &&
                     <>{t.type}</>}
 
                 {t.type === "inferred" &&
@@ -53,12 +54,12 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
                 <TrueType data={t}/>
                 <TypeArguments data={t}/>
                 <Value data={t}/>
-                
+
                 <TypeElement data= {t}/>
 
                 {(t.kindString === "Type parameter" && t.type) &&
                 <>
-                    extends
+                    &nbsp;extends&nbsp;
                     <Type data={t}/>
                 </>}
                 </>

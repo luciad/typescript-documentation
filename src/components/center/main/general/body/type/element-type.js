@@ -8,7 +8,10 @@ export default class ElementType extends Component {
         if(data.type !== "array") console.warn("unknown element-type: ", data.type)
         return (
             <>
-                (<Type data={{type: data.elementType}}/>)[ ]
+                {!data.elementType.name && <>(</>}
+                    <Type data={{type: data.elementType}}/>
+                {!data.elementType.name && <>)</>}
+                [ ]
             </>
         )
     }
