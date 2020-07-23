@@ -2,7 +2,7 @@ import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../../../page-layout";
 import { fixModuleName } from "../../../../util/util";
-import BodySummary from "../general/body/body-summary"
+import Body from "../general/body/body"
 import Icon from "../../../general/icon"
 import Header from "../../../general/header"
 
@@ -30,7 +30,7 @@ export default ({ data }) => {
           <Icon kindString={module.kindString}/>
           <div className="kind-string">{module.kindString}</div>
         </div>
-        <BodySummary data={module}/>
+        <Body data={module} requireExpand={true}/>
       </Layout>
     </div>
   );
