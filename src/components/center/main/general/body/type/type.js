@@ -10,13 +10,18 @@ import TrueType from "./true-type"
 import FalseType from "./false-type"
 import ElementType from "./element-type"
 import Value from "./value"
+import Constraint from "./constraint"
+import IndexType from "./index-type"
+import ObjectType from "./object-type"
+import QueryType from "./query-type"
+import TypeArguments from "./type-arguments"
 
 export default function Type({ data, delimiter, noIsOptionalMarker }) {
     if(!data || !data.type) return null
     let types = (data.type.types && data.type.types.length > 0) ? data.type.types : [data.type]
     if(!types || types.length === 0) return null
     types.type = data.type.type
-    
+
     return (
         <div className="type">
             {!noIsOptionalMarker && data.flags && data.flags.isOptional &&
@@ -33,28 +38,24 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
                 {t.type === "inferred" &&
                     <>infer&nbsp;</> }
 
-                <ElementType data={t}/>
-                <Declaration data={t}/>
-                <TypeElement data= {t}/>
-                <Value data={t}/>
-                <Target data={t}/>
-                <Elements data={t}/>
                 <CheckType data={t}/>
+                <Constraint data={t}/>
+                <Declaration data={t}/>
+                <ElementType data={t}/>
+                <Elements data={t}/>
                 <ExtendsType data={t}/>
-                <TrueType data={t}/>
                 <FalseType data={t}/>
+                <IndexType data={t}/>
+                <ObjectType data={t}/>
+                <QueryType data={t}/>
+                <Target data={t}/>
+                <TargetType data={t}/>
+                <TrueType data={t}/>
+                <TypeArguments data={t}/>
+                <Value data={t}/>
+                
+                <TypeElement data= {t}/>
 
-                {t.typeArguments &&
-                    <>{"<"}
-                        {t.typeArguments.map( (ta, i) =>
-                            <>
-                            {i > 0 && <>, </>}
-                                <Type data={{type: ta}}/>
-                            </>
-                )}
-                {">"}</>}
-                {t.targetType &&
-                <TargetType data={t}/>}
                 {(t.kindString === "Type parameter" && t.type) &&
                 <>
                     extends

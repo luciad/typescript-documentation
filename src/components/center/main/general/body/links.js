@@ -14,7 +14,7 @@ import SearchLink from "../search-link"
  */
 export default ({ data }) => {
   if(!data) return null
-  console.log(data)
+  
   return (
     <div className="links">
       {LinkTemplate("Extended types", data.extendedTypes)}
