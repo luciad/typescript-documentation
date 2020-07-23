@@ -8,7 +8,7 @@ export default class QueryType extends Component {
 
         return (
             <>
-            _queryType:_
+             typeof&nbsp;
             <Type data={{type: data.queryType}}/>
           </>
         )
