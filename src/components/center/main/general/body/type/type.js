@@ -10,7 +10,7 @@ import TrueType from "./true-type"
 import FalseType from "./false-type"
 import ElementType from "./element-type"
 import Value from "./value"
-import Constraint from "./constraint"
+// import Constraint from "./constraint"
 import IndexType from "./index-type"
 import ObjectType from "./object-type"
 import QueryType from "./query-type"
@@ -39,7 +39,9 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
                 {t.type === "inferred" &&
                     <>infer&nbsp;</> }
 
-                <Constraint data={t}/>
+                <TypeElement data= {t}/>
+
+                {/* <Constraint data={t}/> */}
                 <CheckType data={t}/>
                 <Declaration data={t}/>
                 <ElementType data={t}/>
@@ -56,7 +58,6 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
                 <TrueType data={t}/>
                 <FalseType data={t}/>
 
-                <TypeElement data= {t}/>
 
                 {(t.kindString === "Type parameter" && t.type) &&
                 <>
