@@ -35,15 +35,8 @@ function getSignatureSummaries(signatures){
             {">"}</>
         }
         ({s.parameters &&
-            <>
-              {s.parameters.map((p, i) =>
-              <>
-                <SignatureParameter data={p} i={i}/>
-                  {p.defaultValue &&
-                    <> = {p.defaultValue}</>}
-              </>
-                )}
-            </>
+            s.parameters.map((p, i) =>
+              <SignatureParameter data={p} i={i}/>)
           })
           {callBack && <>&nbsp;{"=>"}&nbsp;</>}
           <Type data={s} delimiter={!callBack ? " : " : null}/>
@@ -63,6 +56,8 @@ class SignatureParameter extends Component {
       <>...</>}
       {!data.name.startsWith("__") && <>{data.name}</>}
       <Type data={data} delimiter={!data.name.startsWith("__") ? " : " : null}/>
+      {data.defaultValue &&
+        <> = {data.defaultValue}</>}
     </>
     )
   }
