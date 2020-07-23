@@ -57,6 +57,7 @@ export const parameterFields = graphql`
     id
     name
     kindString
+    defaultValue
     flags {
       ...flagFields
     }
@@ -301,6 +302,7 @@ export const links = graphql`
           ...tagFields
         }
         name
+        defaultValue
         type {
           ...typeFieldsHelper0
         }
@@ -317,6 +319,7 @@ export const links = graphql`
       }
       parameters {
         name
+        defaultValue
         tags {
           ...tagFields
         }
@@ -434,6 +437,7 @@ fragment typeFieldsHelper0 on typeField {
         ...typeFieldsHelper1
       }
       parameters {
+        defaultValue
         flags {
           ...flagFields
         }
@@ -456,6 +460,7 @@ fragment typeFieldsHelper0 on typeField {
         ...typeFieldsHelper1
       }
       parameters {
+        defaultValue
         name
         tags {
           ...tagFields
@@ -539,6 +544,7 @@ fragment typeFieldsHelper1 on typeField {
         ...typeFieldsHelper2
       }
       parameters {
+        defaultValue
         flags {
           ...flagFields
         }
@@ -564,6 +570,7 @@ fragment typeFieldsHelper1 on typeField {
         ...typeFieldsHelper2
       }
       parameters {
+        defaultValue
         name
         tags {
           ...tagFields
@@ -647,6 +654,7 @@ fragment typeFieldsHelper2 on typeField {
         ...typeFieldsHelper3
       }
       parameters {
+        defaultValue
         flags {
           ...flagFields
         }
@@ -672,6 +680,7 @@ fragment typeFieldsHelper2 on typeField {
         ...typeFieldsHelper3
       }
       parameters {
+        defaultValue
         name
         tags {
           ...tagFields
@@ -752,6 +761,7 @@ export const typeFieldsHelper3 = graphql`
           ...basicTypeFields
         }
         parameters {
+          defaultValue
           tags {
             ...tagFields
           }
@@ -774,6 +784,7 @@ export const typeFieldsHelper3 = graphql`
           ...basicTypeFields
         }
         parameters {
+          defaultValue
           tags {
             ...tagFields
           }

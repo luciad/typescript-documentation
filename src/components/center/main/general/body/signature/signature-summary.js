@@ -37,7 +37,11 @@ function getSignatureSummaries(signatures){
         ({s.parameters &&
             <>
               {s.parameters.map((p, i) =>
+              <>
                 <SignatureParameter data={p} i={i}/>
+                  {p.defaultValue &&
+                    <> = {p.defaultValue}</>}
+              </>
                 )}
             </>
           })

@@ -17,6 +17,8 @@ export default class Parameter extends Component {
       <i>
         <Type data={parameter} delimiter={parameter.kindString === "Type parameter" ? <>&nbsp;extends </> : <>&nbsp;: </>}/>
       </i>
+      {parameter.defaultValue &&
+      <> = {parameter.defaultValue}</>}
       <Text data={getComments(parameter).shortText} path={path}/>
       <Text data={getComments(parameter).text} path={path}/>
       <TypeComments data={parameter} path={path}/>

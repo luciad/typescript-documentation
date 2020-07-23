@@ -251,6 +251,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       comment: commentField
       type: typeField
       tags: [tagField!]
+      defaultValue: String
     }
 
     type flagsField {
