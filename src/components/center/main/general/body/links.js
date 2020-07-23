@@ -14,7 +14,7 @@ import SearchLink from "../search-link"
  */
 export default ({ data }) => {
   if(!data) return null
-
+  console.log(data)
   return (
     <div className="links">
       {LinkTemplate("Extended types", data.extendedTypes)}
@@ -52,7 +52,7 @@ function LinkTemplate(title, data) {
       </div>
       <ul>
         <li className="inline-block" key={data.name + "_searchlink"}>
-          <SearchLink data={data.name}/>
+          <SearchLink data={{text: data.name, id:data.id}}/>
         </li>
       </ul>
     </div>

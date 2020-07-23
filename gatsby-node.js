@@ -260,6 +260,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       isOptional: Boolean
       isPrivate: Boolean
       isProtected: Boolean
+      isPublic: Boolean
       isRest: Boolean
       isStatic: Boolean
     }
