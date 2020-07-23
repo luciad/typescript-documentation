@@ -255,12 +255,13 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type flagsField {
+      isAbstract: Boolean
       isExported: Boolean
       isOptional: Boolean
       isPrivate: Boolean
-      isStatic: Boolean
-      isAbstract: Boolean
+      isProtected: Boolean
       isRest: Boolean
+      isStatic: Boolean
     }
   `
   createTypes(typeDefs)

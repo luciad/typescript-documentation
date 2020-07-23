@@ -1,5 +1,7 @@
 import { Class0 } from "../folder0/class0";
 import { Class1 } from "../folder0/class1";
+import { Class2 } from "../folder0/class2";
+import { Class3 } from "../folder0/class3";
 
 /**
  * Class used to test type & signature-summary
@@ -19,7 +21,7 @@ export class Class4{
 
     combineReducers<S, A extends Class0 = Class0>(
         var0: Helper<S, A>
-      ): Helper<OtherHelper<S>, A> {
+      ): Helper<OtherHelper<S>, A> | OtherHelper<{objects: Class0 & Class1 & Class2}> {
           return null
       }
 

@@ -88,12 +88,13 @@ export const tagFields = graphql`
 
 export const flagFields = graphql`
   fragment flagFields on flagsField {
+      isAbstract,
       isExported,
       isOptional,
       isPrivate,
+      isProtected,
+      isRest,
       isStatic,
-      isAbstract,
-      isRest
   }`
 
 export const typeFields = graphql`
