@@ -24,13 +24,6 @@ export const allSignatures = graphql`
         }
   }`
 
-export const nameFields = graphql`
-  fragment nameFields on nameType {
-    id
-    name
-  }
-`
-
 export const signatureFields = graphql`
   fragment signatureFields on signature {
           name
@@ -42,10 +35,10 @@ export const signatureFields = graphql`
             ...typeFields
           }
           overwrites {
-            ...nameFields
+            ...typeFields
           },
           inheritedFrom {
-            ...nameFields
+            ...typeFields
           }
           parameters {
             ...parametersFields
@@ -206,10 +199,10 @@ export const simpleSymbolFields = graphql`
       parentPath
     }
     overwrites {
-      ...nameFields
+      ...typeFields
     }
     inheritedFrom {
-      ...nameFields
+      ...typeFields
     }
     type {
       ...typeFields

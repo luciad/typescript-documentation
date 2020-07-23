@@ -178,15 +178,10 @@ exports.createSchemaCustomization = ({ actions }) => {
       signatures: [signature!]
       getSignature: [signature!]
       setSignature: [signature!]
-      overwrites: nameType
-      inheritedFrom: nameType
+      overwrites: typeField
+      inheritedFrom: typeField
       type: typeField
       typeParameter: [parametersField!]
-    }
-
-    type nameType {
-      id: Int
-      name: String
     }
 
     type signature {
@@ -196,8 +191,8 @@ exports.createSchemaCustomization = ({ actions }) => {
       type: typeField
       flags: flagsField
       parameters: [parametersField]
-      overwrites: nameType
-      inheritedFrom: nameType
+      overwrites: typeField
+      inheritedFrom: typeField
       typeParameter: [parametersField!]
     }
 
