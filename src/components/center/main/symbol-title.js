@@ -4,7 +4,7 @@ import Type from "./general/body/type/type"
 
 export default ({ data, link }) => {
   return (
-      <div className="symbol-title sidecontainer">
+      <div className="symbol-title inline-block">
         <div className="title">
             {link ? <Link to={data.fields.path}>{data.name}</Link> : data.name}
             {data.typeParameter &&

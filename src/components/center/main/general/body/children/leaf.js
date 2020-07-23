@@ -15,9 +15,9 @@ export default ({ data }) => {
   if(!data) return null
   return (
     <div className="leaf" id={"id" + data.id} key={data.id + "_leaf"}>
-      <div className="sidecontainer">
+      <div>
         <SymbolTitle data={data} link={true}/>
-        <div className="bottom">
+        <div className="bottom inline-block">
           <Type data={data} delimiter={" : "} noIsOptionalMarker={true}/>
         </div>
       </div>

@@ -31,9 +31,11 @@ export default ({ data }) => {
         <br/>
         Parent: &nbsp; &nbsp;
         <Link to={symbol.fields.parentPath}>{symbol.fields.parentPath.replace(MODULE_PATH_PREFIX + "/","")}</Link>
-        <div className="sidecontainer">
+        <div>
         <SymbolTitle data={symbol}/>
-          <div className="bottom"><Type data={symbol} delimiter={" : "} noIsOptionalMarker={true}/></div>
+          <div className="bottom inline-block">
+            <Type data={symbol} delimiter={" : "} noIsOptionalMarker={true}/>
+          </div>
         </div>
         <div className="sidecontainer">
           <Icon kindString={symbol.kindString}/>
