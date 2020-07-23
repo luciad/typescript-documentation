@@ -1,5 +1,5 @@
 import React from "react"
-import SearchLink from "../search-link"
+import Type from "./type/type"
 
 /**
  * extends, implements, ~by,...
@@ -14,7 +14,7 @@ import SearchLink from "../search-link"
  */
 export default ({ data }) => {
   if(!data) return null
-  
+
   return (
     <div className="links">
       {LinkTemplate("Extended types", data.extendedTypes)}
@@ -30,31 +30,19 @@ export default ({ data }) => {
 function LinkTemplate(title, data) {
   if(!data) return null
 
-  if(data.length > 0)
+  const dataList = data.length > 0 ? data : [data]
     return (
       <div>
         <div className="subsubtitle">
           {title}
         </div>
         <ul className="itemList">
-          {data.map(type =>
+          {dataList.map(type =>
               <li key={type.name + "_searchlink"}>
-                <SearchLink data={{text: type.name, id: type.id}}/>
+                <Type data={{type: type}}/>
               </li>
           )}
         </ul>
       </div>
     )
-  return (
-    <div>
-      <div className="subsubtitle">
-        {title}
-      </div>
-      <ul>
-        <li className="inline-block" key={data.name + "_searchlink"}>
-          <SearchLink data={{text: data.name, id:data.id}}/>
-        </li>
-      </ul>
-    </div>
-  )
 }
