@@ -8,6 +8,7 @@ export default class TypeComments extends Component {
     const data = this.props.data
     const path = this.props.path
     if(!data) return null
+
     return (
       <ul className="type-comments">
       {getTypeItems(data).map(ti => {
@@ -30,8 +31,18 @@ export default class TypeComments extends Component {
 function getTypeItems(data){
   let typeItems = []
   if(!data.type) return typeItems
-  if(data.type.declaration && data.type.declaration.children){
-    typeItems = typeItems.concat(data.type.declaration.children)
+  if(data.type.declaration){
+    const d = data.type.declaration
+    if(d.children){
+    typeItems = typeItems.concat(d.children)
+    }
+    if(d.signatures){
+      for(let sig of d.signatures){
+        if(sig.parameters){
+          typeItems = typeItems.concat(sig.parameters)
+        }
+      }
+    }
   }
   return typeItems
 }
