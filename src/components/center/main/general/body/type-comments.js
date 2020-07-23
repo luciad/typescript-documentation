@@ -29,6 +29,16 @@ export default class TypeComments extends Component {
 }
 
 function getTypeItems(data){
+
+  if(data.length > 0) {
+    let results = data.map(d => getTypeItems(d))
+    let retVals = []
+    for(let result of results){
+      retVals = retVals.concat(result)
+    }
+    return retVals
+  }
+
   let typeItems = []
   if(!data.type) return typeItems
 
@@ -37,13 +47,13 @@ function getTypeItems(data){
     const d = data.type.declaration
     // DECLARATION CHILDREN
     if(d.children){
-    typeItems = typeItems.concat(d.children)
+    typeItems = typeItems.concat(d.children).concat(getTypeItems(d.children))
     }
     // DECLARATION SIGNATURES
     if(d.signatures){
       for(let sig of d.signatures){
         if(sig.parameters){
-          typeItems = typeItems.concat(sig.parameters)
+          typeItems = typeItems.concat(sig.parameters).concat(getTypeItems(sig.parameters))
         }
       }
     }
@@ -51,7 +61,7 @@ function getTypeItems(data){
     if(d.indexSignature){
       for(let is of d.indexSignature){
         if(is.parameters){
-          typeItems = typeItems.concat(is.parameters)
+          typeItems = typeItems.concat(is.parameters).concat(getTypeItems(is.parameters))
         }
       }
     }
