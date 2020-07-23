@@ -105,24 +105,40 @@ export const flagFields = graphql`
 
 export const typeFields = graphql`
   fragment typeFields on typeField {
-    id
-    name
-    type
-    value
-    operator
+      checkType {
+        ...typeFieldsHelper
+      }
     comment {
       ...commentFields
+    }
+    constraint {
+      ...typeFieldsHelper
     }
     declaration {
       ...declarationFields
     }
-    types {
-      ...typeFieldsHelper
-    }
     elementType {
      ...typeFieldsHelper
     }
-    typeArguments {
+    elements {
+      ...typeFieldsHelper
+    }
+    extendsType {
+      ...typeFieldsHelper
+    }
+    falseType {
+      ...typeFieldsHelper
+    }
+    id
+    indexType {
+      ...typeFieldsHelper
+    }
+    name
+    objectType {
+      ...typeFieldsHelper
+    }
+    operator
+    queryType {
       ...typeFieldsHelper
     }
     target {
@@ -131,21 +147,17 @@ export const typeFields = graphql`
     targetType {
       ...typeFieldsHelper
     }
-    elements {
-      ...typeFieldsHelper
-    }
-    checkType {
-      ...typeFieldsHelper
-    }
-    extendsType {
-      ...typeFieldsHelper
-    }
     trueType {
       ...typeFieldsHelper
     }
-    falseType {
+    type
+    typeArguments {
       ...typeFieldsHelper
     }
+    types {
+      ...typeFieldsHelper
+    }
+    value
   }
 `
 
@@ -254,45 +266,19 @@ export const links = graphql`
 
   //HELPERS
 
-export const typeFieldsHelper = graphql`
-fragment typeFieldsHelper on typeField {
-  id
-  name
-  type
-  value
-  operator
-  checkType {
+  export const typeFieldsHelper = graphql`
+  fragment typeFieldsHelper on typeField {
+      checkType {
+        ...typeFieldsHelper0
+      }
+    comment {
+      ...commentFields
+    }
+    constraint {
       ...typeFieldsHelper0
     }
-    extendsType {
-      ...typeFieldsHelper0
-    }
-    trueType {
-      ...typeFieldsHelper0
-    }
-    falseType {
-      ...typeFieldsHelper0
-    }
-  targetType {
-    ...typeFieldsHelper0
-  }
-  target {
-    ...typeFieldsHelper0
-  }
-  types {
-   ...typeFieldsHelper0
-  }
-  elements {
-    ...typeFieldsHelper0
-  }
-  elementType {
-    ...typeFieldsHelper0
-  }
-  typeArguments {
-   ...typeFieldsHelper0
-  }
-  declaration {
-    id
+    declaration {
+      id
     name
     kindString
     children {
@@ -349,8 +335,49 @@ fragment typeFieldsHelper on typeField {
         }
       }
     }
+    }
+    elementType {
+     ...typeFieldsHelper0
+    }
+    elements {
+      ...typeFieldsHelper0
+    }
+    extendsType {
+      ...typeFieldsHelper0
+    }
+    falseType {
+      ...typeFieldsHelper0
+    }
+    id
+    indexType {
+      ...typeFieldsHelper0
+    }
+    name
+    objectType {
+      ...typeFieldsHelper0
+    }
+    operator
+    queryType {
+      ...typeFieldsHelper0
+    }
+    target {
+      ...typeFieldsHelper0
+    }
+    targetType {
+      ...typeFieldsHelper0
+    }
+    trueType {
+      ...typeFieldsHelper0
+    }
+    type
+    typeArguments {
+      ...typeFieldsHelper0
+    }
+    types {
+      ...typeFieldsHelper0
+    }
+    value
   }
-}
 `
 
 export const typeFieldsHelper0 = graphql`
@@ -373,13 +400,7 @@ fragment typeFieldsHelper0 on typeField {
       ...typeFieldsHelper1
     }
   targetType {
-    type
-    name
-    typeArguments {
-      type
-      name
-      id
-    }
+    ...typeFieldsHelper1
   }
   target {
     ...typeFieldsHelper1
@@ -432,9 +453,6 @@ fragment typeFieldsHelper0 on typeField {
         }
         comment {
           ...commentFields
-        }
-        type {
-          ...typeFieldsHelper1
         }
       }
     }
@@ -534,10 +552,10 @@ fragment typeFieldsHelper1 on typeField {
         tags {
           ...tagFields
         }
+        name
         type {
           ...typeFieldsHelper2
         }
-        name
         comment {
           ...commentFields
         }
@@ -570,7 +588,115 @@ fragment typeFieldsHelper1 on typeField {
 `
 
 export const typeFieldsHelper2 = graphql`
-  fragment typeFieldsHelper2 on typeField {
+fragment typeFieldsHelper2 on typeField {
+  id
+  name
+  type
+  value
+  operator
+  checkType {
+      ...typeFieldsHelper3
+    }
+    extendsType {
+      ...typeFieldsHelper3
+    }
+    trueType {
+      ...typeFieldsHelper3
+    }
+    falseType {
+      ...typeFieldsHelper3
+    }
+  targetType {
+    type
+    name
+    typeArguments {
+      type
+      name
+      id
+    }
+  }
+  target {
+    ...typeFieldsHelper3
+  }
+  types {
+   ...typeFieldsHelper3
+  }
+  elements {
+    ...typeFieldsHelper3
+  }
+  elementType {
+    ...typeFieldsHelper3
+  }
+  typeArguments {
+   ...typeFieldsHelper3
+  }
+  declaration {
+    id
+    name
+    kindString
+    children {
+      name
+      kindString
+      type {
+        ...typeFieldsHelper3
+      }
+      flags {
+        ...flagFields
+      }
+      comment {
+        ...commentFields
+      }
+    }
+    signatures {
+      name
+      kindString
+      type {
+        ...typeFieldsHelper3
+      }
+      parameters {
+        flags {
+          ...flagFields
+        }
+        tags {
+          ...tagFields
+        }
+        type {
+          ...typeFieldsHelper3
+        }
+        name
+        comment {
+          ...commentFields
+        }
+        type {
+          ...typeFieldsHelper3
+        }
+      }
+    }
+    indexSignature {
+      name
+      kindString
+      type {
+        ...typeFieldsHelper3
+      }
+      parameters {
+        name
+        tags {
+          ...tagFields
+        }
+        comment {
+          ...commentFields
+        }
+        type {
+          ...typeFieldsHelper3
+        }
+      }
+    }
+  }
+}
+`
+
+export const typeFieldsHelper3 = graphql`
+  fragment typeFieldsHelper3 on typeField {
     id
     name
     type

@@ -214,23 +214,27 @@ exports.createSchemaCustomization = ({ actions }) => {
     }
 
     type typeField {
-      id: Int
-      name: String
-      value: String
-      type: String
-      operator: String
-      target: typeField
-      targetType: typeField
-      types: [typeField!]
+      checkType: typeField
+      comment: commentField
+      constraint: typeField
+      declaration: declarationField
       elementType: typeField
       elements: [typeField]
-      typeArguments: [typeField]
-      declaration: declarationField
-      checkType: typeField
-      trueType: typeField
-      falseType: typeField
       extendsType: typeField
-      comment: commentField
+      falseType: typeField
+      id: Int
+      indexType: typeField
+      name: String
+      objectType: typeField
+      operator: String
+      queryType: typeField
+      target: typeField
+      targetType: typeField
+      trueType: typeField
+      type: String
+      typeArguments: [typeField]
+      types: [typeField!]
+      value: String
     }
 
     type declarationField {
