@@ -30,7 +30,8 @@ export default function Type({ data, colon, noIsOptionalMarker }) {
                     && !t.elements && !t.checkType &&!t.extendsType) &&
                     <>{t.type}</>}
 
-                {t.type === "inferred" ? <>infer&nbsp;</> : ""}
+                {t.type === "inferred" &&
+                    <>infer&nbsp;</> }
 
                 <ElementType data={t}/>
                 <Declaration data={t}/>

@@ -5,11 +5,10 @@ export default class ElementType extends Component {
     render(){
         const data = this.props.data
         if(!data || !data.elementType) return null
-
+        if(data.type !== "array") console.warn("unknown element-type: ", data.type)
         return (
             <>
-                {data.type}
-                [<Type data={{type: data.elementType}}/>]
+                (<Type data={{type: data.elementType}}/>)[ ]
             </>
         )
     }

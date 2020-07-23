@@ -16,9 +16,27 @@ export class Class4{
     function(string:string, object:object | Callback | MyNumber | PrimitiveArray | Callback2, class0:Class0, undefined, primitiveArray: PrimitiveArray): Class1 | null {
         return null
     }
+
+    combineReducers<S, A extends Class0 = Class0>(
+        var0: Helper<S, A>
+      ): Helper<OtherHelper<S>, A> {
+          return null
+      }
+
+
+}
+
+class Helper<S,A> {
+
+}
+
+class OtherHelper<S>{
+
 }
 
 type PrimitiveArray = Array<string|number|Class0>;
+type otherArray = [object, number, string];
+type thirdArray = (string|number)[];
 type MyNumber = number;
 type Callback = () => void;
 type Callback2 = (string: string, array:Array<Class0 | Class1 >) => MyNumber;
