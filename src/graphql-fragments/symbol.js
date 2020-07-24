@@ -40,6 +40,9 @@ export const signatureFields = graphql`
           inheritedFrom {
             ...typeFields
           }
+          implementationOf {
+            ...typeFields
+          }
           parameters {
             ...parametersFields
           }

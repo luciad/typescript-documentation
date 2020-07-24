@@ -194,6 +194,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       parameters: [parametersField]
       overwrites: typeField
       inheritedFrom: typeField
+      implementationOf: typeField
       typeParameter: [parametersField!]
     }
 
