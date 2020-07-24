@@ -6,13 +6,15 @@ import { StaticQuery, graphql } from "gatsby"
  */
 export default ({ data }) => {
   if(!data) return null
+
+  const defaultLanguage = process.env.GATSBY_DEFAULT_LAN
   let [searchPath, language] = data.text.trim().split(" ")
   if(!language || language.length === 0){
     const ext = searchPath.substring(searchPath.lastIndexOf(".") + 1)
     if(ext.length > 0 && ext.length < searchPath.length - 2){
       language = ext
     }else{
-      language = "none"
+      language = defaultLanguage
     }
   }
   return (

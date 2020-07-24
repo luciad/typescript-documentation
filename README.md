@@ -28,6 +28,8 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
       -n true -> run npm install (optional, default false)
       -t themeName -> specify theme path (optional)
       -d true -> run gatsby develop instead of gatsby build (optional, default false)
+      -s snippet/folder -> specify snippet input folder (optional)
+      -l defaultLanguage -> specify default language for snippets with no specified language and no extension
     ```
 
     Example:
@@ -136,7 +138,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     `language` is optional but must be one of the languages made available in .babelrc for highlighting to work. The supported languages are: `'javascript', 'json', 'css', 'none'`.
 
-    If no language is specified, the extension of the file is assigned as language.
+    If no language is specified, the extension of the file is assigned as language. If no language is specified and the file has no extension, `-l defaultLanguage` is assigned. If there is also no default language specified, `none` is assigned.
 
     Example for javascript file:
 

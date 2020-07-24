@@ -2,7 +2,7 @@
 
 main()
 {
-    while getopts :i:o:t:n:m:d:c:s: option
+    while getopts :i:o:t:n:m:d:c:s:l: option
     do
         case "${option}"
         in
@@ -14,6 +14,7 @@ main()
             d) DEVELOP=${OPTARG};;
             c) COPYONLY=${OPTARG};;
             s) SNIPPETS=${OPTARG};;
+            l) DEFAULTLAN=${OPTARG};;
             \?) echo "[l-td] Invalid option: -$OPTARG" >&2
                 display_help
                 exit 1;;
@@ -29,6 +30,11 @@ main()
     check_var_snippets
     check_var_npm
 
+    if [ -z "$DEFAULTLAN" ]
+    then
+        DEFAULTLAN=none
+    fi
+
     echo "[l-td] running l-td..."
     npx gatsby clean
     if [ "$COPYONLY" == "true" ]
@@ -38,10 +44,10 @@ main()
         if [  "$DEVELOP" == "true" ]
         then
             echo "[l-td] developing..."
-            npx gatsby develop
+            GATSBY_DEFAULT_LAN=$DEFAULTLAN npx gatsby develop
         else
             echo "[l-td] building..."
-            npx gatsby build
+            GATSBY_DEFAULT_LAN=$DEFAULTLAN npx gatsby build
             echo "[l-td] Finished building l-td!"
         fi
     fi
@@ -134,6 +140,7 @@ display_help(){
     echo "[l-td] -t themeName -> specify theme path (optional)"
     echo "[l-td] -d true -> run gatsby develop instead of gatsby build (default false)"
     echo "[l-td] -s snippet/folder -> specify snippet input folder (optional)"
+    echo "[l-td] -l defaultLanguage -> specify default language for snippets with no specified language and no extension"
     echo "[l-td] Example:"
     echo "[l-td] ./l-td.sh -i myDocumentation.json -o myOutput -m media -n true -t default"
 }

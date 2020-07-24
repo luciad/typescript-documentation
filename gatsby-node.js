@@ -11,6 +11,8 @@ const symbolTemplate = require.resolve("./src/components/center/main/template/sy
 const overviewTemplate = require.resolve("./src/components/center/main/template/overview");
 const moduleTemplate = require.resolve("./src/components/center/main/template/module");
 
+console.log("[l-td] Default snippet language: " + process.env.GATSBY_DEFAULT_LAN)
+
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
   const modules = documentation.children;
