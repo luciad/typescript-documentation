@@ -58,6 +58,7 @@ check_var_output(){
      if [ ! -z "$OUTPUT" ]
     then
         echo "[l-td] Moving output to $OUTPUT"
+        mkdir -p $OUTPUT
         mv public $OUTPUT
     else
         echo "[l-td] Default output path: public (no output path specified)"
@@ -76,6 +77,7 @@ check_var_input()
         fi
         if [  ${INPUT: -5} == ".json" ] || [ ${INPUT: -5} == ".JSON" ]; #if INPUT ends in .json
         then
+            mkdir -p content
             yes | cp -rf $INPUT content/docu.json
         else
             echo "[l-td] expected json file"
@@ -88,6 +90,7 @@ check_var_input()
 
 check_var_theme()
 {
+    mkdir -p src/styles
     if [ ! -z "$THEME" ] && [ -d "themes/$THEME" ]
     then
         echo "[l-td] Using theme $THEME"
@@ -100,6 +103,7 @@ check_var_theme()
 
 check_var_media()
 {
+    mkdir -p content/media
     if [ ! -z "$MEDIA" ] && [ -d "$MEDIA" ]
     then
         echo "[l-td] Copying media from $MEDIA"
@@ -114,6 +118,7 @@ check_var_snippets()
     if [ ! -z "$SNIPPETS" ] && [ -d "$SNIPPETS" ]
     then
         echo "[l-td] Copying snippet folder from $SNIPPETS"
+        mkdir -p content/snippets
         cp -r $SNIPPETS/. content/snippets/
     else
         echo "[l-td] No media folder specified."
@@ -122,7 +127,7 @@ check_var_snippets()
 
 check_var_npm()
 {
-       if [  "$NPM" == "true" ]
+    if [  "$NPM" == "true" ]
     then
         echo "[l-td] running npm install (disable using -n true)"
         npm install
