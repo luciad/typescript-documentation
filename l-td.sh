@@ -2,7 +2,7 @@
 
 main()
 {
-    while getopts :i:o:t:n:m:d:c: option
+    while getopts :i:o:t:n:m:d:c:s: option
     do
         case "${option}"
         in
@@ -13,6 +13,7 @@ main()
             m) MEDIA=${OPTARG};;
             d) DEVELOP=${OPTARG};;
             c) COPYONLY=${OPTARG};;
+            s) SNIPPETS=${OPTARG};;
             \?) echo "[l-td] Invalid option: -$OPTARG" >&2
                 display_help
                 exit 1;;
@@ -25,6 +26,7 @@ main()
     check_var_input
     check_var_theme
     check_var_media
+    check_var_snippets
     check_var_npm
 
     echo "[l-td] running l-td..."
@@ -101,6 +103,17 @@ check_var_media()
     fi
 }
 
+check_var_snippets()
+{
+    if [ ! -z "$SNIPPETS" ] && [ -d "$SNIPPETS" ]
+    then
+        echo "[l-td] Copying snippet folder from $SNIPPETS"
+        cp -r $SNIPPETS/. content/snippets/
+    else
+        echo "[l-td] No media folder specified."
+    fi
+}
+
 check_var_npm()
 {
        if [  "$NPM" == "true" ]
@@ -120,6 +133,7 @@ display_help(){
     echo "[l-td] -n true -> run npm install (default false)"
     echo "[l-td] -t themeName -> specify theme path (optional)"
     echo "[l-td] -d true -> run gatsby develop instead of gatsby build (default false)"
+    echo "[l-td] -s snippet/folder -> specify snippet input folder (optional)"
     echo "[l-td] Example:"
     echo "[l-td] ./l-td.sh -i myDocumentation.json -o myOutput -m media -n true -t default"
 }

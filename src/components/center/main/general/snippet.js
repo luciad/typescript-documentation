@@ -19,7 +19,7 @@ export default ({ data }) => {
     <StaticQuery
       query={graphql`
        query allFiles {
-        allFile(filter: {extension: {ne: "json"}}) {
+        allFile(filter: {extension: {ne: "json"}, name: {ne: "docu"}}) {
           edges {
             node {
               relativePath

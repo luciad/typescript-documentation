@@ -127,12 +127,12 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     The image it would take would be located at mediaFolder/path/to/img.jpg.
 
     #### Linking to external snippets
-    You can link to external code snippets. These snippets are files located in the media folder set using the flag `-m mediaFolder`. One snippet shows a complete file. To use external snippets, use the following syntax:
+    You can link to external code snippets. These snippets are files located in the snippet folder (`-s snippetFolder`)or the media folder (`-m mediaFolder`). One snippet shows a complete file. To use external snippets, use the following syntax:
     ```
     {@snippet path/to/snippet.ext language}
     ```
 
-    The above snippet would be located at `mediaFolder/path/to/snippet.ext`.
+    The above snippet would be located at `snippetFolder/path/to/snippet.ext` OR `mediaFolder/path/to/snippet.ext` depending on where the file exists.
 
     `language` is optional but must be one of the languages made available in .babelrc for highlighting to work. The supported languages are: `'javascript', 'json', 'css', 'none'`.
 

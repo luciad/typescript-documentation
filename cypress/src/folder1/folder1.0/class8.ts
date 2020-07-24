@@ -17,6 +17,9 @@ export default class Class8 {
    *
    * A snippet without extention and no specified language:
    * {@snippet snippets/noextention}
+   *
+   * A snippet from the snippets folder:
+   * {@snippet testsnip}
    */
   workingSnippet:void;
 
