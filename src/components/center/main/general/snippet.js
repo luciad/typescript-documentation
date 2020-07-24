@@ -7,7 +7,14 @@ import { StaticQuery, graphql } from "gatsby"
 export default ({ data }) => {
   if(!data) return null
   let [searchPath, language] = data.text.trim().split(" ")
-  if(!language || language.length === 0) language = "none"
+  if(!language || language.length === 0){
+    const ext = searchPath.substring(searchPath.lastIndexOf(".") + 1)
+    if(ext.length > 0 && ext.length < searchPath.length - 2){
+      language = ext
+    }else{
+      language = "none"
+    }
+  }
   return (
     <StaticQuery
       query={graphql`

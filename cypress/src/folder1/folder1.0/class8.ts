@@ -8,6 +8,15 @@ export default class Class8 {
    * This snippet should work & be highlighted in javascript
    *
    * {@snippet snippets/testsnippet.js javascript}
+   *
+   * Or without specified language:
+   * {@snippet snippets/testsnippet.js}
+   *
+   * A txt file without specified language:
+   * {@snippet snippets/textsnippet.txt}
+   *
+   * A snippet without extention and no specified language:
+   * {@snippet snippets/noextention}
    */
   workingSnippet:void;
 
