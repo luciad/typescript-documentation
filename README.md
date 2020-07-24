@@ -33,7 +33,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     Example:
 
     ```shell
-    $ ./cli.sh -i myDocumentation.json -o myOutput -m media -n true -t default -d true
+    $ ./l-td.sh -i myDocumentation.json -o myOutput -m media -n true -t default -d true
     ```
 
     You can also use ```npm run build``` by putting ```--``` before the flags.
@@ -134,9 +134,9 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     The above snippet would be located at `mediaFolder/path/to/snippet.ext`.
 
-    `language` is optional but must be one of the languages made available in .babelrc for highlighting to work. The supported languages are: `'javascript', 'json', 'css'`.
+    `language` is optional but must be one of the languages made available in .babelrc for highlighting to work. The supported languages are: `'javascript', 'json', 'css', 'none'`.
 
-    If no language is specified, `none` is assigned.
+    If no language is specified, the extension of the file is assigned as language.
 
     Example for javascript file:
 
