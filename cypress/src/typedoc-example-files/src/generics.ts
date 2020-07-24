@@ -81,9 +81,10 @@ type PopFront<T extends any[]> = ((...args: T) => any) extends ((a: any, ...r: i
  * See GH#1150. Calling typeChecker.typeToString on this type will send TS into an infinite
  * loop, which is undesirable.
  */
-type HorribleRecursiveTypeThatShouldNotBeUsedByAnyone<T extends any[], R = {}> = {
+type HorribleRecursiveTypeThatShouldNotBeUsedByAnyone<T extends any[], R = {}> =
+{
     0: R,
     1: HorribleRecursiveTypeThatShouldNotBeUsedByAnyone<PopFront<T>, {
         [K in keyof R | keyof T[0]]: K extends keyof R ? R[K] : T[0][K]
-    }>
+        }>
 }[T['length'] extends 0 ? 0 : 1];

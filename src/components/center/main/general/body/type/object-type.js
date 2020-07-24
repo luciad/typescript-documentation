@@ -8,8 +8,9 @@ export default class ObjectType extends Component {
 
         return (
             <>
-            _objectType:_
-            <Type data={{type: data.objectType}}/>
+            {/* {"{"} */}
+                <Type data={{type: data.objectType}}/>
+            {/* {"}"} */}
           </>
         )
     }

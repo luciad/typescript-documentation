@@ -47,23 +47,20 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
                 <ElementType data={t}/>
                 <Elements data={t}/>
                 <ExtendsType data={t}/>
-                <IndexType data={t}/>
                 <ObjectType data={t}/>
                 <QueryType data={t}/>
                 <Target data={t}/>
                 <TargetType data={t}/>
                 <TypeArguments data={t}/>
                 <Value data={t}/>
+                <IndexType data={t}/>
 
                 <TrueType data={t}/>
                 <FalseType data={t}/>
 
 
-                {(t.kindString === "Type parameter" && t.type) &&
-                <>
-                    &nbsp;extends&nbsp;
-                    <Type data={t}/>
-                </>}
+                {t.kindString === "Type parameter" &&
+                    <Type data={t} delimiter={<>&nbsp;extends&nbsp;</>}/>}
                 </>
             )}
         </div>

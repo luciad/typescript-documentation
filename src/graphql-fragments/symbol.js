@@ -387,6 +387,12 @@ fragment typeFieldsHelper0 on typeField {
   type
   value
   operator
+  indexType {
+    ...typeFieldsHelper1
+  }
+  objectType {
+    ...typeFieldsHelper1
+  }
   checkType {
       ...typeFieldsHelper1
     }
@@ -488,6 +494,12 @@ fragment typeFieldsHelper1 on typeField {
   type
   value
   operator
+  indexType {
+    ...typeFieldsHelper2
+  }
+  objectType {
+    ...typeFieldsHelper2
+  }
   checkType {
       ...typeFieldsHelper2
     }
@@ -598,6 +610,12 @@ fragment typeFieldsHelper2 on typeField {
   type
   value
   operator
+indexType {
+      ...typeFieldsHelper3
+    }
+    objectType {
+      ...typeFieldsHelper3
+    }
   checkType {
       ...typeFieldsHelper3
     }
@@ -708,6 +726,12 @@ export const typeFieldsHelper3 = graphql`
     type
     value
     operator
+    indexType {
+      ...basicTypeFields
+    }
+    objectType {
+      ...basicTypeFields
+    }
     checkType {
       ...basicTypeFields
     }

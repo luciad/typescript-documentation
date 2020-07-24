@@ -5,11 +5,10 @@ export default class IndexType extends Component {
     render(){
         const data = this.props.data
         if(!data || !data.indexType) return null
-
+        console.log(data)
         return (
             <>
-            _indexType:_
-            <Type data={{type: data.indexType}}/>
+            [<Type data={{type: data.indexType}}/>]
           </>
         )
     }
