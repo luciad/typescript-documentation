@@ -34,7 +34,7 @@ export default ({ data }) => {
           }
         }
       if(contents === "not found"){
-        console.warn("[l/td] Snippet not found: ", data.text)
+        console.warn("[l-td] Snippet not found: ", data.text)
         return <div className= "snippet notfound"> ({data.text} not found) </div>
       }
       return (

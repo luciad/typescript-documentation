@@ -10,7 +10,7 @@ const MODULE_PATH_PREFIX = "/modules"
  */
 const fixModuleName = module => {
   if(!module || !module.name) {
-    console.warn("[l/td] module name not found. Module: ", module)
+    console.warn("[l-td] module name not found. Module: ", module)
     return "404"
   }
   return module.name.replace('.d"', "").replace(/"/g, "");
@@ -159,7 +159,7 @@ function getLinks(string){
     const startI = string.indexOf("{@")
     const endI = string.indexOf("}", startI)
     if(endI < 0) {
-      console.warn("[l/td] A '{@' link was opened but never closed. String: ", string)
+      console.warn("[l-td] A '{@' link was opened but never closed. String: ", string)
       break
     }
     let info = string.substring(startI + 2, endI)

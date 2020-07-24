@@ -1,7 +1,7 @@
 {
-  "name": "typescript-documentation",
+  "name": "l-td",
   "private": true,
-  "description": "A typescript documentation HTML generator",
+  "description": "Luciad typescript documentation HTML generator",
   "version": "0.1.0",
   "license": "MIT",
   "main": "src/index.js",

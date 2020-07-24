@@ -89,7 +89,9 @@ export default class Main extends Component {
           `}
           render={(data) => (
             <div>
-              {data.allSymbol.nodes.map(node =>
+              {data.allSymbol.nodes.sort(function (a, b) {
+                  return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+                }).map(node =>
               {
                 if(!this.passesFilter(node)) return null
                   return (

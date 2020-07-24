@@ -14,44 +14,44 @@ export const commentFields = graphql`
 export const allSignatures = graphql`
   fragment allSignatures on Symbol {
     signatures {
-         ...signatureFields
-        }
-        getSignature {
-          ...signatureFields
-        }
-        setSignature {
-          ...signatureFields
-        }
+        ...signatureFields
+      }
+      getSignature {
+        ...signatureFields
+      }
+      setSignature {
+        ...signatureFields
+      }
   }`
 
 export const signatureFields = graphql`
   fragment signatureFields on signature {
-          name
-          kindString
-          comment {
-            ...commentFields
-          }
-          type {
-            ...typeFields
-          }
-          overwrites {
-            ...typeFields
-          }
-          inheritedFrom {
-            ...typeFields
-          }
-          implementationOf {
-            ...typeFields
-          }
-          parameters {
-            ...parametersFields
-          }
-          typeParameter {
-              ...parametersFields
-          }
-          flags {
-            ...flagFields
-          }
+      name
+      kindString
+      comment {
+        ...commentFields
+      }
+      type {
+        ...typeFields
+      }
+      overwrites {
+        ...typeFields
+      }
+      inheritedFrom {
+        ...typeFields
+      }
+      implementationOf {
+        ...typeFields
+      }
+      parameters {
+        ...parametersFields
+      }
+      typeParameter {
+          ...parametersFields
+      }
+      flags {
+        ...flagFields
+      }
   }
 `
 
@@ -102,9 +102,9 @@ export const flagFields = graphql`
 
 export const typeFields = graphql`
   fragment typeFields on typeField {
-      checkType {
-        ...typeFieldsHelper
-      }
+    checkType {
+      ...typeFieldsHelper
+    }
     comment {
       ...commentFields
     }

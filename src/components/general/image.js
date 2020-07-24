@@ -26,7 +26,7 @@ export default ({ data }) => {
   }
   //Check for valid input:
   if(!image.src){
-    throw new Error("[l/td] Did not specify a src in an @img.")
+    throw new Error("[l-td] Did not specify a src in an @img.")
   }
   if(!image.alt){
     image.alt = {
@@ -50,7 +50,7 @@ export default ({ data }) => {
         try {
           imgStyle = JSON.parse( '{' + image.style.text.replace(/'/g, "\"") + '}' )
         } catch (error) {
-          console.warn("[l/td]: could not parse image style correctly! Ignoring style for image: " + image.src.text + ", provided styling is: " + image.style.text)
+          console.warn("[l-td]: could not parse image style correctly! Ignoring style for image: " + image.src.text + ", provided styling is: " + image.style.text)
         }
         break;
     }

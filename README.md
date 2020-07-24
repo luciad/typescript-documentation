@@ -33,7 +33,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     Example:
 
     ```shell
-    $ ./l/td.sh -i myDocumentation.json -o myOutput -m media -n true -t default -d true
+    $ ./cli.sh -i myDocumentation.json -o myOutput -m media -n true -t default -d true
     ```
 
     You can also use ```npm run build``` by putting ```--``` before the flags.
@@ -87,7 +87,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     Note: for inline code, you can just use HTML tags: `<code>` and `</code>`
 
-    ### l/td specific tags
+    ### l-td specific tags
 
     #### Linking to other pages
 
@@ -156,7 +156,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     Special characters such as "<" need to be escaped.
 
-    ## Change l/td to your liking
+    ## Change l-td to your liking
 
     ### Logo
     The logo in the left sidebar can be changed by putting a file logo.* in your provided media folder (* being the extension).
