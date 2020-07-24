@@ -9,6 +9,7 @@ import Tags from "./tags"
 import Overwrites from "./overwrites"
 import TypeParameters from './parameters/type-parameters'
 import TypeComments from "./type-comments"
+import SearchLink from "../search-link";
 
 /**
  * Summary of an object
@@ -44,6 +45,10 @@ export default ({ data }) => {
       <Flags data={data}/>
       <Links data={data}/>
 
+        {data.target &&
+          <div className="target">
+            Target: <SearchLink data={{text: "", id: data.target}}/>
+          </div>}
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
         <div className="subtitle">About</div>}
 

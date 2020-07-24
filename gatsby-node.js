@@ -182,6 +182,7 @@ exports.createSchemaCustomization = ({ actions }) => {
       inheritedFrom: typeField
       type: typeField
       typeParameter: [parametersField!]
+      target: Int
     }
 
     type signature {

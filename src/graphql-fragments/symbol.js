@@ -2,11 +2,11 @@ import { graphql } from "gatsby"
 
 export const commentFields = graphql`
   fragment commentFields on commentField {
-    shortText,
-    text,
-    returns,
+    shortText
+    text
+    returns
     tags {
-      tag,
+      tag
       text
     }
   }`
@@ -15,10 +15,10 @@ export const allSignatures = graphql`
   fragment allSignatures on Symbol {
     signatures {
          ...signatureFields
-        },
+        }
         getSignature {
           ...signatureFields
-        },
+        }
         setSignature {
           ...signatureFields
         }
@@ -36,7 +36,7 @@ export const signatureFields = graphql`
           }
           overwrites {
             ...typeFields
-          },
+          }
           inheritedFrom {
             ...typeFields
           }
@@ -191,10 +191,11 @@ export const declarationFields = graphql`
 
 export const simpleSymbolFields = graphql`
   fragment simpleSymbolFields on Symbol {
-    name,
-    kindString,
-    id,
-    defaultValue,
+    name
+    kindString
+    id
+    defaultValue
+    target
     fields {
       path
       parentPath
@@ -212,9 +213,9 @@ export const simpleSymbolFields = graphql`
       ...parametersFields
     }
     ...links
-    ...allSignatures,
+    ...allSignatures
     comment {
-      ...commentFields,
+      ...commentFields
     }
     flags {
       ...flagFields
@@ -225,10 +226,10 @@ export const links = graphql`
   fragment links on Symbol {
     extendedTypes {
       ...typeFields
-    },
+    }
     extendedBy {
       ...typeFields
-    },
+    }
     implementedTypes {
       ...typeFields
     }
@@ -243,7 +244,7 @@ export const links = graphql`
 //no recursion in graphql
   export const symbolFields = graphql`
   fragment symbolFields on Symbol {
-    ...simpleSymbolFields,
+    ...simpleSymbolFields
     children {
       ...simpleSymbolFields
       children {
