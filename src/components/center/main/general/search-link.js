@@ -103,13 +103,7 @@ class Search extends Component {
       <div className="search-link">
             <div className="sidecontainer">
               <Icon kindString={page.kindString}/>
-              {(
-                page.name === this.text &&
-                <Link to={page.path}>{page.name}</Link>
-              )
-              ||
-                <Link to={page.path}>{this.text}</Link>
-              }
+              <Link to={page.path}>{this.text.length > 0 ? this.text : page.name}</Link>
             </div>
       </div>
     )
