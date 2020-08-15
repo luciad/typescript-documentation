@@ -63,7 +63,7 @@ check_var_output(){
         OUTPUT=public
     fi
     mkdir -p $runDir/$OUTPUT
-    mv public $runDir/$OUTPUT
+    mv public $runDir/$OUTPUT || true
 }
 
 check_var_input()
