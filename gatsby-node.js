@@ -17,8 +17,17 @@ exports.createPages = ({ actions }) => {
   const { createPage } = actions;
   const modules = documentation.children;
 
+  let usedPaths = []
+  function checkAndCreatePage(obj){
+    if(usedPaths.includes(obj.path)){
+      obj.path = obj.path + "_d"
+  }
+    usedPaths.push(obj.path)
+    createPage(obj)
+  }
+
   // module list page
-  createPage({
+  checkAndCreatePage({
     path: "overview",
     component: overviewTemplate,
     context: {
@@ -31,7 +40,7 @@ exports.createPages = ({ actions }) => {
     const modulePath = util.pathToModule(module);
     module.path = modulePath
     // 1 page per module
-    createPage({
+    checkAndCreatePage({
       path: modulePath,
       component: moduleTemplate,
       context: {
@@ -41,16 +50,16 @@ exports.createPages = ({ actions }) => {
 
     // 1 page per module export
     const exports = module.children;
-    createAllPages(createPage, exports, modulePath, String(module.id))
+    createAllPages(checkAndCreatePage, exports, modulePath, String(module.id))
   });
 };
 
-async function createAllPages(createPage, exports, path, moduleID){
+async function createAllPages(checkAndCreatePage, exports, path, moduleID){
   // Create a page for each export and its children
   if(exports){
     exports.forEach(exprt => {
       exprt.path = path + "/" + exprt.name
-      createPage({
+      checkAndCreatePage({
         path: exprt.path,
         component: symbolTemplate,
         context: {
@@ -58,7 +67,7 @@ async function createAllPages(createPage, exports, path, moduleID){
           symbolId: String(exprt.id)
         }})
         if(exprt.children){
-          createAllPages(createPage, exprt.children, exprt.path, moduleID)
+          createAllPages(checkAndCreatePage, exprt.children, exprt.path, moduleID)
         }
       })
   }
