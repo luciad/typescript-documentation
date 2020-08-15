@@ -14,7 +14,7 @@
     "serve": "gatsby serve -p 8000",
     "clean": "gatsby clean",
     "cy:open": "cypress open",
-    "cy:run": "cypress run",
+    "cy:run": "cypress run --config screenshotOnRunFailure=false,video=false",
     "pretest": "./l-td.sh -m ./cypress/media -s ./cypress/snippets -c true ; npx typedoc --tsconfig ./cypress/src/tsconfig.json --json ./content/docu.json ./cypress/src ; npm run build",
     "test": "start-server-and-test serve http://localhost:8000 cy:run",
     "pretest:dev": "./l-td.sh -m ./cypress/media -s ./cypress/snippets -c true ; npx typedoc --tsconfig ./cypress/src/tsconfig.json --json ./content/docu.json ./cypress/src",

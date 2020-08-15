@@ -1,3 +1,4 @@
+[![Build Status](https://travis-ci.com/luciad/typescript-documentation.svg?branch=master)](https://travis-ci.com/luciad/typescript-documentation)
 <h1 align="center">
   Luciad's typescript documentation generator
 </h1>

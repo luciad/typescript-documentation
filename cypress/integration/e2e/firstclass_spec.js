@@ -17,7 +17,7 @@ describe('FirstClass test', () => {
 
       cy.contains("Class4")
       cy.contains("Callback")
-      cy.contains("PrimitiveArray").click()
+      cy.contains(/PrimitiveArray/).click()
 
       cy.url().should('include', '/class4/PrimitiveArray')
     })
