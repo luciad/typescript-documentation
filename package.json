@@ -24,7 +24,6 @@
   "dependencies": {
     "@babel/plugin-syntax-jsx": "^7.10.4",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
-    "babel-jest": "^26.2.2",
     "babel-plugin-prismjs": "^2.0.1",
     "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-preset-gatsby": "^0.4.12",
@@ -43,15 +42,12 @@
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
-    "react-test-renderer": "^16.13.1",
     "react-use-flexsearch": "^0.1.1",
     "sanitize-html": "^1.27.2",
     "start-server-and-test": "^1.11.2",
     "typescript": "^3.9.7"
   },
   "devDependencies": {
-    "identity-obj-proxy": "^3.0.0",
-    "jest": "^26.2.2",
     "typedoc": "^0.17.8"
   },
   "repository": {

@@ -1,7 +1,6 @@
 {
   "presets": ["babel-preset-gatsby"],
   "plugins": [
-    "babel-plugin-syntax-jsx",
     ["prismjs", {
       "languages": ["javascript", "json", "css"],
       "plugins": ["line-numbers", "show-language"],
