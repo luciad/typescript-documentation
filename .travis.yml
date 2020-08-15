@@ -14,4 +14,4 @@ cache:
     # we also need to cache folder with Cypress binary
     - ~/.cache
 script:
-  - npm run test
+  - npm test
