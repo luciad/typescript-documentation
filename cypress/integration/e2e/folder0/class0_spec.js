@@ -36,7 +36,7 @@ describe('Class0 test', () => {
 
       cy.visit('http://localhost:8000/modules/folder0/class0/Class0')
 
-      cy.get('b').get('a').contains(/^FirstClass/).click()
+      cy.get('.type').get('a').contains(/^FirstClass/).click()
       cy.url().should('include', '/firstclass/FirstClass')
     })
   })
