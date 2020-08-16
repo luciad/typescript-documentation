@@ -7,16 +7,16 @@ describe('Class4 test', () => {
       cy.get(".signature-summary").contains("(")
       cy.get(".signature-summary").contains("string")
 
-      cy.get(".signature-summary").contains(/^Class0$/).click()
+      cy.get(".signature-summary").contains(/^Class0$/).click({force: true})
       cy.url().should('include', '/class0/Class0')
 
       cy.visit('http://localhost:8000/modules/folder1/class4/Class4/function')
-      cy.get(".signature-summary").contains(/^Class1$/).click()
+      cy.get(".signature-summary").contains(/^Class1$/).click({force: true})
       cy.url().should('include', '/class1/Class1')
 
       cy.visit('http://localhost:8000/modules/folder1/class4/Class4/function')
       cy.get(".returns").get("code").contains("null")
-      cy.get(".returns").get("a").contains(/^Class1$/).click()
+      cy.get(".returns").get("a").contains(/^Class1$/).click({force: true})
       cy.url().should('include', '/class1/Class1')
 
       cy.visit('http://localhost:8000/modules/folder1/class4/Callback')

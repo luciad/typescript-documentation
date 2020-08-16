@@ -5,7 +5,7 @@ describe('Class6 test', () => {
 
   cy.get(".kind-string").contains("Class")
   cy.get(".signature-summary").contains("new Class6")
-  cy.get(".signature-summary").get('a').contains('FirstClass').click()
+  cy.get(".signature-summary").get('a').contains('FirstClass').click({force: true})
   cy.url().should('include', '/firstclass/FirstClass')
 
   cy.visit('http://localhost:8000/modules/folder1/class6/Class6/property')

@@ -11,32 +11,32 @@ describe('Class0 test', () => {
       cy.contains("getName() : String")
 
 
-      cy.get('a').contains("This should link to itself").click()
+      cy.get('a').contains("This should link to itself").click({force: true})
       cy.url().should('include', '/class0/Class0/myClass0')
 
       cy.wait(500)
 
-      cy.get('a').contains("folder0/class0/Class0").click()
+      cy.get('a').contains("folder0/class0/Class0").click({force: true})
       cy.url().should('include', '/class0/Class0')
 
-      cy.get('a').contains("Class0.getName").click()
+      cy.get('a').contains("Class0.getName").click({force: true})
       cy.url().should('include', '/class0/Class0/getName')
 
-      cy.get('a').contains("folder0/class0/Class0").click()
+      cy.get('a').contains("folder0/class0/Class0").click({force: true})
       cy.url().should('include', '/class0/Class0')
 
-      cy.get('a').contains(/^getName$/).click()
+      cy.get('a').contains(/^getName$/).click({force: true})
       cy.url().should('include', '/class0/Class0/getName')
 
-      cy.get('a').contains("folder0/class0/Class0").click()
+      cy.get('a').contains("folder0/class0/Class0").click({force: true})
       cy.url().should('include', '/class0/Class0')
 
-      cy.get('a').contains("FirstClass.getName").click()
+      cy.get('a').contains("FirstClass.getName").click({force: true})
       cy.url().should('include', '/firstclass/FirstClass/getName')
 
       cy.visit('http://localhost:8000/modules/folder0/class0/Class0')
 
-      cy.get('.type').get('a').contains(/^FirstClass/).click()
+      cy.get('.type').get('a').contains(/^FirstClass/).click({force: true})
       cy.url().should('include', '/firstclass/FirstClass')
     })
   })
