@@ -165,4 +165,28 @@ exports.createSchemaCustomization = ({ actions }) => {
   createTypes(typeDefs.typeDefs)
 }
 
+/**
+ * https://www.gatsbyjs.com/docs/add-custom-webpack-config/
+ */
+exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
+  const config = getConfig()
+  config.module.rules = [
+    // Omit the default rule where test === '\.jsx?$'
+    ...config.module.rules.filter(
+      rule => String(rule.test) !== String(/\.jsx?$/)
+    ),
+    // Recreate it with custom exclude filter
+    {
+      ...loaders.js(),
+      test: /\.jsx?$/,
+      // Exclude all node_modules from transpilation, except for 't-td'
+      exclude: modulePath =>
+        /node_modules/.test(modulePath) &&
+        !/node_modules\/(l-td)/.test(modulePath),
+    },
+  ]
+  // This will completely replace the webpack config with the modified object.
+  actions.replaceWebpackConfig(config)
+}
+
 exports.onCreateNode = onCreateNode;
