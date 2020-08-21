@@ -35,16 +35,10 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     Example:
 
     ```shell
-    $ ./l-td.sh -i myDocumentation.json -o myOutput -m media -n true -t default -d true
+    $ l-td -i myDocumentation.json -o myOutput -m media -t default -d true
     ```
+    If not installed as npm package, use `./l-td.sh` instead of `l-td`.
 
-    You can also use ```npm run build``` by putting ```--``` before the flags.
-
-    Example:
-
-    ```shell
-    $ npm run build -- -i myDocumentation.json -o myOutput -m media -n true -t default
-    ```
     ### Quick flag explanation
 
     `-i`: input json file. This is the json output of typedoc.
@@ -53,11 +47,13 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     `-m`: media input folder. Using `{@img src:image.jpg; alt:altName}` in your documentation will source these files from this folder.
 
-    `-n`: if  set to true, the script will run `npm install`.
-
     `-t`: theme name. Uses theme with given name from themes/ folder.
 
     `-d`: if set to true, the script will run `gatsby develop` instead of `gatsby build `, which will run the site on `http://localhost:8000`.
+
+    `-s`: snippet input folder. Using `{@snippet path/to/snippet.ext language}` will search both this folder and the media folder for the snippet.
+
+    `-l`: default snippet language: Using `{@snippet path/to/snippet}` with no extension or language specified will use this for highlighting. Default `none`.
 
     # Supported features
     ## In your documentation
@@ -71,6 +67,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     ### Highlighted code
     [prism-js](https://prismjs.com/) is used to highlight code.
+
     To get highlighted code, simply use following syntax:
 
     \```language
@@ -102,7 +99,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     ```
     {@link \"path/to\" nameOfLinkedItem}
     ```
-    or you can also do this:
+    or you can also do this for any parent/child:
     ```
     {@link className.functionName}
     ```
@@ -120,6 +117,8 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     ```
     If no `alt` is specified, src is used as HTML alt attribute.
 
+    Note: a `;` is used to split the parameters.
+
     CSS styling can be provided as follows:
 
     ```
@@ -129,7 +128,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     The image it would take would be located at mediaFolder/path/to/img.jpg.
 
     #### Linking to external snippets
-    You can link to external code snippets. These snippets are files located in the snippet folder (`-s snippetFolder`)or the media folder (`-m mediaFolder`). One snippet shows a complete file. To use external snippets, use the following syntax:
+    You can link to external code snippets. These snippets are files located in the snippet folder (`-s snippetFolder`) or the media folder (`-m mediaFolder`). One snippet shows a complete file. To use external snippets, use the following syntax:
     ```
     {@snippet path/to/snippet.ext language}
     ```
@@ -156,15 +155,15 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     #### Other
 
-    Special characters such as "<" need to be escaped.
+    Special characters such as "<" need to be escaped using `&lt;` (unless used for HTML).
 
     ## Change l-td to your liking
 
     ### Logo
-    The logo in the left sidebar can be changed by putting a file logo.* in your provided media folder (* being the extension).
+    The logo in the left sidebar can be changed by putting a file logo.* in your provided media folder's root (* being the extension).
 
     ### Themes
-    To add an existing theme, simply paste its folder in themes/
+    To add an existing theme, simply paste its folder in themes/ of this project.
 
     To make a new theme, feel free to copy paste themes/default to themes/yourThemeName and change the css.
 
