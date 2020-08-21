@@ -19,17 +19,16 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
 1. **Build the site.**
 
-    Make sure npm is available.
+    Install this npm package.
 
     Flags:
     ```shell
-      -i file/path.json -> specify input json path (optional if run succesfully before)
-      -o folder/path -> specify output folder path (optional, default=public/)
-      -m media/folder -> specify media input folder (optional)
-      -n true -> run npm install (optional, default false)
-      -t themeName -> specify theme path (optional)
-      -d true -> run gatsby develop instead of gatsby build (optional, default false)
-      -s snippet/folder -> specify snippet input folder (optional)
+      -i file/path.json -> specify input json path (relative or absolute)
+      -o folder/path -> specify output folder path (optional, default=public/, relative or absolute)
+      -m media/folder -> specify media input folder (optional, relative or absolute)
+      -t themeName -> specify theme name (optional)
+      -d true -> run development server instead of build (optional, default false)
+      -s snippet/folder -> specify snippet input folder (optional, relative or absolute)
       -l defaultLanguage -> specify default language for snippets with no specified language and no extension
     ```
 
