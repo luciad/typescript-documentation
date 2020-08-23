@@ -13,7 +13,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     Use typedoc to generate a json file from your code, as described [here](https://typedoc.org/api/).
 
     ```shell
-    $ npm install typedoc --save-dev
+    $ npm install typedoc
     $ typedoc --json path/to/output.json path/to/typescript/project/
     ```
 
@@ -169,7 +169,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     #### Hide flags
     Specific flags can be hidden or altered by a theme with css. Each flag with name `flagName` is part of a div with classname `flag_flagName`. An example for hiding the `isExported` flag:
-    ```
+    ```css
     .flag_isExported {
       display: none;
     }
