@@ -1,0 +1,5 @@
+cypress.json
+cypress
+.travis.yml
+.prettierignore
+.prettierrc

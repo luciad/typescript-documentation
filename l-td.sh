@@ -79,7 +79,7 @@ check_var_input()
         fi
         if [  ${INPUT: -5} == ".json" ] || [ ${INPUT: -5} == ".JSON" ]; #if INPUT ends in .json
         then
-            yes | cp -rf inputPath $scriptDir/content/docu.json
+            yes | cp -rf $inputPath $scriptDir/content/docu.json
         else
             echo "[l-td] expected .json file"
             exit 1

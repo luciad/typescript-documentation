@@ -22,12 +22,9 @@
     "test:e2e:ci": "start-server-and-test develop http://localhost:8000 cy:run"
   },
   "dependencies": {
-    "@babel/plugin-syntax-jsx": "^7.10.4",
     "@gatsby-contrib/gatsby-plugin-elasticlunr-search": "^2.4.2",
     "babel-plugin-prismjs": "^2.0.1",
-    "babel-plugin-syntax-jsx": "^6.18.0",
     "babel-preset-gatsby": "^0.4.12",
-    "cypress": "^4.12.1",
     "gatsby": "^2.24.35",
     "gatsby-plugin-local-search": "^1.1.1",
     "gatsby-plugin-manifest": "^2.4.22",
@@ -37,18 +34,19 @@
     "gatsby-source-filesystem": "^2.3.24",
     "gatsby-transformer-json": "^2.4.11",
     "html-react-parser": "^0.10.5",
-    "prettier": "^1.19.1",
     "prismjs": "^1.21.0",
     "react": "^16.13.1",
     "react-dom": "^16.13.1",
     "react-helmet": "^5.2.1",
     "react-use-flexsearch": "^0.1.1",
     "sanitize-html": "^1.27.2",
-    "start-server-and-test": "^1.11.2",
     "typescript": "^3.9.7"
   },
   "devDependencies": {
-    "typedoc": "^0.17.8"
+    "typedoc": "^0.17.8",
+    "prettier": "^1.19.1",
+    "cypress": "^4.12.1",
+    "start-server-and-test": "^1.11.2"
   },
   "repository": {
     "type": "git",
