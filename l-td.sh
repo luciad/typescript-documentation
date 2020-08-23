@@ -145,6 +145,7 @@ display_help(){
     echo "[l-td]   -l defaultLanguage -> specify default language for snippets with no specified language and no extension"
 }
 
+#absolute_path $input $prefix
 absolute_path(){
     if [[ "$1" = /* ]]
     then

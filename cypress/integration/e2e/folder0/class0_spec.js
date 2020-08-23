@@ -22,6 +22,8 @@ describe('Class0 test', () => {
       cy.get('a').contains("Class0.getName").click({force: true})
       cy.url().should('include', '/class0/Class0/getName')
 
+      cy.wait(10)
+
       cy.get('a').contains("folder0/class0/Class0").click({force: true})
       cy.url().should('include', '/class0/Class0')
 
