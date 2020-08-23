@@ -12,7 +12,7 @@ export default class Parameter extends Component {
     return (
       <li key={parameter.name + "_" + parameter.type + "_parameter_entry"}>
       {parameter.flags && parameter.flags.isRest &&
-      <>...</>}
+        <>...</>}
       <b>{parameter.name}</b>
       <i>
         <Type data={parameter} delimiter={parameter.kindString === "Type parameter" ? <>&nbsp;extends </> : <>&nbsp;: </>}/>

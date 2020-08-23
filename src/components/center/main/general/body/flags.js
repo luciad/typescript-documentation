@@ -10,7 +10,8 @@ import Icon from "../../../../general/icon"
 export default ({ data }) => {
   if(!data) return null
   const flagList = getFlags(data)
-
+  if(flagList.length === 0) return null
+  
   return (
     <div className="flags">
       <ul>

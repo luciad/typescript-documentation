@@ -9,7 +9,7 @@ export default ({ data, path }) => {
       <div className="subsubtitle">Type parameters</div>
       <ul>
         {data.typeParameter.map(tp =>
-        <Parameter data={tp} path={path}/>
+          <Parameter data={tp} path={path}/>
         )}
       </ul>
     </div>

@@ -1,4 +1,4 @@
-import React from "react"
+import React, { Component } from "react"
 import Type from "./type/type"
 
 /**
@@ -17,20 +17,23 @@ export default ({ data }) => {
 
   return (
     <div className="links">
-      {LinkTemplate("Extended types", data.extendedTypes)}
-      {LinkTemplate("Extended by", data.extendedBy)}
-      {LinkTemplate("Implemented types", data.implementedTypes)}
-      {LinkTemplate("Implemented by", data.implementedBy)}
-      {LinkTemplate("Implementation of", data.implementationOf)}
-      {LinkTemplate("Inherited from", data.inheritedFrom)}
-    </div>
+      <LinkTemplate title="Extended types" data={data.extendedTypes}/>
+      <LinkTemplate title="Extended by" data={data.extendedBy}/>
+      <LinkTemplate title="Implemented types" data={data.implementedTypes}/>
+      <LinkTemplate title="Implemented by" data={data.implementedBy}/>
+      <LinkTemplate title="Implementation of" data={data.implementationOf}/>
+      <LinkTemplate title="Inherited from" data={data.inheritedFrom}/>
+     </div>
   );
 };
 
-function LinkTemplate(title, data) {
-  if(!data) return null
+class LinkTemplate extends Component {
+  render() {
+    let title = this.props.title
+    let data = this.props.data
+    if(!data) return null
+    const dataList = data.length > 0 ? data : [data]
 
-  const dataList = data.length > 0 ? data : [data]
     return (
       <div>
         <div className="subsubtitle">
@@ -45,4 +48,5 @@ function LinkTemplate(title, data) {
         </ul>
       </div>
     )
+  }
 }
