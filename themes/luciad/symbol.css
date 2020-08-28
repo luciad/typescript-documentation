@@ -1,0 +1,101 @@
+.symbol .item-box{
+    background-color: var(--background-color);
+    box-shadow: none;
+}
+
+.symbol a{
+    text-decoration: none;
+}
+
+.symbol a[href^="/modules/"]{
+    font-family: var(--luciad-code-font-family);
+}
+
+.symbol .title{
+    font-style: normal;
+    padding-top: 0.5em;
+    padding-bottom: 0.3em;
+    font-weight: bold;
+}
+
+.symbol .kind-string{
+    font-style: normal;
+}
+
+.symbol .links .subsubtitle, .symbol .signatures .subsubtitle, .symbol .overwrites .subsubtitle{
+    font-style: normal;
+    font-weight: bold;
+    font-size: 90%;
+}
+
+.symbol .links .itemList, .symbol .children-summary .itemList{
+    margin-top: 5px;
+    margin-bottom: 5px;
+}
+
+.symbol .body-summary .subtitle {
+    font-size: 0px;
+    border-bottom: 1px solid black;
+    margin-bottom: 10px;
+}
+
+.symbol .body-summary .textblock{
+    background-color: var(--background-color);
+    box-shadow: none;
+    border:none;
+}
+
+.symbol .children-summary .subsubtitle{
+    font-style: normal;
+    font-size: 95%;
+    font-weight: bold;
+    color: white;
+    background-color: var(--luciad-green);
+    padding-left: 5px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.symbol .children-summary > .item-list::before{
+    content: "Robin: why is this using buttons and not regular links ? Also consider grouping per type iso a general children (accessor, constructor, ...)";
+}
+
+
+.symbol .children-summary > .item-list li{
+    display: inline-block;
+    width: 33%;
+    margin-top: 5px;
+}
+
+.symbol .children-summary > .item-list li a, .symbol .children-summary > .item-list li button{
+    word-break: break-all;
+    text-align: left;
+}
+
+.symbol .children-summary button {
+    color: var(--luciad-green);
+    font-family: var(--luciad-code-font-family);
+}
+
+.symbol .body .leaf{
+    border: none;
+    background-color: var(--luciad-grey);
+}
+
+.symbol .body div.leaf > div:first-of-type{
+    background-color: var(--luciad-dark-grey);
+    padding-left: 5px;
+    margin-bottom: 5px;
+}
+
+.symbol .body div.leaf .title{
+    font-size:100%;
+}
+
+.symbol .body div.leaf > div:not(first-of-type){
+    background-color: var(--background-color);
+}
+
+.symbol .signatures{
+    border: none;
+}

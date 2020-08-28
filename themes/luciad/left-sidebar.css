@@ -1,0 +1,67 @@
+.left-sidebar {
+    height: 100%;
+    width: var(--left-sidebar-width);
+    position: fixed;
+    top: 0;
+    left: 0;
+    padding-top: 20px;
+    border: thin solid var(--border-color);
+  }
+  
+.left-sidebar h3 {
+    margin: 0.5em;
+    font-size: 25px;
+}
+
+.directories,
+.classes {
+  padding: 0.2em;
+  margin: 0.5em;
+  border: thin solid var(--border-color);
+  height: 35vh;
+  font-size: 12px;
+  overflow: auto;
+  white-space: nowrap;
+  resize: vertical;
+}
+
+.directories a, .classes a {
+    text-decoration: none;
+}
+
+.main-logo img {
+  display: none;
+}
+
+.directory-item {
+  padding: 0;
+  margin: 0;
+  margin-left: 1em;
+  resize: vertical;
+  display: inline-block;
+}
+
+.filter-item {
+  font-size: 70%;
+}
+
+.filter-options {
+  margin: 0;
+}
+
+.filter summary{
+  margin-left:0.5em;
+}
+
+.filter summary h3 {
+  margin-left: 0;
+}
+
+.filter .expanded {
+  margin-left: 1em;
+}
+
+.path-filter input {
+  width: 90%;
+}
+

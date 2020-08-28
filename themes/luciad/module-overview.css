@@ -1,0 +1,11 @@
+.overview .item-box{
+  background-color: var(--background-color);
+  box-shadow: none;
+}
+
+.overview .title{
+  font-style: normal;
+}
+.overview a{
+  text-decoration: none;
+}

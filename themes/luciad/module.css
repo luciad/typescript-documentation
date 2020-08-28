@@ -1,0 +1,51 @@
+.module .item-box{
+    background-color: var(--background-color);
+    box-shadow: none;
+}
+
+.module a{
+    text-decoration: none;
+}
+
+.module .title{
+    font-style: normal;
+    font-weight: bold;
+}
+
+.module .kind-string{
+    font-style: normal;
+    padding-top: 0.5em;
+}
+
+.module .children-summary::before{
+    content: "Robin: Add module documentation here when available";
+}
+
+.module .children-summary::after{
+    content: "Robin: Instead of using 'Children' as title, perhaps group it into classes, functions, interfaces, ...";
+}
+
+.module details{
+    display: none;
+}
+
+.module .subsubtitle{
+    font-style: normal;
+    font-weight: bold;
+}
+
+.module .children-summary a{
+    font-family: var(--luciad-code-font-family);
+}
+
+.module .children-summary > .item-list {
+  font-size: 90%;
+}
+
+.module details .leaf {
+    border: none;
+}
+
+.module .leaf .title{
+    font-family: var(--luciad-code-font-family);
+}
