@@ -59,6 +59,8 @@ class Search extends Component {
     text = this.srcPath.replace(MODULE_PATH_PREFIX + "/", "")
   }
 
+  this.originalText = text
+
   text = text.trim()
     if(text.includes("\"")){
       const startI = text.indexOf("\"") + 1
@@ -97,6 +99,10 @@ class Search extends Component {
     let page = getMostSimilarPage(this.state.results, path, this.text)
     if(!page) {
       if(!(typeof this.state.query === "number")){
+        if(this.state.query.startsWith("http")){
+          const url = this.originalText.split(" ")[0]
+          return <a href={url}>{this.text.length > 0 ? this.text : url}</a>
+        }
         console.warn("[l-td] Link not found on " + this.state.query + "!")
         return (<div className="search-link not-found">{this.text}</div>)
       }else{
