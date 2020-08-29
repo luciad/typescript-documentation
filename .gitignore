@@ -72,3 +72,4 @@ content/
 __snapshots__/
 src/styles/
 cypress/integration/examples/
+static/favicon.ico

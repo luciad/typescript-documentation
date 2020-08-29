@@ -95,11 +95,12 @@ check_var_theme()
     if [ ! -z "$THEME" ] && [ -d "$scriptDir/themes/$THEME" ]
     then
         echo "[l-td] Using theme $THEME"
-         yes | cp -a $scriptDir/themes/$THEME/. $scriptDir/src/styles/
     else
         echo "[l-td] Using default theme"
-         yes | cp -a $scriptDir/themes/default/. $scriptDir/src/styles/
+        THEME="default"
     fi
+    yes | cp $scriptDir/themes/$THEME/favicon.ico $scriptDir/static/favicon.ico || true
+    yes | cp -a $scriptDir/themes/$THEME/. $scriptDir/src/styles/
 }
 
 check_var_media()
