@@ -168,9 +168,25 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     The logo in the left sidebar can be changed by putting a file logo.* in your provided media folder's root (* being the extension).
 
     ### Themes
-    To add an existing theme, simply paste its folder in themes/ of this project.
+    You can specify a theme with the `-t` tag. The program will first look if the specified theme exists in its own /themes/ folder. If not, it checks in the folder where the program is executed (absolute paths also work).
 
-    To make a new theme, feel free to copy paste themes/default to themes/yourThemeName and change the css.
+    eg.
+    ```
+    l-td -t /absolute/path/to/theme
+    ```
+    or
+    ```
+      l-td -t default
+    ```
+    The above uses the built in default theme
+
+    or
+    ```
+      l-td -t myTheme
+    ```
+    The above uses the theme located in relative (from where l-td is running) folder myTheme.
+
+    To make a new theme, feel free to copy themes/default and change the css.
 
     #### Hide flags
     Specific flags can be hidden or altered by a theme with css. Each flag with name `flagName` is part of a div with classname `flag_flagName`. An example for hiding the `isExported` flag:

@@ -92,15 +92,23 @@ check_var_input()
 check_var_theme()
 {
     mkdir -p $scriptDir/src/styles
-    if [ ! -z "$THEME" ] && [ -d "$scriptDir/themes/$THEME" ]
+    themePath=$scriptDir/themes/$THEME
+    if [ ! -z "$THEME" ] && [ -d "$themePath" ] #check if exists in theme folder
     then
-        echo "[l-td] Using theme $THEME"
+        echo "[l-td] Using theme $THEME in $themePath"
     else
-        echo "[l-td] Using default theme"
-        THEME="default"
+        themePath=$(absolute_path $THEME $rundir)
+        if [ ! -z "$THEME" ] && [ -d "$themePath" ] #check if exists somewhere else
+        then
+            echo "[l-td] Using theme in path $themePath"
+        else
+            echo "[l-td] Using default theme"
+            THEME="default"
+            themePath=$scriptDir/themes/$THEME
+        fi
     fi
-    yes | cp $scriptDir/themes/$THEME/favicon.ico $scriptDir/static/favicon.ico || true
-    yes | cp -a $scriptDir/themes/$THEME/. $scriptDir/src/styles/
+    yes | cp $themePath/favicon.ico $scriptDir/static/favicon.ico || true
+    yes | cp -a $themePath/. $scriptDir/src/styles/
 }
 
 check_var_media()
