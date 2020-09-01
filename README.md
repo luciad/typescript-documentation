@@ -56,7 +56,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     `-l`: default snippet language: Using `{@snippet path/to/snippet}` with no extension or language specified will use this for highlighting. Default `none`.
 
-    `-p`: path prefix. eg. if you want to host the site on example.com/docs, use `-p /docs` This has no effect if flag `-d true` is used.
+    `-p`: path prefix. eg. if you want to host the site on example.com/docs, use `-p /docs`. This has no effect if flag `-d true` is used.
 
     # Supported features
     ## In your documentation

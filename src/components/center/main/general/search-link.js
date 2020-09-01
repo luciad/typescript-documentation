@@ -97,17 +97,25 @@ class Search extends Component {
   render() {
     let path = this.srcPath ? this.srcPath : ""
     let page = getMostSimilarPage(this.state.results, path, this.text)
+    // if no page is found
     if(!page) {
-      if(!(typeof this.state.query === "number")){
-        if(this.state.query.startsWith("http")){
-          const url = this.originalText.split(" ")[0]
-          return <a href={url}>{this.text.length > 0 ? this.text : url}</a>
-        }
-        console.warn("[l-td] Link not found on " + this.state.query + "!")
-        return (<div className="search-link not-found">{this.text}</div>)
-      }else{
+      // if the query was on an id
+      if(typeof this.state.query === "number"){
         return <>{this.text}</>
       }
+      // if the link is to a site
+      if(this.state.query.startsWith("http")){
+        const url = this.originalText.split(" ")[0]
+        return <a href={url}>{this.text.length > 0 ? this.text : url}</a>
+      }
+      // if it's a primitive
+      let primitives = ["Boolean", "Number", "String", "BigInt", "Symbol", "undefined", "Object", "Function", "null"]
+      if(primitives.includes(this.state.query)){
+        return <div className="primitive">{this.text}</div>
+      }
+      // else: warn
+      console.warn("[l-td] Link not found on " + this.state.query + "!")
+      return (<div className="search-link not-found">{this.text}</div>)
     }
     return (
       <div className="search-link">
