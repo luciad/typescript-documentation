@@ -13,6 +13,7 @@ module.exports = {
     description: `LuciadRIA API reference`,
     author: `Luciad NV`,
   },
+  pathPrefix: process.env.GATSBY_PREFIX,
   plugins: [
     "gatsby-transformer-json",
     "gatsby-plugin-smoothscroll",

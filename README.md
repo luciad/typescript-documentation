@@ -30,12 +30,13 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
       -d true -> run development server instead of build (optional, default false)
       -s snippet/folder -> specify snippet input folder (optional, relative or absolute)
       -l defaultLanguage -> specify default language for snippets with no specified language and no extension
+      -p prefix -> if hosted in subdirectory, specify the path prefix here
     ```
 
     Example:
 
     ```shell
-    $ l-td -i myDocumentation.json -o myOutput -m media -t default -d true
+    $ l-td -i myDocumentation.json -o myOutput -m media -t default -d true -p /my/subdirectory
     ```
     If not installed as npm package, use `./l-td.sh` instead of `l-td`.
 
@@ -54,6 +55,8 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     `-s`: snippet input folder. Using `{@snippet path/to/snippet.ext language}` will search both this folder and the media folder for the snippet.
 
     `-l`: default snippet language: Using `{@snippet path/to/snippet}` with no extension or language specified will use this for highlighting. Default `none`.
+
+    `-p`: path prefix. eg. if you want to host the site on example.com/docs, use `-p /docs`.
 
     # Supported features
     ## In your documentation

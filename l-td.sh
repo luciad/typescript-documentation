@@ -2,7 +2,7 @@
 
 main()
 {
-    while getopts :i:o:t:m:d:c:s:l: option
+    while getopts :i:o:t:m:d:c:s:l:p: option
     do
         case "${option}"
         in
@@ -14,6 +14,7 @@ main()
             c) COPYONLY=${OPTARG};;
             s) SNIPPETS=${OPTARG};;
             l) DEFAULTLAN=${OPTARG};;
+            p) PREFIX=${OPTARG};;
             \?) echo "[l-td] Invalid option: -$OPTARG" >&2
                 display_help
                 exit 1;;
@@ -35,6 +36,11 @@ main()
         DEFAULTLAN=none
     fi
 
+    if [ -z "$PREFIX" ]
+    then
+        PREFIX=""
+    fi
+
     echo "[l-td] running l-td..."
     npx gatsby clean
     if [ "$COPYONLY" == "true" ]
@@ -47,7 +53,7 @@ main()
             GATSBY_DEFAULT_LAN=$DEFAULTLAN npx gatsby develop
         else
             echo "[l-td] building..."
-            GATSBY_DEFAULT_LAN=$DEFAULTLAN npx gatsby build
+            GATSBY_DEFAULT_LAN=$DEFAULTLAN GATSBY_PREFIX=$PREFIX npx gatsby build --prefix-paths
             echo "[l-td] Finished building l-td!"
         fi
     fi

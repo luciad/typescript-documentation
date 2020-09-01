@@ -13,6 +13,7 @@ const overviewTemplate = require.resolve("./src/components/center/main/template/
 const moduleTemplate = require.resolve("./src/components/center/main/template/module");
 
 console.log("[l-td] Default snippet language: " + process.env.GATSBY_DEFAULT_LAN)
+console.log("[l-td] Prefix: " + process.env.GATSBY_PREFIX)
 
 exports.createPages = ({ actions }) => {
   const { createPage } = actions;
