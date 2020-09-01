@@ -47,7 +47,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     `-m`: media input folder. Using `{@img src:image.jpg; alt:altName}` in your documentation will source these files from this folder.
 
-    `-t`: theme name. Uses theme with given name from themes/ folder.
+    `-t`: theme name or folder.
 
     `-d`: if set to true, the script will run `gatsby develop` instead of `gatsby build `, which will run the site on `http://localhost:8000`.
 
