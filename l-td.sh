@@ -158,6 +158,7 @@ display_help(){
     echo "[l-td]   -d true -> run development server instead of build (optional, default false)"
     echo "[l-td]   -s snippet/folder -> specify snippet input folder (optional, relative or absolute)"
     echo "[l-td]   -l defaultLanguage -> specify default language for snippets with no specified language and no extension"
+    echo "[l-td]   -p prefix -> if hosted in subdirectory, specify the path prefix here (no effect when '-d true' is used)"
 }
 
 #absolute_path $input $prefix
