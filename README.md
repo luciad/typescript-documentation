@@ -179,13 +179,13 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     ```
     or
     ```
-      l-td -t default
+    l-td -t default
     ```
     The above uses the built in default theme
 
     or
     ```
-      l-td -t myTheme
+    l-td -t myTheme
     ```
     The above uses the theme located in relative (from where l-td is running) folder myTheme.
 
