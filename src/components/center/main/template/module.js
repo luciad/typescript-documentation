@@ -24,7 +24,7 @@ export default ({ data }) => {
     <div className="module">
       <Header siteTitle={fixModuleName(module) + " (module)"} />
       <Layout>
-        <Link to="/overview">Overview</Link>
+        <Link to="/">Overview</Link>
         <div className="title">{fixModuleName(module)}</div>
         <div className="sidecontainer">
           <Icon kindString={module.kindString}/>

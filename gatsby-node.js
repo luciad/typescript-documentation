@@ -30,7 +30,7 @@ exports.createPages = ({ actions }) => {
 
   // module list page
   checkAndCreatePage({
-    path: "overview",
+    path: "/",
     component: overviewTemplate,
     context: {
       modules,
@@ -150,7 +150,7 @@ async function onCreateNode({
     let pathToModule = util.MODULE_PATH_PREFIX + "/" + jsonNode.name
     createNode(jsonNode)
     createNodeField({ node: jsonNode, name: "path", value: pathToModule})
-    createNodeField({ node: jsonNode, name: "parentPath", value: "/overview"})
+    createNodeField({ node: jsonNode, name: "parentPath", value: "/"})
     createParentChildLink({ parent: node, child: jsonNode });
 
     // recursively create a symbol for every child
