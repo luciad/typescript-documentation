@@ -99,11 +99,10 @@ summary,
   padding: 0.2em;
   margin: 0.5em;
   border: thin solid var(--border-color);
-  height: auto;
+  height: 70vh;
   font-size: 80%;
   overflow: auto;
   white-space: nowrap;
-  resize: vertical;
 }
 
 .main-logo img {
