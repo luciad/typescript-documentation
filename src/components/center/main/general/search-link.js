@@ -118,7 +118,7 @@ class Search extends Component {
       return (<div className="search-link not-found">{this.text}</div>)
     }
     return (
-      <div className="search-link">
+      <div className="search-link" title={page.kindString}>
             <div className="sidecontainer">
               <Icon kindString={page.kindString}/>
               <Link to={page.path}>{this.text.length > 0 ? this.text : page.name}</Link>
