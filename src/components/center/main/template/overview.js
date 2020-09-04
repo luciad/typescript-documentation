@@ -1,10 +1,11 @@
-import React from "react";
+import React, { Component } from "react";
 import { Link } from "gatsby";
 import Layout from "../../../page-layout";
 import { fixModuleName, pathToModule } from "../../../../util/util";
 import { graphql } from "gatsby";
 import Icon from "../../../general/icon"
 import Header from "../../../general/header"
+import DirectoryList from "../../../left/directory-list"
 
 /**
  * List of all top-level modules
@@ -12,17 +13,58 @@ import Header from "../../../general/header"
  * Contains:
  * - List of links to all modules and their kindString icons
  */
-export default ({ data }) => {
-  if(!data) return null
-  const modules = data.allModule.edges.map(edge => edge.node);
+class Overview extends Component {
+  constructor(props){
+    super(props)
+    this.data = props.data
+    this.state = {
+      listType: "flat"
+    }
+  }
 
-  return (
-    <div className="overview">
-      <Header siteTitle="Module Overview" />
-      <Layout>
-        <div className="title">Module list</div>
+  render(){
+    if(!this.data) return null
+    this.modules = this.data.allModule.edges.map(edge => edge.node);
+
+    this.setListFlat = () =>
+      this.setState({
+        listType: "flat"
+      })
+
+      this.setListTree = () =>
+      this.setState({
+        listType: "tree"
+      })
+
+    return (
+      <div className="overview">
+        <Header siteTitle="Module Overview" />
+        <Layout>
+          <div className="title">Module list</div>
+          <button className="flat-button" onClick={this.setListFlat}>flat</button>
+          <button className="tree-button" onClick={this.setListTree}>tree</button>
+          {this.state.listType === "flat" &&
+            <FlatList modules={this.modules}/>}
+          {this.state.listType === "tree" &&
+            <TreeList/>}
+        </Layout>
+      </div>
+    );
+  }
+}
+export default Overview
+
+class FlatList extends Component {
+  constructor(props){
+    super(props)
+    this.modules = props.modules
+  }
+
+  render(){
+    return (
+      <div className="flat-module-list">
         <ul>
-          {modules.map(module => (
+          {this.modules.map(module => (
             <li key={module.id + "module_entry"}>
               <div className="sidecontainer">
                 <Icon kindString={module.kindString}/>
@@ -31,10 +73,20 @@ export default ({ data }) => {
             </li>
           ))}
         </ul>
-      </Layout>
-    </div>
-  );
-};
+      </div>
+    )
+  }
+}
+
+class TreeList extends Component {
+  render(){
+    return(
+      <div className="tree-module-list">
+        <DirectoryList/>
+      </div>
+    )
+  }
+}
 
 export const query = graphql`
   query AllModulesQuery {
