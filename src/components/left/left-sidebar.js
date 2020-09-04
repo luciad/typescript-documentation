@@ -11,7 +11,7 @@ export default () => {
 
   return (
   <div className="left-sidebar">
-    <Link to="/overview">
+    <Link to="/">
       <div className="main-logo">
         <Image data={logoData}/>
       </div>
