@@ -1,7 +1,7 @@
 :root {
   /* SIDEBAR WIDTH */
   --left-sidebar-width: 20%;
-  --right-sidebar-width: 15%;
+  --right-sidebar-width: 0%;
   /* COLORS */
   --sidebar-color: whitesmoke;
   --card-color: whitesmoke;
