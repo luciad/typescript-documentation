@@ -3,7 +3,7 @@ describe('Class0 test', () => {
     it('Searches class0 page for expected contents, mostly @link tests as well as some html parsing tests', () => {
       cy.visit('http://localhost:8000/modules/folder0/class0/Class0')
 
-      cy.contains('Directories')
+
       cy.contains("Legend")
       cy.get('p').get('i').contains("Class")
       cy.get('p').get('b').contains("0")

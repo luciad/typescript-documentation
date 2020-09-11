@@ -3,7 +3,7 @@ describe('Class2 test', () => {
     it('Searches Class2 and AbstractClass2 page for expected contents, mostly flags', () => {
       cy.visit('http://localhost:8000/modules/folder0/class2/Class2/variable')
 
-      cy.contains('Directories')
+
       cy.contains("Legend")
 
       cy.get(".flag_isExported").contains("isExported")
