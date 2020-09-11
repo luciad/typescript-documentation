@@ -100,12 +100,7 @@ export const query = graphql`
     allModule {
       edges {
         node {
-          name
-          kindString
-          id
-          comment {
-            shortText
-          }
+        ...moduleFields
         }
       }
     }

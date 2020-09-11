@@ -7,7 +7,13 @@ const typeDefs = `
       name: String!
       kindString: String!
       children: [Symbol!]
+      groups: [groupsField!]
       comment: commentField
+    }
+
+    type groupsField {
+      title: String!
+      children: [Int]
     }
 
     type Symbol implements Node {
@@ -15,6 +21,7 @@ const typeDefs = `
       kindString: String!
       id: ID!
       children: [Symbol!]
+      groups: [groupsField]
       comment: commentField
       flags: flagsField
       defaultValue: String

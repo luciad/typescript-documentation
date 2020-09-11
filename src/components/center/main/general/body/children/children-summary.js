@@ -17,30 +17,35 @@ export default ({ data }) => {
   const children = data.children
   if(!children || children.length ===  0) return null
   let exportIds = data.exports ? data.exports.map(exp => exp.id) : []
-
   return (
     <div className="children-summary">
-      <div className="subsubtitle">Children</div>
-      <ul className="item-list">
-        {children.map(child => {
-          if(exportIds.includes(child.id)) // if child is exported, a link to the child is included.
-            return (
-              <li key={child.id + "_child_summary_entry"}>
-                <SearchLink data={{text: child.name, id: child.id}}/>
-              </li>
-            )
-            return (  // if child is not exported, clicking on its name will scroll to its body on the same page
-              <li key={child.id + "_child_summary_entry_noexport"}>
-              <div className="sidecontainer">
-              <Icon kindString={child.kindString}/>
-                <button className="clickable-text" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>
-                  {child.name}
-                </button>
+        {data.groups.map(group => (
+            <div className="group">
+              <div className="subtitle">
+                {group.title}
               </div>
-            </li>
-            )
-        })}
-      </ul>
+              <ul className="item-list">
+                {group.children.map(childID => {
+                  const child = children.find(child => (child.id == childID))
+                  if(exportIds.includes(child.id)) // if child is exported, a link to the child is included.
+                    return (
+                    <li key={child.id + "_child_summary_entry"}>
+                      <SearchLink data={{text: child.name, id: child.id}}/>
+                    </li>)
+                  return (  // if child is not exported, clicking on its name will scroll to its body on the same page
+                    <li key={child.id + "_child_summary_entry_noexport"}>
+                    <div className="sidecontainer">
+                    <Icon kindString={child.kindString}/>
+                      <button className="clickable-text" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>
+                        {child.name}
+                      </button>
+                    </div>
+                  </li>
+                  )
+                })}
+              </ul>
+            </div>
+        ))}
     </div>
   )
 }

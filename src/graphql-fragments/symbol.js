@@ -199,6 +199,10 @@ export const simpleSymbolFields = graphql`
     id
     defaultValue
     target
+    groups {
+      title
+      children
+    }
     fields {
       path
       parentPath
