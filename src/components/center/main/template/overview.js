@@ -5,7 +5,7 @@ import { fixModuleName, pathToModule } from "../../../../util/util";
 import { graphql } from "gatsby";
 import Icon from "../../../general/icon"
 import Header from "../../../general/header"
-import DirectoryList from "../../../left/directory-list"
+import DirectoryList from "../general/directory-tree/directory-list"
 
 /**
  * List of all top-level modules

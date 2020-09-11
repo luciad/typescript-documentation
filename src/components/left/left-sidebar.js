@@ -1,7 +1,6 @@
 import React from 'react'
 import { Link } from "gatsby"
 import FilterList from "./filter-list"
-import DirectoryList from "./directory-list"
 import Image from "../general/image"
 
 export default () => {
@@ -16,7 +15,6 @@ export default () => {
         <Image data={logoData}/>
       </div>
     </Link>
-    <DirectoryList/>
     <FilterList/>
   </div>
   )
