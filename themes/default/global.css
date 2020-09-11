@@ -403,3 +403,19 @@ p {
   margin: 2px;
   cursor: pointer;
 }
+
+.flat-module-list table {
+  border-collapse: collapse;
+  width: 100%;
+  table-layout: fixed;
+}
+
+.flat-module-list td {
+  border: 1px solid #dddddd;
+  padding: 3px 0.5em 3px 0.5em;
+  word-wrap: break-word;
+}
+
+.flat-module-list tr:nth-child(even) {
+  background-color: #dddddd;
+}

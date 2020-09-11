@@ -6,6 +6,7 @@ import { graphql } from "gatsby";
 import Icon from "../../../general/icon"
 import Header from "../../../general/header"
 import DirectoryList from "../general/directory-tree/directory-list"
+import Text from "../general/text"
 
 /**
  * List of all top-level modules
@@ -63,16 +64,22 @@ class FlatList extends Component {
   render(){
     return (
       <div className="flat-module-list">
-        <ul>
+        <table>
           {this.modules.map(module => (
-            <li key={module.id + "module_entry"}>
-              <div className="sidecontainer">
-                <Icon kindString={module.kindString}/>
-                <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
-              </div>
-            </li>
+            <tr key={module.id + "module_entry"}>
+              <td>
+                <div className="sidecontainer">
+                  <Icon kindString={module.kindString}/>
+                  <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
+                </div>
+              </td>
+              <td>
+                {module.comment &&
+                  <Text data={module.comment.shortText}/>}
+              </td>
+            </tr>
           ))}
-        </ul>
+        </table>
       </div>
     )
   }
@@ -96,6 +103,9 @@ export const query = graphql`
           name
           kindString
           id
+          comment {
+            shortText
+          }
         }
       }
     }
