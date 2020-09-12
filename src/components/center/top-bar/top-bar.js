@@ -1,25 +1,19 @@
 import React from "react"
-import { StaticQuery, graphql } from "gatsby"
+import { Link } from "gatsby"
 import Search from "./search"
+import Image from "../../general//image"
 
 export default () => {
+  let logoData = {
+    text:("src:logo.*; alt:logo")
+  }
+
   return (
-    <StaticQuery
-    query={graphql`
-      query SearchIndexQuery {
-        siteSearchIndex {
-          index
-        }
-      }
-    `}
-    render={data => (
-      <>
-        <div className="top-bar">
-          <Search searchIndex={data.siteSearchIndex.index}/>
-        </div>
-        <div className="top-bar-space"></div>
-      </>
-    )}
-  />
+    <div className="top-bar">
+    <Link to="/" className="main-logo">
+        <Image data={logoData}/>
+    </Link>
+      <Search/>
+    </div>
   )
 }

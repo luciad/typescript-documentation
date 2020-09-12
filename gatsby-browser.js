@@ -1,11 +1,1 @@
-//import "./src/styles/global.css"
-// require("./src/styles/global.css")
-// require("./src/styles/collapsible.css")
 require("./src/styles")
-const React = require("react")
-const LeftSideBar = require("./src/components/left/left-sidebar").default
-
-// This keeps te left sidebar persistent:
-exports.wrapPageElement = ({ element, props }) => {
-  return <><LeftSideBar {...props}/>{element}</>
-}

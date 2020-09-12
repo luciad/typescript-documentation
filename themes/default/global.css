@@ -1,6 +1,6 @@
 :root {
   /* SIDEBAR WIDTH */
-  --left-sidebar-width: 20%;
+  --left-sidebar-width: 0%;
   --right-sidebar-width: 0%;
   /* COLORS */
   --sidebar-color: whitesmoke;
@@ -85,43 +85,6 @@ tr:nth-child(even) {
   background-color: #dddddd;
 }
 
-/* SIDEBARS - GENERAL */
-.right-sidebar,
-.left-sidebar {
-  height: 100%;
-  width: var(--left-sidebar-width);
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: var(--sidebar-color);
-  padding-top: 20px;
-  border: thin solid var(--border-color);
-  font-size: 150%;
-}
-
-.right-sidebar{
-  width: var(--right-sidebar-width);
-  left: calc(100% - var(--right-sidebar-width));
-}
-
-.right-sidebar h3,
-.left-sidebar h3 {
-  margin: 0.5em;
-  font-size: 25px;
-}
-
-/* SIDEBAR - LEFT */
-.classes {
-  padding: 0.2em;
-  margin: 0.5em;
-  border: thin solid var(--border-color);
-  height: 35vh;
-  font-size: 80%;
-  overflow: auto;
-  white-space: nowrap;
-  resize: vertical;
-}
-
 .main-logo img {
   display: block;
   margin: auto;
@@ -141,27 +104,12 @@ tr:nth-child(even) {
   font-size: 70%;
 }
 
-.filter-options {
-  margin: 0;
-}
-
-.filter summary{
-  margin-left:0.5em;
-}
-
-.filter summary h3 {
-  margin-left: 0;
-}
-
-.filter .expanded {
-  margin-left: 1em;
-}
-
-.path-filter input {
-  width: 90%;
-}
 
 /* SIDEBAR - RIGHT */
+.right-sidebar {
+  display: none;
+}
+
 .legend {
   list-style-type: none;
   word-break: break-all;
@@ -219,21 +167,20 @@ height: 4em;
 .top-bar{
   display: flex;
   margin: 1em;
-  margin-left: 30%;
+  padding: 1em;
   padding: 0.2em 0.5em 0.2em 0.5em;
-  width: 30%;
+  width: auto;
   background-color: var(--background-color);
   box-shadow: 0 4px 8px 0 var(--shadow-color);
-  position: fixed;
-  z-index: 100;
   border-radius: 0.5em;
 }
 
 .search{
   font-size: 110%;
   height: 1.2em;
-  width: 97%;
-  margin: 0.5em auto 0.5em auto;
+  width: 24em;
+  max-width: 80%;
+  margin: auto 1em 0.5em auto;
 }
 
 .search input {
@@ -249,6 +196,7 @@ height: 4em;
   background-color: var(--background-color);
   max-height: 80vh;
   overflow-y: scroll;
+  word-wrap: break-word;
   width: 100%;
   padding: 0;
 }

@@ -34,7 +34,7 @@ export default ({ data }) => {
                     </li>)
                   return (  // if child is not exported, clicking on its name will scroll to its body on the same page
                     <li key={child.id + "_child_summary_entry_noexport"}>
-                    <div className="sidecontainer">
+                    <div className="sidecontainer" title={child.kindString}>
                     <Icon kindString={child.kindString}/>
                       <button className="clickable-text" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>
                         {child.name}

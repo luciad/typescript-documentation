@@ -2,41 +2,77 @@ import React, { Component } from "react"
 import { Index } from "elasticlunr"
 import { Link } from "gatsby"
 import Icon from "../../general/icon"
-import { MODULE_PATH_PREFIX } from "../../../util/util"
+import { graphql, StaticQuery } from "gatsby"
 
 // Search component
 export default class Search extends Component {
-  constructor(props) {
-    super(props)
-    this.state = {
-      query: ``,
-      results: [],
-    }
+
+  kindStringFilterDefaultOn = [
+    "Function",
+    "Class",
+    "Interface",
+    "Method"
+  ]
+
+  state = {
+      kindStringFilter: [...this.kindStringFilterDefaultOn],
+      pathFilter: ""
   }
 
   render() {
     return (
       <div  className="search" placeholder="search">
-        <input type="text" value={this.state.query} onChange={this.search} placeholder="search" aria-label="search"/>
-        <ul>
-          {this.state.results.splice(0,400).map(page => ( //Gets really slow if the second number of splice is too large
-            <li key={page.id + "_search_entry"}>
-              <div className="sidecontainer">
-                <Icon kindString={page.kindString}/>
-                <Link to={page.path}>{page.name}</Link>
-              </div>
-              <div className="break-word">
-                {page.path.replace(MODULE_PATH_PREFIX + "/", "")}
-              </div>
-            </li>
-          ))}
-        </ul>
+        <input type="text" value={this.state.pathFilter} onChange={this.search} placeholder="search" aria-label="search"/>
+          {this.state.pathFilter && <StaticQuery
+            query={graphql`
+              query searchResultQuery {
+                allSymbol(sort: {fields: name}) {
+                  nodes {
+                    kindString
+                    name
+                    id
+                    fields {
+                      path
+                    }
+                  }
+                }
+              }
+            `}
+            render={(data) => (
+              <ul>
+                {data.allSymbol.nodes.sort(function (a, b) {
+                    return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+                  }).map(node =>
+                {
+                  if(!this.passesFilter(node)) return null
+
+                    return (
+                      <li key={node.id + "_filterlist_entry"}>
+                      <div className="sidecontainer" title={node.kindString}>
+                        <Icon kindString={node.kindString}/>
+                        <Link to={node.fields.path}>{node.name}</Link>
+                      </div>
+                      {node.fields.path.replace("/modules/", "")}
+                      </li>
+                  )})}
+              </ul>
+            )}
+          />}
       </div>
     )
   }
-  getOrCreateIndex = () =>
-    this.index ? this.index :  Index.load(this.props.searchIndex)
 
+  search = evt => {
+    const pathFilter = evt.target.value
+    this.setState({
+      pathFilter
+    })
+  }
+
+    passesFilter = (node) => {
+      return this.state.kindStringFilter.includes(node.kindString) && node.fields.path.toLowerCase().includes(this.state.pathFilter.toLowerCase())
+    }
+/*
   search = evt => {
     const query = evt.target.value
     this.index = this.getOrCreateIndex()
@@ -48,5 +84,5 @@ export default class Search extends Component {
         // Map over each ID and return the full document
         .map(({ ref }) => this.index.documentStore.getDoc(ref)),
     })
-  }
+  }*/
 }
