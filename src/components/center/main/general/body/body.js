@@ -54,12 +54,26 @@ class Expansion extends Component {
 class Leaves extends Component {
   render() {
     const data=this.props.data
-    if(!data.children) return null
+    const children = data.children
+    if(!children || children.length === 0 || !data.groups) return null
 
-    return (
-      data.children.map(child => (
-        <Leaf data={child} key={child.id}/>
+    return(
+      data.groups.map(group => (
+        <div className="leaf-group">
+          <div className="subtitle">{group.title}</div>
+          {group.children.map(childID => {
+                  const child = children.find(child => (child.id == childID))
+                  return (
+                    <Leaf data={child} key={child.id}/>
+                  )
+          })}
+        </div>
       ))
     )
+    // return (
+    //   data.children.map(child => (
+    //     <Leaf data={child} key={child.id}/>
+    //   ))
+    // )
   }
 }

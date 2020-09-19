@@ -50,7 +50,7 @@ export default ({ data }) => {
             Target: <SearchLink data={{text: "", id: data.target}}/>
           </div>}
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
-        <div className="subtitle">About</div>}
+        <><hr/><div className="subtitle">About</div></>}
 
       <Text data={comments.shortText} path={path}/>
       <Text data={comments.text} path={path}/>
@@ -60,6 +60,7 @@ export default ({ data }) => {
       <Tags tags={comments.tags}/>
       <Signatures data={data} path={path}/>
       <ChildrenSummary data={data}/>
+      <hr/>
     </div>
   )
 }

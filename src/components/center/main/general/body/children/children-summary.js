@@ -21,7 +21,7 @@ export default ({ data }) => {
     <div className="children-summary">
         {data.groups.map(group => (
             <div className="group">
-              <div className="subtitle">
+              <div className="subsubtitle">
                 {group.title}
               </div>
               <ul className="item-list">
