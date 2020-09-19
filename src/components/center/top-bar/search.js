@@ -38,25 +38,29 @@ export default class Search extends Component {
                 }
               }
             `}
-            render={(data) => (
-              <ul>
-                {data.allSymbol.nodes.sort(function (a, b) {
-                    return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
-                  }).map(node =>
-                {
-                  if(!this.passesFilter(node)) return null
+            render={data => {
+              let results = data.allSymbol.nodes.filter(a => this.passesFilter(a))
+              results = results.sort((a, b) => {
+                const filter = this.state.pathFilter.toLowerCase()
+                if(b.name.toLowerCase().includes(filter) && !a.name.toLowerCase().includes(filter)) return 1
+                if(a.name.toLowerCase().includes(filter) && !b.name.toLowerCase().includes(filter)) return -1
+                return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+              })
 
-                    return (
-                      <li key={node.id + "_filterlist_entry"}>
-                      <div className="sidecontainer" title={node.kindString}>
-                        <Icon kindString={node.kindString}/>
-                        <Link to={node.fields.path}>{node.name}</Link>
-                      </div>
-                      {node.fields.path.replace("/modules/", "")}
-                      </li>
-                  )})}
+              return(
+              <ul>
+                {results.map(node =>
+                (
+                  <li key={node.id + "_filterlist_entry"}>
+                    <div className="sidecontainer" title={node.kindString}>
+                      <Icon kindString={node.kindString}/>
+                      <Link to={node.fields.path}>{node.name}</Link>
+                    </div>
+                    {node.fields.path.replace("/modules/", "")}
+                  </li>
+                ))}
               </ul>
-            )}
+              )}}
           />}
       </div>
     )
@@ -72,17 +76,4 @@ export default class Search extends Component {
     passesFilter = (node) => {
       return this.state.kindStringFilter.includes(node.kindString) && node.fields.path.toLowerCase().includes(this.state.pathFilter.toLowerCase())
     }
-/*
-  search = evt => {
-    const query = evt.target.value
-    this.index = this.getOrCreateIndex()
-    this.setState({
-      query,
-      // Query the index with search string to get an [] of IDs
-      results: this.index
-        .search(query, { expand: true, bool: "AND" })
-        // Map over each ID and return the full document
-        .map(({ ref }) => this.index.documentStore.getDoc(ref)),
-    })
-  }*/
 }
