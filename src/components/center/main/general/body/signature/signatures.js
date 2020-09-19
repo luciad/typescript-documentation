@@ -15,8 +15,6 @@ export default ({ data, path}) => {
 
   return (
     <div className="signatures">
-     {signatures.length !== 0 &&
-        <div className="subsubtitle">Signatures</div>}
       <ul className="signature-list">
         {signatures.map((signature, i) => (
           <>

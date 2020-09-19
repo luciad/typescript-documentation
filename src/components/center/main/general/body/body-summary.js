@@ -62,7 +62,6 @@ export default ({ data }) => {
       <Tags tags={comments.tags}/>
       <Signatures data={data} path={path}/>
       <ChildrenSummary data={data}/>
-      <hr/>
     </div>
   )
 }

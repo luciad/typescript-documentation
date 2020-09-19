@@ -4,7 +4,7 @@
   --right-sidebar-width: 0%;
   /* COLORS */
   --sidebar-color: whitesmoke;
-  --card-color: whitesmoke;
+  --card-color: rgb(249, 249, 249);
   --border-color: rgb(187, 187, 187);
   --background-color: white;
   --text-color-main: rgb(46, 46, 46);
@@ -131,12 +131,9 @@ tr:nth-child(even) {
 }
 
 /* CENTER - SIGNATURES */
-.signature-list {
-  padding-left: 2em;
-}
-
 .signature-list ul {
   list-style-type: disc;
+  margin-left: 0;
 }
 
 .signature {
@@ -223,14 +220,24 @@ height: 4em;
   padding-left: 2em;
 }
 
-.children-summary
-.leaf {
+.children-summary {
   border: thin solid var(--border-color);
   margin: 1em;
   margin-left: 0;
   padding: 0.5em;
   padding-left: 1em;
   font-size: 95%;
+}
+
+.leaf {
+  border: thin solid rgb(210,210,210);
+  box-shadow: 0 4px 8px 0 var(--shadow-color);
+  margin: 1em;
+  margin-left: 0;
+  padding: 0.5em;
+  padding-left: 1em;
+  font-size: 95%;
+  background-color: whitesmoke;
 }
 
 .title {

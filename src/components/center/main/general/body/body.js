@@ -58,7 +58,9 @@ class Leaves extends Component {
     if(!children || children.length === 0 || !data.groups) return null
 
     return(
-      data.groups.map(group => (
+      <>
+      <hr/>
+      {data.groups.map(group => (
         <div className="leaf-group">
           <div className="subtitle">{group.title}</div>
           {group.children.map(childID => {
@@ -68,7 +70,8 @@ class Leaves extends Component {
                   )
           })}
         </div>
-      ))
+      ))}
+    </>
     )
   }
 }
