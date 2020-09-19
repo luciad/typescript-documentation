@@ -3,7 +3,7 @@ import { getComments } from "../../../../../util/util"
 import ChildrenSummary from "./children/children-summary"
 import Flags from "./flags"
 import Signatures from "./signature/signatures"
-import Links from "./links"
+import References from "./references"
 import Text from "../text"
 import Tags from "./tags"
 import Overwrites from "./overwrites"
@@ -43,7 +43,7 @@ export default ({ data }) => {
           <ul><li><Overwrites data={data}/></li></ul>
         </div>}
       <Flags data={data}/>
-      <Links data={data}/>
+      <References data={data}/>
 
         {data.target &&
           <div className="target">
