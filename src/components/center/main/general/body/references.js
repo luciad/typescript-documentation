@@ -34,7 +34,7 @@ class ReferenceTemplate extends Component {
     if(!data) return null
     let dataList = data.length > 0 ? data : [data]
     dataList = dataList.sort((a, b) => {
-      return a.name.toLowerCase() > b.name.toLowerCase() ? 1 : -1
+      return a.name.toLowerCase().localeCompare(b.name.toLowerCase())
     })
 
     return (
