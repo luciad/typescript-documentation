@@ -10,7 +10,7 @@
   --text-color-main: rgb(46, 46, 46);
   --text-color-link: darkblue;
   --shadow-color: rgba(0,0,0,0.15);
-  --textblock-background: rgba(0,0,0,0.02);
+  --textblock-background: rgba(0,0,0,0.05);
 }
 
 /* GENERAL */
@@ -273,8 +273,6 @@ p {
 .textblock {
   background: var(--textblock-background);
   padding: 10px;
-  border: solid thin var(--shadow-color);
-  border-radius: 5px;
   max-width: 100%;
   overflow-x: auto;
 }
