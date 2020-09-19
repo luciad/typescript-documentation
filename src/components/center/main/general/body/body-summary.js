@@ -51,9 +51,11 @@ export default ({ data }) => {
           </div>}
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
         <><hr/><div className="subtitle">About</div></>}
-
-      <Text data={comments.shortText} path={path}/>
-      <Text data={comments.text} path={path}/>
+      {!data.getSignature && !data.setSignature && (!data.signatures || data.signatures.length === 0) &&
+      <>
+        <Text data={comments.shortText} path={path}/>
+        <Text data={comments.text} path={path}/>
+      </>}
 
       <TypeParameters data={data} path={path}/>
       <TypeComments data={data} path={path}/>

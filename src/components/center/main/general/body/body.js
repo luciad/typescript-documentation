@@ -70,10 +70,5 @@ class Leaves extends Component {
         </div>
       ))
     )
-    // return (
-    //   data.children.map(child => (
-    //     <Leaf data={child} key={child.id}/>
-    //   ))
-    // )
   }
 }
