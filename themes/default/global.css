@@ -131,9 +131,9 @@ tr:nth-child(even) {
 }
 
 /* CENTER - SIGNATURES */
-.signature-list ul {
-  list-style-type: disc;
+.signature-list {
   margin-left: 0;
+  padding-left: 1em;
 }
 
 .signature {
@@ -351,7 +351,7 @@ p {
 	font: inherit;
   outline: inherit;
   cursor: pointer;
-  color: #069;
+  color: rgb(2, 85, 126);
   text-decoration: underline;
 }
 

@@ -21,7 +21,7 @@ export default ({ data, path}) => {
   if(!data || !path) return null
   const comments = getComments(data)
   if(!comments) return null
-  
+
   return (
     <div className="signature" key={data.id + "_signature"}>
       <div className="sidecontainer">
@@ -30,10 +30,10 @@ export default ({ data, path}) => {
         </div>
         <div className="kind-string">
           {data.type !== null &&
-            <>(<Type data={data}/>) &nbsp;</>}
-              {data.kindString}
+            <>: <Type data={data}/> &nbsp;</>}
         </div>
       </div>
+      {data.kindString}
       <Tags tags={comments.tags}/>
 
       <div className="signature-body">
