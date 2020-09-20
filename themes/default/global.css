@@ -351,6 +351,8 @@ p {
 	font: inherit;
   outline: inherit;
   cursor: pointer;
+  color: #069;
+  text-decoration: underline;
 }
 
 .directory-item {
