@@ -16,7 +16,7 @@ describe('Class0 test', () => {
 
       cy.wait(500)
 
-      cy.get('a').contains("folder0/class0/Class0").click({force: true})
+      cy.get('a').contains(/^Class0$/).click({force: true})
       cy.url().should('include', '/class0/Class0')
 
       cy.wait(50)
@@ -26,13 +26,13 @@ describe('Class0 test', () => {
 
       cy.wait(10)
 
-      cy.get('a').contains("folder0/class0/Class0").click({force: true})
+      cy.get('a').contains(/^Class0$/).click({force: true})
       cy.url().should('include', '/class0/Class0')
 
       cy.get('a').contains(/^getName$/).click({force: true})
       cy.url().should('include', '/class0/Class0/getName')
 
-      cy.get('a').contains("folder0/class0/Class0").click({force: true})
+      cy.get('a').contains(/^Class0$/).click({force: true})
       cy.url().should('include', '/class0/Class0')
 
       cy.get('a').contains("FirstClass.getName").click({force: true})

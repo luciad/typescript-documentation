@@ -13,7 +13,7 @@ import SymbolTitle from "../../../symbol-title"
  */
 export default ({ data }) => {
   if(!data) return null
-  console.log(data)
+  
   return (
     <div className="leaf" id={"id" + data.id} key={data.id + "_leaf"}>
       <div>

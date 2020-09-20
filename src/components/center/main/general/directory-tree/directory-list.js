@@ -6,7 +6,7 @@ import DirectoryTree from "./directory-tree"
 /**
  * recursive list of directories
  */
-export default () => {
+export default ({expand}) => {
   return (
     <div className="directory-list">
       <article className="directories">
@@ -23,7 +23,7 @@ export default () => {
           render={(
             data
           ) => (
-              <DirectoryTree directories={getAllDirectories(data)}/>
+              <DirectoryTree directories={getAllDirectories(data)} expand={expand}/>
           )}
         />
       </article>

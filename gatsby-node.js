@@ -5,12 +5,14 @@
  */
 const fs = require("fs")
 const util = require("./src/util/util");
+const utilDirectory = require("./src/util/directory")
 const typeDefs = require("./type-defs")
 const documentation = require("./content/docu.json");
 const documentationPath = require.resolve("./content/docu.json");
 const symbolTemplate = require.resolve("./src/components/center/main/template/symbol");
 const overviewTemplate = require.resolve("./src/components/center/main/template/overview");
 const moduleTemplate = require.resolve("./src/components/center/main/template/module");
+const directoryTreeTemplate = require.resolve("./src/components/center/main/template/directoryTree");
 
 console.log("[l-td] Default snippet language: " + process.env.GATSBY_DEFAULT_LAN)
 console.log("[l-td] Prefix: " + process.env.GATSBY_PREFIX)
@@ -54,6 +56,21 @@ exports.createPages = ({ actions }) => {
     const exports = module.children;
     createAllPages(checkAndCreatePage, exports, modulePath, String(module.id))
   });
+
+  //pages for breadcrumbs
+  const allDirectories = utilDirectory.getAllDirectories({allModule: {nodes: modules}})
+  allDirectories.next.forEach(tree => createDirectoryPages(tree, allDirectories))
+
+  function createDirectoryPages(directoryTree, allDirectories){
+    if(!directoryTree || !directoryTree.path) return null
+    checkAndCreatePage({
+      path: directoryTree.path.replace(/\"/g, "").replace(".d", ""),
+      component: directoryTreeTemplate,
+      context: {
+       completeTree: allDirectories
+      }})
+      directoryTree.next.forEach(tree => createDirectoryPages(tree, allDirectories))
+  }
 };
 
 async function createAllPages(checkAndCreatePage, exports, path, moduleID){
