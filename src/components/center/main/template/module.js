@@ -30,7 +30,7 @@ export default ({ data }) => {
           <Icon kindString={module.kindString}/>
           <div className="kind-string">{module.kindString}</div>
         </div>
-        <Body data={module} requireExpand={true}/>
+        <Body data={module} shortListOnly={true}/>
       </Layout>
     </div>
   );

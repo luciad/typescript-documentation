@@ -26,7 +26,7 @@ import SearchLink from "../search-link";
  * - summary of its children (see children-summary.js)
  *
  */
-export default ({ data }) => {
+export default ({ data, noChildrenSummary }) => {
   if(!data) return null
   const comments = getComments(data)
   let path = data.fields ? data.fields.path : ""
@@ -61,7 +61,8 @@ export default ({ data }) => {
       <TypeComments data={data} path={path}/>
       <Tags tags={comments.tags}/>
       <Signatures data={data} path={path}/>
-      <ChildrenSummary data={data}/>
+      {!noChildrenSummary &&
+        <ChildrenSummary data={data}/>}
     </div>
   )
 }

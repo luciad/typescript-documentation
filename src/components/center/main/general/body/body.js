@@ -10,19 +10,14 @@ import Leaf from "../body/children/leaf"
  * - body summary (see body-summary.js)
  * - leaf of each child (see leaf.js)
  */
-export default ({ data, requireExpand }) => {
+export default ({ data, shortListOnly }) => {
   if(!data) return null
 
   return (
     <div className="body">
-      <BodySummary data={data}/>
-      {requireExpand
-      ?   <details>
-              <summary>
-                Expand children
-              </summary>
-            <Expansion data={data}/>
-            </details>
+      <BodySummary data={data} noChildrenSummary={shortListOnly}/>
+      {shortListOnly
+      ?   <Expansion data={data}/>
       : <Leaves data={data}/>}
     </div>
   );
@@ -31,22 +26,34 @@ export default ({ data, requireExpand }) => {
 class Expansion extends Component {
   render() {
     const data=this.props.data
-    if(!data.children) return null
+    const children = data.children
+    if(!children || children.length === 0 || !data.groups) return null
 
-    return (
-      <table>
-        {data.children.map(child => (
-          <tr>
-            <td>
-              <SearchLink data={{text: child.name, id: child.id}}/>
-            </td>
-            <td>
-              {child.comment &&
-                <Text data={child.comment.shortText}/>}
-            </td>
-          </tr>
-        ))}
-      </table>
+    return(
+      <>
+      <hr/>
+      {data.groups.map(group => (
+        <div className="table-group" key={group.title + "_" + group.children.size}>
+          <br/>
+          <div className="subtitle">{group.title}</div>
+          <table>
+            {group.children.map(childID => {
+              const child = children.find(child => (child.id == childID))
+              return (
+                <tr>
+                  <td>
+                    <SearchLink data={{text: child.name, id: child.id}}/>
+                  </td>
+                  <td>
+                    {child.comment &&
+                      <Text data={child.comment.shortText}/>}
+                  </td>
+                </tr>
+              )})}
+          </table>
+        </div>
+      ))}
+    </>
     )
   }
 }
