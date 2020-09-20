@@ -61,7 +61,7 @@ class Leaves extends Component {
       <>
       <hr/>
       {data.groups.map(group => (
-        <div className="leaf-group">
+        <div className="leaf-group" key={group.title + "_" + group.children.size}>
           <div className="subtitle">{group.title}</div>
           {group.children.map(childID => {
                   const child = children.find(child => (child.id == childID))

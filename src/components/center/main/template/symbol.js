@@ -65,10 +65,10 @@ class BreadCrumbs extends Component {
     return(
       <div className="breadcrumbs sidecontainer">
         {splitPath.map((path, i) =>
-        <>
+        <div key={path + "_" + splitLink[i]}>
         {i > 0 && <>&nbsp;{">"}&nbsp;</>}
         <Link to={splitLink[i]}>{path}</Link>
-        </>)}
+        </div>)}
       </div>
     )
   }
