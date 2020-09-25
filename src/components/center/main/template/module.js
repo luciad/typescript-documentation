@@ -1,10 +1,11 @@
 import React from "react";
 import { graphql, Link } from "gatsby";
 import Layout from "../../../page-layout";
-import { fixModuleName } from "../../../../util/util";
+import { fixModuleName, fixModulePath, pathToModule } from "../../../../util/util";
 import Body from "../general/body/body"
 import Icon from "../../../general/icon"
 import Header from "../../../general/header"
+import BreadCrumbs from "./bread-crumbs"
 
 /**
  * Highest level modules
@@ -24,7 +25,7 @@ export default ({ data }) => {
     <div className="module">
       <Header siteTitle={fixModuleName(module) + " (module)"} />
       <Layout>
-        <Link to="/">Overview</Link>
+        <BreadCrumbs path={pathToModule(module)}/>
         <div className="title">{fixModuleName(module)}</div>
         <div className="sidecontainer">
           <Icon kindString={module.kindString}/>

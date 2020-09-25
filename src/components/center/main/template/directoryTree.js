@@ -2,6 +2,7 @@ import React, { Component } from "react";
 import Layout from "../../../page-layout";
 import Header from "../../../general/header"
 import DirectoryList from "../general/directory-tree/directory-list"
+import BreadCrumbs from "./bread-crumbs"
 
 /**
  * List of all top-level modules
@@ -20,6 +21,7 @@ class Overview extends Component {
       <div className="overview">
         <Header siteTitle="Module Overview" />
         <Layout>
+          <BreadCrumbs path={this.path}/>
           <div className="title">Module list</div>
           <TreeList path={this.path}/>
         </Layout>

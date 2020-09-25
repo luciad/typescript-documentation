@@ -1,13 +1,13 @@
-import React, { Component } from "react"
-import { graphql, Link } from "gatsby"
+import React from "react"
+import { graphql } from "gatsby"
 import Layout from "../../../page-layout"
-import { fixModuleName, pathToModule, MODULE_PATH_PREFIX } from "../../../../util/util"
 import Body from "../general/body/body"
 import Icon from '../../../general/icon'
 import Header from "../../../general/header"
 import SignatureSummary from "../general/body/signature/signature-summary"
 import Type from "../general/body/type/type"
 import SymbolTitle from "../symbol-title"
+import BreadCrumbs from "./bread-crumbs"
 
 /**
  * Items inside of modules
@@ -26,12 +26,7 @@ export default ({ data }) => {
     <div className="symbol">
       <Header siteTitle={symbol.name} />
       <Layout>
-        <BreadCrumbs path={symbol.fields.parentPath}/>
-        {/* Module: &nbsp;
-        <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
-        <br/>
-        Parent: &nbsp; &nbsp;
-        <Link to={symbol.fields.parentPath}>{symbol.fields.parentPath.replace(MODULE_PATH_PREFIX + "/","")}</Link> */}
+        <BreadCrumbs path={symbol.fields.path}/>
         <div>
         <SymbolTitle data={symbol}/>
           <div className="bottom inline-block">
@@ -49,29 +44,6 @@ export default ({ data }) => {
       </Layout>
     </div>
   )
-}
-
-class BreadCrumbs extends Component {
-  constructor(props){
-    super(props)
-    this.path = props.path
-  }
-  render(){
-    const splitPath = this.path.replace(MODULE_PATH_PREFIX + "/","").split("/")
-    const splitLink = []
-    for(let i = 0; i < splitPath.length; i++){
-      splitLink[i] = MODULE_PATH_PREFIX + "/" + splitPath.slice(0, i +1).join("/")
-    }
-    return(
-      <div className="breadcrumbs sidecontainer">
-        {splitPath.map((path, i) =>
-        <div key={path + "_" + splitLink[i]}>
-        {i > 0 && <>&nbsp;{">"}&nbsp;</>}
-        <Link to={splitLink[i]}>{path}</Link>
-        </div>)}
-      </div>
-    )
-  }
 }
 
 export const query = graphql`
