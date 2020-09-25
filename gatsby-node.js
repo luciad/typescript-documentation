@@ -16,10 +16,11 @@ const directoryTreeTemplate = require.resolve("./src/components/center/main/temp
 
 console.log("[l-td] Default snippet language: " + process.env.GATSBY_DEFAULT_LAN)
 console.log("[l-td] Prefix: " + process.env.GATSBY_PREFIX)
+process.env.GATSBY_PROJECT_NAME = documentation.name
 
 exports.createPages = ({ actions }) => {
-  const { createPage } = actions;
-  const modules = documentation.children;
+  const { createPage } = actions
+  const modules = documentation.children
 
   let usedPaths = []
   function checkAndCreatePage(obj){
@@ -59,7 +60,6 @@ exports.createPages = ({ actions }) => {
 
   //pages for breadcrumbs
   const allDirectories = utilDirectory.getAllDirectories({allModule: {nodes: modules}})
-  console.log(allDirectories)
   createDirectoryPages(allDirectories)
 
   function createDirectoryPages(directoryTree){

@@ -5,19 +5,18 @@ import Image from "../../general//image"
 import { MODULE_PATH_PREFIX } from "../../../util/util"
 
 export default () => {
-  let logoData = {
-    text:("src:logo.*; alt:logo")
-  }
 
   return (
     <div className="top-bar">
-    <Link to="/" className="main-logo">
-        <Image data={logoData}/>
-    </Link>
-    <div className="bottom">
-    <Link to="/">Module list</Link>
-    &nbsp;|&nbsp;
-    <Link to={MODULE_PATH_PREFIX}>Directory tree</Link>
+    <div className="sidecontainer">
+      <div className="project-title">
+        {process.env.GATSBY_PROJECT_NAME}
+      </div>
+      <div className="bottom">
+        <Link to="/">Module list</Link>
+        &nbsp;|&nbsp;
+        <Link to={MODULE_PATH_PREFIX}>Directory tree</Link>
+      </div>
     </div>
       <Search/>
     </div>

@@ -240,6 +240,12 @@ height: 4em;
   background-color: whitesmoke;
 }
 
+.project-title {
+  padding: 0 0.5em 0 0.5em;
+  font-size: 250%;
+  font-style: oblique;
+}
+
 .title {
   font-size: 175%;
   font-style: oblique;
