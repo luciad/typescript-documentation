@@ -59,17 +59,16 @@ exports.createPages = ({ actions }) => {
 
   //pages for breadcrumbs
   const allDirectories = utilDirectory.getAllDirectories({allModule: {nodes: modules}})
-  allDirectories.next.forEach(tree => createDirectoryPages(tree, allDirectories))
+  console.log(allDirectories)
+  createDirectoryPages(allDirectories)
 
-  function createDirectoryPages(directoryTree, allDirectories){
+  function createDirectoryPages(directoryTree){
     if(!directoryTree || !directoryTree.path) return null
     checkAndCreatePage({
       path: directoryTree.path.replace(/\"/g, "").replace(".d", ""),
       component: directoryTreeTemplate,
-      context: {
-       completeTree: allDirectories
-      }})
-      directoryTree.next.forEach(tree => createDirectoryPages(tree, allDirectories))
+      })
+      directoryTree.next.forEach(tree => createDirectoryPages(tree))
   }
 };
 

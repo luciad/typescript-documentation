@@ -5,7 +5,6 @@ import { fixModuleName, pathToModule } from "../../../../util/util";
 import { graphql } from "gatsby";
 import Icon from "../../../general/icon"
 import Header from "../../../general/header"
-import DirectoryList from "../general/directory-tree/directory-list"
 import Text from "../general/text"
 
 /**
@@ -27,27 +26,12 @@ class Overview extends Component {
     if(!this.data) return null
     this.modules = this.data.allModule.edges.map(edge => edge.node);
 
-    this.setListFlat = () =>
-      this.setState({
-        listType: "flat"
-      })
-
-      this.setListTree = () =>
-      this.setState({
-        listType: "tree"
-      })
-
     return (
       <div className="overview">
         <Header siteTitle="Module Overview" />
         <Layout>
           <div className="title">Module list</div>
-          <button className="flat-button" onClick={this.setListFlat}>flat</button>
-          <button className="tree-button" onClick={this.setListTree}>tree</button>
-          {this.state.listType === "flat" &&
-            <FlatList modules={this.modules}/>}
-          {this.state.listType === "tree" &&
-            <TreeList/>}
+          <FlatList modules={this.modules}/>
         </Layout>
       </div>
     );
@@ -80,16 +64,6 @@ class FlatList extends Component {
             </tr>
           ))}
         </table>
-      </div>
-    )
-  }
-}
-
-class TreeList extends Component {
-  render(){
-    return(
-      <div className="tree-module-list">
-        <DirectoryList/>
       </div>
     )
   }

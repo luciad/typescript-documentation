@@ -22,7 +22,7 @@ class Overview extends Component {
         <Header siteTitle="Module Overview" />
         <Layout>
           <BreadCrumbs path={this.path}/>
-          <div className="title">Module list</div>
+          <div className="title">Directory Tree</div>
           <TreeList path={this.path}/>
         </Layout>
       </div>

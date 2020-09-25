@@ -17,7 +17,7 @@ function getAllDirectories(data){
   let directories = {
     name: "root",
     next: [],
-    path: "/"
+    path: util.MODULE_PATH_PREFIX
   }
 
   for(let node of data.allModule.nodes){

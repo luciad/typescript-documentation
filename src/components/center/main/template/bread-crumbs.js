@@ -1,6 +1,5 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import { MODULE_PATH_PREFIX } from "../../../../util/util"
 
 class BreadCrumbs extends Component {
   constructor(props){
@@ -8,13 +7,12 @@ class BreadCrumbs extends Component {
     this.path = props.path
   }
   render(){
-    const splitPath = this.path.replace(/^\/+/, '').split("/") //this.path.replace(MODULE_PATH_PREFIX + "/","").split("/")
+    const splitPath = this.path.replace(/^\/+/, '').split("/")
     const splitLink = []
     for(let i = 0; i < splitPath.length; i++){
       splitLink[i] = "/" + splitPath.slice(0, i +1).join("/")
     }
     splitPath[0] = "/"
-    splitLink[0] = "/"
     return(
       <div className="breadcrumbs sidecontainer">
         {splitPath.map((path, i) =>
