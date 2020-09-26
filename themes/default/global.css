@@ -92,14 +92,6 @@ tr:nth-child(even) {
   max-width: 95%;
 }
 
-.directory-item {
-  padding: 0;
-  margin: 0;
-  margin-left: 1em;
-  resize: vertical;
-  display: inline-block;
-}
-
 .filter-item {
   font-size: 70%;
 }
@@ -366,6 +358,10 @@ p {
   margin: 0;
   margin-left: 1em;
   display: inline-block;
+}
+
+.directory-list {
+  font-size: 125%
 }
 
 .tree-module-list,

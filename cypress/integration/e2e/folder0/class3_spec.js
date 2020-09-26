@@ -3,7 +3,6 @@ describe('Class3 test', () => {
     it('Searches Class3 page for expected contents, mostly @imgs', () => {
       cy.visit('http://localhost:8000/modules/folder0/class3/Class3/test_image')
 
-      cy.get('.main-logo').find('img').should('have.attr', 'src').should('include','logo')
       cy.get('.textblock').find('img').should('have.attr', 'src').should('include','example_image.png')
       cy.get('.textblock').find('img').should('have.attr', 'alt').should('include','example image')
 
