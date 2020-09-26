@@ -33,23 +33,25 @@ class Expansion extends Component {
       <>
       <hr/>
       {data.groups.map(group => (
-        <div className="table-group" key={group.title + "_" + group.children.size}>
+        <div className="table-group" key={group.title + "_" + group.children.size + "_table-group"}>
           <br/>
           <div className="subtitle">{group.title}</div>
           <table>
-            {group.children.map(childID => {
-              const child = children.find(child => (child.id == childID))
-              return (
-                <tr>
-                  <td>
-                    <SearchLink data={{text: child.name, id: child.id}}/>
-                  </td>
-                  <td>
-                    {child.comment &&
-                      <Text data={child.comment.shortText}/>}
-                  </td>
-                </tr>
-              )})}
+            <tbody>
+              {group.children.map(childID => {
+                const child = children.find(child => (child.id == childID))
+                return (
+                  <tr key={child.id + "_" + group.title + "_tr"}>
+                    <td key={child.id + "_" + group.title + "_td_link"}>
+                      <SearchLink data={{text: child.name, id: child.id}}/>
+                    </td>
+                    <td key={child.id + "_" + group.title + "_td_comment"}>
+                      {child.comment &&
+                        <Text data={child.comment.shortText}/>}
+                    </td>
+                  </tr>
+                )})}
+            </tbody>
           </table>
         </div>
       ))}

@@ -31,7 +31,7 @@ if(typeof expand === "string"){
               </details>}
             </>)
               ||
-            <p><Link to={node.path}>{node.name}</Link></p>}
+            <div>{"⤷"}<Link to={node.path}>{node.name}</Link></div>}
           </div>
         )})}
     </div>

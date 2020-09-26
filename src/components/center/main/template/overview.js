@@ -49,20 +49,22 @@ class FlatList extends Component {
     return (
       <div className="flat-module-list">
         <table>
-          {this.modules.map(module => (
-            <tr key={module.id + "module_entry"}>
-              <td>
-                <div className="sidecontainer">
-                  <Icon kindString={module.kindString}/>
-                  <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
-                </div>
-              </td>
-              <td>
-                {module.comment &&
-                  <Text data={module.comment.shortText}/>}
-              </td>
-            </tr>
-          ))}
+          <tbody>
+            {this.modules.map(module => (
+              <tr key={module.id + "module_entry_tr"}>
+                <td key={module.id + "module_entry_td"}>
+                  <div className="sidecontainer" key={module.id + "module_entry_div_sidecontainer"}>
+                    <Icon kindString={module.kindString}/>
+                    <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
+                  </div>
+                </td>
+                <td key={module.id + "module_entry_td_comment"}>
+                  {module.comment &&
+                    <Text data={module.comment.shortText}/>}
+                </td>
+              </tr>
+            ))}
+          </tbody>
         </table>
       </div>
     )
