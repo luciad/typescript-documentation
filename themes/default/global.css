@@ -29,6 +29,11 @@ hr {
   background-color: var(--shadow-color);
 }
 
+p {
+  margin: 0;
+  padding:0;
+}
+
 .icon {
   height: 1.2em;
   width: auto;
@@ -85,18 +90,6 @@ tr:nth-child(odd) {
   background-color: #dddddd;
 }
 
-.main-logo img {
-  display: block;
-  margin: auto;
-  max-height: 10vh;
-  max-width: 95%;
-}
-
-.filter-item {
-  font-size: 70%;
-}
-
-
 /* SIDEBAR - RIGHT */
 .right-sidebar {
   display: none;
@@ -149,10 +142,6 @@ tr:nth-child(odd) {
 }
 
 /* CENTER - TOP BAR */
-.top-bar-space {
-height: 4em;
-}
-
 .top-bar{
   display: flex;
   margin: 1em;
@@ -195,6 +184,10 @@ height: 4em;
   position: relative;
   border: thin solid var(--shadow-color);
   padding: 0.4em 1em 0.4em 1em;
+}
+
+.search-results {
+  z-index: 10;
 }
 
 /* CENTER - MAIN */
@@ -257,11 +250,6 @@ height: 4em;
   font-size: 100%;
   font-style: italic;
   padding-left: 0;
-}
-
-p {
-  margin: 0;
-  padding:0;
 }
 
 .title a {
@@ -339,11 +327,9 @@ p {
   list-style-type: disc;
 }
 
-
 /* remove button styling from clickable text button */
 .clickable-text {
 	background: none;
-	color: inherit;
 	border: none;
 	padding: 0;
 	font: inherit;
@@ -353,6 +339,7 @@ p {
   text-decoration: underline;
 }
 
+/* Directory tree & flat module list */
 .directory-item {
   padding: 0;
   margin: 0;
@@ -379,8 +366,4 @@ p {
   display: inline-block;
   margin: 2px;
   cursor: pointer;
-}
-
-.search-results {
-  z-index: 10;
 }
