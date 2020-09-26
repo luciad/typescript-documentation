@@ -48,7 +48,7 @@ export default class Search extends Component {
               })
 
               return(
-              <ul>
+              <ul className="search-results">
                 {results.map(node =>
                 (
                   <li key={node.id + "_filterlist_entry"}>

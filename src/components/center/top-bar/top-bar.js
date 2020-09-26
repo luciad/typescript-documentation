@@ -14,7 +14,7 @@ export default () => {
       </div>
       <div className="bottom">
         <Link to="/">Module list</Link>
-        &nbsp;|&nbsp;
+        {"  |  "}
         <Link to={MODULE_PATH_PREFIX}>Directory tree</Link>
       </div>
     </div>

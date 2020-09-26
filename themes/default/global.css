@@ -167,7 +167,7 @@ height: 4em;
 .search{
   font-size: 110%;
   height: 1.2em;
-  width: 24em;
+  width: 28em;
   max-width: 80%;
   margin: auto 1em 0.5em auto;
 }
@@ -177,7 +177,7 @@ height: 4em;
   border-color: var(--border-color);
   border-radius: 15px;
   padding-right: 15px;
-  width: 100%;
+  width: calc(100% - 15px);
   height: 100%;
 }
 
@@ -379,4 +379,8 @@ p {
   display: inline-block;
   margin: 2px;
   cursor: pointer;
+}
+
+.search-results {
+  z-index: 10;
 }
