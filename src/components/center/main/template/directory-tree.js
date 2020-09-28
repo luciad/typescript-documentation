@@ -1,8 +1,8 @@
 import React, { Component } from "react";
 import Layout from "../../../page-layout";
 import Header from "../../../general/header"
-import DirectoryList from "../general/directory-tree/directory-list"
-import BreadCrumbs from "./bread-crumbs"
+import DirectoryList from "./directory-tree-helper/directory-list"
+import BreadCrumbs from "./general/bread-crumbs"
 
 /**
  * List of all top-level modules

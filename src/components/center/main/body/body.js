@@ -1,7 +1,7 @@
 import React, { Component } from "react";
 import BodySummary from "./body-summary"
-import SearchLink from "../search-link"
-import Text from "../text"
+import SearchLink from "./general/search-link"
+import Text from "./general/text"
 import Leaf from "../body/children/leaf"
 
 /**

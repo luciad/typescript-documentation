@@ -1,9 +1,9 @@
 import React from "react"
-import SearchLink from "../search-link"
+import SearchLink from "./general/search-link"
 
 export default ({ data }) => {
     if(!data || !data.overwrites) return null
-    
+
     if(data.overwrites.id)
         return (
             <SearchLink data={{text: data.overwrites.name, id: data.overwrites.id}}/>

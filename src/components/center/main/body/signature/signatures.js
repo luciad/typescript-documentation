@@ -1,5 +1,5 @@
 import React from "react"
-import { getSignatures } from "../../../../../../util/util"
+import { getSignatures } from "../../../../../util/util"
 import Signature from "./signature"
 
 /**

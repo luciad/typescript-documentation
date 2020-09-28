@@ -1,11 +1,11 @@
 import React from "react";
-import { graphql, Link } from "gatsby";
+import { graphql } from "gatsby";
 import Layout from "../../../page-layout";
-import { fixModuleName, fixModulePath, pathToModule } from "../../../../util/util";
-import Body from "../general/body/body"
+import { fixModuleName, pathToModule } from "../../../../util/util";
+import Body from "../body/body"
 import Icon from "../../../general/icon"
 import Header from "../../../general/header"
-import BreadCrumbs from "./bread-crumbs"
+import BreadCrumbs from "./general/bread-crumbs"
 
 /**
  * Highest level modules

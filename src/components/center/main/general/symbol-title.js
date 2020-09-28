@@ -1,6 +1,6 @@
 import React from 'react'
 import { Link } from "gatsby"
-import Type from "./general/body/type/type"
+import Type from "../body/type/type"
 
 export default ({ data, link }) => {
   return (

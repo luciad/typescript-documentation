@@ -1,6 +1,6 @@
 import React, { Component } from "react"
-import { getComments } from "../../../../../util/util"
-import Text from "../text"
+import { getComments } from "../../../../util/util"
+import Text from "./general/text"
 import Tags from "./tags"
 
 export default class TypeComments extends Component {

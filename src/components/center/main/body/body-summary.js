@@ -1,15 +1,15 @@
 import React from "react";
-import { getComments } from "../../../../../util/util"
+import { getComments } from "../../../../util/util"
 import ChildrenSummary from "./children/children-summary"
 import Flags from "./flags"
 import Signatures from "./signature/signatures"
 import References from "./references"
-import Text from "../text"
+import Text from "./general/text"
 import Tags from "./tags"
 import Overwrites from "./overwrites"
 import TypeParameters from './parameters/type-parameters'
 import TypeComments from "./type-comments"
-import SearchLink from "../search-link";
+import SearchLink from "./general/search-link";
 
 /**
  * Summary of an object

@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import SearchLink from "../../search-link"
+import SearchLink from "../general/search-link"
 import Declaration from "./declaration"
 import Target from "./target"
 import Elements from "./elements"

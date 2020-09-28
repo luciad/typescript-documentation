@@ -1,5 +1,5 @@
 import React, { Component }  from "react"
-import { getSignatures } from "../../../../../../util/util"
+import { getSignatures } from "../../../../../util/util"
 import Type from "../type/type"
 
 export default ({ data }) => {

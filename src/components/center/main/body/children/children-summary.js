@@ -1,7 +1,7 @@
 import React from "react";
 import scrollTo from "gatsby-plugin-smoothscroll"
-import Icon from "../../../../../general/icon"
-import SearchLink from "../../search-link"
+import Icon from "../../../../general/icon"
+import SearchLink from "../general/search-link"
 
 /**
  * List of children

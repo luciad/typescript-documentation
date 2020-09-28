@@ -5,7 +5,7 @@ import { fixModuleName, pathToModule } from "../../../../util/util";
 import { graphql } from "gatsby";
 import Icon from "../../../general/icon"
 import Header from "../../../general/header"
-import Text from "../general/text"
+import Text from "../body/general/text"
 
 /**
  * List of all top-level modules

@@ -1,13 +1,13 @@
 import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../../page-layout"
-import Body from "../general/body/body"
+import Body from "../body/body"
 import Icon from '../../../general/icon'
 import Header from "../../../general/header"
-import SignatureSummary from "../general/body/signature/signature-summary"
-import Type from "../general/body/type/type"
-import SymbolTitle from "../symbol-title"
-import BreadCrumbs from "./bread-crumbs"
+import SignatureSummary from "../body/signature/signature-summary"
+import Type from "../body/type/type"
+import SymbolTitle from "../general/symbol-title"
+import BreadCrumbs from "./general/bread-crumbs"
 
 /**
  * Items inside of modules

@@ -12,7 +12,7 @@ const documentationPath = require.resolve("./content/docu.json");
 const symbolTemplate = require.resolve("./src/components/center/main/template/symbol");
 const overviewTemplate = require.resolve("./src/components/center/main/template/overview");
 const moduleTemplate = require.resolve("./src/components/center/main/template/module");
-const directoryTreeTemplate = require.resolve("./src/components/center/main/template/directoryTree");
+const directoryTreeTemplate = require.resolve("./src/components/center/main/template/directory-tree");
 
 console.log("[l-td] Default snippet language: " + process.env.GATSBY_DEFAULT_LAN)
 console.log("[l-td] Prefix: " + process.env.GATSBY_PREFIX)

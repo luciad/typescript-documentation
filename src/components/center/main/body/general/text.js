@@ -1,7 +1,7 @@
 import React from "react"
-import { getLinks, parse } from "../../../../util/util"
+import { getLinks, parse } from "../../../../../util/util"
 import SearchLink from "./search-link"
-import Image from "../../../general/image"
+import Image from "../../../../general/image"
 import Snippet from "./snippet"
 
 /**

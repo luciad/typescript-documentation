@@ -1,9 +1,9 @@
 import React from "react";
 import Body from "../body"
-import Icon from "../../../../../general/icon"
+import Icon from "../../../../general/icon"
 import SignatureSummary from "../signature/signature-summary"
 import Type from "../type/type"
-import SymbolTitle from "../../../symbol-title"
+import SymbolTitle from "../../general/symbol-title"
 /**
  * Full description of an item (in a box)
  * Contains
@@ -13,7 +13,7 @@ import SymbolTitle from "../../../symbol-title"
  */
 export default ({ data }) => {
   if(!data) return null
-  
+
   return (
     <div className="leaf" id={"id" + data.id} key={data.id + "_leaf"}>
       <div>
