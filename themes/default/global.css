@@ -367,3 +367,8 @@ tr:nth-child(odd) {
   margin: 2px;
   cursor: pointer;
 }
+
+.signature .signature-title:first-child {
+  font-size: 175%;
+  font-style: oblique;
+}

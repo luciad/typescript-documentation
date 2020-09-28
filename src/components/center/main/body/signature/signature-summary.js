@@ -1,60 +1,43 @@
 import React, { Component }  from "react"
-import { getSignatures } from "../../../../../util/util"
 import Type from "../type/type"
 
-/**
- * renders all signatures from given data as it would appear in code
- * example output:
- *  myFunction(param1: number, param2:any):String
- */
-export default ({ data }) => {
-  if(!data) return null
-  const signatures = getSignatures(data)
-  if(signatures.length === 0) return null
-
-  return (
-    <div className="signature-summary">
-      <ul>
-        <SignatureSummaries signatures={signatures}/>
-      </ul>
-    </div>
-  )
-}
-
-class SignatureSummaries extends Component {
-  render(){
-    let signatures = this.props.signatures
-
-    return signatures.map((s, j) => {
-      let callBack = (s.name === "__call")
-
-      return (
-        <div className="signature-summary-item">
-        {j > 0 && <hr/>}
-        <li key={s.name + "_" + s.id + "_signature_summary"}>
-          {!callBack && s.name}
-          {s.typeParameter &&
-            <>{"<"}
-            {s.typeParameter.map((tp, i) =>
-              <>
-              {i > 0 && <>, </>}
-              {tp.name}
-              <Type data={tp} delimiter={<>&nbsp;extends </>}/>
-              </>
-              )}
-              {">"}</>
-          }
-          ({s.parameters &&
-              s.parameters.map((p, i) =>
-                <SignatureParameter data={p} i={i}/>)
-            })
-            {callBack && <>&nbsp;{"=>"}&nbsp;</>}
-            <Type data={s} delimiter={!callBack ? " : " : null}/>
-        </li>
-      </div>
-    )})
+class SignatureSummary extends Component {
+  constructor(props){
+    super(props)
+    this.data = props.data
   }
+
+  render(){
+    let callBack = (this.data.name === "__call")
+
+    return (
+      <div className="signature-summary-item">
+      <li key={this.data.name + "_" + this.data.id + "_signature_summary"}>
+        {!callBack &&
+          <span className="signature-title">{this.data.name}</span>}
+        {this.data.typeParameter &&
+          <>{"<"}
+          {this.data.typeParameter.map((tp, i) =>
+            <>
+            {i > 0 && <>, </>}
+            {tp.name}
+            <Type data={tp} delimiter={<>&nbsp;extends </>}/>
+            </>
+            )}
+            {">"}</>
+        }
+        ({this.data.parameters &&
+            this.data.parameters.map((p, i) =>
+              <SignatureParameter data={p} i={i}/>)
+          })
+          {callBack && <>&nbsp;{"=>"}&nbsp;</>}
+          <Type data={this.data} delimiter={!callBack ? " : " : null}/>
+      </li>
+    </div>
+  )}
 }
+
+export default SignatureSummary
 
 class SignatureParameter extends Component {
   render() {
@@ -66,7 +49,7 @@ class SignatureParameter extends Component {
       {i > 0 && <>, </>}
       {data.flags && data.flags.isRest &&
       <>...</>}
-      {!data.name.startsWith("__") && <>{data.name}</>}
+      {!data.name.startsWith("__") && <span className="signature-title">{data.name}</span>}
       <Type data={data} delimiter={!data.name.startsWith("__") ? " : " : null}/>
       {data.defaultValue &&
         <> = {data.defaultValue}</>}

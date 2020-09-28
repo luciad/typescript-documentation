@@ -4,6 +4,7 @@ import Parameters from "../parameters/parameters"
 import Text from "../general/text"
 import Type from "../type/type"
 import Tags from "../tags"
+import SignatureSummary from "./signature-summary"
 import TypeParameters from "../parameters/type-parameters"
 
 /**
@@ -17,14 +18,15 @@ import TypeParameters from "../parameters/type-parameters"
  * - text
  * - parameters
  */
-export default ({ data, path}) => {
+export default ({ data, path }) => {
   if(!data || !path) return null
   const comments = getComments(data)
   if(!comments) return null
 
   return (
     <div className="signature" key={data.id + "_signature"}>
-      <div className="sidecontainer">
+      <SignatureSummary data={data}/>
+      {/* <div className="sidecontainer">
         <div className="title">
           {data.name}
         </div>
@@ -32,7 +34,7 @@ export default ({ data, path}) => {
           {data.type !== null &&
             <>: <Type data={data}/> &nbsp;</>}
         </div>
-      </div>
+      </div> */}
       {data.kindString}
       <Tags tags={comments.tags}/>
 

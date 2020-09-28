@@ -4,7 +4,7 @@ import Layout from "../../../page-layout"
 import Body from "../body/body"
 import Icon from '../../../general/icon'
 import Header from "../../../general/header"
-import SignatureSummary from "../body/signature/signature-summary"
+import SignatureSummaries from "../body/signature/signature-summaries"
 import Type from "../body/type/type"
 import SymbolTitle from "../general/symbol-title"
 import BreadCrumbs from "./general/bread-crumbs"
@@ -39,7 +39,7 @@ export default ({ data }) => {
             {symbol.kindString}
           </div>
         </div>
-        <SignatureSummary data={symbol}/>
+        <SignatureSummaries data={symbol}/>
         <Body data={symbol}/>
       </Layout>
     </div>

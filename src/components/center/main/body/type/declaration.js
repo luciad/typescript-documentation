@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import SignatureSummary from "../signature/signature-summary"
+import SignatureSummary from "../signature/signature-summaries"
 import Type from "./type"
 
 export default class Declaration extends Component {
