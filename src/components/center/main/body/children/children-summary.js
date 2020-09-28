@@ -9,7 +9,8 @@ import SearchLink from "../general/search-link"
  *
  * Contains:
  * - List of all childrens icons and names
- *  - If it's in data.exports, it's a link
+ *  - If it's in data.exports, it's a link to another page
+ *      otherwise it' s a link to the leaf version of the child
  *
  */
 export default ({ data }) => {
@@ -17,15 +18,16 @@ export default ({ data }) => {
   const children = data.children
   if(!children || children.length ===  0) return null
   let exportIds = data.exports ? data.exports.map(exp => exp.id) : []
+
   return (
     <div className="children-summary">
-        {data.groups.map(group => (
+        {data.groups.map(group => (                 //map functions, interfaces etc separately
             <div className="group">
               <div className="subsubtitle">
                 {group.title}
               </div>
               <ul className="item-list">
-                {group.children.map(childID => {
+                {group.children.map(childID => {    //map children within a group
                   const child = children.find(child => (child.id == childID))
                   if(exportIds.includes(child.id)) // if child is exported, a link to the child is included.
                     return (

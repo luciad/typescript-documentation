@@ -13,7 +13,7 @@ import BreadCrumbs from "./general/bread-crumbs"
  * Contains:
  * - module name
  * - kindsString & its icon
- * - summary of its body (see body-summary.js)
+ * - summary of its body
  *
  */
 export default ({ data }) => {

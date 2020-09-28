@@ -17,6 +17,7 @@ export default ({ data }) => {
       language = defaultLanguage
     }
   }
+  
   return (
     <StaticQuery
       query={graphql`

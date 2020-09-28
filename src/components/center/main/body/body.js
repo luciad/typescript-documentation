@@ -17,13 +17,13 @@ export default ({ data, shortListOnly }) => {
     <div className="body">
       <BodySummary data={data} noChildrenSummary={shortListOnly}/>
       {shortListOnly
-      ?   <Expansion data={data}/>
+      ?   <ShortList data={data}/>
       : <Leaves data={data}/>}
     </div>
   );
 };
 
-class Expansion extends Component {
+class ShortList extends Component {
   render() {
     const data=this.props.data
     const children = data.children

@@ -4,6 +4,9 @@ import Text from "../general/text"
 import Type from "../type/type"
 import TypeComments from "../type-comments"
 
+/**
+ * Renders parameter given by data
+ */
 export default class Parameter extends Component {
   render(){
     const parameter = this.props.data

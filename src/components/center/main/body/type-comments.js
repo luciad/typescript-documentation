@@ -3,6 +3,9 @@ import { getComments } from "../../../../util/util"
 import Text from "./general/text"
 import Tags from "./tags"
 
+/**
+ * Renders comments from the type of the data
+ */
 export default class TypeComments extends Component {
   render(){
     const data = this.props.data

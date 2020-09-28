@@ -4,8 +4,9 @@ import Icon from "../../../../general/icon"
 import SignatureSummary from "../signature/signature-summary"
 import Type from "../type/type"
 import SymbolTitle from "../../general/symbol-title"
+
 /**
- * Full description of an item (in a box)
+ * Full description of an item
  * Contains
  * - Name with link to its own page
  * - kindString and its icon

@@ -2,6 +2,11 @@ import React, { Component }  from "react"
 import { getSignatures } from "../../../../../util/util"
 import Type from "../type/type"
 
+/**
+ * renders all signatures from given data as it would appear in code
+ * example output:
+ *  myFunction(param1: number, param2:any):String
+ */
 export default ({ data }) => {
   if(!data) return null
   const signatures = getSignatures(data)

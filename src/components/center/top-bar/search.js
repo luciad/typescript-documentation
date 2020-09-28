@@ -4,9 +4,12 @@ import { Link } from "gatsby"
 import Icon from "../../general/icon"
 import { graphql, StaticQuery } from "gatsby"
 
-// Search component
+/**
+ * Search function in the top bar
+ */
 export default class Search extends Component {
 
+  // included items must have one of these kindStrings:
   kindStringFilterDefaultOn = [
     "Function",
     "Class",

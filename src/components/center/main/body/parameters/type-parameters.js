@@ -1,6 +1,9 @@
 import React from "react"
 import Parameter from "./parameter"
 
+/**
+ * Renders parameters from types
+ */
 export default ({ data, path }) => {
   if(!data || !data.typeParameter) return null
 
