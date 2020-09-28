@@ -26,15 +26,6 @@ export default ({ data, path }) => {
   return (
     <div className="signature" key={data.id + "_signature"}>
       <SignatureSummary data={data}/>
-      {/* <div className="sidecontainer">
-        <div className="title">
-          {data.name}
-        </div>
-        <div className="kind-string">
-          {data.type !== null &&
-            <>: <Type data={data}/> &nbsp;</>}
-        </div>
-      </div> */}
       {data.kindString}
       <Tags tags={comments.tags}/>
 
