@@ -1,13 +1,13 @@
 :root {
   /* COLORS */
   --card-color: rgb(249, 249, 249);
-  --border-color: rgb(187, 187, 187);
-  --border-color-light: rgb(210,210,210);
+  --border-color: #e5e8eb;
+  --border-color-light: #f8f8f8;
   --background-color: white;
   --text-color-main: rgb(46, 46, 46);
-  --text-color-link: rgb(0, 0, 170);
-  --text-color-link-focus: darkblue;
-  --text-color-link-visited: rgb(92, 0, 145);
+  --text-color-link: #009490;
+  --text-color-link-focus: #006764;
+  --text-color-link-visited: #015964;
   --shadow-color: rgba(0,0,0,0.15);
   --textblock-background: rgba(0,0,0,0.05);
   --leaf-bg-color: whitesmoke;
