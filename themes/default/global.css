@@ -1,18 +1,7 @@
 :root {
   /* SIDEBAR WIDTH */
-  --left-sidebar-width: 0%;
   --right-sidebar-width: 0%;
-  /* COLORS */
-  --sidebar-color: whitesmoke;
-  --card-color: rgb(249, 249, 249);
-  --border-color: rgb(187, 187, 187);
-  --background-color: white;
-  --text-color-main: rgb(46, 46, 46);
-  --text-color-link: darkblue;
-  --shadow-color: rgba(0,0,0,0.15);
-  --textblock-background: rgba(0,0,0,0.05);
 }
-
 /* GENERAL */
 body{
   background-color: var(--background-color);
@@ -192,7 +181,6 @@ tr:nth-child(odd) {
 
 /* CENTER - MAIN */
 .main {
-  margin-left: var(--left-sidebar-width);
   margin-right: var(--right-sidebar-width);
   padding: 0px 10px;
 }
@@ -215,14 +203,14 @@ tr:nth-child(odd) {
 }
 
 .leaf {
-  border: thin solid rgb(210,210,210);
+  border: thin solid var(--border-color-light);
   box-shadow: 0 4px 8px 0 var(--shadow-color);
   margin: 1em;
   margin-left: 0;
   padding: 0.5em;
   padding-left: 1em;
   font-size: 95%;
-  background-color: whitesmoke;
+  background-color: var(--leaf-bg-color);
 }
 
 .project-title {
@@ -335,7 +323,7 @@ tr:nth-child(odd) {
 	font: inherit;
   outline: inherit;
   cursor: pointer;
-  color: rgb(2, 85, 126);
+  color: var(--text-color-link);
   text-decoration: underline;
 }
 
