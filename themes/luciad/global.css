@@ -98,7 +98,7 @@ td {
 }
 
 tr:nth-child(odd) {
-  background-color: #dddddd;
+  background-color: var(--table-odd-bg-color)
 }
 
 /* SIDEBAR - RIGHT */
@@ -159,9 +159,14 @@ tr:nth-child(odd) {
   padding: 1em;
   padding: 0.2em 0.5em 0.2em 0.5em;
   width: auto;
-  background-color: var(--background-color);
+  background-color: var(--top-bar-bg-color);
   box-shadow: 0 4px 8px 0 var(--shadow-color);
-  border-radius: 0.5em;
+}
+
+.project-title,
+.top-bar > .sidecontainer > .bottom,
+.top-bar > .sidecontainer > .bottom > a{
+  color: var(--top-bar-text-color);
 }
 
 .search{
@@ -169,15 +174,15 @@ tr:nth-child(odd) {
   height: 1.2em;
   width: 28em;
   max-width: 80%;
-  margin: auto 1em 0.5em auto;
+  margin: auto 0.5em 0.5em auto;
 }
 
 .search input {
   text-align: right;
   border-color: var(--border-color);
-  border-radius: 15px;
-  padding-right: 15px;
-  width: calc(100% - 15px);
+  border-radius: 5px;
+  padding-right: 10px;
+  width: calc(100% - 5px);
   height: 100%;
 }
 
@@ -238,22 +243,18 @@ tr:nth-child(odd) {
 .project-title {
   padding: 0 0.5em 0 0.5em;
   font-size: 250%;
-  font-style: oblique;
 }
 
 .title {
   font-size: 175%;
-  font-style: oblique;
 }
 
 .subtitle {
   font-size: 150%;
-  font-style: oblique;
 }
 
 .subsubtitle {
   font-size: 125%;
-  font-style: oblique;
 }
 
 .kind-string {
@@ -300,6 +301,7 @@ tr:nth-child(odd) {
 .search-link {
   display: inline-block;
   vertical-align: middle;
+  font-family: var(--code-font-family);
 }
 
 .flags ul {
@@ -367,10 +369,9 @@ tr:nth-child(odd) {
 }
 
 .module .children-summary a{
-  font-family: var(--luciad-code-font-family);
+  font-family: var(--code-font-family);
 }
 
 .signature .signature-title:first-child {
   font-size: 175%;
-  font-style: oblique;
 }

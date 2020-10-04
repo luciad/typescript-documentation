@@ -1,5 +1,7 @@
 :root {
   /* COLORS */
+  --top-bar-bg-color: #009490;
+  --top-bar-text-color: white;
   --card-color: rgb(249, 249, 249);
   --border-color: #e5e8eb;
   --border-color-light: #f8f8f8;
@@ -8,7 +10,8 @@
   --text-color-link: #009490;
   --text-color-link-focus: #006764;
   --text-color-link-visited: #015964;
+  --table-odd-bg-color: rgba(0, 173, 168, 0.1);
   --shadow-color: rgba(0,0,0,0.15);
-  --textblock-background: rgba(0,0,0,0.05);
+  --textblock-background: rgba(0, 173, 168, 0.05);
   --leaf-bg-color: whitesmoke;
 }
