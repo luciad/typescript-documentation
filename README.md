@@ -98,6 +98,8 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     {@link nameOfLinkedItem}
     ```
 
+    Note that the name is case sensitive.
+    
     If more items exist with the same name you can specify (part of) its path:
     ```
     {@link \"path/to\" nameOfLinkedItem}

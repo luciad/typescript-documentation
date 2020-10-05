@@ -259,7 +259,6 @@ tr:nth-child(odd) {
 
 .kind-string {
   font-size: 100%;
-  font-style: italic;
   padding-left: 0;
 }
 
@@ -374,4 +373,18 @@ tr:nth-child(odd) {
 
 .signature .signature-title:first-child {
   font-size: 175%;
+}
+
+.children-summary a,
+.group a,
+.group button,
+.flat-module-list a,
+.symbol-title a,
+.signature-summary-item,
+.type,
+.directory-item,
+.directory-item a,
+.bread-crumbs,
+.bread-crumbs a{
+  font-family: var(--code-font-family);
 }
