@@ -16,12 +16,11 @@ export default ({ data }) => {
 
   return (
     <div className="leaf" id={"id" + data.id} key={data.id + "_leaf"}>
-      <div>
-        <SymbolTitle data={data} link={true}/>
-        <div className="bottom inline-block">
-          <Type data={data} delimiter={" : "} noIsOptionalMarker={true}/>
-        </div>
+      <SymbolTitle data={data} link={true}/>
+      <div className="bottom inline-block">
+        <Type data={data} delimiter={" : "} noIsOptionalMarker={true}/>
       </div>
+    
       <div className="kind-string">{data.kindString}</div>
       <SignatureSummary data={data}/>
       <Body data={data}/>

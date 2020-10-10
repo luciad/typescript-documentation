@@ -35,24 +35,10 @@ export default ({ data }) => {
   }
   let imgStyle = {}
   if(image.style){
-    switch(image.style.text){
-      case "fullWidth":
-        imgStyle = {
-          width: "100%"
-        }
-        break
-      case "icon":
-        imgStyle = {
-          height: "1em"
-        }
-        break
-      default:
-        try {
-          imgStyle = JSON.parse( '{' + image.style.text.replace(/'/g, "\"") + '}' )
-        } catch (error) {
-          console.warn("[l-td]: could not parse image style correctly! Ignoring style for image: " + image.src.text + ", provided styling is: " + image.style.text)
-        }
-        break;
+    try {
+      imgStyle = JSON.parse( '{' + image.style.text.replace(/'/g, "\"") + '}' )
+    } catch (error) {
+      console.warn("[l-td]: could not parse image style correctly! Ignoring style for image: " + image.src.text + ", provided styling is: " + image.style.text)
     }
   }
 
