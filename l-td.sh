@@ -97,7 +97,7 @@ check_var_input()
 
 check_var_theme()
 {
-    mkdir -p $scriptDir/src/styles
+    mkdir -p $scriptDir/content/styles
     themePath=$scriptDir/themes/$THEME
     if [ ! -z "$THEME" ] && [ -d "$themePath" ] #check if exists in theme folder
     then
@@ -114,7 +114,7 @@ check_var_theme()
         fi
     fi
     yes | cp $themePath/favicon.ico $scriptDir/static/favicon.ico || true
-    yes | cp -a $themePath/. $scriptDir/src/styles/
+    yes | cp -a $themePath/. $scriptDir/content/styles/
 }
 
 check_var_media()

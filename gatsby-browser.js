@@ -1,1 +1,1 @@
-require("./src/styles")
+require("./content/styles")
