@@ -1,6 +1,5 @@
 import React, { Component }  from "react"
 import { getSignatures } from "../../../../../util/util"
-import Type from "../type/type"
 import SignatureSummary from "./signature-summary"
 
 /**

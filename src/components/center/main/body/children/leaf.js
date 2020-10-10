@@ -8,7 +8,7 @@ import SymbolTitle from "../../general/symbol-title"
  * Full description of an item
  * Contains
  * - Name with link to its own page
- * - kindString and its icon
+ * - kindString
  * - Its body (see body.js)
  */
 export default ({ data }) => {

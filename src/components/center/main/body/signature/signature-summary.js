@@ -1,6 +1,11 @@
 import React, { Component }  from "react"
 import Type from "../type/type"
 
+/**
+ * Renders single signature summary
+ *  example output:
+ *  myFunction(param1: number, param2:any):String
+ */
 class SignatureSummary extends Component {
   constructor(props){
     super(props)
