@@ -1,6 +1,6 @@
 import React, { Component } from "react";
-import Layout from "../../../page-layout";
-import Header from "../../../general/header"
+import Layout from "../page-layout";
+import Header from "./general/header"
 import DirectoryList from "./directory-tree-helper/directory-list"
 import BreadCrumbs from "./general/bread-crumbs"
 

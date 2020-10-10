@@ -1,9 +1,9 @@
 import React, { Component } from "react"
 import { Link } from "gatsby"
-import Layout from "../../../page-layout"
-import { fixModuleName, pathToModule } from "../../../../util/util"
+import Layout from "../page-layout"
+import { fixModuleName, pathToModule } from "../../util/util"
 import { graphql } from "gatsby"
-import Header from "../../../general/header"
+import Header from "./general/header"
 import Text from "../body/general/text"
 
 /**

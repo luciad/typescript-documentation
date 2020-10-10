@@ -1,6 +1,6 @@
 import React from "react"
 import PageLayout from "../components/page-layout"
-import Header from "../components/general/header"
+import Header from "../components/template/general/header"
 
 export default () => {
   return (

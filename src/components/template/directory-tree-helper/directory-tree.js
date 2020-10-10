@@ -1,6 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
-import { MODULE_PATH_PREFIX } from "../../../../../util/util"
+import { MODULE_PATH_PREFIX } from "../../../util/util"
 
 /**
  * sub-tree of directories

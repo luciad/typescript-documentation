@@ -1,8 +1,7 @@
 import React from "react";
-import { getComments } from "../../../../../util/util"
+import { getComments } from "../../../util/util"
 import Parameters from "../parameters/parameters"
 import Text from "../general/text"
-import Type from "../type/type"
 import Tags from "../tags"
 import SignatureSummary from "./signature-summary"
 import TypeParameters from "../parameters/type-parameters"

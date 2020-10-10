@@ -1,9 +1,9 @@
 import React from "react";
 import { graphql } from "gatsby";
-import Layout from "../../../page-layout";
-import { fixModuleName, pathToModule } from "../../../../util/util";
+import Layout from "../page-layout";
+import { fixModuleName, pathToModule } from "../../util/util";
 import Body from "../body/body"
-import Header from "../../../general/header"
+import Header from "./general/header"
 import BreadCrumbs from "./general/bread-crumbs"
 
 /**

@@ -1,5 +1,5 @@
 import React from "react"
-import { getFlags } from "../../../../util/util"
+import { getFlags } from "../../util/util"
 
 /**
  * Flags of an item

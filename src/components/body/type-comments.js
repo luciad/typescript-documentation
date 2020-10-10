@@ -1,5 +1,5 @@
 import React, { Component } from "react"
-import { getComments } from "../../../../util/util"
+import { getComments } from "../../util/util"
 import Text from "./general/text"
 import Tags from "./tags"
 

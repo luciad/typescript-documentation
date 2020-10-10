@@ -1,6 +1,5 @@
 import React from "react"
-import TopBar from "./center/top-bar/top-bar"
-import ItemBox from "./general/item-box"
+import TopBar from "./top-bar/top-bar"
 import Highlight from "./general/highlight"
 
 export default (props) => {
@@ -11,9 +10,9 @@ export default (props) => {
       <Highlight/>
       <div className="main">
         <TopBar/>
-        <ItemBox>
+        <div className="item-box">
           {props.children}
-        </ItemBox>
+        </div>
       </div>
     </div>
   )

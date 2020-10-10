@@ -1,7 +1,7 @@
 import React from "react"
 import { Link } from "gatsby"
 import Search from "./search"
-import { MODULE_PATH_PREFIX } from "../../../util/util"
+import { MODULE_PATH_PREFIX } from "../../util/util"
 
 export default () => {
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { getComments } from "../../../../util/util"
+import { getComments } from "../../util/util"
 import ChildrenSummary from "./children/children-summary"
 import Flags from "./flags"
 import Signatures from "./signature/signatures"
