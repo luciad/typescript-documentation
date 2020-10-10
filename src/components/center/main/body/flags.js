@@ -1,6 +1,5 @@
 import React from "react"
 import { getFlags } from "../../../../util/util"
-import Icon from "../../../general/icon"
 
 /**
  * Flags of an item
@@ -16,11 +15,8 @@ export default ({ data }) => {
     <div className="flags">
       <ul>
         {flagList.map(flag => (
-          <li key={flag + "_" + data.fields.path + "_flag"} className={"flag_" + flag}>
-            <div className="sidecontainer">
-              <Icon kindString="Flag"/>
+          <li key={flag + "_" + data.fields.path + "_flag"} className={"flag_" + flag} title="flag">
               {flag}
-            </div>
           </li>
         ))}
       </ul>

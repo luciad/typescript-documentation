@@ -99,7 +99,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     ```
 
     Note that the name is case sensitive.
-    
+
     If more items exist with the same name you can specify (part of) its path:
     ```
     {@link \"path/to\" nameOfLinkedItem}
@@ -169,9 +169,6 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
 
     ## Change l-td to your liking
 
-    ### Logo
-    The logo in the left sidebar can be changed by putting a file logo.* in your provided media folder's root (* being the extension).
-
     ### Themes
     You can specify a theme with the `-t` tag. The program will first look if the specified theme exists in its own /themes/ folder. If not, it checks in the folder where the program is executed (absolute paths also work).
 
@@ -200,8 +197,6 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
       display: none;
     }
     ```
-    ### Icons
-    To change or add icons, open `icons.css` inside the theme folder and change the `content: url()` tag and/or add cases. If you want to change which items appear in the legend, add or remove them in src/components/right/right-sidebar.js
 
     ### HTML
     To change how the HTML gets generated, feel free to change the react elements in src/components.

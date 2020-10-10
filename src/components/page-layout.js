@@ -1,5 +1,4 @@
 import React from "react"
-import RightSidebar from "./legend/legend"
 import TopBar from "./center/top-bar/top-bar"
 import ItemBox from "./general/item-box"
 import Highlight from "./general/highlight"
@@ -16,7 +15,6 @@ export default (props) => {
           {props.children}
         </ItemBox>
       </div>
-      <RightSidebar/>
     </div>
   )
 }

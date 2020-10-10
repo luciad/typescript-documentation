@@ -1,6 +1,5 @@
 import React from "react";
 import Body from "../body"
-import Icon from "../../../../general/icon"
 import SignatureSummary from "../signature/signature-summaries"
 import Type from "../type/type"
 import SymbolTitle from "../../general/symbol-title"
@@ -23,11 +22,8 @@ export default ({ data }) => {
           <Type data={data} delimiter={" : "} noIsOptionalMarker={true}/>
         </div>
       </div>
-      <div className="sidecontainer">
-        <Icon kindString={data.kindString}/>
-        <div className="kind-string">{data.kindString}</div>
-        </div>
-        <SignatureSummary data={data}/>
+      <div className="kind-string">{data.kindString}</div>
+      <SignatureSummary data={data}/>
       <Body data={data}/>
     </div>
   );

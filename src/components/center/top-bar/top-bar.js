@@ -1,7 +1,6 @@
 import React from "react"
 import { Link } from "gatsby"
 import Search from "./search"
-import Image from "../main/body/general/image"
 import { MODULE_PATH_PREFIX } from "../../../util/util"
 
 export default () => {

@@ -2,7 +2,6 @@ import React from "react"
 import { graphql } from "gatsby"
 import Layout from "../../../page-layout"
 import Body from "../body/body"
-import Icon from '../../../general/icon'
 import Header from "../../../general/header"
 import SignatureSummaries from "../body/signature/signature-summaries"
 import Type from "../body/type/type"
@@ -16,7 +15,7 @@ import BreadCrumbs from "./general/bread-crumbs"
  * - Link to module
  * - Link to parent
  * - Name
- * - kindString & its icon
+ * - kindString
  * - its body (see body.js)
  */
 export default ({ data }) => {
@@ -34,7 +33,6 @@ export default ({ data }) => {
           </div>
         </div>
         <div className="sidecontainer">
-          <Icon kindString={symbol.kindString}/>
           <div className="kind-string">
             {symbol.kindString}
           </div>

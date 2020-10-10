@@ -1,7 +1,5 @@
 import React, { Component } from "react"
-import { Index } from "elasticlunr"
 import { Link } from "gatsby"
-import Icon from "../../general/icon"
 import { graphql, StaticQuery } from "gatsby"
 
 /**
@@ -56,7 +54,6 @@ export default class Search extends Component {
                 (
                   <li key={node.id + "_filterlist_entry"}>
                     <div className="sidecontainer" title={node.kindString}>
-                      <Icon kindString={node.kindString}/>
                       <Link to={node.fields.path}>{node.name}</Link>
                     </div>
                     {node.fields.path.replace("/modules/", "")}

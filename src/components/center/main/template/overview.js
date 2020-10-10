@@ -1,9 +1,8 @@
-import React, { Component } from "react";
-import { Link } from "gatsby";
-import Layout from "../../../page-layout";
-import { fixModuleName, pathToModule } from "../../../../util/util";
-import { graphql } from "gatsby";
-import Icon from "../../../general/icon"
+import React, { Component } from "react"
+import { Link } from "gatsby"
+import Layout from "../../../page-layout"
+import { fixModuleName, pathToModule } from "../../../../util/util"
+import { graphql } from "gatsby"
 import Header from "../../../general/header"
 import Text from "../body/general/text"
 
@@ -11,7 +10,7 @@ import Text from "../body/general/text"
  * List of all top-level modules
  *
  * Contains:
- * - List of links to all modules and their kindString icons
+ * - List of links to all modules
  */
 class Overview extends Component {
   constructor(props){
@@ -54,7 +53,6 @@ class FlatList extends Component {
               <tr key={module.id + "module_entry_tr"}>
                 <td key={module.id + "module_entry_td"}>
                   <div className="sidecontainer" key={module.id + "module_entry_div_sidecontainer"}>
-                    <Icon kindString={module.kindString}/>
                     <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
                   </div>
                 </td>

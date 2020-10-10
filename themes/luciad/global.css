@@ -45,18 +45,6 @@ a:visited,
   color: var(--text-color-link-visited)
 }
 
-.icon {
-  height: 1.2em;
-  width: auto;
-  padding-left: 0;
-  padding-right: 0;
-}
-
-.icon * {
-  height: 100%;
-  width: auto;
-}
-
 .sidecontainer {
   display: flex;
   max-width: 100%;
@@ -99,16 +87,6 @@ td {
 
 tr:nth-child(odd) {
   background-color: var(--table-odd-bg-color)
-}
-
-/* SIDEBAR - RIGHT */
-.right-sidebar {
-  display: none;
-}
-
-.legend {
-  list-style-type: none;
-  word-break: break-all;
 }
 
 .flag_isExported {

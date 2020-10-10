@@ -1,7 +1,6 @@
 import React, { Component } from "react";
 import { Link, StaticQuery, graphql } from "gatsby"
 import { Index } from "elasticlunr"
-import Icon from "../../../../general/icon"
 import { getMostSimilarPage } from "../../../../../util/directory"
 import { MODULE_PATH_PREFIX } from "../../../../../util/util"
 

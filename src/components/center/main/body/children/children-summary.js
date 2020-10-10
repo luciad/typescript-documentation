@@ -1,6 +1,5 @@
 import React from "react";
 import scrollTo from "gatsby-plugin-smoothscroll"
-import Icon from "../../../../general/icon"
 import SearchLink from "../general/search-link"
 
 /**
@@ -37,7 +36,6 @@ export default ({ data }) => {
                   return (  // if child is not exported, clicking on its name will scroll to its body on the same page
                     <li key={child.id + "_child_summary_entry_noexport"}>
                     <div className="sidecontainer" title={child.kindString}>
-                    <Icon kindString={child.kindString}/>
                       <button className="clickable-text" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>
                         {child.name}
                       </button>

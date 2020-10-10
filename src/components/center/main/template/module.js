@@ -3,7 +3,6 @@ import { graphql } from "gatsby";
 import Layout from "../../../page-layout";
 import { fixModuleName, pathToModule } from "../../../../util/util";
 import Body from "../body/body"
-import Icon from "../../../general/icon"
 import Header from "../../../general/header"
 import BreadCrumbs from "./general/bread-crumbs"
 
@@ -12,7 +11,7 @@ import BreadCrumbs from "./general/bread-crumbs"
  *
  * Contains:
  * - module name
- * - kindsString & its icon
+ * - kindsString
  * - summary of its body
  *
  */
@@ -28,7 +27,6 @@ export default ({ data }) => {
         <BreadCrumbs path={pathToModule(module)}/>
         <div className="title">{fixModuleName(module)}</div>
         <div className="sidecontainer">
-          <Icon kindString={module.kindString}/>
           <div className="kind-string">{module.kindString}</div>
         </div>
         <Body data={module} shortListOnly={true}/>
