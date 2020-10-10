@@ -111,19 +111,16 @@ class Search extends Component {
       // if it's a primitive
       let primitives = ["Boolean", "Number", "String", "BigInt", "Symbol", "undefined", "Object", "Function", "null"]
       if(primitives.includes(this.state.query)){
-        return <div className="primitive">{this.text}</div>
+        return <span className="primitive">{this.text}</span>
       }
       // else: warn
       console.warn("[l-td] Link not found on " + this.state.query + "!")
-      return (<div className="search-link not-found">{this.text}</div>)
+      return (<span className="search-link not-found">{this.text}</span>)
     }
     return (
-      <div className="search-link" title={page.kindString}>
-            <div className="sidecontainer">
-              <Icon kindString={page.kindString}/>
+      <span className="search-link" title={page.kindString}>
               <Link to={page.path}>{this.text.length > 0 ? this.text : page.name}</Link>
-            </div>
-      </div>
+      </span>
     )
   }
 

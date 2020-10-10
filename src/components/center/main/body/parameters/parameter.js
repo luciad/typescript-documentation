@@ -17,9 +17,7 @@ export default class Parameter extends Component {
       {parameter.flags && parameter.flags.isRest &&
         <>...</>}
       <b>{parameter.name}</b>
-      <i>
-        <Type data={parameter} delimiter={parameter.kindString === "Type parameter" ? <>&nbsp;extends </> : <>&nbsp;: </>}/>
-      </i>
+      <Type data={parameter} delimiter={parameter.kindString === "Type parameter" ? <>&nbsp;extends </> : <>&nbsp;: </>}/>
       {parameter.defaultValue &&
       <> = {parameter.defaultValue}</>}
       <Text data={getComments(parameter).shortText} path={path}/>
