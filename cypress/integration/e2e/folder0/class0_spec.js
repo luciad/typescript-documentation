@@ -4,7 +4,6 @@ describe('Class0 test', () => {
       cy.visit('http://localhost:8000/modules/folder0/class0/Class0')
 
 
-      cy.contains("Legend")
       cy.get('p').get('i').contains("Class")
       cy.get('p').get('b').contains("0")
       cy.contains("_name")

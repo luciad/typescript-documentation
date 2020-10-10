@@ -4,7 +4,6 @@ describe('Class2 test', () => {
       cy.visit('http://localhost:8000/modules/folder0/class2/Class2/variable')
 
 
-      cy.contains("Legend")
 
       cy.get(".flag_isExported").contains("isExported")
       cy.get(".flag_isOptional").contains("isOptional")
