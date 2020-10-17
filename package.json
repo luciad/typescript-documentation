@@ -43,10 +43,11 @@
     "typescript": "^3.9.7"
   },
   "devDependencies": {
-    "typedoc": "^0.17.8",
-    "prettier": "^1.19.1",
+    "@hot-loader/react-dom": "^17.0.0-rc.2",
     "cypress": "^4.12.1",
-    "start-server-and-test": "^1.11.2"
+    "prettier": "^1.19.1",
+    "start-server-and-test": "^1.11.2",
+    "typedoc": "^0.17.8"
   },
   "repository": {
     "type": "git",

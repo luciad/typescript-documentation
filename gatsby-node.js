@@ -185,7 +185,7 @@ exports.createSchemaCustomization = ({ actions }) => {
 /**
  * https://www.gatsbyjs.com/docs/add-custom-webpack-config/
  */
-exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
+exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
   const config = getConfig()
   config.module.rules = [
     // Omit the default rule where test === '\.jsx?$'
@@ -204,6 +204,17 @@ exports.onCreateWebpackConfig = ({ actions, loaders, getConfig }) => {
   ]
   // This will completely replace the webpack config with the modified object.
   actions.replaceWebpackConfig(config)
+
+  //fix for hot loader warning
+  if (stage.startsWith("develop")) {
+    actions.setWebpackConfig({
+      resolve: {
+        alias: {
+          "react-dom": "@hot-loader/react-dom",
+        },
+      },
+    })
+  }
 }
 
 exports.onCreateNode = onCreateNode;
