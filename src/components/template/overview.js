@@ -50,13 +50,13 @@ class FlatList extends Component {
         <table>
           <tbody>
             {this.modules.map(module => (
-              <tr key={module.id + "module_entry_tr"}>
-                <td key={module.id + "module_entry_td"}>
-                  <div className="sidecontainer" key={module.id + "module_entry_div_sidecontainer"}>
+              <tr key={"key_" + module.id + "module_entry_tr"}>
+                <td key={"key_" + module.id + "module_entry_td"}>
+                  <div className="sidecontainer" key={"key_" + module.id + "module_entry_div_sidecontainer"}>
                     <Link to={pathToModule(module)}>{fixModuleName(module)}</Link>
                   </div>
                 </td>
-                <td key={module.id + "module_entry_td_comment"}>
+                <td key={"key_" + module.id + "module_entry_td_comment"}>
                   {module.comment &&
                     <Text data={module.comment.shortText}/>}
                 </td>

@@ -15,7 +15,7 @@ export default ({ data }) => {
     <div className="flags">
       <ul>
         {flagList.map(flag => (
-          <li key={flag + "_" + data.fields.path + "_flag"} className={"flag_" + flag} title="flag">
+          <li key={"key_" + flag + "_" + data.fields.path + "_flag"} className={"flag_" + flag} title="flag">
               {flag}
           </li>
         ))}

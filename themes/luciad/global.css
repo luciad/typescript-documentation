@@ -130,7 +130,11 @@ tr:nth-child(odd) {
   padding-left: 1em;
 }
 
-/* CENTER - TOP BAR */
+.signature-summary {
+  margin: 0.5em 1em 0.5em 1em;
+}
+
+  /* CENTER - TOP BAR */
 .top-bar{
   display: flex;
   margin: 1em;

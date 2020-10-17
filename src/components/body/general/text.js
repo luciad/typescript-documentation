@@ -32,18 +32,18 @@ export default ({ data, path }) => {
       switch(e.type){
         case "img":
           return (
-          <span key={e.text + "_text_img"}>
+          <span key={"key_" + e.text + "_text_img"}>
             <Image data={e}/>
           </span>)
         case "link":
           e.searchPath = path
           return (
-          <span key={e.text + "_text_link"}>
+          <span key={"key_" + e.text + "_text_link"}>
             <SearchLink data={e}/>
           </span>)
         case "snippet":
           return (
-          <span key={e.text + "_text_snippet"}>
+          <span key={"key_" + e.text + "_text_snippet"}>
             <Snippet data={e}/>
           </span>)
         default:
@@ -57,7 +57,7 @@ export default ({ data, path }) => {
 
   return (
     <div className="textblock">
-      { newData.map(e => (<span key={e}>{e}</span>))}
+      { newData.map(e => (<span key={"key_" + e.key + e.props.toString() + "_textblock"}>{e}</span>))}
     </div>
   )
 }

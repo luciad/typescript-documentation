@@ -11,7 +11,7 @@ export default ({ data, link }) => {
                 <>
                     {"<"}
                     {data.typeParameter.map((tp, i) =>
-                    <span key={tp.id + i + "type_parameter_symbol_title"}>
+                    <span key={"key_" + tp.id + i + "type_parameter_symbol_title"}>
                         {i > 0 && <>, </>}
                         <Type data={{type: tp}}/>
                     </span>)}

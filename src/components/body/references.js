@@ -44,7 +44,7 @@ class ReferenceTemplate extends Component {
         </div>
         <ul className="itemList">
           {dataList.map(type =>
-              <li key={type.name + "_reference"}>
+              <li key={"key_" + type.name + "_reference"}>
                 <Type data={{type: type}}/>
               </li>
           )}

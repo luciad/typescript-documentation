@@ -14,7 +14,7 @@ export default ({ tags }) => {
     <div className="tags">
       <ul>
         {tags.map(tag =>
-          <li className="sidecontainer" key={tag.tag + "_" + tag.text + "_tag_entry"}>
+          <li className="sidecontainer" key={"key_" + tag.tag + "_" + tag.text + "_tag_entry"}>
             <p>{tag.tag}:</p>
             &nbsp;
             <Text data={tag.text}/>

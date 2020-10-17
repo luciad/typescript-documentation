@@ -13,7 +13,7 @@ export default class Parameter extends Component {
     const path = this.props.path
 
     return (
-      <li key={parameter.name + "_" + parameter.type + "_parameter_entry"}>
+      <li key={"key_" + parameter.name + "_" + parameter.type + "_parameter_entry"}>
       {parameter.flags && parameter.flags.isRest &&
         <>...</>}
       <b>{parameter.name}</b>

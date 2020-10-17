@@ -17,7 +17,7 @@ export default ({ data, path }) => {
         <div className="subsubtitle">Parameters</div>}
       <ul className="tab">
         {parameters.map(p =>
-          <Parameter data={p} path={path} key={p.id + "_param"}/>
+          <Parameter data={p} path={path} key={"key_" + p.id + "_param"}/>
         )}
       </ul>
   </div>

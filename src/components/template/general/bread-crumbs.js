@@ -16,7 +16,7 @@ class BreadCrumbs extends Component {
     return(
       <div className="breadcrumbs sidecontainer">
         {splitPath.map((path, i) =>
-        <div key={path + "_" + splitLink[i]}>
+        <div key={"key_" + path + "_" + splitLink[i]}>
         {i > 0 && <>&nbsp;{">"}&nbsp;</>}
         {i == splitPath.length - 1 &&
           <div className="currentPath inline-block">{path}</div>

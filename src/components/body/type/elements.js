@@ -9,7 +9,7 @@ export default class Elements extends Component {
             <>
                 {data.type === "tuple" ? "[" : "("}
                 {data.elements && data.elements.map((e, i) =>
-                <span key={e.id + i + "_elements"}>
+                <span key={"key_" + e.id + i + "_elements"}>
                     {i > 0 && <>, </>}
                     <Type data={{type: e}}/>
                 </span>)}

@@ -52,7 +52,7 @@ export default class Search extends Component {
               <ul className="search-results">
                 {results.map(node =>
                 (
-                  <li key={node.id + "_filterlist_entry"}>
+                  <li key={"key_" + node.id + "_filterlist_entry"}>
                     <div className="sidecontainer" title={node.kindString}>
                       <Link to={node.fields.path}>{node.name}</Link>
                     </div>

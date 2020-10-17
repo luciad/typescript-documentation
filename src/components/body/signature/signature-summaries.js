@@ -14,27 +14,12 @@ export default ({ data }) => {
 
   return (
     <div className="signature-summary">
-        <SignatureSummaries signatures={signatures}/>
-    </div>
-  )
-}
-
-class SignatureSummaries extends Component {
-  constructor(props){
-    super(props)
-    this.signatures = props.signatures
-  }
-
-  render(){
-
-    return (
-      <ul>
-        {this.signatures.map( (signature, i) =>
-          <span key={i + "_signature_summary"}>
-            {i > 0 && <hr/>}
-            <SignatureSummary data={signature}/>
+      {signatures.map( (signature, i) =>
+        <span key={"key_" + i + "_signature_summary"}>
+          {i > 0 && <hr/>}
+          <SignatureSummary data={signature}/>
         </span>
       )}
-    </ul>
-    )}
+    </div>
+  )
 }

@@ -33,7 +33,7 @@ class ShortList extends Component {
       <>
       <hr/>
       {data.groups.map(group => (
-        <div className="table-group" key={group.title + "_" + group.children.size + "_table-group"}>
+        <div className="table-group" key={"key_" + group.title + "_" + group.children.size + "_table-group"}>
           <br/>
           <div className="subtitle">{group.title}</div>
           <table>
@@ -41,11 +41,11 @@ class ShortList extends Component {
               {group.children.map(childID => {
                 const child = children.find(child => (child.id == childID))
                 return (
-                  <tr key={child.id + "_" + group.title + "_tr"}>
-                    <td key={child.id + "_" + group.title + "_td_link"}>
+                  <tr key={"key_" + child.id + "_" + group.title + "_tr"}>
+                    <td key={"key_" + child.id + "_" + group.title + "_td_link"}>
                       <SearchLink data={{text: child.name, id: child.id}}/>
                     </td>
-                    <td key={child.id + "_" + group.title + "_td_comment"}>
+                    <td key={"key_" + child.id + "_" + group.title + "_td_comment"}>
                       {child.comment &&
                         <Text data={child.comment.shortText}/>}
                     </td>
@@ -70,12 +70,12 @@ class Leaves extends Component {
       <>
       <hr/>
       {data.groups.map(group => (
-        <div className="leaf-group" key={group.title + "_" + group.children.size + "_group"}>
+        <div className="leaf-group" key={"key_" + group.title + "_" + group.children.size + "_group"}>
           <div className="subtitle">{group.title}</div>
           {group.children.map(childID => {
                   const child = children.find(child => (child.id == childID))
                   return (
-                    <Leaf data={child} key={child.id + "_leaf"}/>
+                    <Leaf data={child} key={"key_" + child.id + "_leaf"}/>
                   )
           })}
         </div>

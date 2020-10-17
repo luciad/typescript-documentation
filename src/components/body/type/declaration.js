@@ -13,7 +13,7 @@ export default class Declaration extends Component {
                 <SignatureSummary data={data.declaration}/>
                 {data.declaration.children &&
                     data.declaration.children.map((c, i) =>
-                    <span key={c.ame + i + "_declaration_child"}>
+                    <span key={"key_" + c.ame + i + "_declaration_child"}>
                     {i > 0 && <>, </>}
                     {c.name}
                     <Type data={c} delimiter={" : "}/>
@@ -21,7 +21,7 @@ export default class Declaration extends Component {
 
                 {data.declaration.indexSignature &&
                     data.declaration.indexSignature.map((is, j) =>
-                <span key={j + "_index_signatures"}>
+                <span key={"key_" + j + "_index_signatures"}>
                     {j > 0 && <>, </>}
                     {is.parameters.map((s, i) =>
                     <span key = {s.id + i + "_index_signature"}>

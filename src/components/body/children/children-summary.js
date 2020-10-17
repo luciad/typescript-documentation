@@ -18,7 +18,7 @@ export default ({ data }) => {
   return (
     <div className="children-summary">
         {data.groups.map(group => (                 //map functions, interfaces etc separately
-          <div className="group" key={group.title + "_group_div"}>
+          <div className="group" key={"key_" + group.title + "_group_div"}>
             <div className="subsubtitle">
               {group.title}
             </div>
@@ -26,7 +26,7 @@ export default ({ data }) => {
               {group.children.map(childID => {    //map children within a group,  clicking on its name will scroll to its body on the same page
                 const child = children.find(child => (child.id == childID))
                 return (
-                  <li key={child.id + "_child_summary_entry_noexport"} title={child.kindString}>
+                  <li key={"key_" + child.id + "_child_summary_entry_noexport"} title={child.kindString}>
                     <button className="clickable-text" onClick={() => scrollTo("#id" + child.id)} onKeyDown={() => scrollTo("#id" + child.id)}>
                       {child.name}
                     </button>

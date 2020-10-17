@@ -23,7 +23,7 @@ export default ({ data, path }) => {
   if(!comments) return null
 
   return (
-    <div className="signature" key={data.id + "_signature"}>
+    <div className="signature" key={"key_" + data.id + "_signature_sign"}>
       <SignatureSummary data={data}/>
       {data.kindString}
       <Tags tags={comments.tags}/>

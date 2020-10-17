@@ -12,7 +12,7 @@ export default ({ data, path }) => {
       <div className="subsubtitle">Type parameters</div>
       <ul>
         {data.typeParameter.map(tp =>
-          <Parameter data={tp} path={path} key={path.id + "_type_param"}/>
+          <Parameter data={tp} path={path} key={"key_" + path.id + "_type_param"}/>
         )}
       </ul>
     </div>

@@ -16,7 +16,7 @@ if(typeof expand === "string"){
       <div className="directory-item">
       {directories.next.map( node => {
         return (
-          <div key={node.path}>
+          <div key={"key_" + node.path + "_directory_tree_node"}>
           {(node.next.length > 0 &&
             <>
               {expand && expand[0] === node.name &&
