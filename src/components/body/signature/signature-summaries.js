@@ -14,9 +14,7 @@ export default ({ data }) => {
 
   return (
     <div className="signature-summary">
-      <ul>
         <SignatureSummaries signatures={signatures}/>
-      </ul>
     </div>
   )
 }
@@ -30,13 +28,13 @@ class SignatureSummaries extends Component {
   render(){
 
     return (
-      <>
+      <ul>
         {this.signatures.map( (signature, i) =>
           <>
             {i > 0 && <hr/>}
             <SignatureSummary data={signature}/>
         </>
       )}
-    </>
+    </ul>
     )}
 }
