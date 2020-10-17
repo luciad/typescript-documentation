@@ -31,12 +31,21 @@ export default ({ data, path }) => {
       let newChildren = tempChildArray.map(e => { // Create react element if necessary
       switch(e.type){
         case "img":
-          return <Image data={e}/>
+          return (
+          <span key={e.text + "_text_img"}>
+            <Image data={e}/>
+          </span>)
         case "link":
           e.searchPath = path
-          return <SearchLink data={e}/>
+          return (
+          <span key={e.text + "_text_link"}>
+            <SearchLink data={e}/>
+          </span>)
         case "snippet":
-          return <Snippet data={e}/>
+          return (
+          <span key={e.text + "_text_snippet"}>
+            <Snippet data={e}/>
+          </span>)
         default:
           return e.text
       }})
@@ -48,7 +57,7 @@ export default ({ data, path }) => {
 
   return (
     <div className="textblock">
-      { newData.map(e => (<>{e}</>))}
+      { newData.map(e => (<span key={e}>{e}</span>))}
     </div>
   )
 }

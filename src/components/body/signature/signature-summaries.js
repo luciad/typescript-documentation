@@ -30,10 +30,10 @@ class SignatureSummaries extends Component {
     return (
       <ul>
         {this.signatures.map( (signature, i) =>
-          <>
+          <span key={i + "_signature_summary"}>
             {i > 0 && <hr/>}
             <SignatureSummary data={signature}/>
-        </>
+        </span>
       )}
     </ul>
     )}

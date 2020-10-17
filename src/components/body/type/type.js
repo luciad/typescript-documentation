@@ -28,7 +28,7 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
             <>? </>}
             <>{delimiter}</>
             {types.map((t, i) =>
-                <>
+                <span key={t.id + "_type_span"}>
                 {i > 0 && <> {types.type === "union" ? " | " : types.type === "intersection" ? " & " : types.type} </>}
 
                 {(!t.elementType && !t.declaration && !t.name && !t.value && !t.target
@@ -61,7 +61,7 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
 
                 {t.kindString === "Type parameter" &&
                     <Type data={t} delimiter={<>&nbsp;extends&nbsp;</>}/>}
-                </>
+                </span>
             )}
         </div>
     )

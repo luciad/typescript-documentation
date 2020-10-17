@@ -13,24 +13,24 @@ export default class Declaration extends Component {
                 <SignatureSummary data={data.declaration}/>
                 {data.declaration.children &&
                     data.declaration.children.map((c, i) =>
-                    <>
+                    <span key={c.ame + i + "_declaration_child"}>
                     {i > 0 && <>, </>}
                     {c.name}
                     <Type data={c} delimiter={" : "}/>
-                    </>)}
+                    </span>)}
 
                 {data.declaration.indexSignature &&
                     data.declaration.indexSignature.map((is, j) =>
-                <>
+                <span key={j + "_index_signatures"}>
                     {j > 0 && <>, </>}
                     {is.parameters.map((s, i) =>
-                    <>
+                    <span key = {s.id + i + "_index_signature"}>
                         {i > 0 && <>, </>}
                         [{s.name}
                         <Type data={s} delimiter={" : "}/>]
-                    </>)}
+                    </span>)}
                     <Type data={is} delimiter={" : "}/>
-                </>)}
+                </span>)}
                 <div>&nbsp;{"}"}</div>
             </div>
         )

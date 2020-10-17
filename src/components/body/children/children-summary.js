@@ -18,7 +18,7 @@ export default ({ data }) => {
   return (
     <div className="children-summary">
         {data.groups.map(group => (                 //map functions, interfaces etc separately
-          <div className="group">
+          <div className="group" key={group.title + "_group_div"}>
             <div className="subsubtitle">
               {group.title}
             </div>

@@ -19,7 +19,7 @@ export default class TypeComments extends Component {
         if(!tiComments.text && !tiComments.shortText
             && tiComments.tags.length === 0) return null
         return (
-        <li>
+        <li key={ti.id + "_type_comments"}>
           {ti.name}
           <Text data={tiComments.shortText} path={path}/>
           <Text data={tiComments.text} path={path}/>

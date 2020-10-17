@@ -9,10 +9,10 @@ export default class TypeArguments extends Component {
         return (
           <>{"<"}
           {data.typeArguments.map( (ta, i) =>
-              <>
+              <span key={ta.id + i + "_type_args"}>
               {i > 0 && <>, </>}
                   <Type data={{type: ta}}/>
-              </>
+              </span>
   )}
   {">"}</>
         )

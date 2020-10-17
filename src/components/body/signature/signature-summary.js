@@ -22,17 +22,17 @@ class SignatureSummary extends Component {
         {this.data.typeParameter &&
           <>{"<"}
           {this.data.typeParameter.map((tp, i) =>
-            <>
+            <span key={tp.id + "_" + i + "_tp_map"}>
             {i > 0 && <>, </>}
             {tp.name}
             <Type data={tp} delimiter={<>&nbsp;extends </>}/>
-            </>
+            </span>
             )}
             {">"}</>
         }
         ({this.data.parameters &&
             this.data.parameters.map((p, i) =>
-              <SignatureParameter data={p} i={i}/>)
+              <SignatureParameter data={p} i={i} key={p.id + "_" + i + "_sign_param"}/>)
           })
           {callBack && <>&nbsp;{"=>"}&nbsp;</>}
           <Type data={this.data} delimiter={!callBack ? " : " : null}/>

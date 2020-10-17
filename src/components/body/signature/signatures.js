@@ -17,12 +17,12 @@ export default ({ data, path}) => {
     <div className="signatures">
       <ul className="signature-list">
         {signatures.map((signature, i) => (
-          <>
+          <span key={signature.name + path + i + "_signature"}>
             {i > 0 && <hr/>}
             <li key={signature.name + "_" + path + "_signature_entry"}>
               <Signature data={signature} path={path}/>
             </li>
-          </>
+          </span>
         ))}
       </ul>
     </div>
