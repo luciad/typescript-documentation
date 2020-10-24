@@ -6,7 +6,7 @@ export default ({ data, link }) => {
   return (
       <div className="symbol-title inline-block">
           <span className="title">
-            {link ? <Link to={data.fields.path}>{data.name}</Link> : data.name}
+            {link ? <Link to={data.fields.path} title={data.kindString}>{data.name}</Link> : data.name}
             {data.typeParameter &&
                 <>
                     {"<"}

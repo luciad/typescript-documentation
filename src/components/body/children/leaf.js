@@ -1,6 +1,5 @@
 import React from "react";
 import Body from "../body"
-import SignatureSummary from "../signature/signature-summaries"
 import Type from "../type/type"
 import SymbolTitle from "../../general/symbol-title"
 
