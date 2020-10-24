@@ -21,8 +21,6 @@ export default ({ data }) => {
         <Type data={data} delimiter={" : "} noIsOptionalMarker={true}/>
       </div>
 
-      <div className="kind-string">{data.kindString}</div>
-      <SignatureSummary data={data}/>
       <Body data={data}/>
     </div>
   );
