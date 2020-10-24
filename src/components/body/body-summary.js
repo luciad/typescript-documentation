@@ -35,8 +35,6 @@ export default ({ data, noChildrenSummary }) => {
     <div className="body-summary">
       {comments.returns.length > 0 &&
         <div className="sidecontainer returns">returns&nbsp;<Text data={comments.returns} path={path}/></div>}
-      {data.defaultValue &&
-        <div>Default value: {data.defaultValue}</div>}
       {data.overwrites &&
         <div className="overwrites">
           <div className="subsubtitle">Overwrites</div>
