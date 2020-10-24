@@ -4,7 +4,7 @@
     ["prismjs", {
       "languages": ["javascript", "json", "css"],
       "plugins": ["line-numbers", "show-language"],
-      "theme": "tomorrow", //dark themes: okaidia, tomorrow, twilight, dark ;light themes: coy
+      "theme": "default", //dark themes: okaidia, tomorrow, twilight, dark ;light themes: coy; default
       "css": true
     }]
   ]

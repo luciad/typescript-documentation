@@ -14,11 +14,11 @@ const overviewTemplate = require.resolve("./src/components/template/overview");
 const moduleTemplate = require.resolve("./src/components/template/module");
 const directoryTreeTemplate = require.resolve("./src/components/template/directory-tree");
 
-console.log("[l-td] Default snippet language: " + process.env.GATSBY_DEFAULT_LAN)
-console.log("[l-td] Prefix: " + process.env.GATSBY_PREFIX)
 process.env.GATSBY_PROJECT_NAME = documentation.name
 
-exports.createPages = ({ actions }) => {
+exports.createPages = ({ actions, reporter }) => {
+  reporter.info("[l-td] Default snippet language: " + process.env.GATSBY_DEFAULT_LAN)
+  reporter.info("[l-td] Prefix: " + process.env.GATSBY_PREFIX)
   const { createPage } = actions
   const modules = documentation.children
 

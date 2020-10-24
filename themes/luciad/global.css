@@ -130,10 +130,6 @@ tr:nth-child(odd) {
   padding-left: 1em;
 }
 
-.signature-summary {
-  margin: 0.5em 1em 0.5em 1em;
-}
-
   /* CENTER - TOP BAR */
 .top-bar{
   display: flex;
@@ -353,7 +349,7 @@ tr:nth-child(odd) {
   font-family: var(--code-font-family);
 }
 
-.signature .signature-title:first-child {
+.signature > .signature-summary-item > .signature-title:first-child {
   font-size: 175%;
 }
 

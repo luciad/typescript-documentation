@@ -8,8 +8,8 @@ export default class Declaration extends Component {
         if(!data || !data.declaration) return null
 
         return(
-            <div className="declaration inline-block">
-                <div>{"{"}&nbsp;</div>
+            <span className="declaration">
+                <span>{"{"}&nbsp;</span>
                 <SignatureSummary data={data.declaration}/>
                 {data.declaration.children &&
                     data.declaration.children.map((c, i) =>
@@ -31,8 +31,8 @@ export default class Declaration extends Component {
                     </span>)}
                     <Type data={is} delimiter={" : "}/>
                 </span>)}
-                <div>&nbsp;{"}"}</div>
-            </div>
+                <span>&nbsp;{"}"}</span>
+            </span>
         )
     }
 }
