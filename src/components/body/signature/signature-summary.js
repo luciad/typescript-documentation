@@ -18,7 +18,7 @@ class SignatureSummary extends Component {
     return (
       <div key={"key_" + this.data.name + "_" + this.data.id + "_signature_summary"} className="signature-summary-item">
         {!callBack &&
-          <span className="signature-title">{this.data.name}</span>}
+          <span className="signature-title">{this.data.name.replace("__", "")}</span>}
         {this.data.typeParameter &&
           <>{"<"}
           {this.data.typeParameter.map((tp, i) =>
