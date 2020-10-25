@@ -107,6 +107,10 @@ tr:nth-child(odd) {
   display: none;
 }
 
+.flag_isOptional {
+  display: none;
+}
+
 /* CENTER */
 .textblock ul {
   list-style-type: disc;
