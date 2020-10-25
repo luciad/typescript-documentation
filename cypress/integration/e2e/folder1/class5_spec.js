@@ -4,11 +4,9 @@ describe('Class5 test', () => {
   cy.visit('http://localhost:8000/modules/folder1/class5/Class5')
 
   cy.get(".kind-string").contains("Class")
-  cy.get(".kind-string").contains("Method")
 
   cy.visit('http://localhost:8000/modules/folder1/class5/myEnum')
   cy.get(".kind-string").contains("Enum")
-  cy.get(".kind-string").contains("Enumeration member")
 
   cy.visit('http://localhost:8000/modules/folder1/class5/myInterface')
   cy.get(".kind-string").contains("Interface")
