@@ -29,15 +29,15 @@ export default ({ data, path }) => {
       <Tags tags={comments.tags}/>
 
       <div className="signature-body">
+        <Text data={comments.shortText} path={path}/>
+        <Text data={comments.text} path={path}/>
+        <Parameters data={data} path={path}/>
+        <TypeParameters data={data} path={path}/>
         {comments.returns.length > 0 &&
           <div className="sidecontainer returns">
             returns&nbsp;
             <Text data={comments.returns} path={path}/>
           </div>}
-        <Text data={comments.shortText} path={path}/>
-        <Text data={comments.text} path={path}/>
-        <Parameters data={data} path={path}/>
-        <TypeParameters data={data} path={path}/>
       </div>
     </div>
   )
