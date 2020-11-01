@@ -19,6 +19,7 @@ process.env.GATSBY_PROJECT_NAME = documentation.name
 exports.createPages = ({ actions, reporter }) => {
   reporter.info("[l-td] Default snippet language: " + process.env.GATSBY_DEFAULT_LAN)
   reporter.info("[l-td] Prefix: " + process.env.GATSBY_PREFIX)
+  reporter.info("[l-td] Package name replacement rules: " + process.env.GATSBY_REPL_PACK_NAMES)
   const { createPage } = actions
   const modules = documentation.children
 
@@ -59,7 +60,7 @@ exports.createPages = ({ actions, reporter }) => {
   });
 
   //pages for breadcrumbs
-  const allDirectories = utilDirectory.getAllDirectories({allModule: {nodes: modules}})
+  const allDirectories = utilDirectory.getAllDirectories({allModule: {nodes: modules}}, true)
   createDirectoryPages(allDirectories)
 
   function createDirectoryPages(directoryTree){
@@ -107,44 +108,12 @@ async function onCreateNode({
     });
   }
   // only care about .json content.
-  if (
-    node.internal.mediaType !== `application/json` ||
-    node.absolutePath !== documentationPath
-  ) {
-    return;
-  }
+  if ( node.internal.mediaType !== `application/json` || node.absolutePath !== documentationPath) return
 
   const content = await loadNodeContent(node);
   const parsedContent = JSON.parse(content);
 
   const modules = parsedContent.children;
-
-
-  const createSymbolNode = (symbol, parentNode) => {
-    const symbolWithoutChildrenOrId = { ...symbol };
-    symbolWithoutChildrenOrId.children = undefined;
-    symbolWithoutChildrenOrId.id = undefined;
-    const jsonNode = {
-      ...symbolWithoutChildrenOrId,
-      parent: parentNode.id,
-      id: String(symbol.id),
-      internal: {
-        contentDigest: createContentDigest(symbol),
-        type: "Symbol",
-      },
-    };
-
-    let parentPath = parentNode.fields.path
-    createNode(jsonNode);
-    createNodeField({ node: jsonNode, name: "path", value:  parentPath + "/" + symbol.name})
-    createNodeField({ node: jsonNode, name: "parentPath", value: parentPath})
-    createParentChildLink({ parent: parentNode, child: jsonNode });
-    if (symbol.children) {
-      for (const child of symbol.children) {
-        createSymbolNode(child, jsonNode);
-      }
-    }
-  };
 
   modules.forEach(module => {
     const moduleWithoutChildrenOrId = { ...module };
@@ -169,12 +138,38 @@ async function onCreateNode({
     createNodeField({ node: jsonNode, name: "parentPath", value: "/"})
     createParentChildLink({ parent: node, child: jsonNode });
 
+  const createSymbolNode = (symbol, parentNode) => {
+    const symbolWithoutChildrenOrId = { ...symbol };
+    symbolWithoutChildrenOrId.children = undefined;
+    symbolWithoutChildrenOrId.id = undefined;
+    const jsonNode = {
+      ...symbolWithoutChildrenOrId,
+      parent: parentNode.id,
+      id: String(symbol.id),
+      internal: {
+        contentDigest: createContentDigest(symbol),
+        type: "Symbol",
+      },
+    }
+
+    let parentPath = parentNode.fields.path
+    createNode(jsonNode);
+    createNodeField({ node: jsonNode, name: "path", value:  parentPath + "/" + symbol.name})
+    createNodeField({ node: jsonNode, name: "parentPath", value: parentPath})
+    createParentChildLink({ parent: parentNode, child: jsonNode });
+    if (symbol.children) {
+      for (const child of symbol.children) {
+        createSymbolNode(child, jsonNode);
+      }
+    }
+  }
+
     // recursively create a symbol for every child
     if(module.children){
       module.children.forEach(child => {
-        createSymbolNode(child, jsonNode);
+        createSymbolNode(child, jsonNode)
     })}
-  });
+  })
 }
 
 exports.createSchemaCustomization = ({ actions }) => {
@@ -215,6 +210,10 @@ exports.onCreateWebpackConfig = ({ stage, actions, loaders, getConfig }) => {
       },
     })
   }
+}
+
+exports.onPostBuild = ({reporter}) => {
+  reporter.info("Finished build")
 }
 
 exports.onCreateNode = onCreateNode;

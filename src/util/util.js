@@ -13,7 +13,7 @@ const fixModuleName = module => {
     console.warn("[l-td] module name not found. Module: ", module)
     return "404"
   }
-  return module.name.replace('.d"', "").replace(/"/g, "");
+  return replacePackageName(module.name.replace('.d"', "").replace(/"/g, ""))
 };
 
 /**
@@ -225,6 +225,26 @@ function getFlags(data){
   return returnFlags
 }
 
+/**
+ * Replaces package name if specified with env var GATSBY_REPL_PACK_NAMES
+ *
+ * example of expected above env var: "package,this/package;otherPackage,newName"
+ * @param {String} packageName
+ * @returns {String} package name changed according to rules
+ */
+function replacePackageName(packageName){
+  let rules = process.env.GATSBY_REPL_PACK_NAMES
+  if(!rules || rules.length === 0) return packageName
+
+  rules = rules.split(";")
+  rules = rules.map(a => a.split(","))
+
+  for(let rule of rules){
+    packageName = packageName.replace(new RegExp("^" + rule[0]), rule[1])
+  }
+  return packageName
+}
+
 module.exports = {
   MODULE_PATH_PREFIX,
   fixModuleName,
@@ -235,4 +255,5 @@ module.exports = {
   getFlags,
   getLinks,
   parse,
+  replacePackageName
 };

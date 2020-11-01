@@ -2,7 +2,7 @@
 
 main()
 {
-    while getopts :i:o:t:m:d:c:s:l:p: option
+    while getopts :i:o:t:m:d:c:s:l:p:r: option
     do
         case "${option}"
         in
@@ -15,6 +15,7 @@ main()
             s) SNIPPETS=${OPTARG};;
             l) DEFAULTLAN=${OPTARG};;
             p) PREFIX=${OPTARG};;
+            r) REPLACE_PACKAGE_NAMES=${OPTARG};;
             \?) echo "[l-td] Invalid option: -$OPTARG" >&2
                 display_help
                 exit 1;;
@@ -41,6 +42,11 @@ main()
         PREFIX=""
     fi
 
+    if [ -z "$REPLACE_PACKAGE_NAMES" ]
+    then
+        REPLACE_PACKAGE_NAMES=""
+    fi
+
     echo "[l-td] running l-td..."
     npx gatsby clean
     if [ "$COPYONLY" == "true" ]
@@ -50,10 +56,10 @@ main()
         if [  "$DEVELOP" == "true" ]
         then
             echo "[l-td] developing..."
-            GATSBY_DEFAULT_LAN=$DEFAULTLAN npx gatsby develop
+            GATSBY_DEFAULT_LAN=$DEFAULTLAN GATSBY_REPL_PACK_NAMES=$REPLACE_PACKAGE_NAMES npx gatsby develop
         else
             echo "[l-td] building..."
-            GATSBY_DEFAULT_LAN=$DEFAULTLAN GATSBY_PREFIX=$PREFIX npx gatsby build --prefix-paths
+            GATSBY_DEFAULT_LAN=$DEFAULTLAN GATSBY_PREFIX=$PREFIX GATSBY_REPL_PACK_NAMES=$REPLACE_PACKAGE_NAMES npx gatsby build --prefix-paths
             echo "[l-td] Finished building l-td!"
         fi
     fi
@@ -159,6 +165,7 @@ display_help(){
     echo "[l-td]   -s snippet/folder -> specify snippet input folder (optional, relative or absolute)"
     echo "[l-td]   -l defaultLanguage -> specify default language for snippets with no specified language and no extension"
     echo "[l-td]   -p prefix -> if hosted in subdirectory, specify the path prefix here (no effect when '-d true' is used)"
+    echo "[l-td]   -r replaceRule -> replace start of module names (strToReplace0,replacement0;strToReplace1,replacement1)"
 }
 
 #absolute_path $input $prefix

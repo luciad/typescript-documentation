@@ -13,7 +13,7 @@ const util = require("./util")
  * @param {} data data.allModules.nodes
  * @returns directoryTree
  */
-function getAllDirectories(data){
+function getAllDirectories(data, fixNames){
   let directories = {
     name: "root",
     next: [],
@@ -21,7 +21,7 @@ function getAllDirectories(data){
   }
 
   for(let node of data.allModule.nodes){
-    const currentDir = node.name.split("/")
+    const currentDir = (fixNames ? util.fixModuleName(node) : node.name).split("/")
     let activeDir = directories
 
     let currentPath = util.MODULE_PATH_PREFIX

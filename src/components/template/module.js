@@ -22,10 +22,10 @@ export default ({ data }) => {
 
   return (
     <div className="module">
-      <Header siteTitle={fixModuleName(module) + " (module)"} />
+      <Header siteTitle={module.name + " (module)"} />
       <Layout>
-        <BreadCrumbs path={pathToModule(module)}/>
-        <div className="title">{fixModuleName(module)}</div>
+        <BreadCrumbs path={module.fields.path}/>
+        <div className="title">{module.name}</div>
         <div className="sidecontainer">
           <div className="kind-string">{module.kindString}</div>
         </div>

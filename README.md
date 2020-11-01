@@ -31,6 +31,7 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
       -s snippet/folder -> specify snippet input folder (optional, relative or absolute)
       -l defaultLanguage -> specify default language for snippets with no specified language and no extension
       -p prefix -> if hosted in subdirectory, specify the path prefix here (no effect when '-d true' is used)
+      -r replaceRule -> replace start of module names (strToReplace0,replacement0;strToReplace1,replacement1)
     ```
 
     Example:
@@ -57,6 +58,8 @@ Generates webpages based on json output from  [typedoc](https://typedoc.org/). T
     `-l`: default snippet language: Using `{@snippet path/to/snippet}` with no extension or language specified will use this for highlighting. Default `none`.
 
     `-p`: path prefix. eg. if you want to host the site on example.com/docs, use `-p /docs`. This has no effect if flag `-d true` is used.
+
+    `-r`: replace (start of) module names (eg. module0/,@name/module0/;module1/,@name/module1/). This replaces first part of the rule with the second part of the rule (split with `,`) in each module name. Multiple rules split with `;`. Only replaces if first part matches the start of the module name.
 
     # Supported features
     ## In your documentation
