@@ -74,7 +74,7 @@ check_var_output(){
     outputPath=$(absolute_path $OUTPUT $runDir)
     echo "[l-td] Moving output to $outputPath"
     mkdir -p $outputPath
-    mv public $outputPath || true
+    mv public $outputPath 2>/dev/null || true
 }
 
 check_var_input()
