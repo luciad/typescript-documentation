@@ -3,9 +3,6 @@ import { graphql } from "gatsby"
 import Layout from "../page-layout"
 import Body from "../body/body"
 import Header from "./general/header"
-import SignatureSummaries from "../body/signature/signature-summaries"
-import Type from "../body/type/type"
-import SymbolTitle from "../general/symbol-title"
 import BreadCrumbs from "./general/bread-crumbs"
 
 /**
@@ -26,18 +23,6 @@ export default ({ data }) => {
       <Header siteTitle={symbol.name} />
       <Layout>
         <BreadCrumbs path={symbol.fields.path}/>
-        <div>
-        <SymbolTitle data={symbol}/>
-          <div className="bottom inline-block">
-            <Type data={symbol} delimiter={" : "} noIsOptionalMarker={true}/>
-          </div>
-        </div>
-        <div className="sidecontainer">
-          <div className="kind-string">
-            {symbol.kindString}
-          </div>
-        </div>
-        <SignatureSummaries data={symbol}/>
         <Body data={symbol}/>
       </Layout>
     </div>

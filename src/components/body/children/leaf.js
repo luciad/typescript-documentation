@@ -1,7 +1,5 @@
 import React from "react";
 import Body from "../body"
-import Type from "../type/type"
-import SymbolTitle from "../../general/symbol-title"
 
 /**
  * Full description of an item
@@ -15,12 +13,7 @@ export default ({ data }) => {
 
   return (
     <div className="leaf" id={"id" + data.id} key={"key_" + data.id + "_leaf"}>
-      <SymbolTitle data={data} link={true}/>
-      <div className="bottom inline-block">
-        <Type data={data} delimiter={" : "} noIsOptionalMarker={true}/>
-      </div>
-
-      <Body data={data}/>
+      <Body data={data} isLeaf={true}/>
     </div>
   );
 };

@@ -18,7 +18,7 @@ export default ({ data, link }) => {
                     {">"}
                 </>}
         </span>
-        {data.flags.isOptional &&
+        {data.flags && data.flags.isOptional &&
             <span className="bottom optional-mark inline-block" title="isOptional">&nbsp;?&nbsp;</span>}
     </div>
   )

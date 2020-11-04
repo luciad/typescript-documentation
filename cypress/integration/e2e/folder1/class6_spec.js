@@ -8,9 +8,8 @@ describe('Class6 test', () => {
   cy.url().should('include', '/firstclass/FirstClass')
 
   cy.visit('http://localhost:8000/modules/folder1/class6/Class6/property')
-  cy.get(".signature-summary").contains("get")
-  cy.get(".signature-summary").contains("set")
-  cy.get(".signature-summary").contains("prop")
+  cy.contains("get")
+  cy.contains("set")
 
   cy.visit('http://localhost:8000/modules/folder1/class5/myInterface')
   cy.get(".kind-string").contains("Interface")

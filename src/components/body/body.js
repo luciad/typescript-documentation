@@ -10,12 +10,12 @@ import Leaf from "../body/children/leaf"
  * - body summary (see body-summary.js)
  * - leaf of each child (see leaf.js)
  */
-export default ({ data, shortListOnly }) => {
+export default ({ data, shortListOnly, isLeaf }) => {
   if(!data) return null
 
   return (
     <div className="body">
-      <BodySummary data={data} noChildrenSummary={shortListOnly}/>
+      <BodySummary data={data} noChildrenSummary={shortListOnly} isLeaf={isLeaf}/>
       {shortListOnly
       ?   <ShortList data={data}/>
       : <Leaves data={data}/>}
