@@ -13,7 +13,7 @@ describe('Class3 test', () => {
       cy.visit('http://localhost:8000/modules/folder0/class3/Class3/custom_css')
 
       cy.get('.textblock').find('.text-img').should('have.attr', 'src').should('include','example_image.png')
-     // cy.get('.textblock').find('.text-img').should('have.css', 'width', '100px') // travis fails
+      cy.get('.textblock').find('.text-img').should('have.css', 'width', '100px')
       cy.get('.textblock').find('.text-img').should('have.css', 'background-color', 'rgb(255, 0, 0)')
     })
   })
