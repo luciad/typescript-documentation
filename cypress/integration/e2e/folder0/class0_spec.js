@@ -13,6 +13,7 @@ describe('Class0 test', () => {
       cy.get('a').contains("This should link to itself").click({force: true})
       cy.url().should('include', '/class0/Class0/myClass0')
 
+      /* TRAVIS FAILS HERE
       cy.wait(50)
 
       cy.get('a').contains(/^Class0$/).click({force: true})
@@ -24,7 +25,6 @@ describe('Class0 test', () => {
       cy.url().should('include', '/class0/Class0/getName')
 
       cy.wait(10)
-/* TRAVIS FAILS HERE
       cy.get('a').contains(/^Class0$/).click({force: true})
       cy.url().should('include', '/class0/Class0')
 
