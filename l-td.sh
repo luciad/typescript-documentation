@@ -6,16 +6,16 @@ main()
     do
         case "${option}"
         in
-            i) INPUT=${OPTARG};;
-            o) OUTPUT=${OPTARG};;
-            t) THEME=${OPTARG};;
-            m) MEDIA=${OPTARG};;
-            d) DEVELOP=${OPTARG};;
-            c) COPYONLY=${OPTARG};;
-            s) SNIPPETS=${OPTARG};;
-            l) DEFAULTLAN=${OPTARG};;
-            p) PREFIX=${OPTARG};;
-            r) REPLACE_PACKAGE_NAMES=${OPTARG};;
+            i) LTD_INPUT=${OPTARG};;
+            o) LTD_OUTPUT=${OPTARG};;
+            t) LTD_THEME=${OPTARG};;
+            m) LTD_MEDIA=${OPTARG};;
+            d) LTD_DEVELOP=${OPTARG};;
+            c) LTD_COPYONLY=${OPTARG};;
+            s) LTD_SNIPPETS=${OPTARG};;
+            l) LTD_DEFAULTLAN=${OPTARG};;
+            p) LTD_PREFIX=${OPTARG};;
+            r) LTD_REPLACE_PACKAGE_NAMES=${OPTARG};;
             \?) echo "[l-td] Invalid option: -$OPTARG" >&2
                 display_help
                 exit 1;;
@@ -32,34 +32,34 @@ main()
     check_var_media
     check_var_snippets
 
-    if [ -z "$DEFAULTLAN" ]
+    if [ -z "$LTD_DEFAULTLAN" ]
     then
-        DEFAULTLAN=none
+        LTD_DEFAULTLAN=none
     fi
 
-    if [ -z "$PREFIX" ]
+    if [ -z "$LTD_PREFIX" ]
     then
-        PREFIX=""
+        LTD_PREFIX=""
     fi
 
-    if [ -z "$REPLACE_PACKAGE_NAMES" ]
+    if [ -z "$LTD_REPLACE_PACKAGE_NAMES" ]
     then
-        REPLACE_PACKAGE_NAMES=""
+        LTD_REPLACE_PACKAGE_NAMES=""
     fi
 
     echo "[l-td] running l-td..."
     npx gatsby clean
-    if [ "$COPYONLY" == "true" ]
+    if [ "$LTD_COPYONLY" == "true" ]
     then
         echo "[l-td] copied files"
     else
-        if [  "$DEVELOP" == "true" ]
+        if [  "$LTD_DEVELOP" == "true" ]
         then
             echo "[l-td] developing..."
-            GATSBY_DEFAULT_LAN=$DEFAULTLAN GATSBY_REPL_PACK_NAMES=$REPLACE_PACKAGE_NAMES npx gatsby develop
+            GATSBY_DEFAULT_LAN=$LTD_DEFAULTLAN GATSBY_REPL_PACK_NAMES=$LTD_REPLACE_PACKAGE_NAMES npx gatsby develop
         else
             echo "[l-td] building..."
-            GATSBY_DEFAULT_LAN=$DEFAULTLAN GATSBY_PREFIX=$PREFIX GATSBY_REPL_PACK_NAMES=$REPLACE_PACKAGE_NAMES npx gatsby build --prefix-paths
+            GATSBY_DEFAULT_LAN=$LTD_DEFAULTLAN GATSBY_PREFIX=$LTD_PREFIX GATSBY_REPL_PACK_NAMES=$LTD_REPLACE_PACKAGE_NAMES npx gatsby build --prefix-paths
             echo "[l-td] Finished building l-td!"
         fi
     fi
@@ -67,11 +67,11 @@ main()
 }
 
 check_var_output(){
-     if [ -z "$OUTPUT" ]
+     if [ -z "$LTD_OUTPUT" ]
     then
-        OUTPUT=public
+        LTD_OUTPUT=public
     fi
-    outputPath=$(absolute_path $OUTPUT $runDir)
+    outputPath=$(absolute_path $LTD_OUTPUT $runDir)
     echo "[l-td] Moving output to $outputPath"
     mkdir -p $outputPath
     mv public $outputPath 2>/dev/null || true
@@ -80,16 +80,16 @@ check_var_output(){
 check_var_input()
 {
     mkdir -p $scriptDir/content
-    if [ ! -z "$INPUT" ] #if INPUT specified
+    if [ ! -z "$LTD_INPUT" ] #if LTD_INPUT specified
     then
-        inputPath=$(absolute_path $INPUT $runDir)
+        inputPath=$(absolute_path $LTD_INPUT $runDir)
         echo "[l-td] input path: $inputPath"
-        if [ ! -f "$inputPath" ]; #if INPUT isn't a file
+        if [ ! -f "$inputPath" ]; #if LTD_INPUT isn't a file
         then
             echo "[l-td] Source path: $inputPath doesn't exist"
             exit 1
         fi
-        if [  ${INPUT: -5} == ".json" ] || [ ${INPUT: -5} == ".JSON" ]; #if INPUT ends in .json
+        if [  ${LTD_INPUT: -5} == ".json" ] || [ ${LTD_INPUT: -5} == ".JSON" ]; #if LTD_INPUT ends in .json
         then
             yes | cp -rf $inputPath $scriptDir/content/docu.json
         else
@@ -104,19 +104,19 @@ check_var_input()
 check_var_theme()
 {
     mkdir -p $scriptDir/content/styles
-    themePath=$scriptDir/themes/$THEME
-    if [ ! -z "$THEME" ] && [ -d "$themePath" ] #check if exists in theme folder
+    themePath=$scriptDir/themes/$LTD_THEME
+    if [ ! -z "$LTD_THEME" ] && [ -d "$themePath" ] #check if exists in theme folder
     then
-        echo "[l-td] Using theme $THEME in $themePath"
+        echo "[l-td] Using theme $LTD_THEME in $themePath"
     else
-        themePath=$(absolute_path $THEME $rundir)
-        if [ ! -z "$THEME" ] && [ -d "$themePath" ] #check if exists somewhere else
+        themePath=$(absolute_path $LTD_THEME $rundir)
+        if [ ! -z "$LTD_THEME" ] && [ -d "$themePath" ] #check if exists somewhere else
         then
             echo "[l-td] Using theme in path $themePath"
         else
             echo "[l-td] Using default theme"
-            THEME="default"
-            themePath=$scriptDir/themes/$THEME
+            LTD_THEME="default"
+            themePath=$scriptDir/themes/$LTD_THEME
         fi
     fi
     yes | cp $themePath/favicon.ico $scriptDir/static/favicon.ico || true
@@ -126,9 +126,9 @@ check_var_theme()
 check_var_media()
 {
     mkdir -p $scriptDir/content/media
-    if [ ! -z "$MEDIA" ]
+    if [ ! -z "$LTD_MEDIA" ]
     then
-        mediaPath=$(absolute_path $MEDIA $runDir)
+        mediaPath=$(absolute_path $LTD_MEDIA $runDir)
         if [ -d "$mediaPath" ]
         then
             echo "[l-td] Copying media from $mediaPath"
@@ -142,9 +142,9 @@ check_var_media()
 check_var_snippets()
 {
     mkdir -p $scriptDir/content/snippets
-    if [ ! -z "$SNIPPETS" ]
+    if [ ! -z "$LTD_SNIPPETS" ]
     then
-        snippetsPath=$(absolute_path $SNIPPETS $urnDir)
+        snippetsPath=$(absolute_path $LTD_SNIPPETS $urnDir)
         if [ -d "$snippetsPath" ]
         then
             echo "[l-td] Copying snippet folder from $snippetsPath"
