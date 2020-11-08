@@ -32,12 +32,13 @@ describe('Class0 test', () => {
 
       cy.get('a').contains("FirstClass.getName").click({force: true})
       cy.url().should('include', '/firstclass/FirstClass/getName')
-*/
+
       cy.visit('http://localhost:8000/modules/folder0/class0/Class0')
 
       cy.wait(10)
 
       cy.get('.type').get('a').contains(/^FirstClass/).click({force: true})
       cy.url().should('include', '/firstclass/FirstClass')
+      */
     })
   })
