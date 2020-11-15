@@ -20,7 +20,7 @@ function getAllDirectories(data, fixNames){
     path: util.MODULE_PATH_PREFIX
   }
 
-  for(let node of data.allModule.nodes){
+  for(let node of sortModules(data.allModule.nodes)){
     const currentDir = (fixNames ? util.fixModuleName(node) : node.name).split("/")
     let activeDir = directories
 
@@ -40,6 +40,38 @@ function getAllDirectories(data, fixNames){
     }
   }
   return directories
+}
+
+/**
+ * Sorts modules according to replace rules
+ *
+ * @param {String} modules
+ * @returns sorted modules
+ */
+function sortModules(modules){
+  const replacementRulesOrder = process.env.GATSBY_REPL_PACK_NAMES.split(";").map(a => a.split(",")).map(b => b[1])
+
+  return modules.sort((a, b) => {
+    const indexA = startsWithIndex(a.name, replacementRulesOrder)
+    const indexB = startsWithIndex(b.name, replacementRulesOrder)
+    if(indexA > indexB) return 1
+    if(indexA < indexB) return -1
+    return a.name > b.name ? 1 : -1
+  })
+}
+
+/**
+ * returns the index of the array of which the string starts with
+ *
+ * @param {String} string
+ * @param {String[]} array
+ * @returns index or -1 if not found
+ */
+function  startsWithIndex(string, array){
+  for(let [i,arrayItem] of array.entries()){
+    if(string.startsWith(arrayItem)) return i
+  }
+  return -1
 }
 
 /**
@@ -96,5 +128,6 @@ function getMostSimilarPage(pageObjects, dir, name){
 
 module.exports = {
   getAllDirectories,
-  getMostSimilarPage
+  getMostSimilarPage,
+  sortModules
 }

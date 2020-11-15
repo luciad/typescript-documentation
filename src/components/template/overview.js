@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import { Link } from "gatsby"
 import Layout from "../page-layout"
 import { fixModuleName, pathToModule } from "../../util/util"
+import { sortModules } from "../../util/directory"
 import { graphql } from "gatsby"
 import Header from "./general/header"
 import Text from "../body/general/text"
@@ -46,14 +47,7 @@ class FlatList extends Component {
 
   render(){
     //sort lines by replacement rules sorting
-    const replacementRulesOrder = process.env.GATSBY_REPL_PACK_NAMES.split(";").map(a => a.split(",")).map(b => b[1])
-    this.modules = this.modules.sort((a, b) => {
-      const indexA = indexStartsWith(a.name, replacementRulesOrder)
-      const indexB = indexStartsWith(b.name, replacementRulesOrder)
-      if(indexA > indexB) return 1
-      if(indexA < indexB) return -1
-      return a.name > b.name ? 1 : -1
-    })
+    this.modules = sortModules(this.modules)
 
     return (
       <div className="flat-module-list">
@@ -77,20 +71,6 @@ class FlatList extends Component {
       </div>
     )
   }
-}
-
-/**
- * returns the index of the array of which the string starts with
- *
- * @param {String} string
- * @param {String[]} array
- * @returns index or -1 if not found
- */
-function indexStartsWith(string, array){
-  for(let [i,arrayItem] of array.entries()){
-    if(string.startsWith(arrayItem)) return i
-  }
-  return -1
 }
 
 export const query = graphql`
