@@ -43,9 +43,13 @@ export default class Search extends Component {
               let results = data.allSymbol.nodes.filter(a => this.passesFilter(a))
               results = results.sort((a, b) => {
                 const filter = this.state.pathFilter.toLowerCase()
-                if(b.name.toLowerCase().includes(filter) && !a.name.toLowerCase().includes(filter)) return 1
-                if(a.name.toLowerCase().includes(filter) && !b.name.toLowerCase().includes(filter)) return -1
-                return a.name.toLowerCase().localeCompare(b.name.toLowerCase());
+                const lowerA = a.name.toLowerCase()
+                const lowerB = b.name.toLowerCase()
+                if(lowerB.startsWith(filter) && !lowerA.startsWith(filter)) return 1
+                if(lowerA.startsWith(filter) && !lowerB.startsWith(filter)) return -1
+                if(lowerB.includes(filter) && !lowerA.includes(filter)) return 1
+                if(lowerA.includes(filter) && !lowerB.includes(filter)) return -1
+                return lowerA.localeCompare(lowerB);
               })
 
               return(
