@@ -370,6 +370,18 @@ tr:nth-child(odd) {
   font-size: 175%;
 }
 
+.event-ons .signature > .signature-summary-item > .signature-title:first-child {
+  font-size: 100%;
+}
+
+.event-ons .signature > .signature-summary-item > .type > .type-item > .value:first-child {
+  font-size: 175%;
+}
+
+.event-on-list {
+  padding-left: 0;
+}
+
 .children-summary a,
 .group a,
 .group button,

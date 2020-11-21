@@ -1,8 +1,12 @@
 import React, { Component } from "react";
+import { getComments } from "../../util/util"
 import BodySummary from "./body-summary"
 import SearchLink from "./general/search-link"
 import Text from "./general/text"
 import Leaf from "../body/children/leaf"
+import SymbolTitle from "../general/symbol-title"
+import Type from "./type/type"
+import SignatureSummaries from "./signature/signature-summaries"
 
 /**
  * Full body of an object
@@ -12,16 +16,85 @@ import Leaf from "../body/children/leaf"
  */
 export default ({ data, shortListOnly, isLeaf }) => {
   if(!data) return null
+  let path = data.fields ? data.fields.path : ""
 
+  if(data.kindString === "Accessor") return <Accessor data={data} isLeaf={isLeaf} path={path}/>
   return (
     <div className="body">
-      <BodySummary data={data} noChildrenSummary={shortListOnly} isLeaf={isLeaf}/>
+      <Header data={data} isLeaf={isLeaf}/>
+      <BodySummary data={data} noChildrenSummary={shortListOnly}/>
       {shortListOnly
       ?   <ShortList data={data}/>
       : <Leaves data={data}/>}
     </div>
   );
 };
+
+class Header extends Component {
+  constructor(props){
+    super(props)
+    this.data = props.data
+    this.isLeaf = props.isLeaf
+  }
+
+  render(){
+    if(!this.data) return null
+
+    if(this.isLeaf)
+    return (
+        <div>
+          <SymbolTitle data={this.data} link={true}/>
+          <div className="bottom inline-block">
+            <Type data={this.data} delimiter={" : "} noIsOptionalMarker={true}/>
+          </div>
+        </div>
+    )
+
+    return (
+      <div>
+        <div>
+          <SymbolTitle data={this.data}/>
+          <div className="bottom inline-block">
+            <Type data={this.data} delimiter={" : "} noIsOptionalMarker={true}/>
+          </div>
+        </div>
+        <div className="sidecontainer">
+          <div className="kind-string">
+            {this.data.kindString}
+          </div>
+        </div>
+        <SignatureSummaries data={this.data}/>
+      </div>
+    )
+  }
+}
+
+class Accessor extends Component {
+  constructor(props){
+    super(props)
+    this.data = props.data
+    this.isLeaf = props.isLeaf
+    this.path = props.path
+  }
+
+  render(){
+    const comments = this.data.getSignature ?  getComments(this.data.getSignature[0]) : getComments(this.data.setSignature[0])
+    return (
+    <div className="accessor body">
+        <SymbolTitle data={this.data} link={this.isLeaf}/>
+        {this.data.getSignature && <span> : <Type data={this.data.getSignature[0]}/></span>}
+
+        <ul>
+          {this.data.getSignature && <li>gettable</li>}
+          {this.data.setSignature && <li>settable</li>}
+        </ul>
+
+        <Text data={comments.shortText} path={this.path}/>
+        <Text data={comments.text} path={this.path}/>
+    </div>
+    )
+  }
+}
 
 class ShortList extends Component {
   render() {

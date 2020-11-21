@@ -6,7 +6,7 @@ export default class Value extends Component {
         if(!data || !data.value) return null
 
         return (
-            <>{"\"" + data.value + "\""}</>
+            <span className="value">{"\"" + data.value + "\""}</span>
         )
     }
 }

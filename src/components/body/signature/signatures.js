@@ -13,16 +13,18 @@ export default ({ data, path}) => {
   const signatures = getSignatures(data)
   if(signatures.length === 0) return null
 
+  const eventOn = data.name === "on" && data.kindString === "Event"
+
   return (
-    <div className="signatures">
-      <ul className="signature-list">
+    <div className={eventOn ? "event-ons" : "signatures"}>
+      <ul className={eventOn ? "event-on-list" : "signature-list"}>
         {signatures.map((signature, i) => (
-          <span key={"key_" + signature.name + path + i + "_signature"}>
-            {i > 0 && <hr/>}
             <li key={"key_" + signature.name + "_" + path + "_signature_entry"}>
-              <Signature data={signature} path={path}/>
+              <span key={"key_" + signature.name + path + i + "_signature"}>
+                {i > 0 && <hr/>}
+                  <Signature data={signature} path={path}/>
+              </span>
             </li>
-          </span>
         ))}
       </ul>
     </div>
