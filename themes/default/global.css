@@ -378,6 +378,10 @@ tr:nth-child(odd) {
   font-size: 175%;
 }
 
+.event-on-list .signature_kind_Call_signature {
+  display: none;
+}
+
 .event-on-list {
   padding-left: 0;
 }
@@ -395,13 +399,22 @@ tr:nth-child(odd) {
 .type,
 .directory-item,
 .directory-item a,
-.bread-crumbs,
-.bread-crumbs a{
+.breadcrumbs,
+.breadcrumbs a{
   font-family: var(--code-font-family);
+}
+
+.breadcrumbs {
+  margin-bottom: 0.5em;
 }
 
 .signature-body,
 .parameters {
   margin-top: 1em;
   margin-bottom: 1em;
+}
+
+.parameters li {
+  margin-top: 0.5em;
+  margin-bottom: 0.5em;
 }

@@ -30,7 +30,7 @@ export default ({ data, path }) => {
   }
 
   return (
-    <div className="signature" key={"key_" + data.id + "_signature_sign"} id={id}>
+    <div className={"signature signature_kind_" + data.kindString.replace(/\s/g,"_")} key={"key_" + data.id + "_signature_sign"} id={id}>
       <SignatureSummary data={data}/>
       {data.kindString}
       <Tags tags={comments.tags}/>
