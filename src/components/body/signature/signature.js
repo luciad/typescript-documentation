@@ -17,7 +17,7 @@ import TypeParameters from "../parameters/type-parameters"
  * - text
  * - parameters
  */
-export default ({ data, path }) => {
+export default ({ data, path, simple }) => {
   if(!data || !path) return null
   const comments = getComments(data)
   if(!comments) return null
@@ -31,8 +31,11 @@ export default ({ data, path }) => {
 
   return (
     <div className={"signature signature_kind_" + data.kindString.replace(/\s/g,"_")} key={"key_" + data.id + "_signature_sign"} id={id}>
-      <SignatureSummary data={data}/>
-      {data.kindString}
+      {!simple &&
+        <>
+          <SignatureSummary data={data}/>
+          {data.kindString}
+        </>}
       <Tags tags={comments.tags}/>
 
       <div className="signature-body">

@@ -292,6 +292,10 @@ tr:nth-child(odd) {
   margin-bottom: auto;
 }
 
+.tags ul {
+  padding-left: 0;
+}
+
 .search-link {
   display: inline-block;
   vertical-align: middle;
@@ -370,6 +374,10 @@ tr:nth-child(odd) {
   font-size: 175%;
 }
 
+.simple-method-head .signature-summary-item > .signature-title:first-child {
+  display: none;
+}
+
 .event-ons .signature > .signature-summary-item > .signature-title:first-child {
   font-size: 100%;
 }
@@ -417,4 +425,8 @@ tr:nth-child(odd) {
 .parameters li {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
+}
+
+.simple-method .signature-body {
+  padding-left: 0;
 }

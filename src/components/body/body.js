@@ -1,5 +1,5 @@
 import React, { Component } from "react";
-import { getComments } from "../../util/util"
+import { getComments, getSignatures } from "../../util/util"
 import BodySummary from "./body-summary"
 import SearchLink from "./general/search-link"
 import Text from "./general/text"
@@ -7,6 +7,7 @@ import Leaf from "../body/children/leaf"
 import SymbolTitle from "../general/symbol-title"
 import Type from "./type/type"
 import SignatureSummaries from "./signature/signature-summaries"
+import SignatureSummary from "./signature/signature-summary";
 
 /**
  * Full body of an object
@@ -19,6 +20,8 @@ export default ({ data, shortListOnly, isLeaf }) => {
   let path = data.fields ? data.fields.path : ""
 
   if(data.kindString === "Accessor") return <Accessor data={data} isLeaf={isLeaf} path={path}/>
+  if(data.kindString === "Method" && getSignatures(data).length === 1 && isLeaf ) return <SimpleMethod data={data}/>
+
   return (
     <div className="body">
       <Header data={data} isLeaf={isLeaf}/>
@@ -64,6 +67,24 @@ class Header extends Component {
           </div>
         </div>
         <SignatureSummaries data={this.data}/>
+      </div>
+    )
+  }
+}
+
+class SimpleMethod extends Component {
+  render(){
+    const data = this.props.data
+
+    return (
+      <div className="simple-method body">
+          <div className="simple-method-head sidecontainer">
+            <SymbolTitle data={data} link={true}/>
+            <span className="bottom">
+              <SignatureSummary data={getSignatures(data)[0]}/>
+            </span>
+          </div>
+              <BodySummary data={data} noChildrenSummary={true} simpleSignature={true}/>
       </div>
     )
   }

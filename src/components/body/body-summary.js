@@ -1,8 +1,9 @@
 import React from "react";
-import { getComments } from "../../util/util"
+import { getComments, getSignatures } from "../../util/util"
 import ChildrenSummary from "./children/children-summary"
 import Flags from "./flags"
 import Signatures from "./signature/signatures"
+import Signature from "./signature/signature"
 import References from "./references"
 import Text from "./general/text"
 import Tags from "./tags"
@@ -26,7 +27,7 @@ import SearchLink from "./general/search-link";
  * - summary of its children (see children-summary.js)
  *
  */
-export default ({ data,  noChildrenSummary}) => {
+export default ({ data,  noChildrenSummary, simpleSignature}) => {
   if(!data) return null
   const comments = getComments(data)
   const path = data.fields ? data.fields.path : ""
@@ -58,7 +59,9 @@ export default ({ data,  noChildrenSummary}) => {
       <TypeParameters data={data} path={path}/>
       <TypeComments data={data} path={path}/>
       <Tags tags={comments.tags}/>
-      <Signatures data={data} path={path}/>
+      {simpleSignature
+        && <Signature data={getSignatures(data)[0]} path={path} simple={true}/>
+        || <Signatures data={data} path={path}/>}
       {!noChildrenSummary &&
         <ChildrenSummary data={data}/>}
     </div>
