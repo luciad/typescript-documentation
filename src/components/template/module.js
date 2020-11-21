@@ -25,10 +25,6 @@ export default ({ data }) => {
       <Header siteTitle={module.name + " (module)"} />
       <Layout>
         <BreadCrumbs path={module.fields.path}/>
-        <div className="title">{module.name}</div>
-        <div className="sidecontainer">
-          <div className="kind-string">{module.kindString}</div>
-        </div>
         <Body data={module} shortListOnly={true}/>
       </Layout>
     </div>
