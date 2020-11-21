@@ -382,6 +382,10 @@ tr:nth-child(odd) {
   padding-left: 0;
 }
 
+.event-on-list > li {
+  margin-top: 2em;
+}
+
 .children-summary a,
 .group a,
 .group button,
@@ -394,4 +398,10 @@ tr:nth-child(odd) {
 .bread-crumbs,
 .bread-crumbs a{
   font-family: var(--code-font-family);
+}
+
+.signature-body,
+.parameters {
+  margin-top: 1em;
+  margin-bottom: 1em;
 }

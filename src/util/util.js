@@ -245,6 +245,17 @@ function replacePackageName(packageName){
   return packageName
 }
 
+function getEventOnNames(data){
+  let names = []
+  for(let signature of data.signatures){
+    try{
+      const name = signature.parameters[0].type.value
+      if(name) names.push(name)
+    } catch(e){}
+  }
+  return names
+}
+
 module.exports = {
   MODULE_PATH_PREFIX,
   fixModuleName,
@@ -255,5 +266,6 @@ module.exports = {
   getFlags,
   getLinks,
   parse,
-  replacePackageName
+  replacePackageName,
+  getEventOnNames
 };

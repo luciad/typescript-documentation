@@ -21,9 +21,16 @@ export default ({ data, path }) => {
   if(!data || !path) return null
   const comments = getComments(data)
   if(!comments) return null
+  let id = "empty_id"
+  if(data.kindString === "Event" && data.name == "on"){
+    try{
+      const name = data.parameters[0].type.value
+      id = "event_on_" + name
+    } catch(e){}
+  }
 
   return (
-    <div className="signature" key={"key_" + data.id + "_signature_sign"}>
+    <div className="signature" key={"key_" + data.id + "_signature_sign"} id={id}>
       <SignatureSummary data={data}/>
       {data.kindString}
       <Tags tags={comments.tags}/>
