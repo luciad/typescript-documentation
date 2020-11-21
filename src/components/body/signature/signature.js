@@ -34,7 +34,7 @@ export default ({ data, path, simple }) => {
       {!simple &&
         <>
           <SignatureSummary data={data}/>
-          {data.kindString}
+          {/* {data.kindString} */}
         </>}
       <Tags tags={comments.tags}/>
 
