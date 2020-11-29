@@ -13,6 +13,7 @@ class SignatureSummary extends Component {
   }
 
   render(){
+    if(!this.data) return null
     let callBack = (this.data.name === "__call")
 
     return (

@@ -25,7 +25,7 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
     return (
         <div className="type">
             {!noIsOptionalMarker && data.flags && data.flags.isOptional &&
-            <>? </>}
+            <span title="optional">?</span>}
             <>{delimiter}</>
             {types.map((t, i) =>
                 <span key={"key_" + t.id + "_type_span"} className="type-item">
