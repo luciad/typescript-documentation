@@ -16,7 +16,7 @@ class SignatureSummary extends Component {
     let callBack = (this.data.name === "__call")
 
     return (
-      <div key={"key_" + this.data.name + "_" + this.data.id + "_signature_summary"} className="signature-summary-item">
+      <span key={"key_" + this.data.name + "_" + this.data.id + "_signature_summary"} className="signature-summary-item">
         {!callBack &&
           <span className="signature-title">{this.data.name.replace("__", "")}</span>}
         {this.data.typeParameter &&
@@ -36,7 +36,7 @@ class SignatureSummary extends Component {
           })
           {callBack && <>&nbsp;{"=>"}&nbsp;</>}
           <Type data={this.data} delimiter={!callBack ? " : " : null}/>
-      </div>
+      </span>
   )}
 }
 

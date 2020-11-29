@@ -1,4 +1,4 @@
-import React, { Component }  from "react"
+import React  from "react"
 import { getSignatures } from "../../../util/util"
 import SignatureSummary from "./signature-summary"
 

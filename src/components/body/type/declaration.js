@@ -1,6 +1,7 @@
 import React, { Component } from "react"
-import SignatureSummary from "../signature/signature-summaries"
+import SignatureSummary from "../signature/signature-summary"
 import Type from "./type"
+import { getSignatures } from "../../../util/util"
 
 export default class Declaration extends Component {
     render(){
@@ -10,7 +11,7 @@ export default class Declaration extends Component {
         return(
             <span className="declaration">
                 <span>{"{"}&nbsp;</span>
-                <SignatureSummary data={data.declaration}/>
+                <SignatureSummary data={getSignatures(data.declaration)[0]}/>
                 {data.declaration.children &&
                     data.declaration.children.map((c, i) =>
                     <span key={"key_" + c.ame + i + "_declaration_child"}>
