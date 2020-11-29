@@ -4,7 +4,7 @@ import Type from "../body/type/type"
 
 export default ({ data, link, text }) => {
   return (
-      <div className="symbol-title inline-block">
+      <span className="symbol-title inline-block">
           <span className="title">
             {link ? <Link to={data.fields.path} title={data.kindString}>{text ? text : data.name}</Link> : data.name}
             {data.typeParameter &&
@@ -20,6 +20,6 @@ export default ({ data, link, text }) => {
         </span>
         {data.flags && data.flags.isOptional &&
             <span className="bottom optional-mark inline-block" title="isOptional">&nbsp;?&nbsp;</span>}
-    </div>
+    </span>
   )
 }

@@ -29,7 +29,7 @@ export default function Type({ data, delimiter, noIsOptionalMarker }) {
             <>{delimiter}</>
             {types.map((t, i) =>
                 <span key={"key_" + t.id + "_type_span"} className="type-item">
-                {i > 0 && <> {types.type === "union" ? " | " : types.type === "intersection" ? " & " : types.type} </>}
+                {i > 0 && <span>&nbsp;{types.type === "union" ? "|" : types.type === "intersection" ? "&" : types.type}&nbsp;</span>}
 
                 {(!t.elementType && !t.declaration && !t.name && !t.value && !t.target
                     && !t.elements && !t.checkType &&!t.extendsType &&!t.constraint
