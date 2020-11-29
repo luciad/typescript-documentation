@@ -370,7 +370,7 @@ tr:nth-child(odd) {
 
 .event-ons .signature > .signature-summary-item > .type > .type-item > .value:first-child,
 .signature > .signature-summary-item > .signature-title:first-child {
-  font-size: 175%;
+  font-size: 150%;
 }
 
 .event-ons .signature > .signature-summary-item > .signature-title:first-child {
@@ -390,6 +390,8 @@ tr:nth-child(odd) {
   margin-bottom: 0.5em;
 }
 
+.readable,
+.read_writeable,
 .signature-body,
 .parameters {
   margin-top: 1em;

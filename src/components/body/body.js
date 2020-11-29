@@ -125,10 +125,9 @@ class Accessor extends Component {
         <SymbolTitle data={this.data} link={this.isLeaf}/>
         {this.data.getSignature && <span> : <Type data={this.data.getSignature[0]}/></span>}
 
-        <ul>
-          {this.data.getSignature && <li>gettable</li>}
-          {this.data.setSignature && <li>settable</li>}
-        </ul>
+        {this.data.getSignature && this.data.setSignature && <div className="read_writeable">read-write</div>
+        || this.data.getSignature && <div className="readable">read-only</div>}
+
 
         <Text data={comments.shortText} path={this.path}/>
         <Text data={comments.text} path={this.path}/>
