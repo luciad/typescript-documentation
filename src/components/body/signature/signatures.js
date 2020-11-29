@@ -13,7 +13,7 @@ export default ({ data, path}) => {
   const signatures = getSignatures(data)
   if(signatures.length === 0) return null
 
-  const eventOn = data.name === "on" && data.kindString === "Event"
+  const eventOn = data.name === "on" && data.kindString === "Event" || data.kindString === "Method"
 
   return (
     <div className={eventOn ? "event-ons" : "signatures"}>

@@ -25,7 +25,7 @@ export default ({ data }) => {
             <ul className="item-list">
               {group.children.map(childID => {    //map children within a group,  clicking on its name will scroll to its body on the same page
                 const child = children.find(child => (child.id == childID))
-                if(child.name === "on" && child.kindString == "Event"){
+                if(child.name === "on" && child.kindString === "Event" || child.kindString === "Method"){
                   const eventOns = getEventOnNames(child)
                   if(eventOns.length > 0)
                   return (

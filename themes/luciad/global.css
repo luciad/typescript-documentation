@@ -387,10 +387,6 @@ tr:nth-child(odd) {
   font-size: 175%;
 }
 
-.event-on-list .signature_kind_Call_signature {
-  display: none;
-}
-
 .event-on-list {
   padding-left: 0;
 }

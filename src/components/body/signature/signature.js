@@ -22,7 +22,7 @@ export default ({ data, path, simple }) => {
   const comments = getComments(data)
   if(!comments) return null
   let id = "empty_id"
-  if(data.kindString === "Event" && data.name == "on"){
+  if(data.name === "on" && data.kindString === "Event" || data.kindString === "Call signature"){
     try{
       const name = data.parameters[0].type.value
       id = "event_on_" + name
