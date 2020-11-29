@@ -8,6 +8,7 @@ import SymbolTitle from "../general/symbol-title"
 import Type from "./type/type"
 import SignatureSummaries from "./signature/signature-summaries"
 import SignatureSummary from "./signature/signature-summary";
+import signature from "./signature/signature";
 
 /**
  * Full body of an object
@@ -21,6 +22,7 @@ export default ({ data, shortListOnly, isLeaf }) => {
 
   if(data.kindString === "Accessor") return <Accessor data={data} isLeaf={isLeaf} path={path}/>
   if(data.kindString === "Method" && getSignatures(data).length === 1 && isLeaf ) return <SimpleMethod data={data}/>
+  if(data.kindString === "Constructor" && getSignatures(data).length === 1  && isLeaf) return <SimpleConstructor data={data}/>
 
   return (
     <div className="body">
@@ -80,6 +82,24 @@ class SimpleMethod extends Component {
       <div className="simple-method body">
           <div className="simple-method-head sidecontainer">
             <SymbolTitle data={data} link={true}/>
+            <span className="bottom">
+              <SignatureSummary data={getSignatures(data)[0]}/>
+            </span>
+          </div>
+              <BodySummary data={data} noChildrenSummary={true} simpleSignature={true}/>
+      </div>
+    )
+  }
+}
+
+class SimpleConstructor extends Component {
+  render(){
+    const data = this.props.data
+    const signature = getSignatures(data)[0]
+    return (
+      <div className="simple-constructor body">
+          <div className="simple-constructor-head sidecontainer">
+            <SymbolTitle data={data} link={true} text={signature.name}/>
             <span className="bottom">
               <SignatureSummary data={getSignatures(data)[0]}/>
             </span>

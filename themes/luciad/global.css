@@ -374,6 +374,7 @@ tr:nth-child(odd) {
   font-size: 175%;
 }
 
+.simple-constructor-head .signature-summary-item > .signature-title:first-child,
 .simple-method-head .signature-summary-item > .signature-title:first-child {
   display: none;
 }
@@ -427,6 +428,7 @@ tr:nth-child(odd) {
   margin-bottom: 0.5em;
 }
 
+.simple-constructor .signature-body,
 .simple-method .signature-body {
   padding-left: 0;
 }

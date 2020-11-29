@@ -2,11 +2,11 @@ import React from 'react'
 import { Link } from "gatsby"
 import Type from "../body/type/type"
 
-export default ({ data, link }) => {
+export default ({ data, link, text }) => {
   return (
       <div className="symbol-title inline-block">
           <span className="title">
-            {link ? <Link to={data.fields.path} title={data.kindString}>{data.name}</Link> : data.name}
+            {link ? <Link to={data.fields.path} title={data.kindString}>{text ? text : data.name}</Link> : data.name}
             {data.typeParameter &&
                 <>
                     {"<"}
