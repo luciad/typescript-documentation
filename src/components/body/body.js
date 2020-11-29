@@ -68,7 +68,7 @@ class Header extends Component {
             {this.data.kindString}
           </div>
         </div>
-        <SignatureSummaries data={this.data}/>
+        {getSignatures(this.data).length > 1 && <SignatureSummaries data={this.data}/>}
       </div>
     )
   }
