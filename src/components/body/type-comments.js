@@ -31,6 +31,10 @@ export default class TypeComments extends Component {
   }
 }
 
+/**
+ * Make sure to get comments from inside the type structure
+ * @param {*} data
+ */
 function getTypeItems(data){
 
   if(data.length > 0) {

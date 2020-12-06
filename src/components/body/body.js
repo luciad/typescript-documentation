@@ -8,7 +8,6 @@ import SymbolTitle from "../general/symbol-title"
 import Type from "./type/type"
 import SignatureSummaries from "./signature/signature-summaries"
 import SignatureSummary from "./signature/signature-summary";
-import signature from "./signature/signature";
 
 /**
  * Full body of an object
@@ -35,6 +34,9 @@ export default ({ data, shortListOnly, isLeaf }) => {
   );
 };
 
+/**
+ * Title
+ */
 class Header extends Component {
   constructor(props){
     super(props)
@@ -74,6 +76,9 @@ class Header extends Component {
   }
 }
 
+/**
+ * Leaf method with one signature
+ */
 class SimpleMethod extends Component {
   render(){
     const data = this.props.data
@@ -92,6 +97,9 @@ class SimpleMethod extends Component {
   }
 }
 
+/**
+ * Leaf constructor with one signature
+ */
 class SimpleConstructor extends Component {
   render(){
     const data = this.props.data
@@ -110,6 +118,9 @@ class SimpleConstructor extends Component {
   }
 }
 
+/**
+ * Accessor (read/write)
+ */
 class Accessor extends Component {
   constructor(props){
     super(props)
@@ -136,6 +147,9 @@ class Accessor extends Component {
   }
 }
 
+/**
+ * Table with only links to children & their shortText
+ */
 class ShortList extends Component {
   render() {
     const data=this.props.data
@@ -173,6 +187,9 @@ class ShortList extends Component {
   }
 }
 
+/**
+ * Detailed representation of children
+ */
 class Leaves extends Component {
   render() {
     const data=this.props.data
