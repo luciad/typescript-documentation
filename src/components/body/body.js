@@ -20,7 +20,7 @@ export default ({ data, shortListOnly, isLeaf }) => {
   let path = data.fields ? data.fields.path : ""
 
   if(data.kindString === "Accessor") return <Accessor data={data} isLeaf={isLeaf} path={path}/>
-  if(data.kindString === "Method" && getSignatures(data).length === 1 && isLeaf ) return <SimpleMethod data={data}/>
+  if((data.kindString === "Method" || data.kindString === "Function") && getSignatures(data).length === 1 && isLeaf ) return <SimpleMethod data={data}/>
   if(data.kindString === "Constructor" && getSignatures(data).length === 1  && isLeaf) return <SimpleConstructor data={data}/>
 
   return (
