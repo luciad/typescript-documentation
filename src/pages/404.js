@@ -11,7 +11,7 @@ export default () => {
         <br/>
         <p>Looks like the page you're looking for does not exist!</p>
         <br/>
-        <a href="/overview">Go back to overview</a>
+        <a href="/">Go back to overview</a>
       </PageLayout>
     </>
   )
