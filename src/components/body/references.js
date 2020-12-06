@@ -1,4 +1,5 @@
 import React, { Component } from "react"
+import SearchLink from "./general/search-link";
 import Type from "./type/type"
 
 /**
@@ -45,7 +46,8 @@ class ReferenceTemplate extends Component {
         <ul className="itemList">
           {dataList.map(type =>
               <li key={"key_" + type.name + "_reference"}>
-                <Type data={{type: type}}/>
+                <SearchLink data={{text:type.name}}/>
+                {/* <Type data={{type: type}}/> */}
               </li>
           )}
         </ul>
