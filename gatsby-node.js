@@ -26,8 +26,7 @@ exports.createPages = ({ actions, reporter }) => {
   let usedPaths = []
   function checkAndCreatePage(obj){
     if(usedPaths.includes(obj.path)){
-      obj.path = obj.path + "_d"
-      reporter.warn("dupe: " + obj.path)
+      obj.path = obj.path + obj.context.symbolId || obj.context.moduleID
     }
     usedPaths.push(obj.path)
     createPage(obj)
@@ -102,6 +101,15 @@ async function onCreateNode({
 }) {
   const { createNode, createParentChildLink, createNodeField } = actions;
 
+  let usedPaths = []
+  function getPath(path, id){
+    if(usedPaths.includes(path)){
+      path = path + id
+    }
+    usedPaths.push(path)
+    return path
+  }
+
   // Get file contents (for snippets)
   if (node.internal.type === `File`) {
     fs.readFile(node.absolutePath, undefined, (_err, buf) => {
@@ -134,6 +142,7 @@ async function onCreateNode({
       },
     };
     let pathToModule = util.MODULE_PATH_PREFIX + "/" + jsonNode.name
+    pathToModule = getPath(pathToModule, jsonNode.id)
     createNode(jsonNode)
     createNodeField({ node: jsonNode, name: "path", value: pathToModule})
     createNodeField({ node: jsonNode, name: "parentPath", value: "/"})
@@ -154,8 +163,10 @@ async function onCreateNode({
     }
 
     let parentPath = parentNode.fields.path
+    let symbolPath = parentPath + "/" + symbol.name
+    symbolPath = getPath(symbolPath, jsonNode.id)
     createNode(jsonNode);
-    createNodeField({ node: jsonNode, name: "path", value:  parentPath + "/" + symbol.name})
+    createNodeField({ node: jsonNode, name: "path", value:  symbolPath})
     createNodeField({ node: jsonNode, name: "parentPath", value: parentPath})
     createParentChildLink({ parent: parentNode, child: jsonNode });
     if (symbol.children) {
