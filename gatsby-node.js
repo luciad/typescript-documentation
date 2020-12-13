@@ -27,7 +27,8 @@ exports.createPages = ({ actions, reporter }) => {
   function checkAndCreatePage(obj){
     if(usedPaths.includes(obj.path)){
       obj.path = obj.path + "_d"
-  }
+      reporter.warn("dupe: " + obj.path)
+    }
     usedPaths.push(obj.path)
     createPage(obj)
   }
@@ -64,7 +65,7 @@ exports.createPages = ({ actions, reporter }) => {
   createDirectoryPages(allDirectories)
 
   function createDirectoryPages(directoryTree){
-    if(!directoryTree || !directoryTree.path) return null
+    if(!directoryTree || !directoryTree.path || directoryTree.next.length === 0) return null
     checkAndCreatePage({
       path: directoryTree.path.replace(/\"/g, "").replace(".d", ""),
       component: directoryTreeTemplate,
