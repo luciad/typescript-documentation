@@ -398,6 +398,7 @@ tr:nth-child(odd) {
   margin-bottom: 1em;
 }
 
+.returns,
 .parameters li {
   margin-top: 0.5em;
   margin-bottom: 0.5em;
