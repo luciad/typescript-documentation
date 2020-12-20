@@ -7,16 +7,7 @@ import { graphql, StaticQuery } from "gatsby"
  */
 export default class Search extends Component {
 
-  // included items must have one of these kindStrings:
-  kindStringFilterDefaultOn = [
-    "Function",
-    "Class",
-    "Interface",
-    "Method"
-  ]
-
   state = {
-      kindStringFilter: [...this.kindStringFilterDefaultOn],
       pathFilter: ""
   }
 
@@ -26,8 +17,8 @@ export default class Search extends Component {
         <input type="text" value={this.state.pathFilter} onChange={this.search} placeholder="search" aria-label="search"/>
           {this.state.pathFilter && <StaticQuery
             query={graphql`
-              query searchResultQuery {
-                allSymbol(sort: {fields: name}) {
+              query searchResultQuery($regex: String = "/Function|Method|Class|Interface/") {
+                allSymbol(sort: {fields: name}, filter: {kindString: {regex: $regex}}) {
                   nodes {
                     kindString
                     name
@@ -78,6 +69,6 @@ export default class Search extends Component {
   }
 
     passesFilter = (node) => {
-      return this.state.kindStringFilter.includes(node.kindString) && node.fields.path.toLowerCase().includes(this.state.pathFilter.toLowerCase())
+      return node.fields.path.toLowerCase().includes(this.state.pathFilter.toLowerCase())
     }
 }
