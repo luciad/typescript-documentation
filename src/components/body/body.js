@@ -85,7 +85,7 @@ class SimpleMethod extends Component {
 
     return (
       <div className="simple-method body">
-          <div className="simple-method-head sidecontainer">
+          <div className="simple-method-head">
             <SymbolTitle data={data} link={true}/>
             <span className="bottom">
               <SignatureSummary data={getSignatures(data)[0]}/>
@@ -106,7 +106,7 @@ class SimpleConstructor extends Component {
     const signature = getSignatures(data)[0]
     return (
       <div className="simple-constructor body">
-          <div className="simple-constructor-head sidecontainer">
+          <div className="simple-constructor-head">
             <SymbolTitle data={data} link={true} text={signature.name}/>
             <span className="bottom">
               <SignatureSummary data={getSignatures(data)[0]}/>
