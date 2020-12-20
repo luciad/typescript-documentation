@@ -53,6 +53,7 @@ hr {
   border: none;
   height: 1px;
   background-color: var(--shadow-color);
+  margin: 2em 0 2em 0;
 }
 
 p {
