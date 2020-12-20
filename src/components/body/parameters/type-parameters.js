@@ -11,8 +11,8 @@ export default ({ data, path }) => {
     <div className="type-parameter">
       <div className="subsubtitle">Type parameters</div>
       <ul>
-        {data.typeParameter.map(tp =>
-          <Parameter data={tp} path={path} key={"key_" + path.id + "_type_param"}/>
+        {data.typeParameter.map((tp, i) =>
+          <Parameter data={tp} path={path} key={"key_" + path + i + "_type_param"}/>
         )}
       </ul>
     </div>
