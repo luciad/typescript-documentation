@@ -28,22 +28,22 @@ export default ({ data, path }) => {
         tempChildArray = tempChildArray.concat(typeof e === "string" ? getLinks(e) : {text: e}) // Parse links from inside element
       }
 
-      let newChildren = tempChildArray.map(e => { // Create react element if necessary
+      let newChildren = tempChildArray.map((e,i) => { // Create react element if necessary
       switch(e.type){
         case "img":
           return (
-          <span key={"key_" + e.text + "_text_img"}>
+          <span key={"key_" + e.text + i + "_text_img"}>
             <Image data={e}/>
           </span>)
         case "link":
           e.searchPath = path
           return (
-          <span key={"key_" + e.text + "_text_link"}>
+          <span key={"key_" + e.text + i + "_text_link"}>
             <SearchLink data={e}/>
           </span>)
         case "snippet":
           return (
-          <span key={"key_" + e.text + "_text_snippet"}>
+          <span key={"key_" + e.text + i + "_text_snippet"}>
             <Snippet data={e}/>
           </span>)
         default:
