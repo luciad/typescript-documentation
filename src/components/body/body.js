@@ -49,7 +49,7 @@ class Header extends Component {
 
     if(this.isLeaf)
     return (
-        <div>
+        <div className="body-head">
           <SymbolTitle data={this.data} link={true}/>
           <div className="bottom inline-block">
             <Type data={this.data} delimiter={" : "} noIsOptionalMarker={true}/>
@@ -58,7 +58,7 @@ class Header extends Component {
     )
 
     return (
-      <div>
+      <div className="body-header">
         <div>
           <SymbolTitle data={this.data}/>
           <div className="bottom inline-block">

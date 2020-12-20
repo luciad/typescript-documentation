@@ -49,7 +49,7 @@ export default ({ data,  noChildrenSummary, simpleSignature}) => {
             Target: <SearchLink data={{text: "", id: data.target}}/>
           </div>}
       {!(comments.shortText.length === 0 && comments.text.length === 0 && comments.tags.length === 0) &&
-        <><hr/><div className="subtitle">About</div></>}
+        <><div className="subtitle">About</div></>}
       {!data.getSignature && !data.setSignature && (!data.signatures || data.signatures.length === 0) &&
       <>
         <Text data={comments.shortText} path={path}/>

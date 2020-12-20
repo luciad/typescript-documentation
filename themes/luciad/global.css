@@ -411,6 +411,7 @@ tr:nth-child(odd) {
   padding-left: 0;
 }
 
+.body-head,
 .simple-method-head,
 .simple-constructor-head{
   margin-bottom: 1em;
